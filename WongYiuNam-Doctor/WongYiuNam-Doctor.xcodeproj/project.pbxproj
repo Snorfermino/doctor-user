@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2B02A0F91837E84C85773A /* Pods_WongYiuNam_Doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39320E60D838B3E70D15E5C1 /* Pods_WongYiuNam_Doctor.framework */; };
 		66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */; };
 		66EEFD591F5FDDFA00C5C77A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD581F5FDDFA00C5C77A /* ViewController.swift */; };
 		66EEFD5C1F5FDDFA00C5C77A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD5A1F5FDDFA00C5C77A /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D0E6165C43D4ABCB562D709 /* Pods-WongYiuNam-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
+		39320E60D838B3E70D15E5C1 /* Pods_WongYiuNam_Doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_Doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD531F5FDDFA00C5C77A /* WongYiuNam-Doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WongYiuNam-Doctor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EEFD581F5FDDFA00C5C77A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		66EEFD721F5FDDFA00C5C77A /* WongYiuNam-DoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WongYiuNam-DoctorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD761F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WongYiuNam_DoctorUITests.swift; sourceTree = "<group>"; };
 		66EEFD781F5FDDFA00C5C77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE81054964D47A2D46E98DC4 /* Pods-WongYiuNam-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2B02A0F91837E84C85773A /* Pods_WongYiuNam_Doctor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		115EBDC479652B01ECF39EC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D0E6165C43D4ABCB562D709 /* Pods-WongYiuNam-Doctor.debug.xcconfig */,
+				DE81054964D47A2D46E98DC4 /* Pods-WongYiuNam-Doctor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		66EEFD4A1F5FDDFA00C5C77A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +95,8 @@
 				66EEFD6A1F5FDDFA00C5C77A /* WongYiuNam-DoctorTests */,
 				66EEFD751F5FDDFA00C5C77A /* WongYiuNam-DoctorUITests */,
 				66EEFD541F5FDDFA00C5C77A /* Products */,
+				115EBDC479652B01ECF39EC2 /* Pods */,
+				C8A7135A7184969F04E3992C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +141,14 @@
 			path = "WongYiuNam-DoctorUITests";
 			sourceTree = "<group>";
 		};
+		C8A7135A7184969F04E3992C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39320E60D838B3E70D15E5C1 /* Pods_WongYiuNam_Doctor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66EEFD7B1F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-Doctor" */;
 			buildPhases = (
+				F3FD26837CAB93FEAEF816FE /* [CP] Check Pods Manifest.lock */,
 				66EEFD4F1F5FDDFA00C5C77A /* Sources */,
 				66EEFD501F5FDDFA00C5C77A /* Frameworks */,
 				66EEFD511F5FDDFA00C5C77A /* Resources */,
+				EB7892F16B909D891FBF10EB /* [CP] Embed Pods Frameworks */,
+				75AB9A5423B327C6F1B5A9A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +283,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		75AB9A5423B327C6F1B5A9A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB7892F16B909D891FBF10EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3FD26837CAB93FEAEF816FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WongYiuNam-Doctor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66EEFD4F1F5FDDFA00C5C77A /* Sources */ = {
@@ -415,6 +498,7 @@
 		};
 		66EEFD7C1F5FDDFA00C5C77A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0E6165C43D4ABCB562D709 /* Pods-WongYiuNam-Doctor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8AN899D996;
@@ -428,6 +512,7 @@
 		};
 		66EEFD7D1F5FDDFA00C5C77A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE81054964D47A2D46E98DC4 /* Pods-WongYiuNam-Doctor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8AN899D996;

@@ -34,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0e-En-lCI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="35"/>
+            <point key="canvasLocation" x="-758" y="829"/>
         </scene>
         <!--Aska Doctor View Controller-->
         <scene sceneID="Np4-0F-fzb">
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYr-E6-kFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="35"/>
+            <point key="canvasLocation" x="636" y="829"/>
         </scene>
         <!--Social Wall View Controller-->
         <scene sceneID="FfX-b9-MsF">
@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5m-vN-dwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="35"/>
+            <point key="canvasLocation" x="1356" y="829"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -101,12 +101,46 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8c-9f-Z2D">
+                                <rect key="frame" x="16" y="373" width="147" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Online Shop"/>
+                                <connections>
+                                    <segue destination="QHt-ua-BOG" kind="show" id="Hmn-by-KtS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d72-Kj-h05">
+                                <rect key="frame" x="212" y="373" width="147" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Upload Prescription"/>
+                                <connections>
+                                    <segue destination="SSm-4n-giy" kind="show" id="PYu-VW-mK8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xA-Cq-JgS">
+                                <rect key="frame" x="16" y="513" width="147" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ask Doc"/>
+                                <connections>
+                                    <segue destination="T65-CI-BMW" kind="show" id="f7s-Ze-Bpx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2d-nI-NDy">
+                                <rect key="frame" x="212" y="513" width="147" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Social Wall"/>
+                                <connections>
+                                    <segue destination="Wnn-co-ySY" kind="show" id="qxx-9O-XLe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="35"/>
+            <point key="canvasLocation" x="-23.199999999999999" y="34.632683658170919"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="mtc-X9-ot9">
@@ -161,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload prescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ht8-CH-Icz">
-                                <rect key="frame" x="138" y="323" width="151" height="21"/>
+                                <rect key="frame" x="112" y="323" width="151" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -173,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4G-W3-D0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1989.5999999999999" y="34.632683658170919"/>
+            <point key="canvasLocation" x="-60" y="829"/>
         </scene>
         <!--Help Centre View Controller-->
         <scene sceneID="ABb-ib-JHy">
@@ -200,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eni-KD-tFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3319" y="35"/>
+            <point key="canvasLocation" x="2618" y="364"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="sj7-bv-Egq">
@@ -227,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVX-dQ-L0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4087" y="35"/>
+            <point key="canvasLocation" x="3386" y="364"/>
         </scene>
         <!--User Agreement View Controller-->
         <scene sceneID="kmm-YU-0c5">
@@ -254,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKs-4R-eOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4774" y="35"/>
+            <point key="canvasLocation" x="4074" y="364"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="MZK-Fk-tlR">
@@ -281,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXW-y7-GLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5458" y="35"/>
+            <point key="canvasLocation" x="4758" y="364"/>
         </scene>
     </scenes>
 </document>

@@ -36,6 +36,9 @@
 		849A949E1F6007B1008ACB28 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949D1F6007B1008ACB28 /* UIImageView.swift */; };
 		849A94A01F600802008ACB28 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949F1F600802008ACB28 /* UIImage.swift */; };
 		849A94A21F600A8C008ACB28 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94A11F600A8C008ACB28 /* UIView.swift */; };
+		84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */; };
+		84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */; };
+		84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */; };
 		84E363BE1F6281C5008E1596 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363BD1F6281C4008E1596 /* Global.swift */; };
 		84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C11F62908E008E1596 /* NotificationsViewController.swift */; };
 		84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */; };
@@ -97,6 +100,9 @@
 		849A949D1F6007B1008ACB28 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		849A949F1F600802008ACB28 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		849A94A11F600A8C008ACB28 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorIntroductionViewController.swift; sourceTree = "<group>"; };
+		84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaQuestionViewController.swift; sourceTree = "<group>"; };
+		84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenToAnswerViewController.swift; sourceTree = "<group>"; };
 		84E363BD1F6281C4008E1596 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		84E363C11F62908E008E1596 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteaFriendViewController.swift; sourceTree = "<group>"; };
@@ -205,9 +211,9 @@
 		849A947D1F60043C008ACB28 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84C10CF31F6678B7000B3CEF /* Ask a Doctor */,
 				849A948B1F60064F008ACB28 /* ExSlideMenuController.swift */,
 				849A948C1F60064F008ACB28 /* LeftViewController.swift */,
-				849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */,
 				849A94761F60042F008ACB28 /* HomeViewController.swift */,
 				849A94771F60042F008ACB28 /* OnlineShopViewController.swift */,
 				849A94781F60042F008ACB28 /* SocialWallViewController.swift */,
@@ -246,6 +252,17 @@
 				8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		84C10CF31F6678B7000B3CEF /* Ask a Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */,
+				84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */,
+				84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */,
+				84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */,
+			);
+			name = "Ask a Doctor";
 			sourceTree = "<group>";
 		};
 		84E363BC1F6281B2008E1596 /* Utils */ = {
@@ -468,7 +485,9 @@
 				849A94861F600504008ACB28 /* UIColor.swift in Sources */,
 				84E363BE1F6281C5008E1596 /* Global.swift in Sources */,
 				849A94921F600746008ACB28 /* ImageHeaderView.swift in Sources */,
+				84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */,
 				849A948E1F60064F008ACB28 /* LeftViewController.swift in Sources */,
+				84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */,
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,
 				8427D7521F6122B2007B34F4 /* MenuTableViewCell.swift in Sources */,
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
@@ -479,6 +498,7 @@
 				849A948A1F60052D008ACB28 /* String.swift in Sources */,
 				8427D74F1F610194007B34F4 /* AboutUsViewController.swift in Sources */,
 				8427D74B1F610110007B34F4 /* PrivacyPolicyViewController.swift in Sources */,
+				84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */,
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,
 				849A948D1F60064F008ACB28 /* ExSlideMenuController.swift in Sources */,

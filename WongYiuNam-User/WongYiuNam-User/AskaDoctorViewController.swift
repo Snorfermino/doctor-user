@@ -25,10 +25,15 @@ class AskaDoctorViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
     }
+    
+    @IBAction func doctorIntroductionButtonClicked(_ sender: Any) {
+    }
+    
+    
 }
 
 extension AskaDoctorViewController: UITableViewDelegate {
-
+    
 }
 
 extension AskaDoctorViewController: UITableViewDataSource {

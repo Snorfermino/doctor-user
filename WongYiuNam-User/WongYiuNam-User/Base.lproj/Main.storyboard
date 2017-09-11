@@ -315,7 +315,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXW-y7-GLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4758" y="364"/>
+            <point key="canvasLocation" x="4772" y="364"/>
+        </scene>
+        <!--Notifications View Controller-->
+        <scene sceneID="OfT-3j-1jd">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsViewController" id="2ul-oH-3aC" customClass="NotificationsViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KWS-7H-HfT"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZqW-KW-WrC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G0v-hY-WBk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzr-9g-uJg">
+                                <rect key="frame" x="146" y="323" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxs-pP-Fup" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5518" y="364"/>
+        </scene>
+        <!--Invitea Friend View Controller-->
+        <scene sceneID="YNv-JR-cfR">
+            <objects>
+                <viewController storyboardIdentifier="InviteaFriendViewController" id="LlC-Of-QBh" customClass="InviteaFriendViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Exw-qV-38r"/>
+                        <viewControllerLayoutGuide type="bottom" id="K3d-Cz-KYL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QSd-sb-NaX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite a Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ty6-6m-pan">
+                                <rect key="frame" x="146" y="323" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tu2-ya-aRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6222" y="364"/>
         </scene>
     </scenes>
 </document>

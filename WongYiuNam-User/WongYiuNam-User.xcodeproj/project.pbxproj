@@ -36,6 +36,9 @@
 		849A949E1F6007B1008ACB28 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949D1F6007B1008ACB28 /* UIImageView.swift */; };
 		849A94A01F600802008ACB28 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949F1F600802008ACB28 /* UIImage.swift */; };
 		849A94A21F600A8C008ACB28 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94A11F600A8C008ACB28 /* UIView.swift */; };
+		84E363BE1F6281C5008E1596 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363BD1F6281C4008E1596 /* Global.swift */; };
+		84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C11F62908E008E1596 /* NotificationsViewController.swift */; };
+		84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */; };
 		CCE06F91E7FE1768CF1120AE /* Pods_WongYiuNam_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		849A949D1F6007B1008ACB28 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		849A949F1F600802008ACB28 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		849A94A11F600A8C008ACB28 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		84E363BD1F6281C4008E1596 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		84E363C11F62908E008E1596 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteaFriendViewController.swift; sourceTree = "<group>"; };
 		A4F52D4B48895826B569298B /* Pods-WongYiuNam-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +175,7 @@
 				849A947E1F60045C008ACB28 /* Extension */,
 				849A948F1F60072D008ACB28 /* View */,
 				849A947D1F60043C008ACB28 /* ViewController */,
+				84E363BC1F6281B2008E1596 /* Utils */,
 				66EEFD941F5FDE0900C5C77A /* Main.storyboard */,
 				66EEFD971F5FDE0900C5C77A /* Assets.xcassets */,
 				66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */,
@@ -209,6 +216,8 @@
 				8427D74A1F610110007B34F4 /* PrivacyPolicyViewController.swift */,
 				8427D74C1F610123007B34F4 /* UserAgreementViewController.swift */,
 				8427D74E1F610194007B34F4 /* AboutUsViewController.swift */,
+				84E363C11F62908E008E1596 /* NotificationsViewController.swift */,
+				84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -237,6 +246,14 @@
 				8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		84E363BC1F6281B2008E1596 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				84E363BD1F6281C4008E1596 /* Global.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,11 +401,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 			);
@@ -442,8 +463,10 @@
 				8427D7451F60FA3A007B34F4 /* UIViewController.swift in Sources */,
 				8427D7471F6100D2007B34F4 /* UploadPrescriptionViewController.swift in Sources */,
 				8427D74D1F610123007B34F4 /* UserAgreementViewController.swift in Sources */,
+				84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */,
 				849A94881F600510008ACB28 /* UIApplication.swift in Sources */,
 				849A94861F600504008ACB28 /* UIColor.swift in Sources */,
+				84E363BE1F6281C5008E1596 /* Global.swift in Sources */,
 				849A94921F600746008ACB28 /* ImageHeaderView.swift in Sources */,
 				849A948E1F60064F008ACB28 /* LeftViewController.swift in Sources */,
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,
@@ -451,6 +474,7 @@
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
 				849A947C1F60042F008ACB28 /* SocialWallViewController.swift in Sources */,
 				849A94A01F600802008ACB28 /* UIImage.swift in Sources */,
+				84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */,
 				849A947A1F60042F008ACB28 /* HomeViewController.swift in Sources */,
 				849A948A1F60052D008ACB28 /* String.swift in Sources */,
 				8427D74F1F610194007B34F4 /* AboutUsViewController.swift in Sources */,

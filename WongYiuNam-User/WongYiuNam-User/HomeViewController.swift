@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
     }
-    
 }
 
 extension HomeViewController : SlideMenuControllerDelegate {

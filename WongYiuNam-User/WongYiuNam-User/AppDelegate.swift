@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
         
         leftViewController.homeViewController = nvc
-        
         let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
         slideMenuController.delegate = mainViewController
@@ -60,7 +59,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

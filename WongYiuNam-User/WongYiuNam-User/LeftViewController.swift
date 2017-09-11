@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 enum LeftMenu: Int {
     case home = 0
@@ -19,6 +21,21 @@ enum LeftMenu: Int {
     case aboutUs
 }
 
+enum LeftMenuLogined: Int {
+    case home = 0
+    case onlineShop
+    case uploadPrescription
+    case socialWall
+    case askaDoctor
+    case notifications
+    case inviteaFriend
+    case helpCentre
+    case aboutUs
+    case privacyPolicy
+    case userAgreement
+    case logout
+}
+
 protocol LeftMenuProtocol : class {
     func changeViewController(_ menu: LeftMenu)
 }
@@ -27,7 +44,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social Wall"
-                , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
+        , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
+    var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social Wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Privacy Policy", "User Agreement", "About Us", "Logout"]
     var homeViewController: UIViewController!
     var onlineShopViewController: UIViewController!
     var askaDoctorViewController: UIViewController!
@@ -37,12 +55,16 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var privacyPolicyViewController: UIViewController!
     var userAgreementViewController: UIViewController!
     var aboutUsViewController: UIViewController!
+    var inviteaFriendViewController: UIViewController!
+    var notificationsViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
+    
+    fileprivate let disposeBag = DisposeBag()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,10 +98,22 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let aboutUsViewController = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
         self.aboutUsViewController = UINavigationController(rootViewController: aboutUsViewController)
         
+        let notificationsViewController = storyboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+        self.notificationsViewController = UINavigationController(rootViewController: notificationsViewController)
+        
+        let inviteaFriendViewController = storyboard.instantiateViewController(withIdentifier: "InviteaFriendViewController") as! InviteaFriendViewController
+        self.inviteaFriendViewController = UINavigationController(rootViewController: inviteaFriendViewController)
+        
         self.tableView.registerCellClass(MenuTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
         self.view.addSubview(self.imageHeaderView)
+        
+        NotificationCenter.default.rx.notification(Notification.Name("UserLoginedNotification"))
+            .subscribe(onNext: { _ in
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,21 +148,62 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
         }
     }
+    func changeViewController(_ menu: LeftMenuLogined) {
+        switch menu {
+        case .home:
+            slideMenuController()?.changeMainViewController(homeViewController, close: true)
+        case .onlineShop:
+            slideMenuController()?.changeMainViewController(onlineShopViewController, close: true)
+        case .askaDoctor:
+            slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
+        case .uploadPrescription:
+            slideMenuController()?.changeMainViewController(uploadPrescriptionViewController, close: true)
+        case .socialWall:
+            slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
+        case .helpCentre:
+            slideMenuController()?.changeMainViewController(helpCentreViewController, close: true)
+        case .privacyPolicy:
+            slideMenuController()?.changeMainViewController(privacyPolicyViewController, close: true)
+        case .userAgreement:
+            slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
+        case .aboutUs:
+            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+        case .notifications:
+            slideMenuController()?.changeMainViewController(notificationsViewController, close: true)
+        case .inviteaFriend:
+            slideMenuController()?.changeMainViewController(inviteaFriendViewController, close: true)
+        case .logout:
+            print("Logout")
+        }
+    }
 }
 
 extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let menu = LeftMenu(rawValue: indexPath.row) {
-            switch menu {
-            case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
-                return MenuTableViewCell.height()
+        if(Global.logined) {
+            if let menu = LeftMenuLogined(rawValue: indexPath.row) {
+                switch menu {
+                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
+                    return MenuTableViewCell.height()
+                }
+            }
+        } else {
+            if let menu = LeftMenu(rawValue: indexPath.row) {
+                switch menu {
+                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+                    return MenuTableViewCell.height()
+                }
             }
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let menu = LeftMenu(rawValue: indexPath.row) {
+        if(Global.logined) {
+            if let menu = LeftMenuLogined(rawValue: indexPath.row) {
+                self.changeViewController(menu)
+            }
+        } else if let menu = LeftMenu(rawValue: indexPath.row) {
             self.changeViewController(menu)
         }
     }
@@ -143,15 +218,26 @@ extension LeftViewController : UITableViewDelegate {
 extension LeftViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menus.count
+        if(Global.logined) {
+            return menusLogined.count
+        } else {
+            return menus.count
+        }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let menu = LeftMenu(rawValue: indexPath.row) {
+        if(Global.logined) {
+            if let menu = LeftMenuLogined(rawValue: indexPath.row) {
+                switch menu {
+                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
+                    let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
+                    cell.setData(menusLogined[indexPath.row])
+                    return cell
+                }
+            }
+        } else if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
             case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
-                //let cell = MenuTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: MenuTableViewCell.identifier)
                 let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
                 cell.setData(menus[indexPath.row])
                 return cell

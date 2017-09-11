@@ -4,4 +4,6 @@ use_frameworks!
 target 'WongYiuNam-User’ do
   pod ‘SDWebImage’
   pod ‘SlideMenuControllerSwift’
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end

@@ -221,7 +221,7 @@
 					66EEFD521F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					66EEFD661F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -503,9 +503,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-Doctor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1e85b49d-8fb9-45ae-a979-4911d26ff94f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.doctor";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -515,11 +518,15 @@
 			baseConfigurationReference = DE81054964D47A2D46E98DC4 /* Pods-WongYiuNam-Doctor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-Doctor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8670fd59-4f62-4f05-a563-b7b061a4dcf0";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -601,6 +608,7 @@
 				66EEFD7D1F5FDDFA00C5C77A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66EEFD7E1F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-DoctorTests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +617,7 @@
 				66EEFD801F5FDDFA00C5C77A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66EEFD811F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-DoctorUITests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +626,7 @@
 				66EEFD831F5FDDFA00C5C77A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

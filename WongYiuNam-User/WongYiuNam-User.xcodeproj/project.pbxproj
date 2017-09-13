@@ -382,7 +382,7 @@
 					66EEFD8C1F5FDE0900C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					66EEFDA01F5FDE0900C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -711,10 +711,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-User/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "814883f5-3c79-4b6d-96e7-b2becd1d9df6";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.ios";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -724,12 +726,15 @@
 			baseConfigurationReference = A4F52D4B48895826B569298B /* Pods-WongYiuNam-User.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-User/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e3d53e40-99cf-4c02-bb76-befca324ad43";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.ios";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

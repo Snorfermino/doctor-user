@@ -7,4 +7,5 @@ target 'WongYiuNam-User' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'LTHRadioButton'
+    pod 'Moya'
 end

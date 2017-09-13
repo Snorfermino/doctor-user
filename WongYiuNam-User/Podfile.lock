@@ -1,5 +1,12 @@
 PODS:
+  - Alamofire (4.5.1)
   - LTHRadioButton (1.2.0)
+  - Moya (9.0.0):
+    - Moya/Core (= 9.0.0)
+  - Moya/Core (9.0.0):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Result (3.2.3)
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
   - RxSwift (3.6.1)
@@ -10,18 +17,22 @@ PODS:
 
 DEPENDENCIES:
   - LTHRadioButton
+  - Moya
   - RxCocoa
   - RxSwift
   - SDWebImage
   - SlideMenuControllerSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   LTHRadioButton: bcd4b49a8e0af81b5140e67583a868d96e956557
+  Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
 
-PODFILE CHECKSUM: 2e501ad048914b19a6fb3ad3c6c10fa35dc26d72
+PODFILE CHECKSUM: c027e2ccd69b00533e40df5008d1eeeb937f7417
 
 COCOAPODS: 1.3.1

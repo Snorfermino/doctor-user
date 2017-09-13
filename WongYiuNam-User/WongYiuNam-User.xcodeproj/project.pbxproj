@@ -35,6 +35,7 @@
 		849A949E1F6007B1008ACB28 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949D1F6007B1008ACB28 /* UIImageView.swift */; };
 		849A94A01F600802008ACB28 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949F1F600802008ACB28 /* UIImage.swift */; };
 		849A94A21F600A8C008ACB28 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94A11F600A8C008ACB28 /* UIView.swift */; };
+		84A72FD41F692DA7001B30E0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72FD31F692DA7001B30E0 /* ApiManager.swift */; };
 		84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */; };
 		84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */; };
 		84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */; };
@@ -105,6 +106,7 @@
 		849A949D1F6007B1008ACB28 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		849A949F1F600802008ACB28 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		849A94A11F600A8C008ACB28 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		84A72FD31F692DA7001B30E0 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorIntroductionViewController.swift; sourceTree = "<group>"; };
 		84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaQuestionViewController.swift; sourceTree = "<group>"; };
 		84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenToAnswerViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				84E363BD1F6281C4008E1596 /* Global.swift */,
+				84A72FD31F692DA7001B30E0 /* ApiManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -453,7 +456,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHRadioButton/LTHRadioButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -461,7 +467,10 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHRadioButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -526,6 +535,7 @@
 				84C8C90E1F67FBA300AA5709 /* Camera.swift in Sources */,
 				849A94921F600746008ACB28 /* ImageHeaderView.swift in Sources */,
 				84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */,
+				84A72FD41F692DA7001B30E0 /* ApiManager.swift in Sources */,
 				849A948E1F60064F008ACB28 /* LeftViewController.swift in Sources */,
 				84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */,
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,

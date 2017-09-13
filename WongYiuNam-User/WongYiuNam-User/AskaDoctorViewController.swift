@@ -27,9 +27,8 @@ class AskaDoctorViewController: UIViewController {
     }
     
     @IBAction func doctorIntroductionButtonClicked(_ sender: Any) {
+        
     }
-    
-    
 }
 
 extension AskaDoctorViewController: UITableViewDelegate {
@@ -47,13 +46,14 @@ extension AskaDoctorViewController: UITableViewDataSource {
         if let nameLabel = cell.viewWithTag(100) as? UILabel {
             nameLabel.text = doctor.name
         }
-        if let statusImageView = cell.viewWithTag(101) as? UIImageView {
+        if let statusButton = cell.viewWithTag(101) as? UIButton {
+            //statusButton.buttonType = .custom
             if(doctor.status) {
-                statusImageView.image = UIImage.from(color: UIColor.green)
+                statusButton.setImage(UIImage(named: "green"), for: .normal)
             } else {
-                statusImageView.image = UIImage.from(color: UIColor.red)
+                statusButton.setImage(UIImage(named: "red"), for: .normal)
             }
-            statusImageView.makeCircular()
+            statusButton.makeCircular()
         }
         return cell
     }

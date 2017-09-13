@@ -15,29 +15,37 @@ extension UIViewController {
         
         let logoImageView = UIImageView(image: UIImage(named: "logo"))
         logoImageView.scale(f: 0.4)
-        var view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 80))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 80))
         view.addSubview(logoImageView)
-        logoImageView.frame = CGRect(x: -65, y: 15, width: logoImageView.frame.width, height: logoImageView.frame.height)
-    
+        logoImageView.frame = CGRect(x: -45, y: 15, width: logoImageView.frame.width, height: logoImageView.frame.height)
+        let logoImageViewGesture = UITapGestureRecognizer(target: self, action: #selector(logoImageViewClicked))
+        logoImageView.addGestureRecognizer(logoImageViewGesture)
+        logoImageView.isUserInteractionEnabled = true
+        
         self.navigationItem.titleView = view
-        view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 80))
+        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 80))
         let loginImageView = UIImageView(image: UIImage(named: "nav-login"))
         loginImageView.scale(f: 0.2)
         loginImageView.frame = CGRect(x: 40, y: 25, width: loginImageView.frame.width, height: loginImageView.frame.height)
         let label = UILabel(frame: CGRect(x: 75, y: 0, width: 120, height: 80))
         label.text = "Login"
-        view.addSubview(loginImageView)
-        view.addSubview(label)
-        let rightBarButtonItemClicked = UITapGestureRecognizer(target: self, action: #selector(loginBarButtonItemClicked))
-        view.addGestureRecognizer(rightBarButtonItemClicked)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: view)
+        rightView.addSubview(loginImageView)
+        rightView.addSubview(label)
+        let rightBarButtonItemGesture = UITapGestureRecognizer(target: self, action: #selector(loginBarButtonItemClicked))
+        rightView.addGestureRecognizer(rightBarButtonItemGesture)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightView)
         
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.addLeftGestures()
     }
     
     func loginBarButtonItemClicked() {
-        
+        Global.logined = !Global.logined
+        NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
+    }
+    
+    func logoImageViewClicked() {
+        print("logoImageViewClicked")
     }
     
     func removeNavigationBarItem() {

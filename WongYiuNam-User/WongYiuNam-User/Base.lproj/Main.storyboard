@@ -36,128 +36,6 @@
             </objects>
             <point key="canvasLocation" x="-758" y="829"/>
         </scene>
-        <!--Aska Doctor View Controller-->
-        <scene sceneID="Np4-0F-fzb">
-            <objects>
-                <viewController storyboardIdentifier="AskaDoctorViewController" id="T65-CI-BMW" customClass="AskaDoctorViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CpN-Mm-2mO"/>
-                        <viewControllerLayoutGuide type="bottom" id="U0i-h8-1tj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3kt-J7-jme">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nia-2l-ycC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="askaDoctorCellIdentifier" rowHeight="110" id="JJr-Zb-ony">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JJr-Zb-ony" id="P7Y-ke-H1q">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-Jf-2r3">
-                                                    <rect key="frame" x="93" y="10" width="221" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Qualifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axL-Z9-HTf">
-                                                    <rect key="frame" x="93" y="44" width="104" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Specialty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnD-pS-tAX">
-                                                    <rect key="frame" x="93" y="80" width="71" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="askadoctor-like" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-lU-K0c">
-                                                    <rect key="frame" x="65" y="83" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-mT-TbE">
-                                                    <rect key="frame" x="15" y="10" width="70" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="askadoctor-default-avatar"/>
-                                                    <connections>
-                                                        <action selector="doctorIntroductionButtonClicked:" destination="T65-CI-BMW" eventType="touchUpInside" id="m2r-KQ-O2c"/>
-                                                        <segue destination="3fw-jr-UVS" kind="show" id="XCC-1o-Tb4"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRs-6T-fLy">
-                                                    <rect key="frame" x="322" y="8" width="45" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="status"/>
-                                                    <connections>
-                                                        <segue destination="Cg0-Xm-KtP" kind="show" id="B0B-5I-DOZ"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eic-dF-I1X">
-                                                    <rect key="frame" x="322" y="56" width="45" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="askadoctor-headphones"/>
-                                                    <connections>
-                                                        <segue destination="aH1-rX-8G1" kind="show" id="h5X-R5-PRM"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Nia-2l-ycC" firstAttribute="leading" secondItem="3kt-J7-jme" secondAttribute="leading" id="3Di-cc-uRp"/>
-                            <constraint firstItem="U0i-h8-1tj" firstAttribute="top" secondItem="Nia-2l-ycC" secondAttribute="bottom" id="GsI-j5-AVk"/>
-                            <constraint firstItem="Nia-2l-ycC" firstAttribute="top" secondItem="3kt-J7-jme" secondAttribute="top" id="Jv6-v9-lga"/>
-                            <constraint firstAttribute="trailing" secondItem="Nia-2l-ycC" secondAttribute="trailing" id="lCe-if-eGT"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="Nia-2l-ycC" id="3sS-7c-bu4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EYr-E6-kFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="636" y="828.93553223388312"/>
-        </scene>
-        <!--Doctor Introduction View Controller-->
-        <scene sceneID="wqH-qt-Aih">
-            <objects>
-                <viewController id="3fw-jr-UVS" customClass="DoctorIntroductionViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7aH-MM-Cfx"/>
-                        <viewControllerLayoutGuide type="bottom" id="nc3-1J-CqJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6r6-5Z-ANW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DoctorIntroductionViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxS-Ey-l4W">
-                                <rect key="frame" x="102" y="297" width="257" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ts-3M-x73" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-74" y="1575"/>
-        </scene>
         <!--Social Wall View Controller-->
         <scene sceneID="FfX-b9-MsF">
             <objects>
@@ -218,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ask Doc"/>
                                 <connections>
-                                    <segue destination="T65-CI-BMW" kind="show" id="f7s-Ze-Bpx"/>
+                                    <segue destination="eSf-1i-dks" kind="show" id="Dra-BW-Ayb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2d-nI-NDy">
@@ -302,7 +180,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4G-W3-D0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="829"/>
+            <point key="canvasLocation" x="-62" y="829"/>
+        </scene>
+        <!--AskaDoctor-->
+        <scene sceneID="ZNc-Fa-o3x">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AskaDoctor" id="eSf-1i-dks" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFQ-Rs-RCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="592"/>
         </scene>
         <!--Help Centre View Controller-->
         <scene sceneID="ABb-ib-JHy">
@@ -466,64 +352,5 @@
             </objects>
             <point key="canvasLocation" x="6222" y="364"/>
         </scene>
-        <!--Aska Question View Controller-->
-        <scene sceneID="WF0-lo-U0d">
-            <objects>
-                <viewController id="Cg0-Xm-KtP" customClass="AskaQuestionViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jHj-eK-zYb"/>
-                        <viewControllerLayoutGuide type="bottom" id="FEk-UN-djk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Hcm-vI-iXY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AskaQuestionViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzf-k1-Ska">
-                                <rect key="frame" x="166" y="323" width="218" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Wa-6N-BPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="636" y="1575.5622188905547"/>
-        </scene>
-        <!--Listen To Answer View Controller-->
-        <scene sceneID="e6f-IX-yDe">
-            <objects>
-                <viewController id="aH1-rX-8G1" customClass="ListenToAnswerViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="snx-1J-W64"/>
-                        <viewControllerLayoutGuide type="bottom" id="f90-uY-Vhd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0By-vN-w2A">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ListenToAnswerViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzV-0P-ZKq">
-                                <rect key="frame" x="166" y="323" width="232" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BpR-ae-Qb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1386" y="1575"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="askadoctor-default-avatar" width="128" height="128"/>
-        <image name="askadoctor-headphones" width="128" height="128"/>
-        <image name="askadoctor-like" width="128" height="128"/>
-    </resources>
 </document>

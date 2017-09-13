@@ -1,14 +1,14 @@
 //
-//  DoctorIntroductionViewController.swift
+//  PayaQuestionViewController.swift
 //  WongYiuNam-User
 //
-//  Created by Admin on 9/11/17.
+//  Created by Admin on 9/12/17.
 //  Copyright © 2017 RTH. All rights reserved.
 //
 
 import UIKit
 
-class DoctorIntroductionViewController: UIViewController {
+class PayaQuestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

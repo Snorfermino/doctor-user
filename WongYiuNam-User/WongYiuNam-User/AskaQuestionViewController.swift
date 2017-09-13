@@ -7,29 +7,47 @@
 //
 
 import UIKit
+import LTHRadioButton
 
-class AskaQuestionViewController: UIViewController {
-
+class AskaQuestionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var chooseSexView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let radioButton = LTHRadioButton(selectedColor: .red)
+        chooseSexView.addSubview(radioButton)
+        
+        radioButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            radioButton.centerYAnchor.constraint(equalTo: chooseSexView.centerYAnchor),
+            radioButton.leadingAnchor.constraint(equalTo: chooseSexView.leadingAnchor, constant: 16),
+            radioButton.heightAnchor.constraint(equalToConstant: radioButton.frame.height),
+            radioButton.widthAnchor.constraint(equalToConstant: radioButton.frame.width)]
+        )
+        radioButton.onSelect {
+            print("I'm selected.")
+        }
+        radioButton.onDeselect {
+            print("I'm deselected.")
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func attachPhotoButton(_ sender: Any) {
+        let camera = Camera(delegate_: self)
+        camera.presentPhotoLibrary(self, canEdit: true)
     }
-    */
-
+    
+    @IBAction func takePhotoButton(_ sender: Any) {
+        let camera = Camera(delegate_: self)
+        camera.presentPhotoCamera(self, canEdit: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("finish picking image")
+    }
 }
+
+
+
+

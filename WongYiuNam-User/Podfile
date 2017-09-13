@@ -1,9 +1,10 @@
-platform :ios, ’9.0’
+platform :ios, '9.0'
 use_frameworks!
 
-target 'WongYiuNam-User’ do
-  pod ‘SDWebImage’
-  pod ‘SlideMenuControllerSwift’
-  pod 'RxSwift'
-  pod 'RxCocoa'
+target 'WongYiuNam-User' do
+    pod 'SDWebImage'
+    pod 'SlideMenuControllerSwift'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'LTHRadioButton'
 end

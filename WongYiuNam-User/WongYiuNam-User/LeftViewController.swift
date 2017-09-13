@@ -70,38 +70,40 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let askaDoctorStoryboard = UIStoryboard(name: "AskaDoctor", bundle: nil)
+        
+        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.homeViewController = UINavigationController(rootViewController: homeViewController)
         
-        let onlineShopViewController = storyboard.instantiateViewController(withIdentifier: "OnlineShopViewController") as! OnlineShopViewController
+        let onlineShopViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnlineShopViewController") as! OnlineShopViewController
         self.onlineShopViewController = UINavigationController(rootViewController: onlineShopViewController)
         
-        let askaDoctorViewController = storyboard.instantiateViewController(withIdentifier: "AskaDoctorViewController") as! AskaDoctorViewController
+        let askaDoctorViewController = askaDoctorStoryboard.instantiateViewController(withIdentifier: "AskaDoctorViewController") as! AskaDoctorViewController
         self.askaDoctorViewController = UINavigationController(rootViewController: askaDoctorViewController)
         
-        let uploadPrescriptionViewController = storyboard.instantiateViewController(withIdentifier: "UploadPrescriptionViewController") as! UploadPrescriptionViewController
+        let uploadPrescriptionViewController = mainStoryboard.instantiateViewController(withIdentifier: "UploadPrescriptionViewController") as! UploadPrescriptionViewController
         self.uploadPrescriptionViewController = UINavigationController(rootViewController: uploadPrescriptionViewController)
         
-        let socialWallViewController = storyboard.instantiateViewController(withIdentifier: "SocialWallViewController") as! SocialWallViewController
+        let socialWallViewController = mainStoryboard.instantiateViewController(withIdentifier: "SocialWallViewController") as! SocialWallViewController
         self.socialWallViewController = UINavigationController(rootViewController: socialWallViewController)
         
-        let helpCentreViewController = storyboard.instantiateViewController(withIdentifier: "HelpCentreViewController") as! HelpCentreViewController
+        let helpCentreViewController = mainStoryboard.instantiateViewController(withIdentifier: "HelpCentreViewController") as! HelpCentreViewController
         self.helpCentreViewController = UINavigationController(rootViewController: helpCentreViewController)
         
-        let privacyPolicyViewController = storyboard.instantiateViewController(withIdentifier: "PrivacyPolicyViewController") as! PrivacyPolicyViewController
+        let privacyPolicyViewController = mainStoryboard.instantiateViewController(withIdentifier: "PrivacyPolicyViewController") as! PrivacyPolicyViewController
         self.privacyPolicyViewController = UINavigationController(rootViewController: privacyPolicyViewController)
         
-        let userAgreementViewController = storyboard.instantiateViewController(withIdentifier: "UserAgreementViewController") as! UserAgreementViewController
+        let userAgreementViewController = mainStoryboard.instantiateViewController(withIdentifier: "UserAgreementViewController") as! UserAgreementViewController
         self.userAgreementViewController = UINavigationController(rootViewController: userAgreementViewController)
         
-        let aboutUsViewController = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
+        let aboutUsViewController = mainStoryboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
         self.aboutUsViewController = UINavigationController(rootViewController: aboutUsViewController)
         
-        let notificationsViewController = storyboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+        let notificationsViewController = mainStoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
         self.notificationsViewController = UINavigationController(rootViewController: notificationsViewController)
         
-        let inviteaFriendViewController = storyboard.instantiateViewController(withIdentifier: "InviteaFriendViewController") as! InviteaFriendViewController
+        let inviteaFriendViewController = mainStoryboard.instantiateViewController(withIdentifier: "InviteaFriendViewController") as! InviteaFriendViewController
         self.inviteaFriendViewController = UINavigationController(rootViewController: inviteaFriendViewController)
         
         self.tableView.registerCellClass(MenuTableViewCell.self)

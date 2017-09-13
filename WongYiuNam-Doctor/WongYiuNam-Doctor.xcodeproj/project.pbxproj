@@ -7,13 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B116CF25F73155659C73B0C /* Pods_WongYiuNam_DoctorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */; };
+		182F05C9F1E2EAFC2DA655DA /* Pods_WongYiuNam_Doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */; };
 		66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */; };
 		66EEFD591F5FDDFA00C5C77A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD581F5FDDFA00C5C77A /* ViewController.swift */; };
-		66EEFD5C1F5FDDFA00C5C77A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD5A1F5FDDFA00C5C77A /* Main.storyboard */; };
 		66EEFD5E1F5FDDFA00C5C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD5D1F5FDDFA00C5C77A /* Assets.xcassets */; };
 		66EEFD611F5FDDFA00C5C77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD5F1F5FDDFA00C5C77A /* LaunchScreen.storyboard */; };
 		66EEFD6C1F5FDDFA00C5C77A /* WongYiuNam_DoctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD6B1F5FDDFA00C5C77A /* WongYiuNam_DoctorTests.swift */; };
 		66EEFD771F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD761F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift */; };
+		8433E5261F679BE000C5AC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8433E5251F679BE000C5AC21 /* Main.storyboard */; };
+		8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8433E5291F679C3800C5AC21 /* NavBar.xib */; };
+		8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52B1F67B23200C5AC21 /* NavBar.swift */; };
+		8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */; };
+		8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5351F67ECD600C5AC21 /* BaseViewController.swift */; };
+		8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */; };
+		84A871BB1F68E3BB00F2ED7A /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BA1F68E3BB00F2ED7A /* APIProvider.swift */; };
+		84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BC1F68E3CD00F2ED7A /* API.swift */; };
+		84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */; };
+		84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C01F691BFF00F2ED7A /* ColorExtension.swift */; };
+		84A871C31F69228900F2ED7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C21F69228900F2ED7A /* ProfileViewController.swift */; };
+		84A871C61F69305D00F2ED7A /* PendingQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A871C51F69305D00F2ED7A /* PendingQuestion.xib */; };
+		84A871C81F693DE900F2ED7A /* PendingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C71F693DE900F2ED7A /* PendingQuestion.swift */; };
+		A69DB035CD72DC1E39719B4B /* Pods_WongYiuNam_DoctorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15FF0649DD0E7EB7825BC6E9 /* Pods-WongYiuNam-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
+		38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		496435AF8C06C5E79B1D4A46 /* Pods-WongYiuNam-DoctorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorUITests/Pods-WongYiuNam-DoctorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5D6B24860C19C4B148DDA717 /* Pods-WongYiuNam-DoctorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorUITests/Pods-WongYiuNam-DoctorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		66EEFD531F5FDDFA00C5C77A /* WongYiuNam-Doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WongYiuNam-Doctor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EEFD581F5FDDFA00C5C77A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		66EEFD5B1F5FDDFA00C5C77A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66EEFD5D1F5FDDFA00C5C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66EEFD601F5FDDFA00C5C77A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EEFD621F5FDDFA00C5C77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +66,24 @@
 		66EEFD721F5FDDFA00C5C77A /* WongYiuNam-DoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WongYiuNam-DoctorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD761F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WongYiuNam_DoctorUITests.swift; sourceTree = "<group>"; };
 		66EEFD781F5FDDFA00C5C77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8433E5251F679BE000C5AC21 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboard/Main.storyboard; sourceTree = "<group>"; };
+		8433E5291F679C3800C5AC21 /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NavBar.xib; path = XIB/NavBar.xib; sourceTree = "<group>"; };
+		8433E52B1F67B23200C5AC21 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = XIB/NavBar/NavBar.swift; sourceTree = "<group>"; };
+		8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstraintExtension.swift; path = Extension/ConstraintExtension.swift; sourceTree = "<group>"; };
+		8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		8433E5351F67ECD600C5AC21 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = View/BaseViewController.swift; sourceTree = "<group>"; };
+		8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = Extension/TextFieldExtension.swift; sourceTree = "<group>"; };
+		84A871BA1F68E3BB00F2ED7A /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIProvider.swift; path = API/APIProvider.swift; sourceTree = "<group>"; };
+		84A871BC1F68E3CD00F2ED7A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
+		84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WYNCheckBox.swift; path = Extension/WYNCheckBox.swift; sourceTree = "<group>"; };
+		84A871C01F691BFF00F2ED7A /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = Extension/ColorExtension.swift; sourceTree = "<group>"; };
+		84A871C21F69228900F2ED7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = View/ProfileViewController.swift; sourceTree = "<group>"; };
+		84A871C51F69305D00F2ED7A /* PendingQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingQuestion.xib; path = XIB/PendingQuestion/PendingQuestion.xib; sourceTree = "<group>"; };
+		84A871C71F693DE900F2ED7A /* PendingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestion.swift; path = XIB/PendingQuestion/PendingQuestion.swift; sourceTree = "<group>"; };
+		8C165866F1FCF655C79FA40F /* Pods-WongYiuNam-DoctorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests.release.xcconfig"; sourceTree = "<group>"; };
+		9013FDB3FD376065D3453F04 /* Pods-WongYiuNam-DoctorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_Doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD7792DF4821EE19E831AD3 /* Pods-WongYiuNam-Doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-Doctor.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182F05C9F1E2EAFC2DA655DA /* Pods_WongYiuNam_Doctor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69DB035CD72DC1E39719B4B /* Pods_WongYiuNam_DoctorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +107,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B116CF25F73155659C73B0C /* Pods_WongYiuNam_DoctorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AFB23E55C011B1C778F85E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */,
+				404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */,
+				38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		66EEFD4A1F5FDDFA00C5C77A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +131,8 @@
 				66EEFD6A1F5FDDFA00C5C77A /* WongYiuNam-DoctorTests */,
 				66EEFD751F5FDDFA00C5C77A /* WongYiuNam-DoctorUITests */,
 				66EEFD541F5FDDFA00C5C77A /* Products */,
+				CD75A5B41849C652A756BDB0 /* Pods */,
+				1AFB23E55C011B1C778F85E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +149,14 @@
 		66EEFD551F5FDDFA00C5C77A /* WongYiuNam-Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				84A871B91F68E36100F2ED7A /* API */,
+				8433E5341F67ECA800C5AC21 /* View */,
+				8433E5311F67CE8D00C5AC21 /* Resources */,
+				8433E52E1F67C4BE00C5AC21 /* Extension */,
+				8433E5281F679C1700C5AC21 /* XIB */,
+				8433E5271F679BE700C5AC21 /* Storyboard */,
 				66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */,
 				66EEFD581F5FDDFA00C5C77A /* ViewController.swift */,
-				66EEFD5A1F5FDDFA00C5C77A /* Main.storyboard */,
 				66EEFD5D1F5FDDFA00C5C77A /* Assets.xcassets */,
 				66EEFD5F1F5FDDFA00C5C77A /* LaunchScreen.storyboard */,
 				66EEFD621F5FDDFA00C5C77A /* Info.plist */,
@@ -125,6 +182,99 @@
 			path = "WongYiuNam-DoctorUITests";
 			sourceTree = "<group>";
 		};
+		8433E5271F679BE700C5AC21 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8433E5251F679BE000C5AC21 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		8433E5281F679C1700C5AC21 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				84A871C41F69303800F2ED7A /* PendingQuestion */,
+				8433E52D1F67B23700C5AC21 /* NavBar */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
+		8433E52D1F67B23700C5AC21 /* NavBar */ = {
+			isa = PBXGroup;
+			children = (
+				8433E5291F679C3800C5AC21 /* NavBar.xib */,
+				8433E52B1F67B23200C5AC21 /* NavBar.swift */,
+			);
+			name = NavBar;
+			sourceTree = "<group>";
+		};
+		8433E52E1F67C4BE00C5AC21 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */,
+				8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */,
+				84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */,
+				84A871C01F691BFF00F2ED7A /* ColorExtension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		8433E5311F67CE8D00C5AC21 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8433E5321F67CE9B00C5AC21 /* Font */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8433E5321F67CE9B00C5AC21 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		8433E5341F67ECA800C5AC21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8433E5351F67ECD600C5AC21 /* BaseViewController.swift */,
+				84A871C21F69228900F2ED7A /* ProfileViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		84A871B91F68E36100F2ED7A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84A871BA1F68E3BB00F2ED7A /* APIProvider.swift */,
+				84A871BC1F68E3CD00F2ED7A /* API.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		84A871C41F69303800F2ED7A /* PendingQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				84A871C51F69305D00F2ED7A /* PendingQuestion.xib */,
+				84A871C71F693DE900F2ED7A /* PendingQuestion.swift */,
+			);
+			name = PendingQuestion;
+			sourceTree = "<group>";
+		};
+		CD75A5B41849C652A756BDB0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15FF0649DD0E7EB7825BC6E9 /* Pods-WongYiuNam-Doctor.debug.xcconfig */,
+				CDD7792DF4821EE19E831AD3 /* Pods-WongYiuNam-Doctor.release.xcconfig */,
+				9013FDB3FD376065D3453F04 /* Pods-WongYiuNam-DoctorTests.debug.xcconfig */,
+				8C165866F1FCF655C79FA40F /* Pods-WongYiuNam-DoctorTests.release.xcconfig */,
+				5D6B24860C19C4B148DDA717 /* Pods-WongYiuNam-DoctorUITests.debug.xcconfig */,
+				496435AF8C06C5E79B1D4A46 /* Pods-WongYiuNam-DoctorUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66EEFD7B1F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-Doctor" */;
 			buildPhases = (
+				0DE31CE15C41CF2E433EB032 /* [CP] Check Pods Manifest.lock */,
 				66EEFD4F1F5FDDFA00C5C77A /* Sources */,
 				66EEFD501F5FDDFA00C5C77A /* Frameworks */,
 				66EEFD511F5FDDFA00C5C77A /* Resources */,
+				9E1DD3D6D7DF301C2FB30C69 /* [CP] Embed Pods Frameworks */,
+				7377197B5E997DBBD0A87337 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +302,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66EEFD7E1F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-DoctorTests" */;
 			buildPhases = (
+				F009EA223B4C289D46178A21 /* [CP] Check Pods Manifest.lock */,
 				66EEFD631F5FDDFA00C5C77A /* Sources */,
 				66EEFD641F5FDDFA00C5C77A /* Frameworks */,
 				66EEFD651F5FDDFA00C5C77A /* Resources */,
+				DC7110BAA1131552E243912B /* [CP] Embed Pods Frameworks */,
+				383A8993F5D107A73F539D8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +323,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66EEFD811F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-DoctorUITests" */;
 			buildPhases = (
+				AF9925C9C3D561FA427C52FE /* [CP] Check Pods Manifest.lock */,
 				66EEFD6E1F5FDDFA00C5C77A /* Sources */,
 				66EEFD6F1F5FDDFA00C5C77A /* Frameworks */,
 				66EEFD701F5FDDFA00C5C77A /* Resources */,
+				E905D5EC34A3617314EF6134 /* [CP] Embed Pods Frameworks */,
+				E3EA713C2DD6244D40F70C22 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,7 +352,6 @@
 				TargetAttributes = {
 					66EEFD521F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8AN899D996;
 						ProvisioningStyle = Automatic;
 					};
 					66EEFD661F5FDDFA00C5C77A = {
@@ -237,7 +395,9 @@
 			files = (
 				66EEFD611F5FDDFA00C5C77A /* LaunchScreen.storyboard in Resources */,
 				66EEFD5E1F5FDDFA00C5C77A /* Assets.xcassets in Resources */,
-				66EEFD5C1F5FDDFA00C5C77A /* Main.storyboard in Resources */,
+				8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */,
+				8433E5261F679BE000C5AC21 /* Main.storyboard in Resources */,
+				84A871C61F69305D00F2ED7A /* PendingQuestion.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,13 +417,179 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DE31CE15C41CF2E433EB032 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WongYiuNam-Doctor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		383A8993F5D107A73F539D8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7377197B5E997DBBD0A87337 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E1DD3D6D7DF301C2FB30C69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PPBadgeViewSwift/PPBadgeViewSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPBadgeViewSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF9925C9C3D561FA427C52FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WongYiuNam-DoctorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC7110BAA1131552E243912B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3EA713C2DD6244D40F70C22 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-DoctorUITests/Pods-WongYiuNam-DoctorUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E905D5EC34A3617314EF6134 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-DoctorUITests/Pods-WongYiuNam-DoctorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F009EA223B4C289D46178A21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WongYiuNam-DoctorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		66EEFD4F1F5FDDFA00C5C77A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
+				84A871C81F693DE900F2ED7A /* PendingQuestion.swift in Sources */,
 				66EEFD591F5FDDFA00C5C77A /* ViewController.swift in Sources */,
+				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,
+				84A871BB1F68E3BB00F2ED7A /* APIProvider.swift in Sources */,
 				66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */,
+				8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */,
+				84A871C31F69228900F2ED7A /* ProfileViewController.swift in Sources */,
+				8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */,
+				84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */,
+				8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */,
+				84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,14 +625,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		66EEFD5A1F5FDDFA00C5C77A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				66EEFD5B1F5FDDFA00C5C77A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		66EEFD5F1F5FDDFA00C5C77A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -415,12 +733,13 @@
 		};
 		66EEFD7C1F5FDDFA00C5C77A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15FF0649DD0E7EB7825BC6E9 /* Pods-WongYiuNam-Doctor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8AN899D996;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-Doctor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -428,12 +747,13 @@
 		};
 		66EEFD7D1F5FDDFA00C5C77A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDD7792DF4821EE19E831AD3 /* Pods-WongYiuNam-Doctor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8AN899D996;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-Doctor";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -441,6 +761,7 @@
 		};
 		66EEFD7F1F5FDDFA00C5C77A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9013FDB3FD376065D3453F04 /* Pods-WongYiuNam-DoctorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +777,7 @@
 		};
 		66EEFD801F5FDDFA00C5C77A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C165866F1FCF655C79FA40F /* Pods-WongYiuNam-DoctorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +793,7 @@
 		};
 		66EEFD821F5FDDFA00C5C77A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D6B24860C19C4B148DDA717 /* Pods-WongYiuNam-DoctorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 8AN899D996;
@@ -485,6 +808,7 @@
 		};
 		66EEFD831F5FDDFA00C5C77A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 496435AF8C06C5E79B1D4A46 /* Pods-WongYiuNam-DoctorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 8AN899D996;
@@ -516,6 +840,7 @@
 				66EEFD7D1F5FDDFA00C5C77A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66EEFD7E1F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-DoctorTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +849,7 @@
 				66EEFD801F5FDDFA00C5C77A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66EEFD811F5FDDFA00C5C77A /* Build configuration list for PBXNativeTarget "WongYiuNam-DoctorUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +858,7 @@
 				66EEFD831F5FDDFA00C5C77A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

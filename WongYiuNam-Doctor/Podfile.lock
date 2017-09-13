@@ -1,3 +1,17 @@
-PODFILE CHECKSUM: 8601d503f364ddbf58f844a12dbdf9379fc3b1c2
+PODS:
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - SlideMenuControllerSwift (3.0.2)
+
+DEPENDENCIES:
+  - SDWebImage
+  - SlideMenuControllerSwift
+
+SPEC CHECKSUMS:
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
+
+PODFILE CHECKSUM: 1408170cff2e4fb51f14786dbd1358801383242e
 
 COCOAPODS: 1.3.1

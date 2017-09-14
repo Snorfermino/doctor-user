@@ -8,4 +8,5 @@ target 'WongYiuNam-User' do
     pod 'RxCocoa'
     pod 'LTHRadioButton'
     pod 'Moya'
+    pod 'SwiftyButton'
 end

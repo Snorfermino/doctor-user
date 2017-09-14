@@ -14,6 +14,7 @@ PODS:
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
   - SlideMenuControllerSwift (3.0.2)
+  - SwiftyButton (0.7.0)
 
 DEPENDENCIES:
   - LTHRadioButton
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - RxSwift
   - SDWebImage
   - SlideMenuControllerSwift
+  - SwiftyButton
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -32,7 +34,8 @@ SPEC CHECKSUMS:
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
+  SwiftyButton: f0982849c00ef5a0ed0852202d00201af0943000
 
-PODFILE CHECKSUM: c027e2ccd69b00533e40df5008d1eeeb937f7417
+PODFILE CHECKSUM: 3aafc7b7e3a57b92e83f1dd1942e2d372e694a78
 
 COCOAPODS: 1.3.1

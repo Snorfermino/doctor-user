@@ -42,7 +42,6 @@ class CheckBoxButton: UIButton {
                 isChecked = true
             }
         }
-        
         delegate?.buttonClicked(value: isChecked)
     }
 }

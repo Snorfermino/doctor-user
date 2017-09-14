@@ -23,6 +23,10 @@ class BaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupView(){
+        // Setup UI Components
+    }
+    
     func addNavBar(){
         let screenSize: CGRect = UIScreen.main.bounds
         navBar = NavBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 65))
@@ -45,13 +49,7 @@ class BaseViewController: UIViewController {
         let leadConstraint = NSLayoutConstraint(item: navBar, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0)
         let trailConstraint = NSLayoutConstraint(item: navBar, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0)
         self.view.addConstraints([horConstraint,verConstraint,widConstraint,heiConstraint,leadConstraint,trailConstraint])
-//           let views = ["view": view, "newView": navBar]
-//        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-(<=0)-[newView(100)]", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views)
-//        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[view]-(<=0)-[newView(100)]", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: views)
-//        
-//        view.addConstraints(horizontalConstraints)
-//        view.addConstraints(verticalConstraints)
-//        navBar.addConstraint(heiConstraint)
+
 
     }
 

@@ -26,13 +26,16 @@ class APIProvider : MoyaProvider<API>{
         super.init(endpointClosure: _endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
     }
     
-    func requestAPI(target: API, showProgressHUD: Bool = true) -> Observable<Result<Response, AnyError>> {
-        return self.requestResonse(target: target, showProgressHUD: showProgressHUD)
-            .map({ Result.success($0) })
-            .catchError({ Observable.just(Result<Response, AnyError>.failure(AnyError($0))) })
+    func requestAPI(target: API) -> Observable<Result<Response, AnyError>> {
+
         
         return self.request(target, completion: { (result) in
-            
+            switch result {
+            case let .success(response): break
+                completion(result)
+            case .failure:
+                completion(result)
+            }
         })
     }
     
@@ -73,7 +76,7 @@ extension MoyaProvider {
     @discardableResult
     func request(_ target: API, autoRefreshToken: Bool, completion: @escaping Moya.Completion) -> Cancellable {
         
-        let logoutMessage = "Your account has been logged in by another device.".__
+//        let logoutMessage = "Your account has been logged in by another device.".__
         
         return CheapgoProvider.request(target) { result in
             switch result {

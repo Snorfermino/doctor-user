@@ -36,9 +36,4 @@ extension UIImageView {
         self.frame.size.width *= f
         self.frame.size.height *= f
     }
-    
-    func makeCircular() {
-        layer.cornerRadius = frame.width / 2
-        clipsToBounds = true
-    }
 }

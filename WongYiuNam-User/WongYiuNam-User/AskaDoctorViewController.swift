@@ -18,7 +18,7 @@ class AskaDoctorViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        tableView.separatorStyle = .none
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,14 +46,16 @@ extension AskaDoctorViewController: UITableViewDataSource {
         if let nameLabel = cell.viewWithTag(100) as? UILabel {
             nameLabel.text = doctor.name
         }
-        if let statusButton = cell.viewWithTag(101) as? UIButton {
-            //statusButton.buttonType = .custom
-            if(doctor.status) {
-                statusButton.setImage(UIImage(named: "green"), for: .normal)
-            } else {
-                statusButton.setImage(UIImage(named: "red"), for: .normal)
+        if let statusView = cell.viewWithTag(101) {
+            if(doctor.status == false) {
+                statusView.backgroundColor = UIColor.red
             }
-            statusButton.makeCircular()
+            statusView.makeCircular()
+        }
+        if let avatarButton = cell.viewWithTag(102) as? UIButton {
+            avatarButton.makeCircular()
+            avatarButton.layer.borderWidth = 1
+            avatarButton.layer.borderColor = UIColor(hex: "DAC1A8").cgColor
         }
         return cell
     }

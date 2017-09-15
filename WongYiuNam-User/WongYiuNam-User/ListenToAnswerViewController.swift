@@ -42,7 +42,7 @@ extension ListenToAnswerViewController: UITableViewDataSource {
             } else {
                 statusButton.setImage(UIImage(named: "play-button-lock"), for: .normal)
             }
-            statusButton.makeCircular()
+            //statusButton.makeCircular()
         }
         return cell
     }

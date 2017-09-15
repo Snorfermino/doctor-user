@@ -17,4 +17,9 @@ extension UIView {
     class func loadNib() -> Self {
         return loadNib(self)
     }
+    
+    func makeCircular() {
+        layer.cornerRadius = frame.height * 0.5
+        clipsToBounds = true
+    }
 }

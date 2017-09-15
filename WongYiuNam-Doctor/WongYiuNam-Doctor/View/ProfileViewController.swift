@@ -9,7 +9,12 @@
 import UIKit
 
 class ProfileViewController: BaseViewController {
-
+    @IBOutlet weak var imageViewAvatar:UIImageView!
+    @IBOutlet weak var lbName:UILabel!
+    @IBOutlet weak var lbSpeciality:UILabel!
+    @IBOutlet weak var lbQualifications:UILabel!
+    @IBOutlet weak var btnAvailable:UIButton
+    @IBOutlet weak var lbEarned:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(navBar.frame)
@@ -22,14 +27,12 @@ class ProfileViewController: BaseViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func answerQuestionsPressed(_ sender: UIButton){
+    
     }
-    */
+    
+    @IBAction func answerQuestionsPressed(_ sender: UIButton){
+        
+    }
 
 }

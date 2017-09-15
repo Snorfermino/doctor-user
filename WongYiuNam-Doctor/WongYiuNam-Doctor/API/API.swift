@@ -110,7 +110,6 @@ let endPoint = { (target: API) -> Endpoint<API> in
     let url = target.baseURL.appendingPathComponent(target.path).absoluteString
     var header: [String:String] = [:]
     header["X-App-Token"] = "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"
-    header["Content-Type"] = "application/x-www-form-urlencoded"
     return Endpoint<API>(url: url,
                          sampleResponseClosure: {.networkResponse(200, target.sampleData)},
                          method: target.method,
@@ -118,4 +117,4 @@ let endPoint = { (target: API) -> Endpoint<API> in
                          httpHeaderFields: header)
 }
 let apiProvider = MoyaProvider<API>(endpointClosure: endPoint,
-                                    plugins: [DebugPlugin()])
+                                    plugins: [NetworkLoggerPlugin(verbose: true)])

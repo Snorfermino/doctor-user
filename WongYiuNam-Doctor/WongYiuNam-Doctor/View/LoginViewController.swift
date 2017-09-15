@@ -12,12 +12,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var tfEmail:UITextField!
     @IBOutlet weak var tfPassword:UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
 
     @IBAction func btnSignInPressed(_ sender: UIButton){
         print("email: \(tfEmail.text!), password: \(tfPassword.text!)" )

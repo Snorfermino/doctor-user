@@ -47,11 +47,11 @@ class DayInScheduleView: UIView {
     
     func setStatus(_ status : Bool) {
         if(status) {
-            dayLabel.textColor = UIColor(red: 217/255, green: 28/255, blue: 44/255, alpha: 1.0)
+            dayLabel.textColor = UIColor(red: 217, green: 28, blue: 44)
             barView.isHidden = false
             saregoonLabel.isHidden = false
         } else {
-            dayLabel.textColor = UIColor(red: 137/255, green: 137/255, blue: 137/255, alpha: 1.0)
+            dayLabel.textColor = UIColor(red: 137, green: 137, blue: 137)
             barView.isHidden = true
             saregoonLabel.isHidden = true
         }

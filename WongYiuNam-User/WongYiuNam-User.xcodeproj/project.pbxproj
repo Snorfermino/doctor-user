@@ -53,6 +53,10 @@
 		84E363BE1F6281C5008E1596 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363BD1F6281C4008E1596 /* Global.swift */; };
 		84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C11F62908E008E1596 /* NotificationsViewController.swift */; };
 		84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */; };
+		84F0A4CF1F6F6E8D007B5385 /* MyServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */; };
+		84F0A4D21F6F6EEE007B5385 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D11F6F6EEE007B5385 /* Doctor.swift */; };
+		84F0A4D41F6F716A007B5385 /* DoctorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D31F6F716A007B5385 /* DoctorsResponse.swift */; };
+		84F0A4D81F6F7B4B007B5385 /* DRPLoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */; };
 		CCE06F91E7FE1768CF1120AE /* Pods_WongYiuNam_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +132,10 @@
 		84E363BD1F6281C4008E1596 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		84E363C11F62908E008E1596 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteaFriendViewController.swift; sourceTree = "<group>"; };
+		84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyServerAPI.swift; sourceTree = "<group>"; };
+		84F0A4D11F6F6EEE007B5385 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		84F0A4D31F6F716A007B5385 /* DoctorsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorsResponse.swift; sourceTree = "<group>"; };
+		84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRPLoadingSpinner.swift; sourceTree = "<group>"; };
 		A4F52D4B48895826B569298B /* Pods-WongYiuNam-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +212,7 @@
 				66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */,
 				66EEFD9C1F5FDE0900C5C77A /* Info.plist */,
 				849A947E1F60045C008ACB28 /* Extension */,
+				84F0A4D01F6F6EBC007B5385 /* Models */,
 				849A948F1F60072D008ACB28 /* View */,
 				849A947D1F60043C008ACB28 /* ViewController */,
 				84A72FD21F68DF96001B30E0 /* Controller */,
@@ -263,6 +272,7 @@
 				849A94A11F600A8C008ACB28 /* UIView.swift */,
 				849A94891F60052D008ACB28 /* String.swift */,
 				8427D7441F60FA3A007B34F4 /* UIViewController.swift */,
+				84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -326,8 +336,18 @@
 			children = (
 				84E363BD1F6281C4008E1596 /* Global.swift */,
 				84A72FD31F692DA7001B30E0 /* ApiManager.swift */,
+				84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		84F0A4D01F6F6EBC007B5385 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
+				84F0A4D31F6F716A007B5385 /* DoctorsResponse.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,8 +499,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DRPLoadingSpinner/DRPLoadingSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHRadioButton/LTHRadioButton.framework",
+				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -491,8 +514,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DRPLoadingSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHRadioButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -557,11 +583,14 @@
 				849A94861F600504008ACB28 /* UIColor.swift in Sources */,
 				84E363BE1F6281C5008E1596 /* Global.swift in Sources */,
 				84C8C90E1F67FBA300AA5709 /* Camera.swift in Sources */,
+				84F0A4D21F6F6EEE007B5385 /* Doctor.swift in Sources */,
 				849A94921F600746008ACB28 /* ImageHeaderView.swift in Sources */,
 				84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */,
+				84F0A4D41F6F716A007B5385 /* DoctorsResponse.swift in Sources */,
 				84A72FD41F692DA7001B30E0 /* ApiManager.swift in Sources */,
 				849A948E1F60064F008ACB28 /* LeftViewController.swift in Sources */,
 				84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */,
+				84F0A4D81F6F7B4B007B5385 /* DRPLoadingSpinner.swift in Sources */,
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,
 				8427D7521F6122B2007B34F4 /* MenuTableViewCell.swift in Sources */,
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
@@ -575,6 +604,7 @@
 				84A72FDB1F69483B001B30E0 /* RegisterViewController.swift in Sources */,
 				8427D74F1F610194007B34F4 /* AboutUsViewController.swift in Sources */,
 				84A72FD91F69482F001B30E0 /* SignInViewController.swift in Sources */,
+				84F0A4CF1F6F6E8D007B5385 /* MyServerAPI.swift in Sources */,
 				8427D74B1F610110007B34F4 /* PrivacyPolicyViewController.swift in Sources */,
 				84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */,
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,

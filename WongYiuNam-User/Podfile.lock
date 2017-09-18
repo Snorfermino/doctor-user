@@ -1,8 +1,17 @@
 PODS:
   - Alamofire (4.5.1)
+  - DRPLoadingSpinner (1.3.1):
+    - DRPLoadingSpinner/core (= 1.3.1)
+  - DRPLoadingSpinner/core (1.3.1)
   - LTHRadioButton (1.2.0)
+  - ModelMapper (7.0.0)
   - Moya (9.0.0):
     - Moya/Core (= 9.0.0)
+  - Moya-ModelMapper (5.0.0):
+    - Moya-ModelMapper/Core (= 5.0.0)
+  - Moya-ModelMapper/Core (5.0.0):
+    - ModelMapper
+    - Moya (~> 9.0.0)
   - Moya/Core (9.0.0):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
@@ -17,8 +26,10 @@ PODS:
   - SwiftyButton (0.7.0)
 
 DEPENDENCIES:
+  - DRPLoadingSpinner
   - LTHRadioButton
   - Moya
+  - Moya-ModelMapper
   - RxCocoa
   - RxSwift
   - SDWebImage
@@ -27,8 +38,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  DRPLoadingSpinner: 725e530bf4ebe2cc351b1fbc94d24fe8ac3300fd
   LTHRadioButton: bcd4b49a8e0af81b5140e67583a868d96e956557
+  ModelMapper: 73a3e79c9f02af80190115acc15aa8dcd199e9d0
   Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
+  Moya-ModelMapper: fc14d8c7d6466f11aea83e785c7f2c4c521fead6
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
@@ -36,6 +50,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
   SwiftyButton: f0982849c00ef5a0ed0852202d00201af0943000
 
-PODFILE CHECKSUM: 3aafc7b7e3a57b92e83f1dd1942e2d372e694a78
+PODFILE CHECKSUM: 4a34897afaa3abde1a7bcafa94598a1a364a8e12
 
 COCOAPODS: 1.3.1

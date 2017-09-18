@@ -68,7 +68,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+        self.tableView.separatorColor = UIColor(red: 224, green: 224, blue: 224)
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let askaDoctorStoryboard = UIStoryboard(name: "AskaDoctor", bundle: nil)

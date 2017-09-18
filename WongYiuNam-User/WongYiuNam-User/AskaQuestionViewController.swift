@@ -20,8 +20,8 @@ class AskaQuestionViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func initUI() {
-        let maleRadioButton = LTHRadioButton(selectedColor: UIColor(red: 209/255, green: 181/255, blue: 150/255, alpha: 1.0))
-        let femaleRadioButton = LTHRadioButton(selectedColor: UIColor(red: 209/255, green: 181/255, blue: 150/255, alpha: 1.0))
+        let maleRadioButton = LTHRadioButton(selectedColor: UIColor(red: 209, green: 181, blue: 150))
+        let femaleRadioButton = LTHRadioButton(selectedColor: UIColor(red: 209, green: 181, blue: 150))
         maleRadioButton.select()
         maleRatioButtonView.addSubview(maleRadioButton)
         var flag = true

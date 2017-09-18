@@ -15,6 +15,9 @@
 		66EEFD611F5FDDFA00C5C77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD5F1F5FDDFA00C5C77A /* LaunchScreen.storyboard */; };
 		66EEFD6C1F5FDDFA00C5C77A /* WongYiuNam_DoctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD6B1F5FDDFA00C5C77A /* WongYiuNam_DoctorTests.swift */; };
 		66EEFD771F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD761F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift */; };
+		84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84093AEB1F6BC0F200BE17AF /* RecordAnswerViewController.swift */; };
+		84093AEE1F6F9AC500BE17AF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84093AED1F6F9AC500BE17AF /* AudioToolbox.framework */; };
+		84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */; };
 		8433E5261F679BE000C5AC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8433E5251F679BE000C5AC21 /* Main.storyboard */; };
 		8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8433E5291F679C3800C5AC21 /* NavBar.xib */; };
 		8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52B1F67B23200C5AC21 /* NavBar.swift */; };
@@ -70,6 +73,10 @@
 		66EEFD721F5FDDFA00C5C77A /* WongYiuNam-DoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WongYiuNam-DoctorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD761F5FDDFA00C5C77A /* WongYiuNam_DoctorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WongYiuNam_DoctorUITests.swift; sourceTree = "<group>"; };
 		66EEFD781F5FDDFA00C5C77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84093AEB1F6BC0F200BE17AF /* RecordAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewController.swift; path = View/RecordAnswerViewController.swift; sourceTree = "<group>"; };
+		84093AED1F6F9AC500BE17AF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		84093AEF1F6F9AC500BE17AF /* WongYiuNam-Doctor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WongYiuNam-Doctor.entitlements"; sourceTree = "<group>"; };
+		84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioRecorderManager.swift; path = Extension/AudioRecorderManager.swift; sourceTree = "<group>"; };
 		8433E5251F679BE000C5AC21 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboard/Main.storyboard; sourceTree = "<group>"; };
 		8433E5291F679C3800C5AC21 /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NavBar.xib; path = XIB/NavBar.xib; sourceTree = "<group>"; };
 		8433E52B1F67B23200C5AC21 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = XIB/NavBar/NavBar.swift; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				182F05C9F1E2EAFC2DA655DA /* Pods_WongYiuNam_Doctor.framework in Frameworks */,
+				84093AEE1F6F9AC500BE17AF /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +133,7 @@
 		1AFB23E55C011B1C778F85E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84093AED1F6F9AC500BE17AF /* AudioToolbox.framework */,
 				C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */,
 				404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */,
 				38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */,
@@ -157,6 +166,7 @@
 		66EEFD551F5FDDFA00C5C77A /* WongYiuNam-Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				84093AEF1F6F9AC500BE17AF /* WongYiuNam-Doctor.entitlements */,
 				84A871B91F68E36100F2ED7A /* API */,
 				8433E5341F67ECA800C5AC21 /* View */,
 				8433E5311F67CE8D00C5AC21 /* Resources */,
@@ -223,6 +233,7 @@
 				8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */,
 				84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */,
 				84A871C01F691BFF00F2ED7A /* ColorExtension.swift */,
+				84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -250,6 +261,7 @@
 				84A871C21F69228900F2ED7A /* ProfileViewController.swift */,
 				84A871C91F6A339200F2ED7A /* PendingQuestionViewController.swift */,
 				848B8A071F6B908200538B00 /* LoginViewController.swift */,
+				84093AEB1F6BC0F200BE17AF /* RecordAnswerViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -364,7 +376,13 @@
 				TargetAttributes = {
 					66EEFD521F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8AN899D996;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 					66EEFD661F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -488,6 +506,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -498,6 +517,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -599,7 +619,9 @@
 			files = (
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
 				84A871C81F693DE900F2ED7A /* PendingQuestion.swift in Sources */,
+				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
 				66EEFD591F5FDDFA00C5C77A /* ViewController.swift in Sources */,
+				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,
 				848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */,
 				84A871CF1F6A7AD300F2ED7A /* QuestionCell.swift in Sources */,
 				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,
@@ -758,7 +780,8 @@
 			baseConfigurationReference = 15FF0649DD0E7EB7825BC6E9 /* Pods-WongYiuNam-Doctor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_ENTITLEMENTS = "WongYiuNam-Doctor/WongYiuNam-Doctor.entitlements";
+				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
@@ -772,7 +795,8 @@
 			baseConfigurationReference = CDD7792DF4821EE19E831AD3 /* Pods-WongYiuNam-Doctor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_ENTITLEMENTS = "WongYiuNam-Doctor/WongYiuNam-Doctor.entitlements";
+				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;

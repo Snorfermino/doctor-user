@@ -21,4 +21,5 @@ pod ‘Moya’
 pod 'Alamofire'
 pod 'AlamofireObjectMapper'
 pod 'Moya-ObjectMapper'
+pod 'IBAnimatable'
 end

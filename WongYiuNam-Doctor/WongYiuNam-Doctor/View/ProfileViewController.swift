@@ -13,7 +13,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var lbName:UILabel!
     @IBOutlet weak var lbSpeciality:UILabel!
     @IBOutlet weak var lbQualifications:UILabel!
-    @IBOutlet weak var btnAvailable:UIButton
+    @IBOutlet weak var btnAvailable:UIButton!
     @IBOutlet weak var lbEarned:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ProfileViewController: BaseViewController {
     
     }
     
-    @IBAction func answerQuestionsPressed(_ sender: UIButton){
+    @IBAction func answerHistoryPressed(_ sender: UIButton){
         
     }
 

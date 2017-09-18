@@ -66,35 +66,23 @@ extension API {
             return .post
         }
     }
-    var parameters: [String: Any]? {
+    public var parameters: [String: Any]? {
         switch self {
         case .login(let email, let pwd):
-//
-//             do {
-//                let jsonData = try JSONSerialization.data(withJSONObject: ["email":email,"password":pwd], options: .prettyPrinted)
-//                // here "jsonData" is the dictionary encoded in JSON data
-//                
-//
-//                // here "decoded" is of type `Any`, decoded from JSON data
-//                
-//                // you can now cast it with the right type
-//                let data = MultipartFormData(provider: 	.data(jsonData), name: "something"), name: "something")
-//                return data
-//             } catch {
-//                print(error.localizedDescription)
-//             }
             return ["email":email,"password":pwd]
+
         default:
             return nil
         }
     }
-    var parameterEncoding: ParameterEncoding {
+    public var parameterEncoding: ParameterEncoding {
         return URLEncoding.methodDependent
     }
     public var task: Task {
         switch self {
         default:
-            return .requestParameters(parameters: self.parameters!, encoding: JSONEncoding(options: []))
+//            .requestParameters(parameters: self.parameters!, encoding: JSONEncoding(options: []))
+            return .request
         }
     }
     public var sampleData: Data {
@@ -113,7 +101,7 @@ let endPoint = { (target: API) -> Endpoint<API> in
     return Endpoint<API>(url: url,
                          sampleResponseClosure: {.networkResponse(200, target.sampleData)},
                          method: target.method,
-                         task: target.task,
+                         parameters: target.parameters,
                          httpHeaderFields: header)
 }
 let apiProvider = MoyaProvider<API>(endpointClosure: endPoint,

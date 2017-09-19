@@ -9,12 +9,12 @@
 import UIKit
 import DRPLoadingSpinner
 
-class AskaDoctorViewController: UIViewController {
+class AskaDoctorViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var listDoctors: [Doctor] = []
     let activityIndicatorView = DRPLoadingSpinner()
-    var idx: IndexPath = IndexPath(row: 2, section: 0)
+    var idx: IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,10 @@ class AskaDoctorViewController: UIViewController {
         tableView.separatorStyle = .none
         activityIndicatorView.initView(view: view)
         tableView.addSubview(activityIndicatorView)
-        loadListDoctors()
+        //loadListDoctors()
+        let temp = Doctor()
+        self.listDoctors = [temp]
+        self.tableView.reloadData()
     }
     
     func loadListDoctors() {

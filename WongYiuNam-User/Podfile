@@ -8,7 +8,7 @@ target 'WongYiuNam-User' do
     pod 'RxCocoa'
     pod 'LTHRadioButton'
     pod 'Moya'
-    pod 'Moya-ModelMapper'
+    pod 'ObjectMapper'
     pod 'SwiftyButton'
     pod 'DRPLoadingSpinner'
 end

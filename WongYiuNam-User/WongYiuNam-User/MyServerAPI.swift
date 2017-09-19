@@ -23,7 +23,7 @@ enum MyServerAPI {
 extension MyServerAPI: TargetType {
     var headers: [String : String]? {
         let h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                 "X-Access-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1NzIzODM3LCJleHAiOjE1MDU3Mjc0MzcsIm5iZiI6MTUwNTcyMzgzNywianRpIjoiMGhDQWpiSWpKaEhvZHd4WSJ9.iVqFv6XoDRvZJ2RLeipZXqAmzFzq6EVbYUnE9HFxtpc"]
+                 "X-Access-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1Nzk0ODk4LCJleHAiOjE1MDU3OTg0OTgsIm5iZiI6MTUwNTc5NDg5OCwianRpIjoiVGZ4dEV2N084djVjYmp1OCJ9.ElfOazAK8c6ZO2rhYIHJYpa12AzMpaQG1ev1zTTG8Sc"]
         return h
     }
     

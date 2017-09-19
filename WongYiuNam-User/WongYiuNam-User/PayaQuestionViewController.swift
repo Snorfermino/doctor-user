@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PayaQuestionViewController: UIViewController {
+class PayaQuestionViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoneaQuestionViewController: UIViewController {
+class DoneaQuestionViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,7 @@
 import UIKit
 import LTHRadioButton
 
-class AskaQuestionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AskaQuestionViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var maleRatioButtonView: UIView!
     @IBOutlet weak var femaleRatioButtonView: UIView!
     @IBOutlet weak var chooseSexView: UIView!

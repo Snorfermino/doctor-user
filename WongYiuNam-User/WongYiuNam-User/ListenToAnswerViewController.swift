@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListenToAnswerViewController: UIViewController {
+class ListenToAnswerViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     let listQuestions = [(question: "I cannot sleep !!! Why?", paid: true), (question: "My wife feels very sad", paid: true), (question: "OK!!! DONE", paid: false)]

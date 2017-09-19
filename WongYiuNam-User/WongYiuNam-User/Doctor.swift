@@ -6,7 +6,7 @@
 //  Copyright © 2017 RTH. All rights reserved.
 //
 
-import Mapper
+import ObjectMapper
 
 class Doctor: Mappable {
     var id: Int?
@@ -16,6 +16,16 @@ class Doctor: Mappable {
     var qualifications: String?
     var specialty: String?
     var status: Bool?
+    
+    init() {
+        id = 0
+        name = ""
+        avatar = ""
+        introduction = ""
+        qualifications = ""
+        specialty = ""
+        status = false
+    }
     
     required init(map: Mapper) throws {
         try id = map.from("id")

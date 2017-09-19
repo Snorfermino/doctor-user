@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoctorIntroductionViewController: UIViewController {
+class DoctorIntroductionViewController: BaseViewController {
     @IBOutlet weak var monScheduleView: UIView!
     @IBOutlet weak var tueScheduleView: UIView!
     @IBOutlet weak var wedScheduleView: UIView!
@@ -32,15 +32,8 @@ class DoctorIntroductionViewController: UIViewController {
         showDoctor()
         setupSchedule()
     }
-
+    
     func showDoctor() {
-//        avatarImageView.makeCircular()
-//        avatarImageView.layer.borderWidth = 1
-//        avatarImageView.layer.borderColor = UIColor(hex: "DAC1A8").cgColor
-//        avatarImageView.layer.shadowColor = UIColor.black.cgColor
-//        avatarImageView.layer.shadowOpacity = 1
-//        avatarImageView.layer.shadowOffset = CGSize.zero
-//        avatarImageView.layer.shadowRadius = avatarImageView.frame.height/2
         nameLabel.text = doctor.name
         specialtyLabel.text = doctor.specialty
         qualificationsLabel.text = doctor.qualifications

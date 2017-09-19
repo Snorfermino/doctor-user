@@ -42,6 +42,7 @@ public enum API: TargetType{
     case getUserProfile
     case getDoctorList
     case uploadPicture
+    case replyQuestion
     
 }
 extension API {

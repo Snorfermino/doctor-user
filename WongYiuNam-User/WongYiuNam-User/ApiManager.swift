@@ -11,7 +11,7 @@ import Moya_ObjectMapper
 
 class ApiManager {
     static func getDoctors(completion: @escaping (([Doctor]) -> Void)) {
-        let provider = MoyaProvider<MyServerAPI>()
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.doctors) { (result) in
             switch result {
             case .success(let response):

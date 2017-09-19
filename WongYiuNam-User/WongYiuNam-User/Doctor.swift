@@ -8,7 +8,8 @@
 
 import ObjectMapper
 
-class Doctor: Mappable {
+struct Doctor: Mappable {
+    
     var id: Int?
     var name: String?
     var avatar: String?
@@ -18,11 +19,11 @@ class Doctor: Mappable {
     var online: Bool?
     var createdAt: Int?
     
-    required convenience init?(map: Map){
-        self.init()
+    init?(map: Map){
+        
     }
     
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
         avatar <- map["avatar"]

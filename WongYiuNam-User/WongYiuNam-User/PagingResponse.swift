@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct PagingResponse<T>: Mappable {
+struct PagingResponse<T: BaseMappable>: Mappable {
     
     var currentPage = 0
     var data: [T]!
@@ -26,7 +26,6 @@ struct PagingResponse<T>: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        data <- map["data"]
         currentPage <- map["current_page"]
         data <- map["data"]
         from <- map["from"]

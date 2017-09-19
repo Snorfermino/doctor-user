@@ -17,7 +17,7 @@ target 'WongYiuNam-Doctor' do
     # Pods for testing
   end
 pod 'PPBadgeViewSwift'
-pod ‘Moya’
+pod ‘Moya’ 
 pod 'Alamofire'
 pod 'AlamofireObjectMapper'
 pod 'Moya-ObjectMapper'

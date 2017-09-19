@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */; };
 		66EEFD911F5FDE0900C5C77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */; };
 		66EEFD981F5FDE0900C5C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD971F5FDE0900C5C77A /* Assets.xcassets */; };
 		66EEFD9B1F5FDE0900C5C77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */; };
@@ -79,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingResponse.swift; sourceTree = "<group>"; };
 		66EEFD8D1F5FDE0900C5C77A /* WongYiuNam-User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WongYiuNam-User.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EEFD971F5FDE0900C5C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
+				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
 				84F0A4D31F6F716A007B5385 /* DoctorsResponse.swift */,
 			);
 			name = Models;
@@ -504,6 +507,8 @@
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ModelMapper/Moya_ModelMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -519,6 +524,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ModelMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -610,6 +617,7 @@
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,
 				849A948D1F60064F008ACB28 /* ExSlideMenuController.swift in Sources */,
+				66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */,
 				849A949C1F60078A008ACB28 /* UITableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

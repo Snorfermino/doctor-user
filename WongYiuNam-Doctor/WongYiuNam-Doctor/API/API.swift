@@ -62,7 +62,8 @@ extension API {
         switch self {
         case .getUserProfile, .getDoctorList:
             return .get
-            
+        case .replyQuestion:
+            return .put
         default:
             return .post
         }
@@ -71,7 +72,8 @@ extension API {
         switch self {
         case .login(let email, let pwd):
             return ["email":email,"password":pwd]
-
+//        case .replyQuestion(let answer):
+//            return ["content":answer]
         default:
             return nil
         }

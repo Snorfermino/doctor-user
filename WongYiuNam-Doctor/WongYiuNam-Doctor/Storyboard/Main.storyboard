@@ -616,12 +616,19 @@
                                     <constraint firstAttribute="width" secondItem="dSF-sO-2ws" secondAttribute="height" multiplier="349:150" id="ktl-db-lj0"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezs-Ya-cm0">
-                                <rect key="frame" x="13" y="459" width="42" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezs-Ya-cm0">
+                                <rect key="frame" x="13" y="459.5" width="57" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfQ-Kh-D82">
+                                <rect key="frame" x="13" y="488" width="349" height="122"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MfQ-Kh-D82" secondAttribute="height" multiplier="349:122" id="CvI-BH-Ns6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -630,12 +637,15 @@
                             <constraint firstItem="8SX-Ll-cGM" firstAttribute="centerX" secondItem="Nne-8F-qx6" secondAttribute="centerX" id="HMd-Cn-RAm"/>
                             <constraint firstItem="8SX-Ll-cGM" firstAttribute="height" secondItem="Nne-8F-qx6" secondAttribute="height" multiplier="180:667" id="MK6-iR-60g"/>
                             <constraint firstItem="dSF-sO-2ws" firstAttribute="centerX" secondItem="Nne-8F-qx6" secondAttribute="centerX" id="QGL-CT-qKt"/>
+                            <constraint firstItem="MfQ-Kh-D82" firstAttribute="top" secondItem="Ezs-Ya-cm0" secondAttribute="bottom" constant="8" id="Toj-vt-bI0"/>
                             <constraint firstItem="8SX-Ll-cGM" firstAttribute="top" secondItem="Nne-8F-qx6" secondAttribute="top" constant="85" id="XDs-gL-jM3"/>
                             <constraint firstItem="dSF-sO-2ws" firstAttribute="top" secondItem="vgI-5c-DGc" secondAttribute="bottom" constant="8" id="XZ0-N5-i5L"/>
                             <constraint firstItem="dSF-sO-2ws" firstAttribute="width" secondItem="8SX-Ll-cGM" secondAttribute="width" id="Y1t-zy-SSa"/>
+                            <constraint firstItem="MfQ-Kh-D82" firstAttribute="centerX" secondItem="Nne-8F-qx6" secondAttribute="centerX" id="ZGa-ku-cbH"/>
                             <constraint firstItem="Ezs-Ya-cm0" firstAttribute="top" secondItem="dSF-sO-2ws" secondAttribute="bottom" constant="8" id="dXX-Iy-nMl"/>
                             <constraint firstItem="Ezs-Ya-cm0" firstAttribute="leading" secondItem="dSF-sO-2ws" secondAttribute="leading" id="ebM-EA-Bw3"/>
                             <constraint firstAttribute="trailing" secondItem="8SX-Ll-cGM" secondAttribute="trailing" constant="13" id="fOz-dF-Jm2"/>
+                            <constraint firstItem="MfQ-Kh-D82" firstAttribute="width" secondItem="dSF-sO-2ws" secondAttribute="width" id="wxN-kb-rAm"/>
                             <constraint firstItem="vgI-5c-DGc" firstAttribute="leading" secondItem="Nne-8F-qx6" secondAttribute="leadingMargin" id="yYD-da-0zU"/>
                         </constraints>
                     </view>

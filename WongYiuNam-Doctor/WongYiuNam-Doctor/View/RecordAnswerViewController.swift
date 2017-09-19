@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 class RecordAnswerViewController: BaseViewController {
+    
     @IBOutlet weak var btnRecord:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,19 @@ class RecordAnswerViewController: BaseViewController {
         
         } else {
             print("file not found")
+        }
+    }
+    
+    func replyAnswer(){
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        apiProvider.request(.replyQuestion) { (result) in
+            switch result {
+            case let .success(response):
+                print(response)
+            case .failure:
+                print("failed")
+            }
+            
         }
     }
 

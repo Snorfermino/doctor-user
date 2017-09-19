@@ -7,7 +7,7 @@
 //
 
 import Moya
-import Moya_ModelMapper
+import Moya_ObjectMapper
 
 class ApiManager {
     static func getDoctors(completion: @escaping (([Doctor]) -> Void)) {
@@ -17,8 +17,8 @@ class ApiManager {
             case .success(let response):
                 print(response)
                 do {
-                    let doctorsResponse: DoctorsResponse = try response.map(to: DoctorsResponse.self)
-                    if let doctors = doctorsResponse.doctors {
+                    let doctorsResponse: PagingResponse<Doctor> = try response.mapObject(PagingResponse<Doctor>.self)
+                    if let doctors = doctorsResponse.data {
                         completion(doctors)
                     } else {
                         completion([])

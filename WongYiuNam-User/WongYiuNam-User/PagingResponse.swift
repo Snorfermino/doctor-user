@@ -26,6 +26,7 @@ struct PagingResponse<T>: Mappable {
     }
     
     mutating func mapping(map: Map) {
+        data <- map["data"]
         currentPage <- map["current_page"]
         data <- map["data"]
         from <- map["from"]

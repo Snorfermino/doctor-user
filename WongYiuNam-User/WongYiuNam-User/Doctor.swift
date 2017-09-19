@@ -15,31 +15,21 @@ class Doctor: Mappable {
     var introduction: String?
     var qualifications: String?
     var specialty: String?
-    var status: Bool?
+    var online: Bool?
+    var createdAt: Int?
     
-    init() {
-        id = 0
-        name = ""
-        avatar = ""
-        introduction = ""
-        qualifications = ""
-        specialty = ""
-        status = false
+    required convenience init?(map: Map){
+        self.init()
     }
     
-    required init(map: Mapper) throws {
-        try id = map.from("id")
-        try name = map.from("name")
-        try avatar = map.from("avatar")
-        try introduction = map.from("introduction")
-        try qualifications = map.from("qualifications")
-        try specialty = map.from("specialty")
-        var tempStatus: Int?
-        try tempStatus = map.from("status")
-        if(tempStatus == 1) {
-            status = true
-        } else {
-            status = false
-        }
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        avatar <- map["avatar"]
+        introduction <- map["introduction"]
+        qualifications <- map["qualifications"]
+        specialty <- map["specialty"]
+        online <- map["online"]
+        createdAt <- map["created_at"]
     }
 }

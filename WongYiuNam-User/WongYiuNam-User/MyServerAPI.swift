@@ -18,12 +18,11 @@ enum MyServerAPI {
     // MARK: - User
     case createUser(email: String, password: String)
 }
-
 // 2:
 extension MyServerAPI: TargetType {
     var headers: [String : String]? {
         let h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                 "X-Access-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1Nzk0ODk4LCJleHAiOjE1MDU3OTg0OTgsIm5iZiI6MTUwNTc5NDg5OCwianRpIjoiVGZ4dEV2N084djVjYmp1OCJ9.ElfOazAK8c6ZO2rhYIHJYpa12AzMpaQG1ev1zTTG8Sc"]
+                 "X-Access-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1ODAzNTI2LCJleHAiOjE1MDU4MDcxMjYsIm5iZiI6MTUwNTgwMzUyNiwianRpIjoieldsdVFNQjRkNU81NHk4SyJ9.J3Gad-HiSEA2mtMAbehZ_N3IbIimjmTVBNy1e7m230U"]
         return h
     }
     

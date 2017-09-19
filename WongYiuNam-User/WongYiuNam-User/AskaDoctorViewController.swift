@@ -23,10 +23,10 @@ class AskaDoctorViewController: BaseViewController {
         tableView.separatorStyle = .none
         activityIndicatorView.initView(view: view)
         tableView.addSubview(activityIndicatorView)
-        //loadListDoctors()
-        let temp = Doctor()
-        self.listDoctors = [temp]
-        self.tableView.reloadData()
+        loadListDoctors()
+//        let temp = Doctor()
+//        self.listDoctors = [temp]
+//        self.tableView.reloadData()
     }
     
     func loadListDoctors() {
@@ -84,7 +84,7 @@ extension AskaDoctorViewController: UITableViewDataSource {
             //
         }
         if let statusView = cell.viewWithTag(101) {
-            if(doctor.status == false) {
+            if(doctor.online == false) {
                 statusView.backgroundColor = UIColor.red
             }
             statusView.makeCircular()

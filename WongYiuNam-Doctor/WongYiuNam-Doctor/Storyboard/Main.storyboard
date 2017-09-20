@@ -649,7 +649,7 @@
                                 <rect key="frame" x="13" y="468" width="349" height="122"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7o5-sf-izu">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="65"/>
+                                        <rect key="frame" x="8" y="8" width="85" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>

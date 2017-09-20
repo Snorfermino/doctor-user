@@ -24,7 +24,7 @@
 		8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */; };
 		8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5351F67ECD600C5AC21 /* BaseViewController.swift */; };
 		8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */; };
-		845CD2351F70ED760063ACB8 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* Empty.xib */; };
+		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		84A871BB1F68E3BB00F2ED7A /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BA1F68E3BB00F2ED7A /* APIProvider.swift */; };
 		84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BC1F68E3CD00F2ED7A /* API.swift */; };
@@ -85,7 +85,7 @@
 		8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		8433E5351F67ECD600C5AC21 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = View/BaseViewController.swift; sourceTree = "<group>"; };
 		8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = Extension/TextFieldExtension.swift; sourceTree = "<group>"; };
-		845CD2341F70ED760063ACB8 /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Empty.xib; path = XIB/FreeForUsersAlert/Empty.xib; sourceTree = "<group>"; };
+		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		84A871BA1F68E3BB00F2ED7A /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIProvider.swift; path = API/APIProvider.swift; sourceTree = "<group>"; };
 		84A871BC1F68E3CD00F2ED7A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		845CD2331F70ED4F0063ACB8 /* FreeForUsersAlert */ = {
 			isa = PBXGroup;
 			children = (
-				845CD2341F70ED760063ACB8 /* Empty.xib */,
+				845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */,
 			);
 			name = FreeForUsersAlert;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 				84A871D01F6A7AD300F2ED7A /* QuestionCell.xib in Resources */,
 				66EEFD5E1F5FDDFA00C5C77A /* Assets.xcassets in Resources */,
 				8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */,
-				845CD2351F70ED760063ACB8 /* Empty.xib in Resources */,
+				845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */,
 				8433E5261F679BE000C5AC21 /* Main.storyboard in Resources */,
 				84A871C61F69305D00F2ED7A /* PendingQuestion.xib in Resources */,
 			);

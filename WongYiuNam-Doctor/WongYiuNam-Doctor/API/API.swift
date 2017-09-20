@@ -85,7 +85,7 @@ extension API {
         switch self {
         default:
 //            .requestParameters(parameters: self.parameters!, encoding: JSONEncoding(options: []))
-            return .request
+            return .requestParameters(parameters: self.parameters!, encoding: self.parameterEncoding)
         }
     }
     public var sampleData: Data {
@@ -104,7 +104,7 @@ let endPoint = { (target: API) -> Endpoint<API> in
     return Endpoint<API>(url: url,
                          sampleResponseClosure: {.networkResponse(200, target.sampleData)},
                          method: target.method,
-                         parameters: target.parameters,
+                         task: target.task,
                          httpHeaderFields: header)
 }
 let apiProvider = MoyaProvider<API>(endpointClosure: endPoint,

@@ -12,12 +12,19 @@ class AboutUsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadWebView()
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
+    }
+    
+    func loadWebView(){
+        let webView = UIWebView()
+        webView.frame = self.view.bounds
+        self.view.addSubview(webView)
+        webView.loadRequest(URLRequest(url: URL(string: "http://wongyiunam.com/article.php?id=17")!))
     }
 }

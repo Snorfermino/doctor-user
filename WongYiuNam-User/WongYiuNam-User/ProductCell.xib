@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ProductCell" customModule="WongYiuNam_User" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="136.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KcM-rz-4ja">
+                        <rect key="frame" x="15" y="18.5" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="KcM-rz-4ja" secondAttribute="height" multiplier="1:1" id="Kg2-11-Uv3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.60784313729999995" green="0.59999999999999998" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium Bird's Nest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n45-cC-vvK">
+                        <rect key="frame" x="123" y="18" width="169" height="20"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ha-5X-EmA" customClass="FavoriteButton" customModule="WongYiuNam_User" customModuleProvider="target">
+                        <rect key="frame" x="307" y="19.5" width="20" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="5ha-5X-EmA" secondAttribute="height" multiplier="20:17" id="MGA-06-opH"/>
+                        </constraints>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S$240.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gX8-hM-uMG">
+                        <rect key="frame" x="123" y="39" width="69" height="18.5"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" red="1" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QTY: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diV-4L-6J6">
+                        <rect key="frame" x="123" y="94" width="44" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5ha-5X-EmA" firstAttribute="leading" secondItem="n45-cC-vvK" secondAttribute="trailing" constant="15" id="Ae4-WW-ocT"/>
+                    <constraint firstItem="5ha-5X-EmA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="20:350" id="Cth-Oa-1mf"/>
+                    <constraint firstItem="gX8-hM-uMG" firstAttribute="leading" secondItem="n45-cC-vvK" secondAttribute="leading" id="PwC-IL-N2f"/>
+                    <constraint firstItem="gX8-hM-uMG" firstAttribute="top" secondItem="n45-cC-vvK" secondAttribute="bottom" constant="1" id="RjV-ok-m5d"/>
+                    <constraint firstItem="n45-cC-vvK" firstAttribute="top" secondItem="KcM-rz-4ja" secondAttribute="top" id="WTc-C0-8Rv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5ha-5X-EmA" secondAttribute="trailing" constant="15" id="cgj-Sp-qne"/>
+                    <constraint firstItem="KcM-rz-4ja" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hrV-R5-l7b"/>
+                    <constraint firstItem="5ha-5X-EmA" firstAttribute="centerY" secondItem="n45-cC-vvK" secondAttribute="centerY" id="kHT-dN-skk"/>
+                    <constraint firstItem="diV-4L-6J6" firstAttribute="leading" secondItem="n45-cC-vvK" secondAttribute="leading" id="kYw-0Y-Dtq"/>
+                    <constraint firstItem="KcM-rz-4ja" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:350" id="n8R-8c-JJJ"/>
+                    <constraint firstItem="KcM-rz-4ja" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="q4B-oY-Zrq"/>
+                    <constraint firstItem="n45-cC-vvK" firstAttribute="leading" secondItem="KcM-rz-4ja" secondAttribute="trailing" constant="8" id="rRs-n5-WTR"/>
+                    <constraint firstAttribute="bottom" secondItem="diV-4L-6J6" secondAttribute="bottom" constant="26" id="sy2-Oq-Tej"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="141" y="101.5"/>
+        </tableViewCell>
+    </objects>
+</document>

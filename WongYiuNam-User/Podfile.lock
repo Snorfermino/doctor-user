@@ -1,8 +1,26 @@
 PODS:
   - Alamofire (4.5.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - DRPLoadingSpinner (1.3.1):
     - DRPLoadingSpinner/core (= 1.3.1)
   - DRPLoadingSpinner/core (1.3.1)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FBSDKCoreKit (4.26.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.26.0):
+    - FBSDKCoreKit
   - LTHRadioButton (1.2.0)
   - Moya (9.0.0):
     - Moya/Core (= 9.0.0)
@@ -27,6 +45,8 @@ PODS:
 
 DEPENDENCIES:
   - DRPLoadingSpinner
+  - FacebookCore
+  - FacebookLogin
   - LTHRadioButton
   - Moya-ObjectMapper
   - RxCocoa
@@ -37,7 +57,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DRPLoadingSpinner: 725e530bf4ebe2cc351b1fbc94d24fe8ac3300fd
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
+  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   LTHRadioButton: bcd4b49a8e0af81b5140e67583a868d96e956557
   Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
   Moya-ObjectMapper: 96cde46cc673000dc45dde7c476b2d53d59f0159
@@ -49,6 +74,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
   SwiftyButton: f0982849c00ef5a0ed0852202d00201af0943000
 
-PODFILE CHECKSUM: 5a612ff0fa03b20be3ef96912cd87a7989b19265
+PODFILE CHECKSUM: fd8eda5c6885ae91b1252e3a1be4b09a405d6c27
 
 COCOAPODS: 1.3.1

@@ -10,4 +10,6 @@ target 'WongYiuNam-User' do
     pod 'Moya-ObjectMapper'
     pod 'SwiftyButton'
     pod 'DRPLoadingSpinner'
+pod 'FacebookCore'
+pod 'FacebookLogin'
 end

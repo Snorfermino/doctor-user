@@ -7,9 +7,17 @@
 //
 
 import UIKit
+protocol ProductCellProtocol {
+    func addToCart()
+}
 
 class ProductCell: UITableViewCell {
-
+    
+    @IBOutlet weak var lbProductName:UILabel!
+    @IBOutlet weak var lbPrice:UILabel!
+    @IBOutlet weak var imgViewProduct:UIImageView!
+    var productID:String = ""
+    var delegate: ProductCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +29,8 @@ class ProductCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func addToCard(_ sender: UIButton) {
+        
+        delegate?.addToCart()
+    }
 }

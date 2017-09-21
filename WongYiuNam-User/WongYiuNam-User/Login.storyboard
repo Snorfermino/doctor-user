@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Suc-xX-U1a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Sign In View Controller-->
         <scene sceneID="idH-P7-WLP">
@@ -20,38 +28,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="A7X-HQ-3Rz">
-                                <rect key="frame" x="67" y="133" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="A7X-HQ-3Rz">
+                                <rect key="frame" x="102" y="95" width="170" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="A7X-HQ-3Rz" secondAttribute="height" multiplier="170:110" id="YVD-0f-c38"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sFW-9P-P3F">
-                                <rect key="frame" x="45" y="301" width="285" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sFW-9P-P3F">
+                                <rect key="frame" x="30" y="242" width="315" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sFW-9P-P3F" secondAttribute="height" multiplier="315:50" id="dH4-ST-c5b"/>
+                                </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5a-eY-RCk">
-                                <rect key="frame" x="45" y="351" width="285" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-Wb-Xza">
+                                <rect key="frame" x="30" y="307" width="315" height="50"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQj-Cc-Kjc">
-                                <rect key="frame" x="150" y="434" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Sign In"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQj-Cc-Kjc">
+                                <rect key="frame" x="47" y="372" width="280" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yQj-Cc-Kjc" secondAttribute="height" multiplier="280:48" id="hUP-OR-GSr"/>
+                                </constraints>
+                                <state key="normal" image="img_btnSignIn"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMh-lP-klV">
-                                <rect key="frame" x="94" y="472" width="186" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Sign Up with Facebook"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMh-lP-klV">
+                                <rect key="frame" x="47.5" y="435" width="280" height="48"/>
+                                <state key="normal" image="img_btnFacebookLogin"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqJ-aH-TVm">
-                                <rect key="frame" x="130" y="510" width="115" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqJ-aH-TVm">
+                                <rect key="frame" x="133" y="493" width="109" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Forgot password">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,9 +79,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-rA-dtj" customClass="LoginButton">
+                                <rect key="frame" x="47.5" y="435" width="280" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A7X-HQ-3Rz" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="0ky-td-f3q"/>
+                            <constraint firstItem="jTC-Wb-Xza" firstAttribute="top" secondItem="sFW-9P-P3F" secondAttribute="bottom" constant="15" id="3N2-7j-LB1"/>
+                            <constraint firstItem="jTC-Wb-Xza" firstAttribute="width" secondItem="sFW-9P-P3F" secondAttribute="width" id="7nx-zl-TaK"/>
+                            <constraint firstItem="jTC-Wb-Xza" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="Aqh-5p-9LS"/>
+                            <constraint firstItem="jTC-Wb-Xza" firstAttribute="width" secondItem="jTC-Wb-Xza" secondAttribute="height" multiplier="315:50" id="I8U-kF-RsI"/>
+                            <constraint firstItem="PMh-lP-klV" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="IrL-2P-7G1"/>
+                            <constraint firstItem="KqJ-aH-TVm" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="LcO-fb-SaH"/>
+                            <constraint firstItem="PMh-lP-klV" firstAttribute="height" secondItem="yQj-Cc-Kjc" secondAttribute="height" id="QUg-lH-mbF"/>
+                            <constraint firstItem="sFW-9P-P3F" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="UtR-uo-k6v"/>
+                            <constraint firstItem="yQj-Cc-Kjc" firstAttribute="width" secondItem="oy3-lj-vma" secondAttribute="width" multiplier="280:375" id="VII-OX-Hau"/>
+                            <constraint firstItem="A7X-HQ-3Rz" firstAttribute="width" secondItem="oy3-lj-vma" secondAttribute="width" multiplier="170:375" id="Whw-Xa-3My"/>
+                            <constraint firstItem="2RH-rA-dtj" firstAttribute="top" secondItem="yQj-Cc-Kjc" secondAttribute="bottom" constant="15" id="e5z-eb-f7g"/>
+                            <constraint firstItem="sFW-9P-P3F" firstAttribute="width" secondItem="oy3-lj-vma" secondAttribute="width" multiplier="315:375" id="g2c-1m-fjU"/>
+                            <constraint firstItem="2RH-rA-dtj" firstAttribute="height" secondItem="yQj-Cc-Kjc" secondAttribute="height" id="gJn-Pw-cG9"/>
+                            <constraint firstItem="PMh-lP-klV" firstAttribute="width" secondItem="yQj-Cc-Kjc" secondAttribute="width" id="iI4-Qz-PPc"/>
+                            <constraint firstItem="A7X-HQ-3Rz" firstAttribute="top" secondItem="oy3-lj-vma" secondAttribute="top" constant="95" id="iWa-hP-6mo"/>
+                            <constraint firstItem="sFW-9P-P3F" firstAttribute="top" secondItem="A7X-HQ-3Rz" secondAttribute="bottom" constant="37" id="kIP-eG-c28"/>
+                            <constraint firstItem="KqJ-aH-TVm" firstAttribute="top" secondItem="PMh-lP-klV" secondAttribute="bottom" constant="10" id="moJ-Rr-6nq"/>
+                            <constraint firstItem="2RH-rA-dtj" firstAttribute="width" secondItem="yQj-Cc-Kjc" secondAttribute="width" id="ps4-fx-DJa"/>
+                            <constraint firstItem="PMh-lP-klV" firstAttribute="top" secondItem="yQj-Cc-Kjc" secondAttribute="bottom" constant="15" id="tEv-pi-EEK"/>
+                            <constraint firstItem="yQj-Cc-Kjc" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="u3R-tC-vfC"/>
+                            <constraint firstItem="yQj-Cc-Kjc" firstAttribute="top" secondItem="jTC-Wb-Xza" secondAttribute="bottom" constant="15" id="vtK-Mb-gE4"/>
+                            <constraint firstItem="2RH-rA-dtj" firstAttribute="centerX" secondItem="oy3-lj-vma" secondAttribute="centerX" id="yjz-a6-FVb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnFBLogin" destination="PMh-lP-klV" id="Q6X-LE-oCg"/>
+                        <outlet property="viewBtnFBLogin" destination="2RH-rA-dtj" id="UDU-bL-XvX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gu-wg-Wwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,6 +209,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="168" height="100"/>
+        <image name="img_btnFacebookLogin" width="280" height="48"/>
+        <image name="img_btnSignIn" width="280" height="48"/>
+        <image name="logo" width="171" height="110"/>
     </resources>
 </document>

@@ -31,7 +31,7 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :uat do
     match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "WongYiuNam-User", configuration: "Debug") # Build your app - more options available
+    gym(scheme: "WongYiuNam-Doctor", configuration: "Debug") # Build your app - more options available
     pilot(skip_waiting_for_build_processing: true)
 
     # sh "your_script.sh"
@@ -42,7 +42,7 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "WongYiuNam-User") # Build your app - more options available
+    gym(scheme: "WongYiuNam-Doctor") # Build your app - more options available
     pilot(skip_waiting_for_build_processing: true)
 
     # sh "your_script.sh"
@@ -53,7 +53,7 @@ platform :ios do
   lane :release do
     match(type: "appstore")
     # snapshot
-    gym(scheme: "WongYiuNam-User") # Build your app - more options available
+    gym(scheme: "WongYiuNam-Doctor") # Build your app - more options available
     deliver(force: true)
     # frameit
   end

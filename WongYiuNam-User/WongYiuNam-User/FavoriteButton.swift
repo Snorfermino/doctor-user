@@ -10,32 +10,28 @@ import UIKit
 
 class FavoriteButton: UIButton {
     
-    var isChecked: Bool = false {
+    override var isSelected: Bool {
         didSet{
-            if isChecked {
-                self.setImage(#imageLiteral(resourceName: "img_favChecked"), for: .normal)
-            } else {
-                self.setImage(#imageLiteral(resourceName: "img_favUnchecked"), for: .normal)
-            }
+            let image = isSelected ? #imageLiteral(resourceName: "img_favChecked") : #imageLiteral(resourceName: "img_favUnchecked")
+            setImage(image, for: .normal)
         }
     }
     
     override func awakeFromNib() {
         self.backgroundColor = UIColor.clear
-        self.addTarget(self, action: #selector(FavoriteButton.buttonClicked(_:)), for: .touchUpInside)
-        isChecked = false
-        
+        // TODO: this logic should be move to ProductCell configuration
+//        self.addTarget(self, action: #selector(FavoriteButton.buttonClicked(_:)), for: .touchUpInside)
     }
     
-    func buttonClicked(_ sender : UIButton){
-        print("touched")
-        if ( sender == self  ) {
-            if isChecked {
-                isChecked = false
-            } else {
-                isChecked = true
-            }
-            
-        }
-    }
+//    @objc func buttonClicked(_ sender : UIButton){
+//        print("touched")
+//        if ( sender == self  ) {
+//            if isChecked {
+//                isChecked = false
+//            } else {
+//                isChecked = true
+//            }
+//
+//        }
+//    }
 }

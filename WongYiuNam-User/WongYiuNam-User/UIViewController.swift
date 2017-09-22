@@ -11,24 +11,24 @@ import UIKit
 extension UIViewController {
     
     func setNavigationBarItem() {
-        addLeftBarButtonWithImage(UIImage(named: "nav-menu")!)
+        addLeftBarButtonWithImage(#imageLiteral(resourceName: "nav-menu"))
         navigationController?.navigationBar.setBackgroundImage(UIImage.from(color: UIColor(red: 246, green: 246, blue: 246)), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
         addLogoToTitleView()
-        addRightBarButtonWithImage(UIImage(named: "nav-login")!)
+        addRightBarButtonWithImage(#imageLiteral(resourceName: "nav-login"))
         slideMenuController()?.removeLeftGestures()
         slideMenuController()?.addLeftGestures()
     }
     
     func setNavigationBarItemForBack() {
-        let image = UIImage(named: "nav-back")?.withRenderingMode(.alwaysOriginal)
+        let image = #imageLiteral(resourceName: "nav-back").withRenderingMode(.alwaysOriginal)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(popViewController))
         navigationItem.setLeftBarButton(button, animated: true)
         addLogoToTitleView()
     }
     
-    func popViewController() {
+    @objc func popViewController() {
         navigationController?.popViewController(animated: true)
     }
     
@@ -49,7 +49,7 @@ extension UIViewController {
         NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
     }
     
-    func logoImageViewClicked() {
+    @objc func logoImageViewClicked() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         let temp = UINavigationController(rootViewController: homeViewController)

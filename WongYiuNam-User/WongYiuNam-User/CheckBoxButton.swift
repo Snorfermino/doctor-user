@@ -7,41 +7,26 @@
 //
 
 import UIKit
-
-protocol CheckBoxButtonDelegate{
-    func buttonClicked(value : Bool)
-    
-}
+import RxCocoa
+import RxSwift
 
 class CheckBoxButton: UIButton {
-
-    var delegate : CheckBoxButtonDelegate?
-    let checkedImage = UIImage(named: "ic_check_on")! as UIImage
-    let uncheckedImage = UIImage(named: "ic_check")! as UIImage
     
-    var isChecked: Bool = false {
+    fileprivate let disposeBag = DisposeBag()
+    
+    override var isSelected: Bool {
         didSet{
-            if isChecked == true {
-                self.setBackgroundImage(checkedImage, for: .normal)
-            } else {
-                self.setBackgroundImage(uncheckedImage, for: .normal)
-            }
+            let image = isSelected ? #imageLiteral(resourceName: "ic_check_on") : #imageLiteral(resourceName: "ic_check")
+            setBackgroundImage(image, for: .normal)
         }
     }
     
     override func awakeFromNib() {
-        self.addTarget(self, action: #selector(buttonClicked(sender:)), for: UIControlEvents.touchUpInside)
-        self.isChecked = false
-    }
-    
-    func buttonClicked(sender: UIButton) {
-        if sender == self {
-            if isChecked == true {
-                isChecked = false
-            } else {
-                isChecked = true
-            }
-        }
-        delegate?.buttonClicked(value: isChecked)
+        super.awakeFromNib()
+        self.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.isSelected = !self.isSelected
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -16,7 +16,6 @@ target 'WongYiuNam-Doctor' do
     inherit! :search_paths
     # Pods for testing
   end
-pod 'PPBadgeViewSwift'
 pod ‘Moya’ 
 pod 'Alamofire'
 pod 'AlamofireObjectMapper'

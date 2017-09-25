@@ -10,14 +10,15 @@ import Moya
 import Moya_ObjectMapper
 
 class ApiManager {
-    static func getDoctors(completion: @escaping (([Doctor]) -> Void)) {
+    
+    static func getDoctors(page: Int, completion: @escaping (([Doctor]) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
-        provider.request(.doctors) { (result) in
+        provider.request(.doctors(page: page)) { (result) in
             switch result {
             case .success(let response):
                 print(response)
                 do {
-                    let doctorsResponse: PagingResponse<Doctor> = try response.mapObject(PagingResponse<Doctor>.self)
+                    let doctorsResponse = try response.mapObject(PagingResponse<Doctor>.self)
                     if let doctors = doctorsResponse.data {
                         completion(doctors)
                     } else {
@@ -28,6 +29,25 @@ class ApiManager {
                 }
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    static func login(email: String, password: String, completion: @escaping ((User?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.login(email: email, password: password)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let userResponse = try response.mapObject(User.self)
+                    completion(userResponse)
+                } catch {
+                    completion(nil)
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil)
             }
         }
     }

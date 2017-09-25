@@ -12,4 +12,6 @@ target 'WongYiuNam-User' do
     pod 'DRPLoadingSpinner'
     pod 'FacebookCore'
     pod 'FacebookLogin'
+    pod 'UILoadControl'
+    pod 'PopupDialog'
 end

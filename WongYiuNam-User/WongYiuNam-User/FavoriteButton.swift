@@ -22,16 +22,4 @@ class FavoriteButton: UIButton {
         // TODO: this logic should be move to ProductCell configuration
 //        self.addTarget(self, action: #selector(FavoriteButton.buttonClicked(_:)), for: .touchUpInside)
     }
-    
-//    @objc func buttonClicked(_ sender : UIButton){
-//        print("touched")
-//        if ( sender == self  ) {
-//            if isChecked {
-//                isChecked = false
-//            } else {
-//                isChecked = true
-//            }
-//
-//        }
-//    }
 }

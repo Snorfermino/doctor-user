@@ -45,8 +45,11 @@ extension UIViewController {
     }
     
     func loginBarButtonItemClicked() {
-        Global.logined = !Global.logined
-        NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
+        //Global.logined = !Global.logined
+        //NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
+        let storyboard = UIStoryboard.init(name: "Login", bundle: nil)
+        let d = storyboard.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
+        present(d, animated: true, completion: nil)
     }
     
     @objc func logoImageViewClicked() {

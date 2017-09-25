@@ -10,9 +10,28 @@ import UIKit
 import SlideMenuControllerSwift
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var sliderScrollView: UIScrollView!
+    @IBOutlet weak var sliderPageControl: UIPageControl!
+    @IBOutlet weak var uploadPrescriptionButton: UIButton!
 
+    let listImages = ["home-bitmap", "1", "2", "3"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initSlider()
+    }
+    
+    func initSlider() {
+        sliderScrollView.isPagingEnabled = true
+        sliderScrollView.contentSize = CGSize(width: view.bounds.width * CGFloat(listImages.count), height: 200)
+        sliderScrollView.showsHorizontalScrollIndicator = false
+        sliderScrollView.delegate = self
+        for (idx, imageName) in listImages.enumerated() {
+            let img = UIImageView(image: UIImage(named: imageName))
+            sliderScrollView.addSubview(img)
+            img.frame.origin.x = CGFloat(idx) * sliderScrollView.frame.size.width
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,5 +72,13 @@ extension HomeViewController : SlideMenuControllerDelegate {
     
     func rightDidClose() {
         print("SlideMenuControllerDelegate: rightDidClose")
+    }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width
+        sliderPageControl.currentPage = Int(page)
     }
 }

@@ -37,8 +37,6 @@ class AudioRecorderManager: NSObject {
                 print("Pemission denied")
             case AVAudioSessionRecordPermission.undetermined:
                 print("Request permission here")
-            default:
-                break
             }
             
             
@@ -67,20 +65,20 @@ class AudioRecorderManager: NSObject {
             recorder?.isMeteringEnabled = true
             recorder?.prepareToRecord()
             
-            self.meterTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(timer:Timer) in
-                if let recorder = self.recorder {
-                    recorder.updateMeters()
-                    self.recorderApc0 = recorder.averagePower(forChannel: 0 )
-                    self.recorderPeak0 = recorder.peakPower(forChannel: 0)
-                
-                }
-            })
+            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateMeterTimer), userInfo: nil, repeats: true)
             return true
         } catch {
             print("Error Recording")
             return false
         }
+    }
     
+    @objc func updateMeterTimer() {
+        if let recorder = self.recorder {
+            recorder.updateMeters()
+            self.recorderApc0 = recorder.averagePower(forChannel: 0 )
+            self.recorderPeak0 = recorder.peakPower(forChannel: 0)
+        }
     }
     
     func finishRecording(){

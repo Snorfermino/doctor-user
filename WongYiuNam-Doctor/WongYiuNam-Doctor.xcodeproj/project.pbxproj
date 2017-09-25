@@ -396,6 +396,7 @@
 					66EEFD521F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
@@ -406,12 +407,14 @@
 					66EEFD661F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 66EEFD521F5FDDFA00C5C77A;
 					};
 					66EEFD711F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 66EEFD521F5FDDFA00C5C77A;
 					};
@@ -530,7 +533,6 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PPBadgeViewSwift/PPBadgeViewSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -541,7 +543,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPBadgeViewSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -817,12 +818,14 @@
 				DEVELOPMENT_TEAM = 8AN899D996;
 				HEADERMAP_USES_VFS = YES;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6a7ee551-f40e-4048-a1f3-723b96db4cfd";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.doctor";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -838,12 +841,14 @@
 				DEVELOPMENT_TEAM = 8AN899D996;
 				HEADERMAP_USES_VFS = YES;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5b757434-feb1-4d06-8785-178baac54c35";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -859,7 +864,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WongYiuNam-Doctor.app/WongYiuNam-Doctor";
 			};
 			name = Debug;
@@ -875,7 +881,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WongYiuNam-Doctor.app/WongYiuNam-Doctor";
 			};
 			name = Release;
@@ -890,7 +897,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "WongYiuNam-Doctor";
 			};
 			name = Debug;
@@ -905,7 +913,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "WongYiuNam-Doctor";
 			};
 			name = Release;

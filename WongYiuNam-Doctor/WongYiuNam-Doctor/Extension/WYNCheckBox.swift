@@ -10,32 +10,20 @@ import UIKit
 
 class WYNCheckBox: UIButton {
 
-    var isChecked: Bool = false {
-        didSet{
-            if isChecked {
-                self.setImage(#imageLiteral(resourceName: "ic_boxChecked"), for: .normal)
-            } else {
-                self.setImage(#imageLiteral(resourceName: "ic_boxUnchecked"), for: .normal)
-            }
+    override var isSelected: Bool {
+        didSet {
+            let image = isSelected ? #imageLiteral(resourceName: "ic_boxChecked") : #imageLiteral(resourceName: "ic_boxUnchecked")
+            setImage(image, for: .normal)
         }
     }
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         self.backgroundColor = UIColor.clear
         self.addTarget(self, action: #selector(WYNCheckBox.buttonClicked(_:)), for: .touchUpInside)
-        isChecked = false
-        
     }
     
-    func buttonClicked(_ sender : UIButton){
-        print("touched")
-        if ( sender == self  ) {
-            if isChecked {
-                isChecked = false
-            } else {
-                isChecked = true
-            }
-            
-        }
+    @objc func buttonClicked(_ sender : UIButton){
+        isSelected = !isSelected
     }
 }

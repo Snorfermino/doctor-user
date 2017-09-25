@@ -32,7 +32,7 @@ class RecordAnswerViewController: BaseViewController {
         dateFormatter.allowedUnits = [.minute,.second]
         dateFormatter.calendar = Calendar.current
         
-        timerUpdater.setEventHandler { [weak self] in
+        timerUpdater.setEventHandler {
             guard let peak = AudioRecorderManager.shared.recorder else {
                 return
             }
@@ -60,7 +60,7 @@ class RecordAnswerViewController: BaseViewController {
     }
     
     func replyAnswer(){
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        _ = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         apiProvider.request(.replyQuestion) { (result) in
             switch result {
             case let .success(response):

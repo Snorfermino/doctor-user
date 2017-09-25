@@ -10,13 +10,23 @@ import UIKit
 
 class ListenToAnswerViewController: BaseViewController {
     
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    let listQuestions = [(question: "I cannot sleep !!! Why?", paid: true), (question: "My wife feels very sad", paid: true), (question: "OK!!! DONE", paid: false)]
+    let listQuestions = [(question: "I cannot sleep !!! Why?", paid: true), (question: "My wife feels very sad pkjas lj laks lkasjlk sjlkfjlaskdjflsaj lk jlska jks jks jk jksj ksjksjfiejowijo", paid: true), (question: "OK!!! DONE", paid: false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        initFooterView()
+    }
+    
+    func initFooterView() {
+        footerView.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0)
+        let colors = [UIColor.init(red: 1, green: 1, blue: 1, alpha: 0), UIColor.init(red: 246, green: 246, blue: 246)]
+        footerView.setGradientBackground(colors: colors)
     }
 }
 
@@ -36,13 +46,14 @@ extension ListenToAnswerViewController: UITableViewDataSource {
             nameLabel.text = question.question
         }
         if let statusButton = cell.viewWithTag(101) as? UIButton {
-            //statusButton.buttonType = .custom
+            statusButton.setImage(UIImage(named: "play-button"), for: .normal)
+        }
+        if let freeOrPayLabel = cell.viewWithTag(102) as? UILabel {
             if(question.paid) {
-                statusButton.setImage(UIImage(named: "play-button"), for: .normal)
+                freeOrPayLabel.text = "Pay to Listen"
             } else {
-                statusButton.setImage(UIImage(named: "play-button-lock"), for: .normal)
+                freeOrPayLabel.text = "Free to Listen"
             }
-            //statusButton.makeCircular()
         }
         return cell
     }

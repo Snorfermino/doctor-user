@@ -40,7 +40,7 @@ protocol LeftMenuProtocol : class {
     func changeViewController(_ menu: LeftMenu)
 }
 
-class LeftViewController : UIViewController, LeftMenuProtocol {
+class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social Wall"
@@ -57,6 +57,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var aboutUsViewController: UIViewController!
     var inviteaFriendViewController: UIViewController!
     var notificationsViewController: UIViewController!
+    var signInViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     fileprivate let disposeBag = DisposeBag()
@@ -71,6 +72,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         self.tableView.separatorColor = UIColor(red: 224, green: 224, blue: 224)
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let askaDoctorStoryboard = UIStoryboard(name: "AskaDoctor", bundle: nil)
         
         let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -106,16 +108,24 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let inviteaFriendViewController = mainStoryboard.instantiateViewController(withIdentifier: "InviteaFriendViewController") as! InviteaFriendViewController
         self.inviteaFriendViewController = UINavigationController(rootViewController: inviteaFriendViewController)
         
+        let signInViewController = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        self.signInViewController = UINavigationController(rootViewController: signInViewController)
+        
         self.tableView.registerCellClass(MenuTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
         self.view.addSubview(self.imageHeaderView)
+        imageHeaderView.delegate = self
         
         NotificationCenter.default.rx.notification(Notification.Name("UserLoginedNotification"))
             .subscribe(onNext: { _ in
                 self.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+    }
+    
+    func goToSignIn() {
+        slideMenuController()?.changeMainViewController(signInViewController, close: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

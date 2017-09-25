@@ -8,6 +8,7 @@
 
 import UIKit
 import DRPLoadingSpinner
+import UILoadControl
 
 class AskaDoctorViewController: BaseViewController {
 
@@ -15,6 +16,8 @@ class AskaDoctorViewController: BaseViewController {
     var listDoctors: [Doctor] = []
     let activityIndicatorView = DRPLoadingSpinner()
     var idx: IndexPath = IndexPath(row: 0, section: 0)
+    var page = 1
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +26,32 @@ class AskaDoctorViewController: BaseViewController {
         tableView.separatorStyle = .none
         activityIndicatorView.initView(view: view)
         tableView.addSubview(activityIndicatorView)
+        tableView.loadControl = UILoadControl(target: self, action: #selector(loadMoreTableView))
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl) // not required when using UITableViewController
         loadListDoctors()
-//        let temp = Doctor()
-//        self.listDoctors = [temp]
-//        self.tableView.reloadData()
+    }
+    
+    func refresh(sender:AnyObject) {
+        let completion = {(data: [Doctor]) -> Void in
+            self.refreshControl.endRefreshing()
+            self.listDoctors = data
+            self.tableView.reloadData()
+        }
+        page = 1
+        ApiManager.getDoctors(page: page, completion: completion)
+    }
+    
+    func loadMoreTableView() {
+        let completion = {(data: [Doctor]) -> Void in
+            self.tableView.loadControl?.endLoading()
+            self.listDoctors.append(contentsOf: data)
+            self.tableView.reloadData()
+        }
+        page += 1
+        ApiManager.getDoctors(page: page, completion: completion)
     }
     
     func loadListDoctors() {
@@ -36,7 +61,8 @@ class AskaDoctorViewController: BaseViewController {
             self.listDoctors = data
             self.tableView.reloadData()
         }
-        ApiManager.getDoctors(completion: completion)
+        page = 1
+        ApiManager.getDoctors(page: page, completion: completion)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +119,12 @@ extension AskaDoctorViewController: UITableViewDataSource {
             //
         }
         return cell
+    }
+}
+
+extension AskaDoctorViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.loadControl?.update()
     }
 }
 

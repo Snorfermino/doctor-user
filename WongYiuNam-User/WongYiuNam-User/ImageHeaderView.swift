@@ -9,10 +9,15 @@
 import UIKit
 import SlideMenuControllerSwift
 
+protocol ImageHeaderViewDelegate: class {
+    func goToSignIn()
+}
+
 class ImageHeaderView : UIView {
     
     @IBOutlet weak var profileImage : UIImageView!
     @IBOutlet weak var backgroundImage : UIImageView!
+    weak var delegate: ImageHeaderViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +32,9 @@ class ImageHeaderView : UIView {
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        Global.logined = !Global.logined
-        NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
+        delegate?.goToSignIn()
+//        let storyboard = UIStoryboard.init(name: "Login", bundle: nil)
+//        let d = storyboard.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
+//        UIApplication.shared.keyWindow?.rootViewController?.show(d, sender: nil)
     }
 }

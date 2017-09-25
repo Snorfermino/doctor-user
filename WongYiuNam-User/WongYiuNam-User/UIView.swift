@@ -13,6 +13,10 @@ class DesignableView: UIView {
 }
 
 @IBDesignable
+class DesignableTextField: UITextField {
+}
+
+@IBDesignable
 class DesignableImageView: UIImageView {
 }
 
@@ -123,6 +127,17 @@ extension UIView {
     func makeCircular() {
         layer.cornerRadius = frame.height * 0.5
         clipsToBounds = true
+    }
+    
+    func setGradientBackground(colors: [UIColor]) {
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        var cgcolors: [CGColor] = []
+        for color in colors {
+            cgcolors.append(color.cgColor)
+        }
+        gradient.colors = cgcolors
+        layer.insertSublayer(gradient, at: 0)
     }
 }
 

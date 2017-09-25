@@ -13,6 +13,7 @@
 		66EEFD9B1F5FDE0900C5C77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */; };
 		66EEFDA61F5FDE0900C5C77A /* WongYiuNam_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFDA51F5FDE0900C5C77A /* WongYiuNam_UserTests.swift */; };
 		66EEFDB11F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFDB01F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift */; };
+		840C03B01F78AE72009D86CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C03AF1F78AE72009D86CD /* User.swift */; };
 		8421A7F31F6A3E15007406D3 /* DayInScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */; };
 		8421A7F51F6A3E2E007406D3 /* DayInScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */; };
 		8427D7451F60FA3A007B34F4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D7441F60FA3A007B34F4 /* UIViewController.swift */; };
@@ -42,6 +43,8 @@
 		84A72FD61F694423001B30E0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A72FD51F694423001B30E0 /* Login.storyboard */; };
 		84A72FD91F69482F001B30E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72FD81F69482F001B30E0 /* SignInViewController.swift */; };
 		84A72FDB1F69483B001B30E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72FDA1F69483B001B30E0 /* RegisterViewController.swift */; };
+		84BE669C1F7500950025AAF6 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE669A1F7500950025AAF6 /* ForgotPasswordViewController.swift */; };
+		84BE669D1F7500950025AAF6 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BE669B1F7500950025AAF6 /* ForgotPasswordViewController.xib */; };
 		84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */; };
 		84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */; };
 		84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */; };
@@ -93,6 +96,7 @@
 		66EEFDB01F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WongYiuNam_UserUITests.swift; sourceTree = "<group>"; };
 		66EEFDB21F5FDE0900C5C77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		692292A5BEAC4BDC20076DB8 /* Pods-WongYiuNam-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.debug.xcconfig"; sourceTree = "<group>"; };
+		840C03AF1F78AE72009D86CD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayInScheduleView.xib; sourceTree = "<group>"; };
 		8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInScheduleView.swift; sourceTree = "<group>"; };
 		8427D7441F60FA3A007B34F4 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 		84A72FD51F694423001B30E0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84A72FD81F69482F001B30E0 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84A72FDA1F69483B001B30E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		84BE669A1F7500950025AAF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		84BE669B1F7500950025AAF6 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorIntroductionViewController.swift; sourceTree = "<group>"; };
 		84C10CF61F6678F7000B3CEF /* AskaQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaQuestionViewController.swift; sourceTree = "<group>"; };
 		84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenToAnswerViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 				849A948F1F60072D008ACB28 /* View */,
 				849A947D1F60043C008ACB28 /* ViewController */,
 				84A72FD21F68DF96001B30E0 /* Controller */,
+				84BE66991F7500750025AAF6 /* Popup */,
 				84E363BC1F6281B2008E1596 /* Utils */,
 				84C8C9051F6792CA00AA5709 /* Storyboard */,
 			);
@@ -311,6 +318,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		84BE66991F7500750025AAF6 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				84BE669A1F7500950025AAF6 /* ForgotPasswordViewController.swift */,
+				84BE669B1F7500950025AAF6 /* ForgotPasswordViewController.xib */,
+			);
+			name = Popup;
+			sourceTree = "<group>";
+		};
 		84C10CF31F6678B7000B3CEF /* Ask a Doctor */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +365,7 @@
 			children = (
 				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
 				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
+				840C03AF1F78AE72009D86CD /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -469,6 +486,7 @@
 				66EEFD9B1F5FDE0900C5C77A /* LaunchScreen.storyboard in Resources */,
 				84C8C9011F67907B00AA5709 /* AskaDoctor.storyboard in Resources */,
 				84A72FD61F694423001B30E0 /* Login.storyboard in Resources */,
+				84BE669D1F7500950025AAF6 /* ForgotPasswordViewController.xib in Resources */,
 				66EEFD981F5FDE0900C5C77A /* Assets.xcassets in Resources */,
 				8421A7F31F6A3E15007406D3 /* DayInScheduleView.xib in Resources */,
 				84C8C9041F6791A100AA5709 /* Main.storyboard in Resources */,
@@ -507,12 +525,14 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
+				"${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -522,12 +542,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UILoadControl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -582,6 +604,7 @@
 				84ED80A21F70D8A100BE256F /* BaseViewController.swift in Sources */,
 				8427D7471F6100D2007B34F4 /* UploadPrescriptionViewController.swift in Sources */,
 				8427D74D1F610123007B34F4 /* UserAgreementViewController.swift in Sources */,
+				84BE669C1F7500950025AAF6 /* ForgotPasswordViewController.swift in Sources */,
 				84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */,
 				849A94881F600510008ACB28 /* UIApplication.swift in Sources */,
 				849A94861F600504008ACB28 /* UIColor.swift in Sources */,
@@ -615,6 +638,7 @@
 				849A948D1F60064F008ACB28 /* ExSlideMenuController.swift in Sources */,
 				66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */,
 				849A949C1F60078A008ACB28 /* UITableViewExtension.swift in Sources */,
+				840C03B01F78AE72009D86CD /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

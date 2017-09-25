@@ -6,4 +6,27 @@
 //  Copyright © 2017 RTH. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
+
+struct User: Mappable {
+    
+    var id: Int?
+    var name: String?
+    var email: String?
+    var doctor: Doctor?
+    var createdAt: Int?
+    var token: Any?
+    
+    init?(map: Map){
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        token <- map["token"]
+        id <- map["id"]
+        name <- map["name"]
+        email <- map["email"]
+        doctor <- map["doctor"]
+        createdAt <- map["created_at"]
+    }
+}

@@ -12,8 +12,8 @@ import Alamofire
 enum MyServerAPI {
     
     // MARK: - Cameras
-    case doctors
-    case settingsFor(cameraId: String)
+    case doctors(page: Int)
+    case login(email: String, password: String)
     
     // MARK: - User
     case createUser(email: String, password: String)
@@ -21,8 +21,13 @@ enum MyServerAPI {
 // 2:
 extension MyServerAPI: TargetType {
     var headers: [String : String]? {
-        let h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                 "X-Access-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1ODAzNTI2LCJleHAiOjE1MDU4MDcxMjYsIm5iZiI6MTUwNTgwMzUyNiwianRpIjoieldsdVFNQjRkNU81NHk4SyJ9.J3Gad-HiSEA2mtMAbehZ_N3IbIimjmTVBNy1e7m230U"]
+        var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
+        switch self {
+        case .doctors:
+            h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1ODkzNjI1LCJleHAiOjE1MTg4NTM2MjUsIm5iZiI6MTUwNTg5MzYyNSwianRpIjoiZ3U5S0FKU3V3bldsSVo5RCJ9.FHYE0EUGKk50aH5R0V9Buiwa9YsId2-jMYU5f-ETiUo"
+        default:
+            break
+        }
         return h
     }
     
@@ -34,8 +39,8 @@ extension MyServerAPI: TargetType {
         switch self {
         case .doctors:
             return "/doctors"
-        case .settingsFor(let cameraId):
-            return "/cameras/\(cameraId)/settings"
+        case .login:
+            return "/auth/login"
         case .createUser:
             return "/user"
         }
@@ -44,25 +49,25 @@ extension MyServerAPI: TargetType {
     // 5:
     var method: Moya.Method {
         switch self {
-        case .createUser:
+        case .login:
             return .post
         default:
             return .get
         }
     }
-    
+
     // 6:
-    var parameters: [String: Any]? {
-        switch self {
-        case .createUser(let email, let password):
-            var parameters = [String: Any]()
-            parameters["email"] = email
-            parameters["password"] = password
-            return parameters
-        default:
-            return nil
-        }
-    }
+//    var parameters: [String: Any]? {
+//        switch self {
+//        case .login(let email, let password):
+//            var parameters = [String: Any]()
+//            parameters["email"] = email
+//            parameters["password"] = password
+//            return parameters
+//        default:
+//            return nil
+//        }
+//    }
     
     // 7:
     var parameterEncoding: ParameterEncoding {
@@ -76,6 +81,18 @@ extension MyServerAPI: TargetType {
     
     // 9:
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .doctors(let page):
+            var urlParameters = [String: Any]()
+            urlParameters["page"] = page
+            return Task.requestCompositeData(bodyData: Data(), urlParameters: urlParameters)
+        case .login(let email, let password):
+            var parameters = [String: Any]()
+            parameters["email"] = email
+            parameters["password"] = password
+            return Task.requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        default:
+            return Task.requestPlain
+        }
     }
 }

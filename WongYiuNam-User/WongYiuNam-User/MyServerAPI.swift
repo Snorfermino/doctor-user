@@ -8,7 +8,7 @@
 
 import Moya
 import Alamofire
-// 1:
+
 enum MyServerAPI {
     
     // MARK: - Cameras
@@ -18,7 +18,7 @@ enum MyServerAPI {
     // MARK: - User
     case createUser(email: String, password: String)
 }
-// 2:
+
 extension MyServerAPI: TargetType {
     var headers: [String : String]? {
         var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
@@ -31,10 +31,8 @@ extension MyServerAPI: TargetType {
         return h
     }
     
-    // 3:
     var baseURL: URL { return URL(string: "https://wongyiunam-php.herokuapp.com/api")! }
     
-    // 4:
     var path: String {
         switch self {
         case .doctors:
@@ -46,7 +44,6 @@ extension MyServerAPI: TargetType {
         }
     }
     
-    // 5:
     var method: Moya.Method {
         switch self {
         case .login:
@@ -55,32 +52,13 @@ extension MyServerAPI: TargetType {
             return .get
         }
     }
-
-    // 6:
-//    var parameters: [String: Any]? {
-//        switch self {
-//        case .login(let email, let password):
-//            var parameters = [String: Any]()
-//            parameters["email"] = email
-//            parameters["password"] = password
-//            return parameters
-//        default:
-//            return nil
-//        }
-//    }
     
-    // 7:
-    var parameterEncoding: ParameterEncoding {
-        return JSONEncoding.default
-    }
-    
-    // 8:
     var sampleData: Data {
         return Data()
     }
     
-    // 9:
     var task: Task {
+        let encoding = URLEncoding.methodDependent
         switch self {
         case .doctors(let page):
             var urlParameters = [String: Any]()
@@ -90,7 +68,7 @@ extension MyServerAPI: TargetType {
             var parameters = [String: Any]()
             parameters["email"] = email
             parameters["password"] = password
-            return Task.requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
         default:
             return Task.requestPlain
         }

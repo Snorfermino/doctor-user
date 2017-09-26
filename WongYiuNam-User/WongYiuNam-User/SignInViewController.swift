@@ -12,16 +12,13 @@ import PopupDialog
 
 class SignInViewController: UIViewController {
     
-//    @IBOutlet weak var btnFBLogin: UIButton!
-//    @IBOutlet weak var viewBtnFBLogin: LoginButton!
+    @IBOutlet weak var btnFBLogin: UIButton!
     @IBOutlet weak var emailAddressTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewBtnFBLogin = LoginButton(readPermissions: [ .publicProfile ])
-        
-//        btnFBLogin.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
+        btnFBLogin.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
         emailAddressTextField.borderStyle = .none
         passwordTextField.borderStyle = .none
     }

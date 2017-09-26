@@ -131,6 +131,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnFBLogin" destination="PMh-lP-klV" id="ZW1-Bf-03V"/>
                         <outlet property="emailAddressTextField" destination="sFW-9P-P3F" id="Jrq-cp-W3I"/>
                         <outlet property="passwordTextField" destination="X5a-eY-RCk" id="C3v-aA-yLZ"/>
                     </connections>

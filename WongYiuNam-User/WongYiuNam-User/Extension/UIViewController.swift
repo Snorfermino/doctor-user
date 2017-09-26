@@ -16,7 +16,7 @@ extension UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
         addLogoToTitleView()
-        addRightBarButtonWithImage(#imageLiteral(resourceName: "nav-login"))
+        setRightBarButton()
         slideMenuController()?.removeLeftGestures()
         slideMenuController()?.addLeftGestures()
     }
@@ -32,6 +32,22 @@ extension UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func setRightBarButton() {
+        if(Global.user == nil) {
+            addRightBarButtonWithImage(#imageLiteral(resourceName: "nav-login"))
+            navigationItem.rightBarButtonItem?.action = #selector(rightBarButtonItemClicked)
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
+    func rightBarButtonItemClicked() {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let signInViewController = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        let temp = UINavigationController(rootViewController: signInViewController)
+        slideMenuController()?.changeMainViewController(temp, close: true)
+    }
+    
     func addLogoToTitleView() {
         let logoImageView = UIImageView(image: UIImage(named: "logo"))
         logoImageView.scale(f: 0.4)
@@ -45,8 +61,6 @@ extension UIViewController {
     }
     
     func loginBarButtonItemClicked() {
-        //Global.logined = !Global.logined
-        //NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
         let storyboard = UIStoryboard.init(name: "Login", bundle: nil)
         let d = storyboard.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
         present(d, animated: true, completion: nil)

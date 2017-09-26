@@ -50,6 +50,10 @@ class RegisterViewController: BaseViewController {
         
     }
     
+    @IBAction func registerNowButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("UserLoginedNotification"), object: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

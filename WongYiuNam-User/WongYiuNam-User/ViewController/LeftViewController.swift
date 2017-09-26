@@ -119,7 +119,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         NotificationCenter.default.rx.notification(Notification.Name("UserLoginedNotification"))
             .subscribe(onNext: { _ in
+                self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
                 self.tableView.reloadData()
+                self.setRightBarButton()
             })
             .disposed(by: disposeBag)
     }
@@ -160,6 +162,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
         }
     }
+    
     func changeViewController(_ menu: LeftMenuLogined) {
         switch menu {
         case .home:
@@ -185,14 +188,15 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .inviteaFriend:
             slideMenuController()?.changeMainViewController(inviteaFriendViewController, close: true)
         case .logout:
-            print("Logout")
+            Global.user = nil
+            slideMenuController()?.changeMainViewController(signInViewController, close: true)
         }
     }
 }
 
 extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(Global.logined) {
+        if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
                 switch menu {
                 case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
@@ -211,7 +215,7 @@ extension LeftViewController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(Global.logined) {
+        if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
                 self.changeViewController(menu)
             }
@@ -230,7 +234,7 @@ extension LeftViewController : UITableViewDelegate {
 extension LeftViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(Global.logined) {
+        if(Global.user != nil) {
             return menusLogined.count
         } else {
             return menus.count
@@ -238,7 +242,7 @@ extension LeftViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(Global.logined) {
+        if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
                 switch menu {
                 case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :

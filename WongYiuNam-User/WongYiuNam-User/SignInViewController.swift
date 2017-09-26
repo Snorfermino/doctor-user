@@ -31,7 +31,6 @@ class SignInViewController: UIViewController {
     func addFacebookLoginButton(){
         let loginButton = LoginButton(readPermissions: [ .publicProfile ])
         loginButton.center = view.center
-        
         view.addSubview(loginButton)
     }
     
@@ -51,17 +50,17 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordButtonClicked(_ sender: Any) {
-        
         let fotgotPasswordVC = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
         let popup = PopupDialog(viewController: fotgotPasswordVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
-        
         present(popup, animated: true, completion: nil)
     }
     
     @IBAction func signInButtonClicked(_ sender: Any) {
         let email = "admin@admin.com"
         let password = "12345"
+        Utils.showHub(view: view)
         let completion = {(user: User?) -> Void in
+            Utils.hideHub(view: self.view)
             Global.user = user
         }
         ApiManager.login(email: email, password: password, completion: completion)

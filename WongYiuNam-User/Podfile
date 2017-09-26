@@ -13,6 +13,7 @@ target 'WongYiuNam-User' do
     pod 'FacebookLogin'
     pod 'UILoadControl'
     pod 'PopupDialog'
+    pod 'KRProgressHUD'
 end
 
 post_install do |installer|

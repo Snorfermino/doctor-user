@@ -60,6 +60,7 @@
 		84C8C90C1F67EE1300AA5709 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8C90A1F67ECBB00AA5709 /* CheckBoxButton.swift */; };
 		84C8C90E1F67FBA300AA5709 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8C90D1F67FBA300AA5709 /* Camera.swift */; };
 		84C954051F7A42990033B110 /* UserDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C954041F7A42990033B110 /* UserDemo.swift */; };
+		84C954071F7A67650033B110 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C954061F7A67650033B110 /* Utils.swift */; };
 		84E363BE1F6281C5008E1596 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363BD1F6281C4008E1596 /* Global.swift */; };
 		84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C11F62908E008E1596 /* NotificationsViewController.swift */; };
 		84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */; };
@@ -150,6 +151,7 @@
 		84C8C90A1F67ECBB00AA5709 /* CheckBoxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		84C8C90D1F67FBA300AA5709 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		84C954041F7A42990033B110 /* UserDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDemo.swift; sourceTree = "<group>"; };
+		84C954061F7A67650033B110 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		84E363BD1F6281C4008E1596 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		84E363C11F62908E008E1596 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteaFriendViewController.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				84A72FD31F692DA7001B30E0 /* ApiManager.swift */,
 				84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */,
 				840C03B11F78FE0A009D86CD /* DataManager.swift */,
+				84C954061F7A67650033B110 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -569,6 +572,8 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHRadioButton/LTHRadioButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
@@ -590,6 +595,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHRadioButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
@@ -671,6 +678,7 @@
 				84F0A4D81F6F7B4B007B5385 /* DRPLoadingSpinner.swift in Sources */,
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,
 				8427D7521F6122B2007B34F4 /* MenuTableViewCell.swift in Sources */,
+				84C954071F7A67650033B110 /* Utils.swift in Sources */,
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
 				84C8C90C1F67EE1300AA5709 /* CheckBoxButton.swift in Sources */,
 				849A947C1F60042F008ACB28 /* SocialWallViewController.swift in Sources */,

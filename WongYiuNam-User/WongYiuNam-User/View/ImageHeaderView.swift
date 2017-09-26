@@ -33,8 +33,5 @@ class ImageHeaderView : UIView {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         delegate?.goToSignIn()
-//        let storyboard = UIStoryboard.init(name: "Login", bundle: nil)
-//        let d = storyboard.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
-//        UIApplication.shared.keyWindow?.rootViewController?.show(d, sender: nil)
     }
 }

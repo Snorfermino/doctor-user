@@ -10,14 +10,16 @@ import Foundation
 
 class Global {
     static var logined: Bool = false
+    
+    static var userInfo: User?
     static var user: User? {
         set {
-            if let newValue = newValue {
-                DataManager.saveUserInfo(user: newValue)
-            }
+            userInfo = newValue
+            NotificationCenter.default.post(name: Notification.Name("UserLoginedNotification"), object: nil)
+            DataManager.saveUserInfo(user: newValue)
         }
         get {
-            return self.user
+            return userInfo
         }
     }
 }

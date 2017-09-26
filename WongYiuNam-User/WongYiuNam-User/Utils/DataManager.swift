@@ -10,9 +10,9 @@ import Foundation
 
 class DataManager {
     
-    static func saveUserInfo(user: User) {
+    static func saveUserInfo(user: User?) {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(user.toJSON(), forKey: "userInfo")
+        userDefaults.set(user?.toJSON(), forKey: "userInfo")
         userDefaults.synchronize()
     }
     

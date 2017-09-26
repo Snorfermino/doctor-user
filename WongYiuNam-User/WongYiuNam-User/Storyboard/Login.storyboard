@@ -71,7 +71,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.20392156862745098" green="0.29019607843137252" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                        <state key="normal" title="SIGN UP WITH FACEBOOK">
+                                        <state key="normal" title="SIGN IN WITH FACEBOOK">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -298,6 +298,9 @@ agreement</string>
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="userAgreement:" destination="JyB-En-ygu" eventType="touchUpInside" id="aVr-Vn-ELE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rt5-YG-JpE">
                                         <rect key="frame" x="23" y="34" width="262" height="35"/>
@@ -321,6 +324,9 @@ policy</string>
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="privacyPolicyButtonClicked:" destination="JyB-En-ygu" eventType="touchUpInside" id="cM6-aD-8Do"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -371,6 +377,9 @@ Cg
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerNowButtonClicked:" destination="JyB-En-ygu" eventType="touchUpInside" id="h2H-r2-Wy3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBc-R0-ffA" customClass="DesignableButton" customModule="WongYiuNam_User" customModuleProvider="target">
                                 <rect key="frame" x="47" y="503" width="280" height="48"/>

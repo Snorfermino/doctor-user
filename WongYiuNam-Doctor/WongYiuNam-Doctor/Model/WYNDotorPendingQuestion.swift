@@ -7,7 +7,7 @@
 
 import Foundation
 import ObjectMapper
-public struct WYNDotocPendingQuestion: Mappable {
+public struct WYNDotorPendingQuestion: Mappable {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
@@ -70,7 +70,7 @@ public struct WYNDotocPendingQuestion: Mappable {
   }
 
 }
-extension WYNDotocPendingQuestion {
+extension WYNDotorPendingQuestion {
     
     public struct WYNData: Mappable {
         

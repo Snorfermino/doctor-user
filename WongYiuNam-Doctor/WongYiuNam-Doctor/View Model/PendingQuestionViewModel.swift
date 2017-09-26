@@ -7,23 +7,31 @@
 //
 
 import Foundation
-
+import UIKit
+protocol PendingQuestionViewModelDelegate{
+    func getPendingQuestionListDone()
+}
 class PendingQuestionViewModel{
     
     init() {}
-    
-    var pendingQuestions:[WYNDotocPendingQuestion.WYNData] = []
+    var delegate: PendingQuestionViewModelDelegate!
+    var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
     func getPendingQuestionList(id: Int){
-  
+        
         apiProvider.request(.getPendingQuestion(userID: id)) { (result) in
             switch result {
             case let .success(response):
-                print(response)
+                if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {
+                    print(receivedData.dictionaryRepresentation())
+                    for question in receivedData.data! {
+                        self.pendingQuestions.append(question)
+                    }
+                    print("Count: \(self.pendingQuestions.count)")
+                    self.delegate.getPendingQuestionListDone()
+                }
             case .failure:
                 print("failed")
             }
-            
         }
-        
     }
 }

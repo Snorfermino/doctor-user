@@ -14,6 +14,7 @@ class PendingQuestionViewController: BaseViewController {
     var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         viewModel.getPendingQuestionList(id: 4)
         setupView()
     }
@@ -65,8 +66,11 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestionCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
+        if viewModel.pendingQuestions.count > 0 {
+            cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
+        }
+
         return cell
     }
     
@@ -79,7 +83,14 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return viewModel.pendingQuestions.count
     }
 
 }
+extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
+    func getPendingQuestionListDone() {
+        tableView.reloadData()
+    }
+}
+
+

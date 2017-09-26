@@ -16,11 +16,21 @@ public enum API: TargetType{
     case uploadPicture
     case replyQuestion
     case getPendingQuestion(userID: Int)
+    case online(userID: Int)
+    case offline(userID: Int)
+    case reply(questionID: Int)
 }
 
 extension API {
     public var headers: [String : String]? {
-        return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
+        switch self {
+        case .getPendingQuestion:
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
+                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1OTg0Mzc2LCJleHAiOjQ4MTYxOTg0Mzc2LCJuYmYiOjE1MDU5ODQzNzYsImp0aSI6ImVMQVVNWEFXZzFLT29wVHcifQ.7I3BYpbZE0np0mqyJ8_JszutHH7xCPQihGCzSImyZ2E"]
+        default :
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
+        }
+        
     }
     public var baseURL: URL {return URL(string: "https://wongyiunam-php.herokuapp.com/api")!}
     public var path: String {
@@ -29,6 +39,10 @@ extension API {
             return "/auth/login"
         case .getPendingQuestion(let id):
             return "/qas/doctor/\(id)/pending"
+        case .online(let id):
+            return "/doctors/\(id)/online"
+        case .offline(let id):
+            return "/doctors/\(id)/offline"
         default:
             return "/"
         }
@@ -37,7 +51,7 @@ extension API {
         switch self {
         case .getUserProfile, .getDoctorList, .getPendingQuestion:
             return .get
-        case .replyQuestion:
+        case .replyQuestion, .online, .offline:
             return .put
         default:
             return .post
@@ -47,8 +61,9 @@ extension API {
         switch self {
         case .login(let email, let pwd):
             return ["email":email,"password":pwd]
-//        case .replyQuestion(let answer):
-//            return ["content":answer]
+            
+            //        case .replyQuestion(let answer):
+        //            return ["content":answer]
         default:
             return nil
         }

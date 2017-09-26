@@ -16,31 +16,11 @@ target 'WongYiuNam-User' do
 end
 
 post_install do |installer|
+    swift3Pods = ["FacebookCore", "FacebookLogin", "ObjectMapper", "RxSwift", "RxCocoa", "PopupDialog", "SlideMenuControllerSwift", "SwiftyButton"]    
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |configuration|
             # these libs work now only with Swift3.2 in Xcode9
-            if ['FacebookCore'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['FacebookLogin'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['ObjectMapper'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['PopupDialog'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['RxCocoa'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['RxSwift'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['SlideMenuControllerSwift'].include? target.name
-                configuration.build_settings['SWIFT_VERSION'] = "3.2"
-            end
-            if ['SwiftyButton'].include? target.name
+            if swift3Pods.include? target.name
                 configuration.build_settings['SWIFT_VERSION'] = "3.2"
             end
         end

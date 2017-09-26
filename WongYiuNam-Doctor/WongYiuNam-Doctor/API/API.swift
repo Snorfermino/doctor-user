@@ -16,6 +16,7 @@ public enum API: TargetType{
     case uploadPicture
     case replyQuestion
     case getPendingQuestion(userID: Int)
+    case getAnswerHistory(userID: Int)
     case online(userID: Int)
     case offline(userID: Int)
     case reply(questionID: Int)
@@ -39,6 +40,8 @@ extension API {
             return "/auth/login"
         case .getPendingQuestion(let id):
             return "/qas/doctor/\(id)/pending"
+        case .getAnswerHistory(let id):
+            return "/qas/doctor/\(id)/history"
         case .online(let id):
             return "/doctors/\(id)/online"
         case .offline(let id):
@@ -49,7 +52,7 @@ extension API {
     }
     public var method: Moya.Method {
         switch self {
-        case .getUserProfile, .getDoctorList, .getPendingQuestion:
+        case .getUserProfile, .getDoctorList, .getPendingQuestion, .getAnswerHistory:
             return .get
         case .replyQuestion, .online, .offline:
             return .put
@@ -75,7 +78,7 @@ extension API {
     
     public var task: Task {
         switch self {
-        case .getPendingQuestion:
+        case .getPendingQuestion, .getAnswerHistory:
             return .requestPlain
         default:
             return .requestParameters(parameters: self.parameters!, encoding: self.parameterEncoding)

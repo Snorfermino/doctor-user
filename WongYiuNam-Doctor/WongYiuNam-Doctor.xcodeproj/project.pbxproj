@@ -35,8 +35,6 @@
 		84A871C61F69305D00F2ED7A /* PendingQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A871C51F69305D00F2ED7A /* PendingQuestionCell.xib */; };
 		84A871C81F693DE900F2ED7A /* PendingQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C71F693DE900F2ED7A /* PendingQuestionCell.swift */; };
 		84A871CA1F6A339200F2ED7A /* PendingQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C91F6A339200F2ED7A /* PendingQuestionViewController.swift */; };
-		84A871CF1F6A7AD300F2ED7A /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871CD1F6A7AD300F2ED7A /* QuestionCell.swift */; };
-		84A871D01F6A7AD300F2ED7A /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A871CE1F6A7AD300F2ED7A /* QuestionCell.xib */; };
 		A69DB035CD72DC1E39719B4B /* Pods_WongYiuNam_DoctorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +95,6 @@
 		84A871C51F69305D00F2ED7A /* PendingQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingQuestionCell.xib; path = XIB/PendingQuestion/PendingQuestionCell.xib; sourceTree = "<group>"; };
 		84A871C71F693DE900F2ED7A /* PendingQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestionCell.swift; path = XIB/PendingQuestion/PendingQuestionCell.swift; sourceTree = "<group>"; };
 		84A871C91F6A339200F2ED7A /* PendingQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestionViewController.swift; path = View/PendingQuestionViewController.swift; sourceTree = "<group>"; };
-		84A871CD1F6A7AD300F2ED7A /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCell.swift; path = XIB/PendingQuestion/QuestionCell.swift; sourceTree = "<group>"; };
-		84A871CE1F6A7AD300F2ED7A /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionCell.xib; path = XIB/PendingQuestion/QuestionCell.xib; sourceTree = "<group>"; };
 		8C165866F1FCF655C79FA40F /* Pods-WongYiuNam-DoctorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests.release.xcconfig"; sourceTree = "<group>"; };
 		9013FDB3FD376065D3453F04 /* Pods-WongYiuNam-DoctorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_Doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,8 +306,6 @@
 			children = (
 				84A871C51F69305D00F2ED7A /* PendingQuestionCell.xib */,
 				84A871C71F693DE900F2ED7A /* PendingQuestionCell.swift */,
-				84A871CD1F6A7AD300F2ED7A /* QuestionCell.swift */,
-				84A871CE1F6A7AD300F2ED7A /* QuestionCell.xib */,
 			);
 			name = PendingQuestion;
 			sourceTree = "<group>";
@@ -457,7 +451,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				66EEFD611F5FDDFA00C5C77A /* LaunchScreen.storyboard in Resources */,
-				84A871D01F6A7AD300F2ED7A /* QuestionCell.xib in Resources */,
 				66EEFD5E1F5FDDFA00C5C77A /* Assets.xcassets in Resources */,
 				8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */,
 				845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */,
@@ -655,7 +648,6 @@
 				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
 				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,
 				848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */,
-				84A871CF1F6A7AD300F2ED7A /* QuestionCell.swift in Sources */,
 				843C2B731F7A0DD400F87A30 /* WYNDotocPendingQuestion.swift in Sources */,
 				843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */,
 				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,

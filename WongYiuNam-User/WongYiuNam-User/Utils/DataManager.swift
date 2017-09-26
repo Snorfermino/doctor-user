@@ -10,14 +10,14 @@ import Foundation
 
 class DataManager {
     
-    static func saveUserInfo(user: User?) {
+    static func saveUserInfo(user: User) {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(user, forKey: "userInfo")
+        userDefaults.set(user, forKey: "userinfo")
         userDefaults.synchronize()
     }
     
     static func getUserInfo() -> User? {
-        let user = UserDefaults.standard.object(forKey: "userInfo") as? User
+        let user = UserDefaults.standard.object(forKey: "userinfo") as? User
         return user
     }
 }

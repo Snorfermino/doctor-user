@@ -42,7 +42,6 @@ PODS:
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
   - SlideMenuControllerSwift (3.0.2)
-  - SwiftyButton (0.7.0)
   - UILoadControl (2.1.0)
 
 DEPENDENCIES:
@@ -56,7 +55,6 @@ DEPENDENCIES:
   - RxSwift
   - SDWebImage
   - SlideMenuControllerSwift
-  - SwiftyButton
   - UILoadControl
 
 SPEC CHECKSUMS:
@@ -77,9 +75,8 @@ SPEC CHECKSUMS:
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
-  SwiftyButton: f0982849c00ef5a0ed0852202d00201af0943000
   UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
 
-PODFILE CHECKSUM: 4342965a508f5a91c5551b11c191b75c8e2fb6b1
+PODFILE CHECKSUM: 0f1d2689733743d68bb5d79dee3e97b4f4d0cf46
 
 COCOAPODS: 1.3.1

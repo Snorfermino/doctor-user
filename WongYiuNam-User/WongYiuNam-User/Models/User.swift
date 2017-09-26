@@ -13,8 +13,8 @@ struct User: Mappable {
     var id: Int?
     var name: String?
     var email: String?
-    var doctor: Doctor?
-    var createdAt: Int?
+    //var doctor: Doctor?
+    //var createdAt: Int?
     var token: String?
     
     init?(map: Map){
@@ -26,7 +26,7 @@ struct User: Mappable {
         id <- map["id"]
         name <- map["name"]
         email <- map["email"]
-        doctor <- map["doctor"]
-        createdAt <- map["created_at"]
+        //doctor <- map["doctor"]
+        //createdAt <- map["created_at"]
     }
 }

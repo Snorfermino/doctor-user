@@ -59,6 +59,7 @@
 		84C8C9091F67D4A600AA5709 /* DoneaQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8C9081F67D4A600AA5709 /* DoneaQuestionViewController.swift */; };
 		84C8C90C1F67EE1300AA5709 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8C90A1F67ECBB00AA5709 /* CheckBoxButton.swift */; };
 		84C8C90E1F67FBA300AA5709 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8C90D1F67FBA300AA5709 /* Camera.swift */; };
+		84C954051F7A42990033B110 /* UserDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C954041F7A42990033B110 /* UserDemo.swift */; };
 		84E363BE1F6281C5008E1596 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363BD1F6281C4008E1596 /* Global.swift */; };
 		84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C11F62908E008E1596 /* NotificationsViewController.swift */; };
 		84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */; };
@@ -117,7 +118,7 @@
 		8452B6B11F72812B00781AD7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		8452B6B21F72812B00781AD7 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		8452B6B51F7284D600781AD7 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
-		8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../WongYiuNam-Doctor/WongYiuNam-Doctor/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaDoctorViewController.swift; sourceTree = "<group>"; };
 		849A94761F60042F008ACB28 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		849A94771F60042F008ACB28 /* OnlineShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineShopViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 		84C8C9081F67D4A600AA5709 /* DoneaQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneaQuestionViewController.swift; sourceTree = "<group>"; };
 		84C8C90A1F67ECBB00AA5709 /* CheckBoxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		84C8C90D1F67FBA300AA5709 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		84C954041F7A42990033B110 /* UserDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDemo.swift; sourceTree = "<group>"; };
 		84E363BD1F6281C4008E1596 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		84E363C11F62908E008E1596 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteaFriendViewController.swift; sourceTree = "<group>"; };
@@ -226,19 +228,19 @@
 		66EEFD8F1F5FDE0900C5C77A /* WongYiuNam-User */ = {
 			isa = PBXGroup;
 			children = (
-				8452B6B71F7286A100781AD7 /* Font */,
 				66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */,
 				66EEFD971F5FDE0900C5C77A /* Assets.xcassets */,
 				66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */,
 				66EEFD9C1F5FDE0900C5C77A /* Info.plist */,
-				849A947E1F60045C008ACB28 /* Extension */,
-				84F0A4D01F6F6EBC007B5385 /* Models */,
-				849A948F1F60072D008ACB28 /* View */,
-				849A947D1F60043C008ACB28 /* ViewController */,
-				84A72FD21F68DF96001B30E0 /* Controller */,
-				84BE66991F7500750025AAF6 /* Popup */,
-				84E363BC1F6281B2008E1596 /* Utils */,
-				84C8C9051F6792CA00AA5709 /* Storyboard */,
+				84B528871F7A3984005B6DE0 /* Font */,
+				84B528881F7A3998005B6DE0 /* Extension */,
+				84B5288A1F7A39B4005B6DE0 /* Models */,
+				84B528921F7A3A57005B6DE0 /* Popup */,
+				84B528911F7A3A34005B6DE0 /* Controller */,
+				84B5288D1F7A39E7005B6DE0 /* ViewController */,
+				84B5288B1F7A39C1005B6DE0 /* View */,
+				84B528941F7A3A81005B6DE0 /* Storyboard */,
+				84B528931F7A3A70005B6DE0 /* Utils */,
 			);
 			path = "WongYiuNam-User";
 			sourceTree = "<group>";
@@ -269,17 +271,72 @@
 				8452B6B21F72812B00781AD7 /* ProductCell.xib */,
 			);
 			name = "Online Shop";
+			path = ..;
 			sourceTree = "<group>";
 		};
-		8452B6B71F7286A100781AD7 /* Font */ = {
+		84A72FD71F69477A001B30E0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				84A72FD81F69482F001B30E0 /* SignInViewController.swift */,
+				84A72FDA1F69483B001B30E0 /* RegisterViewController.swift */,
+			);
+			name = Login;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		84B528871F7A3984005B6DE0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
 				8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */,
 			);
-			name = Font;
+			path = Font;
 			sourceTree = "<group>";
 		};
-		849A947D1F60043C008ACB28 /* ViewController */ = {
+		84B528881F7A3998005B6DE0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				84ED80A11F70D8A100BE256F /* BaseViewController.swift */,
+				849A949D1F6007B1008ACB28 /* UIImageView.swift */,
+				849A949F1F600802008ACB28 /* UIImage.swift */,
+				849A949B1F60078A008ACB28 /* UITableViewExtension.swift */,
+				849A94871F600510008ACB28 /* UIApplication.swift */,
+				849A94851F600504008ACB28 /* UIColor.swift */,
+				849A94A11F600A8C008ACB28 /* UIView.swift */,
+				849A94891F60052D008ACB28 /* String.swift */,
+				8427D7441F60FA3A007B34F4 /* UIViewController.swift */,
+				84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */,
+				8452B6AE1F725D8300781AD7 /* CustomWebView.swift */,
+				8452B6B51F7284D600781AD7 /* FavoriteButton.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		84B5288A1F7A39B4005B6DE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
+				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
+				840C03AF1F78AE72009D86CD /* User.swift */,
+				84C954041F7A42990033B110 /* UserDemo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84B5288B1F7A39C1005B6DE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84C8C90A1F67ECBB00AA5709 /* CheckBoxButton.swift */,
+				849A94901F600746008ACB28 /* ImageHeaderView.swift */,
+				849A94911F600746008ACB28 /* ImageHeaderView.xib */,
+				8427D7501F6122B2007B34F4 /* MenuTableViewCell.swift */,
+				8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */,
+				8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */,
+				8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84B5288D1F7A39E7005B6DE0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				8452B6B01F727EEA00781AD7 /* Online Shop */,
@@ -297,66 +354,45 @@
 				84E363C11F62908E008E1596 /* NotificationsViewController.swift */,
 				84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */,
 			);
-			name = ViewController;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		849A947E1F60045C008ACB28 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				84ED80A11F70D8A100BE256F /* BaseViewController.swift */,
-				849A949D1F6007B1008ACB28 /* UIImageView.swift */,
-				849A949F1F600802008ACB28 /* UIImage.swift */,
-				849A949B1F60078A008ACB28 /* UITableViewExtension.swift */,
-				849A94871F600510008ACB28 /* UIApplication.swift */,
-				849A94851F600504008ACB28 /* UIColor.swift */,
-				849A94A11F600A8C008ACB28 /* UIView.swift */,
-				849A94891F60052D008ACB28 /* String.swift */,
-				8427D7441F60FA3A007B34F4 /* UIViewController.swift */,
-				84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */,
-				8452B6AE1F725D8300781AD7 /* CustomWebView.swift */,
-				8452B6B51F7284D600781AD7 /* FavoriteButton.swift */,
-			);
-			name = Extension;
-			sourceTree = "<group>";
-		};
-		849A948F1F60072D008ACB28 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84C8C90A1F67ECBB00AA5709 /* CheckBoxButton.swift */,
-				849A94901F600746008ACB28 /* ImageHeaderView.swift */,
-				849A94911F600746008ACB28 /* ImageHeaderView.xib */,
-				8427D7501F6122B2007B34F4 /* MenuTableViewCell.swift */,
-				8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */,
-				8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */,
-				8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		84A72FD21F68DF96001B30E0 /* Controller */ = {
+		84B528911F7A3A34005B6DE0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				84C8C90D1F67FBA300AA5709 /* Camera.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		84A72FD71F69477A001B30E0 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				84A72FD81F69482F001B30E0 /* SignInViewController.swift */,
-				84A72FDA1F69483B001B30E0 /* RegisterViewController.swift */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		84BE66991F7500750025AAF6 /* Popup */ = {
+		84B528921F7A3A57005B6DE0 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
 				84BE669A1F7500950025AAF6 /* ForgotPasswordViewController.swift */,
 				84BE669B1F7500950025AAF6 /* ForgotPasswordViewController.xib */,
 			);
-			name = Popup;
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		84B528931F7A3A70005B6DE0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				84E363BD1F6281C4008E1596 /* Global.swift */,
+				84A72FD31F692DA7001B30E0 /* ApiManager.swift */,
+				84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */,
+				840C03B11F78FE0A009D86CD /* DataManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		84B528941F7A3A81005B6DE0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				84C8C9001F67907B00AA5709 /* AskaDoctor.storyboard */,
+				84C8C9021F6791A100AA5709 /* Main.storyboard */,
+				84A72FD51F694423001B30E0 /* Login.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		84C10CF31F6678B7000B3CEF /* Ask a Doctor */ = {
@@ -370,37 +406,7 @@
 				84C8C9081F67D4A600AA5709 /* DoneaQuestionViewController.swift */,
 			);
 			name = "Ask a Doctor";
-			sourceTree = "<group>";
-		};
-		84C8C9051F6792CA00AA5709 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				84C8C9001F67907B00AA5709 /* AskaDoctor.storyboard */,
-				84C8C9021F6791A100AA5709 /* Main.storyboard */,
-				84A72FD51F694423001B30E0 /* Login.storyboard */,
-			);
-			name = Storyboard;
-			sourceTree = "<group>";
-		};
-		84E363BC1F6281B2008E1596 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				84E363BD1F6281C4008E1596 /* Global.swift */,
-				84A72FD31F692DA7001B30E0 /* ApiManager.swift */,
-				84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */,
-				840C03B11F78FE0A009D86CD /* DataManager.swift */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		84F0A4D01F6F6EBC007B5385 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
-				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
-				840C03AF1F78AE72009D86CD /* User.swift */,
-			);
-			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,7 +579,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -595,7 +600,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UILoadControl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +676,7 @@
 				849A947C1F60042F008ACB28 /* SocialWallViewController.swift in Sources */,
 				849A94A01F600802008ACB28 /* UIImage.swift in Sources */,
 				8452B6AF1F725D8300781AD7 /* CustomWebView.swift in Sources */,
+				84C954051F7A42990033B110 /* UserDemo.swift in Sources */,
 				84E363C41F6290A1008E1596 /* InviteaFriendViewController.swift in Sources */,
 				84C8C9091F67D4A600AA5709 /* DoneaQuestionViewController.swift in Sources */,
 				849A947A1F60042F008ACB28 /* HomeViewController.swift in Sources */,

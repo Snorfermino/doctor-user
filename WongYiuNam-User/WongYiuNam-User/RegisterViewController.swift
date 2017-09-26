@@ -35,12 +35,19 @@ class RegisterViewController: BaseViewController {
     @IBAction func forgotPasswordButtonClicked(_ sender: Any) {
         let fotgotPasswordVC = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
         let popup = PopupDialog(viewController: fotgotPasswordVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
-        
         present(popup, animated: true, completion: nil)
     }
     
     @IBAction func signInButtonClicked(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func userAgreement(_ sender: Any) {
+        
+    }
+    
+    @IBAction func privacyPolicyButtonClicked(_ sender: Any) {
+        
     }
     
     override func didReceiveMemoryWarning() {

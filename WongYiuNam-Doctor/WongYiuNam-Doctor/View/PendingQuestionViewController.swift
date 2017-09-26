@@ -9,20 +9,15 @@
 import UIKit
 
 class PendingQuestionViewController: BaseViewController {
+    
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func setupView() {
-    
         tableView.register(UINib(nibName: "PendingQuestion", bundle: nil), forCellReuseIdentifier: "PendingQuestionCell")
         tableView.estimatedRowHeight = 230
         tableView.rowHeight = 230
@@ -54,13 +49,10 @@ class PendingQuestionViewController: BaseViewController {
         bottomView.layer.addSublayer(gradientLayer)
 
         self.view.addConstraints([widthConstraint,heightConstraint,bottomConstraint])
-
     }
 
 }
 extension PendingQuestionViewController: UITableViewDataSource, UITableViewDelegate {
-
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
@@ -70,23 +62,17 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
         footer.backgroundColor = UIColor.clear
         return footer
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
-//        cell.contentView.backgroundColor = UIColor.white
-//        let sepView = UIView(frame: CGRect(x: 0, y: cell.contentView.frame.size.height - 1.0, width: cell.contentView.frame.size.width, height: 10))
-//        sepView.backgroundColor = UIColor.clear
-        
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.clear.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 2
-        cell.clipsToBounds = true
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestionCell
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

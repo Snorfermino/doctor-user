@@ -6,6 +6,11 @@ target 'WongYiuNam-Doctor' do
   use_frameworks!
 
   # Pods for WongYiuNam-Doctor
+  pod 'Moya'
+  pod 'Alamofire'
+  pod 'AlamofireObjectMapper'
+  pod 'Moya-ObjectMapper'
+  pod 'IBAnimatable'
 
   target 'WongYiuNam-DoctorTests' do
     inherit! :search_paths
@@ -16,9 +21,4 @@ target 'WongYiuNam-Doctor' do
     inherit! :search_paths
     # Pods for testing
   end
-pod ‘Moya’ 
-pod 'Alamofire'
-pod 'AlamofireObjectMapper'
-pod 'Moya-ObjectMapper'
-pod 'IBAnimatable'
 end

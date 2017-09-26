@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PendingQuestionCell" rowHeight="247" id="k32-KK-d9A" customClass="PendingQuestion" customModule="WongYiuNam_Doctor" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PendingQuestionCell" rowHeight="247" id="k32-KK-d9A" customClass="PendingQuestionCell" customModule="WongYiuNam_Doctor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="396" height="247"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k32-KK-d9A" id="Gm2-SW-6yw">
@@ -94,6 +99,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="pHn-nS-MZf" firstAttribute="trailing" secondItem="o2Q-dH-QUp" secondAttribute="trailing" id="1If-Zb-1rp"/>
                     <constraint firstItem="o2Q-dH-QUp" firstAttribute="centerX" secondItem="Gm2-SW-6yw" secondAttribute="centerX" id="2FP-2R-gcH"/>
@@ -108,6 +114,11 @@
                     <constraint firstItem="pHn-nS-MZf" firstAttribute="centerY" secondItem="aRd-A3-rHt" secondAttribute="centerY" id="kdb-z1-F6s"/>
                     <constraint firstItem="uxk-Hp-xvK" firstAttribute="width" secondItem="Gm2-SW-6yw" secondAttribute="width" multiplier="140:330" id="vJb-j4-jWU"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="2"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <point key="canvasLocation" x="8" y="70.5"/>
         </tableViewCell>

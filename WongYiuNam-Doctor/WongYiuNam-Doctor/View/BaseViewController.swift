@@ -9,18 +9,14 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    @IBInspectable var isNavBarEnabled:Bool = false
-    var navBar : NavBar!
+    
+    @IBInspectable var isNavBarEnabled = false
+    var navBar: NavBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
         addNavBar()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupView(){
@@ -28,12 +24,11 @@ class BaseViewController: UIViewController {
     }
     
     func addNavBar(){
-        let screenSize: CGRect = UIScreen.main.bounds
+        let screenSize = UIScreen.main.bounds
         navBar = NavBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 65))
-        print("========\(screenSize.width)")
-                        self.view.addSubview(navBar)
+        self.view.addSubview(navBar)
         navBar.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let horConstraint = NSLayoutConstraint(item: navBar, attribute: .centerX, relatedBy: .equal,
                                                toItem: view, attribute: .centerX,
                                                multiplier: 1.0, constant: 0.0)
@@ -49,9 +44,6 @@ class BaseViewController: UIViewController {
         let leadConstraint = NSLayoutConstraint(item: navBar, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0)
         let trailConstraint = NSLayoutConstraint(item: navBar, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0)
         self.view.addConstraints([horConstraint,verConstraint,widConstraint,heiConstraint,leadConstraint,trailConstraint])
-
-
     }
-
-
+    
 }

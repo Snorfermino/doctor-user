@@ -97,8 +97,6 @@ class NavBar: UIView {
 
         addSubview(contentView)
         contentView.frame = self.bounds
-        
-        
     }
     
     @objc private func backPressed(_ sender: AnyObject){

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PendingQuestion: UITableViewCell {
+class PendingQuestionCell: UITableViewCell {
 
     @IBOutlet weak var tvQuestion:UITextView!
     @IBOutlet weak var lbCreatedAt:UILabel!
@@ -16,6 +16,5 @@ class PendingQuestion: UITableViewCell {
     @IBOutlet weak var lbPatientGender:UILabel!
     @IBOutlet weak var lbPatientDOB:UILabel!
     @IBOutlet weak var imgViewPatientSubmit:UIImageView!
-    
 
 }

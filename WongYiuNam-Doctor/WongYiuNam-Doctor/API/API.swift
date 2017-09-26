@@ -7,35 +7,7 @@
 //
 
 import Moya
-import Foundation
-import Result
-class DebugPlugin: PluginType {
-    
-    static let targetKey = "target"
-    /// Called by the provider as soon as the request is about to start
-    func willSend(_ request: RequestType, target: TargetType) {
-        if let request = request as? CustomDebugStringConvertible {
-            
-            print(request.debugDescription)
-        }
-    }
-    
-    func didReceive(_ result: Result<Moya.Response, Moya.MoyaError>, target: TargetType) {
-        switch result {
-        case let .success(response):
-            print(response.statusCode)
-            do {
-                let json = try response.mapJSON()
-                print(json)
-            } catch {
-                print(error.localizedDescription)
-            }
-        case let .failure(error):
-            print(error.localizedDescription)
-            break
-        }
-    }
-}
+
 public enum API: TargetType{
     
     case login(email: String, passwd: String)
@@ -45,6 +17,7 @@ public enum API: TargetType{
     case replyQuestion
     
 }
+
 extension API {
     public var headers: [String : String]? {
         return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
@@ -78,16 +51,18 @@ extension API {
             return nil
         }
     }
+    
     public var parameterEncoding: ParameterEncoding {
         return URLEncoding.methodDependent
     }
+    
     public var task: Task {
         switch self {
         default:
-//            .requestParameters(parameters: self.parameters!, encoding: JSONEncoding(options: []))
             return .requestParameters(parameters: self.parameters!, encoding: self.parameterEncoding)
         }
     }
+    
     public var sampleData: Data {
         switch self {
         default:
@@ -95,17 +70,6 @@ extension API {
         }
     }
     
-    
 }
-let endPoint = { (target: API) -> Endpoint<API> in
-    let url = target.baseURL.appendingPathComponent(target.path).absoluteString
-    var header: [String:String] = [:]
-    header["X-App-Token"] = "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"
-    return Endpoint<API>(url: url,
-                         sampleResponseClosure: {.networkResponse(200, target.sampleData)},
-                         method: target.method,
-                         task: target.task,
-                         httpHeaderFields: header)
-}
-let apiProvider = MoyaProvider<API>(endpointClosure: endPoint,
-                                    plugins: [NetworkLoggerPlugin(verbose: true)])
+
+let apiProvider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin(verbose: true)])

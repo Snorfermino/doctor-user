@@ -37,6 +37,8 @@ class AudioRecorderManager: NSObject {
                 print("Pemission denied")
             case AVAudioSessionRecordPermission.undetermined:
                 print("Request permission here")
+            default:
+                print("Default")
             }
             
             

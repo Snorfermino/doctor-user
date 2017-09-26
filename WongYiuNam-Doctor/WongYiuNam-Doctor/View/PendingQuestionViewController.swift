@@ -11,9 +11,10 @@ import UIKit
 class PendingQuestionViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getPendingQuestionList(id: 4)
         setupView()
     }
     

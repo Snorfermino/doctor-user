@@ -23,6 +23,9 @@
 		8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */; };
 		8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5351F67ECD600C5AC21 /* BaseViewController.swift */; };
 		8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */; };
+		843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */; };
+		843C2B731F7A0DD400F87A30 /* WYNDotocPendingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B721F7A0DD400F87A30 /* WYNDotocPendingQuestion.swift */; };
+		843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BC1F68E3CD00F2ED7A /* API.swift */; };
@@ -82,6 +85,9 @@
 		8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		8433E5351F67ECD600C5AC21 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = View/BaseViewController.swift; sourceTree = "<group>"; };
 		8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = Extension/TextFieldExtension.swift; sourceTree = "<group>"; };
+		843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestionViewModel.swift; path = "View Model/PendingQuestionViewModel.swift"; sourceTree = "<group>"; };
+		843C2B721F7A0DD400F87A30 /* WYNDotocPendingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WYNDotocPendingQuestion.swift; path = Model/WYNDotocPendingQuestion.swift; sourceTree = "<group>"; };
+		843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNLogedInUserInfo.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		84A871BC1F68E3CD00F2ED7A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 		66EEFD551F5FDDFA00C5C77A /* WongYiuNam-Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				843C2B6F1F7A0D9C00F87A30 /* View Model */,
 				845CD2321F70D2D30063ACB8 /* Model */,
 				84093AEF1F6F9AC500BE17AF /* WongYiuNam-Doctor.entitlements */,
 				84A871B91F68E36100F2ED7A /* API */,
@@ -265,9 +272,19 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		843C2B6F1F7A0D9C00F87A30 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */,
+			);
+			name = "View Model";
+			sourceTree = "<group>";
+		};
 		845CD2321F70D2D30063ACB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */,
+				843C2B721F7A0DD400F87A30 /* WYNDotocPendingQuestion.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -634,10 +651,13 @@
 			files = (
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
 				84A871C81F693DE900F2ED7A /* PendingQuestionCell.swift in Sources */,
+				843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */,
 				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
 				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,
 				848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */,
 				84A871CF1F6A7AD300F2ED7A /* QuestionCell.swift in Sources */,
+				843C2B731F7A0DD400F87A30 /* WYNDotocPendingQuestion.swift in Sources */,
+				843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */,
 				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,
 				66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */,
 				8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */,
@@ -746,6 +766,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -795,6 +816,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -817,7 +839,7 @@
 				PROVISIONING_PROFILE = "6a7ee551-f40e-4048-a1f3-723b96db4cfd";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.doctor";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -840,7 +862,7 @@
 				PROVISIONING_PROFILE = "5b757434-feb1-4d06-8785-178baac54c35";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -857,7 +879,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WongYiuNam-Doctor.app/WongYiuNam-Doctor";
 			};
 			name = Debug;
@@ -874,7 +896,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WongYiuNam-Doctor.app/WongYiuNam-Doctor";
 			};
 			name = Release;
@@ -890,7 +912,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "WongYiuNam-Doctor";
 			};
 			name = Debug;
@@ -906,7 +928,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robusttechhouse.WongYiuNam-DoctorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "WongYiuNam-Doctor";
 			};
 			name = Release;

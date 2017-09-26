@@ -15,7 +15,7 @@ struct User: Mappable {
     var email: String?
     var doctor: Doctor?
     var createdAt: Int?
-    var token: Any?
+    var token: String?
     
     init?(map: Map){
         

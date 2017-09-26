@@ -10,4 +10,12 @@ import Foundation
 
 class Global {
     static var logined: Bool = false
+    static var user: User? {
+        set {
+            DataManager.saveUserInfo(user: newValue)
+        }
+        get {
+            return self.user
+        }
+    }
 }

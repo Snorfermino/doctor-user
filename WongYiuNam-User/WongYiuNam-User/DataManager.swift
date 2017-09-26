@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class DataManager {
+    
+    static func saveUserInfo(user: User?) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(user, forKey: "userInfo")
+        userDefaults.synchronize()
+    }
+    
+    static func getUserInfo() -> User? {
+        let user = UserDefaults.standard.object(forKey: "userInfo") as? User
+        return user
+    }
+}

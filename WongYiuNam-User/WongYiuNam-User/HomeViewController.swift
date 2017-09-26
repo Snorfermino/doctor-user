@@ -20,6 +20,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initSlider()
+        loadSavedData()
+    }
+    
+    func loadSavedData() {
+        Global.user = DataManager.getUserInfo()
     }
     
     func initSlider() {

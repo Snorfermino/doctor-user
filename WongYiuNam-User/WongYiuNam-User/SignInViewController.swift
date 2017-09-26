@@ -33,10 +33,10 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButtonClicked(_ sender: Any) {
-        let email = "haag.kirsten@gmail.com"
+        let email = "admin@admin.com"
         let password = "12345"
         let completion = {(user: User?) -> Void in
-            print(user)
+            Global.user = user
         }
         ApiManager.login(email: email, password: password, completion: completion)
     }

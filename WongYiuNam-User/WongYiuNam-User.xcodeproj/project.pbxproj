@@ -14,6 +14,7 @@
 		66EEFDA61F5FDE0900C5C77A /* WongYiuNam_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFDA51F5FDE0900C5C77A /* WongYiuNam_UserTests.swift */; };
 		66EEFDB11F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFDB01F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift */; };
 		840C03B01F78AE72009D86CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C03AF1F78AE72009D86CD /* User.swift */; };
+		840C03B21F78FE0A009D86CD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C03B11F78FE0A009D86CD /* DataManager.swift */; };
 		8421A7F31F6A3E15007406D3 /* DayInScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */; };
 		8421A7F51F6A3E2E007406D3 /* DayInScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */; };
 		8427D7451F60FA3A007B34F4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D7441F60FA3A007B34F4 /* UIViewController.swift */; };
@@ -97,6 +98,7 @@
 		66EEFDB21F5FDE0900C5C77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		692292A5BEAC4BDC20076DB8 /* Pods-WongYiuNam-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.debug.xcconfig"; sourceTree = "<group>"; };
 		840C03AF1F78AE72009D86CD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		840C03B11F78FE0A009D86CD /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayInScheduleView.xib; sourceTree = "<group>"; };
 		8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInScheduleView.swift; sourceTree = "<group>"; };
 		8427D7441F60FA3A007B34F4 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				84E363BD1F6281C4008E1596 /* Global.swift */,
 				84A72FD31F692DA7001B30E0 /* ApiManager.swift */,
 				84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */,
+				840C03B11F78FE0A009D86CD /* DataManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,
 				849A948D1F60064F008ACB28 /* ExSlideMenuController.swift in Sources */,
 				66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */,
+				840C03B21F78FE0A009D86CD /* DataManager.swift in Sources */,
 				849A949C1F60078A008ACB28 /* UITableViewExtension.swift in Sources */,
 				840C03B01F78AE72009D86CD /* User.swift in Sources */,
 			);

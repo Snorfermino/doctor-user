@@ -12,12 +12,16 @@ class DataManager {
     
     static func saveUserInfo(user: User) {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(user, forKey: "userinfo")
+        userDefaults.set(user.toJSON(), forKey: "userInfo")
         userDefaults.synchronize()
     }
     
     static func getUserInfo() -> User? {
-        let user = UserDefaults.standard.object(forKey: "userinfo") as? User
-        return user
+        let userJson = UserDefaults.standard.object(forKey: "userInfo") as? [String: Any]
+        if let userJson = userJson {
+            return User(JSON: userJson)
+        } else {
+            return nil
+        }
     }
 }

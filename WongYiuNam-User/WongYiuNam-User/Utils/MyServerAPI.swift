@@ -24,13 +24,16 @@ extension MyServerAPI: TargetType {
         switch self {
         case .doctors, .askaQuestion:
             h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1ODkzNjI1LCJleHAiOjE1MTg4NTM2MjUsIm5iZiI6MTUwNTg5MzYyNSwianRpIjoiZ3U5S0FKU3V3bldsSVo5RCJ9.FHYE0EUGKk50aH5R0V9Buiwa9YsId2-jMYU5f-ETiUo"
+
         default:
             break
         }
         return h
     }
     
-    var baseURL: URL { return URL(string: "https://wongyiunam-php.herokuapp.com/api")! }
+    var baseURL: URL {
+        return URL(string: "https://wongyiunam-php.herokuapp.com/api")!
+    }
     
     var path: String {
         switch self {

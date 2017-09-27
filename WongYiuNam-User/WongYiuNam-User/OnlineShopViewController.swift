@@ -28,6 +28,7 @@ class OnlineShopViewController: UIViewController {
         tableView.separatorStyle = .none
     }
 }
+
 extension OnlineShopViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 10

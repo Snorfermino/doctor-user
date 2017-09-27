@@ -30,9 +30,10 @@ enum LeftMenuLogined: Int {
     case notifications
     case inviteaFriend
     case helpCentre
-    case aboutUs
+    case termsAndConditions
     case privacyPolicy
     case userAgreement
+    case aboutUs
     case logout
 }
 
@@ -45,7 +46,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     @IBOutlet weak var tableView: UITableView!
     var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social Wall"
         , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
-    var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social Wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Privacy Policy", "User Agreement", "About Us", "Logout"]
+    var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social Wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Terms and Conditions", "Privacy Policy", "User Agreement", "About Us", "Logout"]
     var homeViewController: UIViewController!
     var onlineShopViewController: UIViewController!
     var askaDoctorViewController: UIViewController!
@@ -59,6 +60,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     var notificationsViewController: UIViewController!
     var signInViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
+    
+    var sub1: Bool = false
+    var sub2: Bool = false
     
     fileprivate let disposeBag = DisposeBag()
     
@@ -177,6 +181,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
         case .helpCentre:
             slideMenuController()?.changeMainViewController(helpCentreViewController, close: true)
+        case .termsAndConditions:
+            break
         case .privacyPolicy:
             slideMenuController()?.changeMainViewController(privacyPolicyViewController, close: true)
         case .userAgreement:
@@ -195,12 +201,27 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
 }
 
 extension LeftViewController : UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
                 switch menu {
-                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
+                case .home, .helpCentre, .termsAndConditions, .aboutUs, .notifications, .inviteaFriend, .logout :
                     return MenuTableViewCell.height()
+                case .onlineShop, .askaDoctor, .uploadPrescription, .socialWall:
+                    if(sub1) {
+                        return MenuTableViewCell.height()
+                    } else {
+                        return 0
+                    }
+                    return 0
+                case .privacyPolicy, .userAgreement:
+                    if(sub2) {
+                        return MenuTableViewCell.height()
+                    } else {
+                        return 0
+                    }
+                    return 0
                 }
             }
         } else {
@@ -217,7 +238,19 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
-                self.changeViewController(menu)
+                //self.changeViewController(menu)
+                if(indexPath.row == 0 || indexPath.row == 8) {
+                    if(indexPath.row == 0) {
+                        sub1 = !sub1
+                    } else if (indexPath.row == 8) {
+                        sub2 = !sub2
+                    }
+                    tableView.beginUpdates()
+                    tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+                    tableView.endUpdates()
+                } else {
+                    self.changeViewController(menu)
+                }
             }
         } else if let menu = LeftMenu(rawValue: indexPath.row) {
             self.changeViewController(menu)
@@ -245,9 +278,11 @@ extension LeftViewController : UITableViewDataSource {
         if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
                 switch menu {
-                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
+                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .termsAndConditions,
+                     .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
                     let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
                     cell.setData(menusLogined[indexPath.row])
+                    cell.clipsToBounds = true
                     return cell
                 }
             }

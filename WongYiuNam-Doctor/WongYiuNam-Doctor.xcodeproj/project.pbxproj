@@ -23,6 +23,7 @@
 		8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */; };
 		8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5351F67ECD600C5AC21 /* BaseViewController.swift */; };
 		8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */; };
+		84351A391F7B868800E73657 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84351A381F7B868800E73657 /* AudioPlayerManager.swift */; };
 		843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */; };
 		843C2B731F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */; };
 		843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */; };
@@ -34,6 +35,8 @@
 		843C2B841F7A600D00F87A30 /* AnswerHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B831F7A600D00F87A30 /* AnswerHistoryViewModel.swift */; };
 		843C2B881F7A69B400F87A30 /* AnswerHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B861F7A69B400F87A30 /* AnswerHistoryCell.swift */; };
 		843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */; };
+		843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */; };
+		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BC1F68E3CD00F2ED7A /* API.swift */; };
@@ -41,6 +44,8 @@
 		84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C01F691BFF00F2ED7A /* ColorExtension.swift */; };
 		84A871C31F69228900F2ED7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C21F69228900F2ED7A /* ProfileViewController.swift */; };
 		84A871CA1F6A339200F2ED7A /* PendingQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C91F6A339200F2ED7A /* PendingQuestionViewController.swift */; };
+		84E2546E1F7BA489009D4B25 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2546D1F7BA489009D4B25 /* Alamofire.swift */; };
+		84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */; };
 		A69DB035CD72DC1E39719B4B /* Pods_WongYiuNam_DoctorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +94,7 @@
 		8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		8433E5351F67ECD600C5AC21 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = View/BaseViewController.swift; sourceTree = "<group>"; };
 		8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = Extension/TextFieldExtension.swift; sourceTree = "<group>"; };
+		84351A381F7B868800E73657 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioPlayerManager.swift; path = Extension/AudioPlayerManager.swift; sourceTree = "<group>"; };
 		843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestionViewModel.swift; path = "View Model/PendingQuestionViewModel.swift"; sourceTree = "<group>"; };
 		843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WYNDotorPendingQuestion.swift; path = Model/WYNDotorPendingQuestion.swift; sourceTree = "<group>"; };
 		843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNLogedInUserInfo.swift; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 		843C2B831F7A600D00F87A30 /* AnswerHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerHistoryViewModel.swift; path = "View Model/AnswerHistoryViewModel.swift"; sourceTree = "<group>"; };
 		843C2B861F7A69B400F87A30 /* AnswerHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerHistoryCell.swift; path = XIB/AnswerHistory/AnswerHistoryCell.swift; sourceTree = "<group>"; };
 		843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AnswerHistoryCell.xib; path = XIB/AnswerHistory/AnswerHistoryCell.xib; sourceTree = "<group>"; };
+		843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewModel.swift; path = "View Model/RecordAnswerViewModel.swift"; sourceTree = "<group>"; };
+		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestionParameters.swift; path = Model/WYNAnswerQuestionParameters.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		84A871BC1F68E3CD00F2ED7A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
@@ -107,6 +115,8 @@
 		84A871C01F691BFF00F2ED7A /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = Extension/ColorExtension.swift; sourceTree = "<group>"; };
 		84A871C21F69228900F2ED7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = View/ProfileViewController.swift; sourceTree = "<group>"; };
 		84A871C91F6A339200F2ED7A /* PendingQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestionViewController.swift; path = View/PendingQuestionViewController.swift; sourceTree = "<group>"; };
+		84E2546D1F7BA489009D4B25 /* Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = API/Alamofire.swift; sourceTree = "<group>"; };
+		84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNDoctor.swift; sourceTree = "<group>"; };
 		8C165866F1FCF655C79FA40F /* Pods-WongYiuNam-DoctorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests.release.xcconfig"; sourceTree = "<group>"; };
 		9013FDB3FD376065D3453F04 /* Pods-WongYiuNam-DoctorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorTests/Pods-WongYiuNam-DoctorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_Doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +259,7 @@
 				84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */,
 				84A871C01F691BFF00F2ED7A /* ColorExtension.swift */,
 				84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */,
+				84351A381F7B868800E73657 /* AudioPlayerManager.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -288,6 +299,7 @@
 				843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */,
 				843C2B7E1F7A499A00F87A30 /* LoginViewModel.swift */,
 				843C2B831F7A600D00F87A30 /* AnswerHistoryViewModel.swift */,
+				843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -304,8 +316,10 @@
 		845CD2321F70D2D30063ACB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */,
 				843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */,
 				843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */,
+				843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -323,6 +337,7 @@
 			children = (
 				843C2B7C1F7A305100F87A30 /* ObjectMapperUtils.swift */,
 				84A871BC1F68E3CD00F2ED7A /* API.swift */,
+				84E2546D1F7BA489009D4B25 /* Alamofire.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -428,7 +443,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 1;
@@ -671,10 +686,13 @@
 			files = (
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
 				843C2B7B1F7A236200F87A30 /* PendingQuestion.swift in Sources */,
+				843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift in Sources */,
 				843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */,
 				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
 				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,
+				84351A391F7B868800E73657 /* AudioPlayerManager.swift in Sources */,
 				848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */,
+				843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */,
 				843C2B731F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift in Sources */,
 				843C2B7F1F7A499A00F87A30 /* LoginViewModel.swift in Sources */,
 				843C2B821F7A5EA200F87A30 /* AnswerHistoryViewController.swift in Sources */,
@@ -682,6 +700,7 @@
 				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,
 				66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */,
 				843C2B881F7A69B400F87A30 /* AnswerHistoryCell.swift in Sources */,
+				84E2546E1F7BA489009D4B25 /* Alamofire.swift in Sources */,
 				8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */,
 				84A871CA1F6A339200F2ED7A /* PendingQuestionViewController.swift in Sources */,
 				843C2B841F7A600D00F87A30 /* AnswerHistoryViewModel.swift in Sources */,
@@ -690,6 +709,7 @@
 				84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */,
 				8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */,
 				843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */,
+				84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */,
 				84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -852,16 +872,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "WongYiuNam-Doctor/WongYiuNam-Doctor.entitlements";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8AN899D996;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				HEADERMAP_USES_VFS = YES;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6a7ee551-f40e-4048-a1f3-723b96db4cfd";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.doctor";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -874,17 +895,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "WongYiuNam-Doctor/WongYiuNam-Doctor.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8AN899D996;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				HEADERMAP_USES_VFS = YES;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b757434-feb1-4d06-8785-178baac54c35";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

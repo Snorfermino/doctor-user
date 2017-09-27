@@ -69,7 +69,6 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
         if viewModel.answerHistory.count > 0 {
             cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question
         }
-        
         return cell
     }
     
@@ -83,6 +82,12 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.answerHistory.count
+    }
+    
+}
+extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
+    func getAnswerHistoryListSuccess() {
+        tableView.reloadData()
     }
     
 }

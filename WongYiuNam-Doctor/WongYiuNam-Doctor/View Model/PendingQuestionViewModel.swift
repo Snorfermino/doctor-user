@@ -14,7 +14,7 @@ protocol PendingQuestionViewModelDelegate{
 class PendingQuestionViewModel{
     
     init() {}
-    var delegate: PendingQuestionViewModelDelegate!
+    var delegate: PendingQuestionViewModelDelegate?
     var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
     func getPendingQuestionList(id: Int){
         
@@ -27,7 +27,7 @@ class PendingQuestionViewModel{
                         self.pendingQuestions.append(question)
                     }
                     print("Count: \(self.pendingQuestions.count)")
-                    self.delegate.getPendingQuestionListDone()
+                    self.delegate?.getPendingQuestionListDone()
                 }
             case .failure:
                 print("failed")

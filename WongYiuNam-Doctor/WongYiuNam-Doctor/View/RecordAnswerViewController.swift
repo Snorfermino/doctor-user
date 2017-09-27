@@ -11,9 +11,11 @@ import AVFoundation
 class RecordAnswerViewController: BaseViewController {
     
     @IBOutlet weak var btnRecord:UIButton!
+    var viewModel: RecordAnswerViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel = RecordAnswerViewModel()
     }
 
     
@@ -50,11 +52,17 @@ class RecordAnswerViewController: BaseViewController {
     
     func playRecordFile(){
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
+        print("file location:",url.path)
         if FileManager.default.fileExists(atPath: url.path){
             print("file found and read")
-        
+            if AudioPlayerManager.shared.isPlaying{
+                print("file is playing")
+            } else {
+                
+            }
         } else {
+            let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "Test")
+            AudioPlayerManager.shared.play(path: path)
             print("file not found")
         }
     }
@@ -78,8 +86,14 @@ class RecordAnswerViewController: BaseViewController {
             startRecording()
         } else {
             AudioRecorderManager.shared.finishRecording()
+            timerUpdater.cancel()
             playRecordFile()
 //            finishRecording(success: true)
         }
+    }
+    
+    @IBAction func btnSubmitPressed(_ sender: UIButton){
+        let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "Test"))
+        viewModel.replyQuestion("26", url: url)
     }
 }

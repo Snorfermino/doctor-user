@@ -12,11 +12,12 @@ protocol AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess()
 }
 class AnswerHistoryViewModel {
-    var delegate: AnswerHistoryViewModelDelegate!
+    var delegate: AnswerHistoryViewModelDelegate?
     var answerHistory:[WYNDotorPendingQuestion.WYNData] = []
     
-    func `init`(_ delegate: AnswerHistoryViewController){
-        self.delegate = delegate as! AnswerHistoryViewModelDelegate
+    
+    init(_ delegate: AnswerHistoryViewController){
+        self.delegate = delegate as AnswerHistoryViewModelDelegate
     }
     func getAnswerHistoryList(id: Int){
         
@@ -29,7 +30,7 @@ class AnswerHistoryViewModel {
                         self.answerHistory.append(question)
                     }
                     print("Count: \(self.answerHistory.count)")
-                    self.delegate.getAnswerHistoryListSuccess()
+                    self.delegate?.getAnswerHistoryListSuccess()
                 }
             case .failure:
                 print("failed")

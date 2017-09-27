@@ -14,7 +14,7 @@ protocol LoginViewModelDelegate{
 class LoginViewModel{
     
     init() {}
-    var delegate: PendingQuestionViewModelDelegate!
+    var delegate: PendingQuestionViewModelDelegate?
     var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
     func getPendingQuestionList(_ email: String, _ password: String){
         

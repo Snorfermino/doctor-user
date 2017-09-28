@@ -68,6 +68,7 @@
 		84F0A4CF1F6F6E8D007B5385 /* MyServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */; };
 		84F0A4D21F6F6EEE007B5385 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D11F6F6EEE007B5385 /* Doctor.swift */; };
 		84F0A4D81F6F7B4B007B5385 /* DRPLoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */; };
+		84F91E761F7CFCBA0034DBFA /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F91E751F7CFCBA0034DBFA /* Question.swift */; };
 		CCE06F91E7FE1768CF1120AE /* Pods_WongYiuNam_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +160,7 @@
 		84F0A4CE1F6F6E8D007B5385 /* MyServerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyServerAPI.swift; sourceTree = "<group>"; };
 		84F0A4D11F6F6EEE007B5385 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRPLoadingSpinner.swift; sourceTree = "<group>"; };
+		84F91E751F7CFCBA0034DBFA /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A4F52D4B48895826B569298B /* Pods-WongYiuNam-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +322,7 @@
 				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
 				840C03AF1F78AE72009D86CD /* User.swift */,
 				84C954041F7A42990033B110 /* UserDemo.swift */,
+				84F91E751F7CFCBA0034DBFA /* Question.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,
 				8427D7521F6122B2007B34F4 /* MenuTableViewCell.swift in Sources */,
 				84C954071F7A67650033B110 /* Utils.swift in Sources */,
+				84F91E761F7CFCBA0034DBFA /* Question.swift in Sources */,
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
 				84C8C90C1F67EE1300AA5709 /* CheckBoxButton.swift in Sources */,
 				849A947C1F60042F008ACB28 /* SocialWallViewController.swift in Sources */,

@@ -56,4 +56,16 @@ class ApiManager {
             }
         }
     }
+    
+    static func askaQuestion(question: Question, completion:  (() -> Void)?) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.askaQuestion(question: question)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

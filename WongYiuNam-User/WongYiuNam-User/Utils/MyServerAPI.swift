@@ -7,13 +7,13 @@
 //
 
 import Moya
-import Alamofire
+//import Alamofire
 
 enum MyServerAPI {
     
     // MARK: - Doctor
     case doctors(page: Int)
-    case askaQuestion
+    case askaQuestion(question: Question)
     // MARK: User
     case login(email: String, password: String)
 }
@@ -23,8 +23,7 @@ extension MyServerAPI: TargetType {
         var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         switch self {
         case .doctors, .askaQuestion:
-            h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1ODkzNjI1LCJleHAiOjE1MTg4NTM2MjUsIm5iZiI6MTUwNTg5MzYyNSwianRpIjoiZ3U5S0FKU3V3bldsSVo5RCJ9.FHYE0EUGKk50aH5R0V9Buiwa9YsId2-jMYU5f-ETiUo"
-
+            h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA2NTMwNDI1LCJleHAiOjQ4MTYyNTMwNDI1LCJuYmYiOjE1MDY1MzA0MjUsImp0aSI6InRYZG1Pb2NMVDBBOUlyM3QifQ.ijzz45iAXz0RvhhUVyFnPZYzU8EdZa1tnYZci90ZbKk"
         default:
             break
         }
@@ -42,13 +41,13 @@ extension MyServerAPI: TargetType {
         case .login:
             return "/auth/login"
         case .askaQuestion:
-            return "/qas/ask"
+            return "/question/ask"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .login, .askaQuestion:
             return .post
         default:
             return .get
@@ -71,6 +70,20 @@ extension MyServerAPI: TargetType {
             parameters["email"] = email
             parameters["password"] = password
             return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .askaQuestion(let question):
+            guard let data = UIImageJPEGRepresentation(question.photo!,1) else {
+                return Task.requestPlain
+            }
+            var multipartdata:[MultipartFormData] = []
+            multipartdata.append(MultipartFormData(provider: .data(data), name: "photo", fileName: "photo.jpg", mimeType: "image/jpg"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: question.doctorID!).data(using: .utf8)!), name: "doctor"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: question.patientName!).data(using: .utf8)!), name: "patient_name"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: "10/10/9999").data(using: .utf8)!), name: "patient_dob"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: question.patientGender!).data(using: .utf8)!), name: "patient_gender"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: question.symptomType!).data(using: .utf8)!), name: "symptom_type"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: question.question!).data(using: .utf8)!), name: "question"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: "true").data(using: .utf8)!), name: "is_public"))
+            return .uploadMultipart(multipartdata)
         default:
             return Task.requestPlain
         }

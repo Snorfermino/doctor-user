@@ -31,6 +31,9 @@ public struct WYNAnswerQuestionParameters: Mappable {
         
     }
     
+    public init?(){}
+    
+    
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.

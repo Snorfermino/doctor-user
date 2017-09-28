@@ -7,7 +7,6 @@
 //
 
 import Moya
-import Alamofire
 
 public enum API: TargetType{
     
@@ -21,7 +20,7 @@ public enum API: TargetType{
     case online(userID: Int)
     case offline(userID: Int)
     case reply(questionID: Int)
-    case answerQuestion(questionID:String,fileURL:URL)
+    case answerQuestion(sender: WYNAnswerQuestionParameters)
 }
 
 extension API {
@@ -29,10 +28,10 @@ extension API {
         switch self {
         case .getPendingQuestion:
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1OTg0Mzc2LCJleHAiOjQ4MTYxOTg0Mzc2LCJuYmYiOjE1MDU5ODQzNzYsImp0aSI6ImVMQVVNWEFXZzFLT29wVHcifQ.7I3BYpbZE0np0mqyJ8_JszutHH7xCPQihGCzSImyZ2E"]
+                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs"]
         case .answerQuestion:
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA1OTg0Mzc2LCJleHAiOjQ4MTYxOTg0Mzc2LCJuYmYiOjE1MDU5ODQzNzYsImp0aSI6ImVMQVVNWEFXZzFLT29wVHcifQ.7I3BYpbZE0np0mqyJ8_JszutHH7xCPQihGCzSImyZ2E"]
+                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs"]
         default :
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         }
@@ -74,8 +73,8 @@ extension API {
             
             //        case .replyQuestion(let answer):
         //            return ["content":answer]
-        case .answerQuestion(let qID,_):
-            return ["question_id":"26","duration":"2","is_free":"false"]
+        case .answerQuestion(let sender):
+            return sender.toJSON()
         default:
             return nil
         }
@@ -89,28 +88,14 @@ extension API {
         switch self {
         case .getPendingQuestion, .getAnswerHistory:
             return .requestPlain
-        case .answerQuestion(_, let url):
-            let data = MultipartFormData(provider: .file(url), name: "audio", fileName: "Test.m4a", mimeType: "audio/m4a")
-//            RequestMultipartFormData()
-//            for key in (self.parameters?.keys)!{
-//                let name = String(key)
-//                if let val = parameters![name!] as? String{
-//
-//                    data.append(val.data(using: .utf8)!, withName: name!)
-//
-//                }
-//            }
-//            return .uploadFile(url)
-            do {
-//                let paraRawData = try JSONSerialization.data(withJSONObject: self.parameters, options: .prettyPrinted)
-                let paraData = MultipartFormData(provider: .data("26".data(using: .utf8)!), name: "question_id")
-                
-                return .uploadMultipart([data,paraData])
-            } catch {
-                print("error")
-            }
-         
-            return .uploadMultipart([data])
+        case .answerQuestion(let sender):
+            guard let fileURL = sender.audio else  { return .requestPlain }
+            var multipartdata:[MultipartFormData] = []
+            multipartdata.append(MultipartFormData(provider: .file(fileURL), name: "audio", fileName: "Test.m4a", mimeType: "audio/m4a"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: sender.questionID).data(using: .utf8)!), name: "question_id"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: sender.duration).data(using: .utf8)!), name: "duration"))
+            multipartdata.append(MultipartFormData(provider: .data(String(describing: sender.isFree).data(using: .utf8)!), name: "is_free"))
+            return .uploadMultipart(multipartdata)
         default:
             return .requestParameters(parameters: self.parameters!, encoding: self.parameterEncoding)
         }

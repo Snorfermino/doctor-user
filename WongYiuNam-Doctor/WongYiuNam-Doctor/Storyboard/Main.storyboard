@@ -672,7 +672,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free for users to listen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcM-TI-Sac">
-                                <rect key="frame" x="118" y="563.5" width="139.5" height="16.5"/>
+                                <rect key="frame" x="118" y="563" width="139.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -696,11 +696,15 @@
                                     <constraint firstAttribute="width" secondItem="TlH-Rr-898" secondAttribute="height" multiplier="35:3" id="yZ6-bL-339"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxU-Xq-pr2" customClass="WYNCheckBox" customModule="WongYiuNam_Doctor" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxU-Xq-pr2" customClass="WYNCheckBox" customModule="WongYiuNam_Doctor" customModuleProvider="target">
                                 <rect key="frame" x="93" y="564" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fxU-Xq-pr2" secondAttribute="height" multiplier="15:15" id="EfY-qr-2od"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_boxUnchecked">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -731,11 +735,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqm-vY-vYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2639" y="820"/>
+            <point key="canvasLocation" x="2316" y="88"/>
         </scene>
     </scenes>
     <resources>
         <image name="ic_boxChecked" width="15" height="15"/>
+        <image name="ic_boxUnchecked" width="15" height="15"/>
         <image name="ic_logo" width="171" height="110"/>
         <image name="img_btnAnswer" width="280" height="48"/>
         <image name="img_btnAnswerHistory" width="280" height="48"/>

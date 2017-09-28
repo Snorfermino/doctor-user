@@ -15,9 +15,11 @@ struct Doctor: Mappable {
     var avatar: String?
     var introduction: String?
     var qualifications: String?
-    var specialty: String?
+    var speciality: String?
+    var experience : String?
+    var speakingLang : String?
     var online: Bool?
-    var createdAt: Int?
+    var createdAt: Date?
     
     init?(map: Map){
         
@@ -29,8 +31,10 @@ struct Doctor: Mappable {
         avatar <- map["avatar"]
         introduction <- map["introduction"]
         qualifications <- map["qualifications"]
-        specialty <- map["specialty"]
+        speciality <- map["speciality"]
+        experience <- map["experience"]
+        speakingLang <- map["speaking_lang"]
         online <- map["online"]
-        createdAt <- map["created_at"]
+        createdAt <- (map["created_at"], DateTransform())
     }
 }

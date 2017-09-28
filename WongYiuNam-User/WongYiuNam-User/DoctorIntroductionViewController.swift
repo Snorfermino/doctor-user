@@ -35,7 +35,7 @@ class DoctorIntroductionViewController: BaseViewController {
     
     func showDoctor() {
         nameLabel.text = doctor.name
-        specialtyLabel.text = doctor.specialty
+        specialtyLabel.text = doctor.speciality
         qualificationsLabel.text = doctor.qualifications
         introductionLabel.text = doctor.introduction
     }

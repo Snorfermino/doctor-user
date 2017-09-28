@@ -33,7 +33,7 @@ class ApiManager {
         }
     }
     
-    static func login(email: String, password: String, completion: @escaping ((User?) -> Void)) {
+    static func login(email: String, password: String, completion: @escaping ((User?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.login(email: email, password: password)) { (result) in
             switch result {
@@ -41,13 +41,18 @@ class ApiManager {
                 print(response)
                 do {
                     let userResponse = try response.mapObject(User.self)
-                    completion(userResponse)
+                    completion(userResponse, nil)
                 } catch {
-                    completion(nil)
+                    do {
+                        let err = try response.mapJSON() as! [String]
+                        completion(nil, err[0])
+                    } catch {
+                        completion(nil, "Error login")
+                    }
                 }
             case .failure(let error):
                 print(error)
-                completion(nil)
+                completion(nil, error.errorDescription)
             }
         }
     }

@@ -101,7 +101,7 @@ extension AskaDoctorViewController: UITableViewDataSource {
             nameLabel.text = doctor.name
         }
         if let specialtyLabel = cell.viewWithTag(103) as? UILabel {
-            specialtyLabel.text = doctor.specialty
+            specialtyLabel.text = doctor.speciality
         }
         if let introductionLabel = cell.viewWithTag(104) as? UILabel {
             introductionLabel.text = doctor.introduction

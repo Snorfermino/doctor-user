@@ -38,7 +38,7 @@ extension MyServerAPI: TargetType {
     var path: String {
         switch self {
         case .doctors:
-            return "/doctors"
+            return "/doctor/list"
         case .login:
             return "/auth/login"
         case .askaQuestion:

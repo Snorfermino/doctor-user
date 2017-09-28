@@ -9,6 +9,7 @@
 import UIKit
 import FacebookLogin
 import PopupDialog
+import FacebookCore
 
 class SignInViewController: UIViewController {
     
@@ -28,16 +29,10 @@ class SignInViewController: UIViewController {
         self.setNavigationBarItem()
     }
     
-    func addFacebookLoginButton(){
-        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        loginButton.center = view.center
-        view.addSubview(loginButton)
-    }
-    
     // Once the button is clicked, show the login dialog
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()
-        loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+        loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
@@ -45,6 +40,22 @@ class SignInViewController: UIViewController {
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in!")
+                let completion = {(userInfo: [String: Any]?, error: Error?) -> Void in
+                    print(userInfo)
+                }
+                self.getUserInfo(accessToken: accessToken, completion: completion)
+            }
+        }
+    }
+    
+    func getUserInfo(accessToken: AccessToken, completion: @escaping (_ : [String: Any]?, _ : Error?) -> Void) {
+        let request = GraphRequest(graphPath: "me", parameters: ["fields": "name, id, email"])
+        request.start { response, result in
+            switch result {
+            case .failed(let error):
+                completion(nil, error)
+            case .success(let graphResponse):
+                completion(graphResponse.dictionaryValue, nil)
             }
         }
     }
@@ -57,11 +68,15 @@ class SignInViewController: UIViewController {
     
     @IBAction func signInButtonClicked(_ sender: Any) {
         let email = "admin@admin.com"
-        let password = "12345"
+        let password = "54321"
         Utils.showHub(view: view)
-        let completion = {(user: User?) -> Void in
+        let completion = {(user: User?, error: String?) -> Void in
             Utils.hideHub(view: self.view)
-            Global.user = user
+            if let user = user {
+                Global.user = user
+            } else {
+                Utils.showAlert(title: "Error !!!", message: error, viewController: self)
+            }
         }
         ApiManager.login(email: email, password: password, completion: completion)
     }

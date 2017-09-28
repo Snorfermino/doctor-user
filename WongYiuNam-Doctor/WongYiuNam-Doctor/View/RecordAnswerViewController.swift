@@ -24,7 +24,7 @@ class RecordAnswerViewController: BaseViewController {
     
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
-        
+
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)

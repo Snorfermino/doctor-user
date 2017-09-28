@@ -24,3 +24,8 @@ class LoginViewController: UIViewController {
     }
 
 }
+extension LoginViewController: LoginViewModelDelegate{
+    func loginSuccess() {
+        print("Login success")
+    }
+}

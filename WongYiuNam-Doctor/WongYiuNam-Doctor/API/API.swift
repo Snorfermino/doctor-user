@@ -17,7 +17,7 @@ public enum API: TargetType{
     case uploadPicture
     case replyQuestion
     case getPendingQuestion(userID: Int)
-    case getAnswerHistory(userID: Int)
+    case getAnswerHistory
     case online(isOnline: Bool)
     case reply(questionID: Int)
     case answerQuestion(sender: WYNAnswerQuestionParameters)
@@ -46,8 +46,8 @@ extension API {
             return "/doctor/login"
         case .getPendingQuestion(let id):
             return "/qas/doctor/\(id)/pending"
-        case .getAnswerHistory(let id):
-            return "/qas/doctor/\(id)/history"
+        case .getAnswerHistory:
+            return "/answer/histories"
         case .getDoctorProfile:
             return "/user"
         case .online:

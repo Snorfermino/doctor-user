@@ -19,9 +19,9 @@ class AnswerHistoryViewModel {
     init(_ delegate: AnswerHistoryViewController){
         self.delegate = delegate as AnswerHistoryViewModelDelegate
     }
-    func getAnswerHistoryList(id: Int){
+    func getAnswerHistoryList(){
         
-        apiProvider.request(.getAnswerHistory(userID: id)) { (result) in
+        apiProvider.request(.getAnswerHistory) { (result) in
             switch result {
             case let .success(response):
                 if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {

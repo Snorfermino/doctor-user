@@ -9,77 +9,103 @@
 import UIKit
 import AVFoundation
 class RecordAnswerViewController: BaseViewController {
-    
+
+    var recordingSession: AVAudioSession!
+    var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var btnRecord:UIButton!
+    @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
+    var viewModel: RecordAnswerViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel = RecordAnswerViewModel()
+        recordTemp()
     }
-
     
-    var isRecording = false
-     var timerUpdater = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
-    func startRecording() {
-        isRecording = true
-              if AudioRecorderManager.shared.record("Test"){
-            timerUpdater.resume()
-        }
-        
-        let dateFormatter = DateComponentsFormatter()
-        dateFormatter.zeroFormattingBehavior = .pad
-        dateFormatter.includesApproximationPhrase = false
-        dateFormatter.includesTimeRemainingPhrase = false
-        dateFormatter.allowedUnits = [.minute,.second]
-        dateFormatter.calendar = Calendar.current
-        
-        timerUpdater.setEventHandler {
-            guard let peak = AudioRecorderManager.shared.recorder else {
-                return
+    func recordTemp(){
+        recordingSession = AVAudioSession.sharedInstance()
+
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        print("Record authorized")
+                    } else {
+                        // failed to record!
+                    }
+                }
             }
-            
-            print("===========time" + dateFormatter.string(from: AudioRecorderManager.shared.recorder!.currentTime)!)
-//            let percent = (Double(AudioRecorderManager.shared.recorderPeak0 + 160 )) / 160
-//            let final = CGFloat(percent) + 0.3
-
+        } catch {
+            // failed to record!
         }
-        
-        timerUpdater.scheduleRepeating(deadline: DispatchTime.now(), interval: DispatchTimeInterval.milliseconds(100))
+    }
 
-        
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
     
-    func playRecordFile(){
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    func startRecordingTemp() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         
-        if FileManager.default.fileExists(atPath: url.path){
-            print("file found and read")
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
         
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record(forDuration: 12000)
+            btnRecord.setTitle("Stop", for: .normal)
+        } catch {
+            finishRecording(success: false)
+        }
+    }
+    
+    func finishRecording(success: Bool) {
+        audioRecorder.stop()
+        audioRecorder = nil
+        
+        if success {
+            btnRecord.setTitle("Re-Record answer", for: .normal)
         } else {
-            print("file not found")
+            btnRecord.setTitle("Record answer", for: .normal)
+            // recording failed :(
         }
     }
-    
-    func replyAnswer(){
-        _ = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        apiProvider.request(.replyQuestion) { (result) in
-            switch result {
-            case let .success(response):
-                print(response)
-            case .failure:
-                print("failed")
-            }
-            
-        }
-    }
-
     
     @IBAction func recordTapped(_ sender: UIButton) {
-        if isRecording == false {
-            startRecording()
+        if audioRecorder == nil {
+            startRecordingTemp()
         } else {
-            AudioRecorderManager.shared.finishRecording()
-            playRecordFile()
-//            finishRecording(success: true)
+            finishRecording(success: true)
+        }
+    }
+    
+    @IBAction func btnSubmitPressed(_ sender: UIButton){
+        let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording"))
+        var parameter = WYNAnswerQuestionParameters()
+        parameter?.questionID = 174
+        parameter?.audio = url
+        parameter?.duration = 2
+        parameter?.isFree = checkBoxIsFree.isSelected
+        let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
+        AudioPlayerManager.shared.play(path:path)
+        viewModel.replyQuestion(parameter!)
+    }
+}
+extension RecordAnswerViewController: AVAudioRecorderDelegate {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishRecording(success: false)
         }
     }
 }
+

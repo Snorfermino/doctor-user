@@ -12,18 +12,20 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var tfEmail:UITextField!
     @IBOutlet weak var tfPassword:UITextField!
-
+    var viewModel: LoginViewModel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel = LoginViewModel(self)
+    }
     // TODO: show progress hud when calling api
     @IBAction func btnSignInPressed(_ sender: UIButton){
-        apiProvider.request(.login(email: tfEmail.text!,passwd: tfPassword.text!)) { (result) in
-            switch result {
-            case let .success(response):
-                print(response)
-            case .failure:
-                print("failed")
-                // TODO: show error when failed
-            }
-        }
+        viewModel.login(tfEmail.text!,tfPassword.text!)
     }
 
+}
+extension LoginViewController: LoginViewModelDelegate{
+    func loginSuccess() {
+        print("Login success")
+    }
 }

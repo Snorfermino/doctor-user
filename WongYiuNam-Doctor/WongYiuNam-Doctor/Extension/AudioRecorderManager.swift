@@ -14,14 +14,31 @@ class AudioRecorderManager: NSObject {
 
     var recordSession: AVAudioSession!
     var recorder: AVAudioRecorder!
+    override init() {
+        super.init()
+        setup()
+    }
     
     func setup(){
         recordSession = AVAudioSession.sharedInstance()
-        
+        let url = getUserPath().appendingPathComponent("Test.m4a")
+        let audioURL = URL.init(fileURLWithPath: url.path)
+        let recordSettings:[String:Any] = [
+            AVFormatIDKey: kAudioFormatMPEG4AAC,
+            AVEncoderBitRateKey: 32000,
+            //            AVLinearPCMBitDepthKey: 16,
+                                    AVSampleRateKey: 44100,
+            AVNumberOfChannelsKey: 2,
+            
+            AVEncoderAudioQualityKey: AVAudioQuality.medium.rawValue
+        ]
         do {
             try recordSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
             try recordSession.setActive(true)
-            
+            recorder = try AVAudioRecorder(url: audioURL, settings: recordSettings)
+            recorder?.delegate = self
+            recorder?.isMeteringEnabled = true
+            recorder?.prepareToRecord()
             recordSession.requestRecordPermission({ (allowed:Bool) in
                 if allowed {
                     print("Mic Authorized")
@@ -37,6 +54,8 @@ class AudioRecorderManager: NSObject {
                 print("Pemission denied")
             case AVAudioSessionRecordPermission.undetermined:
                 print("Request permission here")
+            default:
+                print("Default")
             }
             
             
@@ -49,22 +68,20 @@ class AudioRecorderManager: NSObject {
     var meterTimer:Timer?
     //Start record session
     func record(_ fileName:String) -> Bool {
-        let url = getUserPath().appendingPathComponent(fileName + ".m4a")
-        let audioURL = URL.init(fileURLWithPath: url.path)
-        let recordSettings:[String:Any] = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVEncoderBitRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVSampleRateKey: 44100,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ]
-        
+        print("pre-recording")
         do {
-            recorder = try AVAudioRecorder(url: audioURL, settings: recordSettings)
-            recorder?.delegate = self
-            recorder?.isMeteringEnabled = true
-            recorder?.prepareToRecord()
-            
+            recorder?.record(forDuration: 12000)
+            if #available(iOS 10.0, *) {
+                self.meterTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
+                    if let recorder = self.recorder {
+                        recorder.updateMeters()
+                        self.recorderApc0 = recorder.averagePower(forChannel: 0 )
+                        self.recorderPeak0 = recorder.peakPower(forChannel: 0)
+                    }
+                })
+            } else {
+                // Fallback on earlier versions
+            }
             self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateMeterTimer), userInfo: nil, repeats: true)
             return true
         } catch {
@@ -86,7 +103,7 @@ class AudioRecorderManager: NSObject {
         self.meterTimer?.invalidate()
     }
     func getUserPath()-> URL {
-     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
 }
 

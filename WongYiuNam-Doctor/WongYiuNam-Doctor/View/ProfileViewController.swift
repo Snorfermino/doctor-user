@@ -17,12 +17,17 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var btnAvailable:UIButton!
     @IBOutlet weak var lbEarned:UILabel!
 
-    @IBAction func answerQuestionsPressed(_ sender: UIButton){
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    @IBAction func answerQuestionsPressed(_ sender: UIButton){
+        self.performSegue(withIdentifier: "PendingQuestionVC", sender: nil)
     }
     
     @IBAction func answerHistoryPressed(_ sender: UIButton){
-        
+        self.performSegue(withIdentifier: "AnswerHistoryVC", sender: nil)
     }
 
 }

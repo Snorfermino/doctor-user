@@ -13,15 +13,24 @@ protocol LoginViewModelDelegate{
 }
 class LoginViewModel{
     
-    init() {}
-    var delegate: PendingQuestionViewModelDelegate?
+
+    var delegate: LoginViewModelDelegate?
     var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
-    func getPendingQuestionList(_ email: String, _ password: String){
+    
+    init(_ delegate: LoginViewModelDelegate) {
+        self.delegate = delegate
+    }
+    
+    func login(_ email: String, _ password: String){
         
         apiProvider.request(.login(email: email,passwd: password)) { (result) in
             switch result {
             case let .success(response):
                 print(response)
+                if let receivedData: WYNLogedInUserInfo = Utils.mapOne(from: response) {
+                    print(receivedData.dictionaryRepresentation())
+                    self.delegate?.loginSuccess()
+                }
             case .failure:
                 print("failed")
                 // TODO: show error when failed

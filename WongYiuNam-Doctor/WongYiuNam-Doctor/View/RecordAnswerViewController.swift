@@ -13,6 +13,7 @@ class RecordAnswerViewController: BaseViewController {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var btnRecord:UIButton!
+    @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
     var viewModel: RecordAnswerViewModel!
     
     override func viewDidLoad() {
@@ -61,8 +62,7 @@ class RecordAnswerViewController: BaseViewController {
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
-            audioRecorder.record()
-            
+            audioRecorder.record(forDuration: 12000)
             btnRecord.setTitle("Stop", for: .normal)
         } catch {
             finishRecording(success: false)
@@ -81,76 +81,6 @@ class RecordAnswerViewController: BaseViewController {
         }
     }
     
-//    @objc func recordTapped() {
-//        if audioRecorder == nil {
-//            startRecordingTemp()
-//        } else {
-//            finishRecording(success: true)
-//        }
-//    }
-//    var isRecording = false
-//    var timerUpdater = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
-//    var duration = "00.00"
-//    func startRecording() {
-//        isRecording = true
-//        if AudioRecorderManager.shared.record("Test"){
-//            timerUpdater.resume()
-//        }
-//
-//        let dateFormatter = DateComponentsFormatter()
-//        dateFormatter.zeroFormattingBehavior = .pad
-//        dateFormatter.includesApproximationPhrase = false
-//        dateFormatter.includesTimeRemainingPhrase = false
-//        dateFormatter.allowedUnits = [.minute,.second]
-//        dateFormatter.calendar = Calendar.current
-//
-//        timerUpdater.setEventHandler { [weak self] in
-//            guard let peak = AudioRecorderManager.shared.recorder else {
-//                return
-//            }
-//
-//            print("===========time" + dateFormatter.string(from: AudioRecorderManager.shared.recorder!.currentTime)!)
-//            let percent = (Double(AudioRecorderManager.shared.recorderPeak0 + 160 )) / 160
-//            let final = CGFloat(percent) + 0.3
-//
-//        }
-//
-//        timerUpdater.scheduleRepeating(deadline: DispatchTime.now(), interval: DispatchTimeInterval.milliseconds(100))
-//
-//
-//    }
-//
-//    func playRecordFile(){
-//        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        print("file location:",url.path)
-//        if FileManager.default.fileExists(atPath: url.path){
-//            print("file found and read")
-//            if AudioPlayerManager.shared.isPlaying{
-//                print("file is playing")
-//            } else {
-//
-//            }
-//        } else {
-//            let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "Test")
-//            AudioPlayerManager.shared.play(path: path)
-//            print("file not found")
-//        }
-//    }
-//
-//    func replyAnswer(){
-//        _ = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        apiProvider.request(.replyQuestion) { (result) in
-//            switch result {
-//            case let .success(response):
-//                print(response)
-//            case .failure:
-//                print("failed")
-//            }
-//
-//        }
-//    }
-//
-//
     @IBAction func recordTapped(_ sender: UIButton) {
         if audioRecorder == nil {
             startRecordingTemp()
@@ -165,7 +95,7 @@ class RecordAnswerViewController: BaseViewController {
         parameter?.questionID = 174
         parameter?.audio = url
         parameter?.duration = 2
-        parameter?.isFree = false
+        parameter?.isFree = checkBoxIsFree.isSelected
         let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
         AudioPlayerManager.shared.play(path:path)
         viewModel.replyQuestion(parameter!)

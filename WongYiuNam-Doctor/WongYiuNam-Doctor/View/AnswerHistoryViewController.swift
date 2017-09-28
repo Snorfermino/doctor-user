@@ -10,6 +10,7 @@ import UIKit
 
 class AnswerHistoryViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
+
     var viewModel: AnswerHistoryViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()

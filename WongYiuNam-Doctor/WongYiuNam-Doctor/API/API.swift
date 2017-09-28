@@ -13,12 +13,12 @@ public enum API: TargetType{
     case login(email: String, passwd: String)
     case getUserProfile
     case getDoctorList
+    case getDoctorProfile
     case uploadPicture
     case replyQuestion
     case getPendingQuestion(userID: Int)
     case getAnswerHistory(userID: Int)
-    case online(userID: Int)
-    case offline(userID: Int)
+    case online(isOnline: Bool)
     case reply(questionID: Int)
     case answerQuestion(sender: WYNAnswerQuestionParameters)
 }
@@ -33,7 +33,9 @@ extension API {
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
                     "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs"]
         default :
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
+                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs",
+                    "Content-Type":"application/x-www-form-urlencoded"]
         }
         
     }
@@ -46,10 +48,10 @@ extension API {
             return "/qas/doctor/\(id)/pending"
         case .getAnswerHistory(let id):
             return "/qas/doctor/\(id)/history"
-        case .online(let id):
-            return "/doctors/\(id)/online"
-        case .offline(let id):
-            return "/doctors/\(id)/offline"
+        case .getDoctorProfile:
+            return "/user"
+        case .online:
+            return "/doctors/online"
         case .answerQuestion:
             return "/answer/reply"
         default:
@@ -58,9 +60,9 @@ extension API {
     }
     public var method: Moya.Method {
         switch self {
-        case .getUserProfile, .getDoctorList, .getPendingQuestion, .getAnswerHistory:
+        case .getUserProfile, .getDoctorProfile, .getPendingQuestion, .getAnswerHistory:
             return .get
-        case .replyQuestion, .online, .offline:
+        case .replyQuestion, .online:
             return .put
         default:
             return .post
@@ -70,11 +72,10 @@ extension API {
         switch self {
         case .login(let email, let pwd):
             return ["email":email,"password":pwd]
-            
-            //        case .replyQuestion(let answer):
-        //            return ["content":answer]
         case .answerQuestion(let sender):
             return sender.toJSON()
+        case .online(let isOnline):
+            return ["online":isOnline.description]
         default:
             return nil
         }
@@ -86,7 +87,7 @@ extension API {
     
     public var task: Task {
         switch self {
-        case .getPendingQuestion, .getAnswerHistory:
+        case .getPendingQuestion, .getAnswerHistory, .getDoctorProfile:
             return .requestPlain
         case .answerQuestion(let sender):
             guard let fileURL = sender.audio else  { return .requestPlain }

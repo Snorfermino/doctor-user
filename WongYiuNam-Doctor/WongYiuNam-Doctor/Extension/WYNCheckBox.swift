@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
+protocol WYNCheckBoxDelegate{
+    func WYNCheckBoxClicked(isSelected:Bool)
+}
 class WYNCheckBox: UIButton {
-
+    var delegate: WYNCheckBoxDelegate?
     override var isSelected: Bool {
         didSet {
             let image = isSelected ? #imageLiteral(resourceName: "ic_boxChecked") : #imageLiteral(resourceName: "ic_boxUnchecked")
@@ -25,5 +27,6 @@ class WYNCheckBox: UIButton {
     
     @objc func buttonClicked(_ sender : UIButton){
         isSelected = !isSelected
+        delegate?.WYNCheckBoxClicked(isSelected: isSelected)
     }
 }

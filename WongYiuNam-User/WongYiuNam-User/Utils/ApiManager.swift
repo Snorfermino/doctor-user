@@ -93,6 +93,19 @@ class ApiManager {
         }
     }
     
+    static func changePassword(oldPassword: String, newPassword: String, completion: @escaping ((String, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.changePassword(oldPassword: oldPassword, newPassword: newPassword)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     static func parseError(response: Response) -> String? {
         do {
             let errorResponse = try response.mapObject(ErrorResponse.self)

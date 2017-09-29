@@ -30,6 +30,7 @@
 		8452B6B41F72812B00781AD7 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8452B6B21F72812B00781AD7 /* ProductCell.xib */; };
 		8452B6B61F7284D600781AD7 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452B6B51F7284D600781AD7 /* FavoriteButton.swift */; };
 		847A874F1F7E8368001A3A48 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A874E1F7E8368001A3A48 /* ErrorResponse.swift */; };
+		847A87511F7EAC8D001A3A48 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A87501F7EAC8D001A3A48 /* Answer.swift */; };
 		849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */; };
 		849A947A1F60042F008ACB28 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94761F60042F008ACB28 /* HomeViewController.swift */; };
 		849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94771F60042F008ACB28 /* OnlineShopViewController.swift */; };
@@ -122,6 +123,7 @@
 		8452B6B51F7284D600781AD7 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		847A874E1F7E8368001A3A48 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		847A87501F7EAC8D001A3A48 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaDoctorViewController.swift; sourceTree = "<group>"; };
 		849A94761F60042F008ACB28 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		849A94771F60042F008ACB28 /* OnlineShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineShopViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				840C03AF1F78AE72009D86CD /* User.swift */,
 				84F91E751F7CFCBA0034DBFA /* Question.swift */,
 				847A874E1F7E8368001A3A48 /* ErrorResponse.swift */,
+				847A87501F7EAC8D001A3A48 /* Answer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				84C10CF51F6678E0000B3CEF /* DoctorIntroductionViewController.swift in Sources */,
 				84F0A4D81F6F7B4B007B5385 /* DRPLoadingSpinner.swift in Sources */,
 				849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */,
+				847A87511F7EAC8D001A3A48 /* Answer.swift in Sources */,
 				8427D7521F6122B2007B34F4 /* MenuTableViewCell.swift in Sources */,
 				84C954071F7A67650033B110 /* Utils.swift in Sources */,
 				84F91E761F7CFCBA0034DBFA /* Question.swift in Sources */,

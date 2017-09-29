@@ -14,17 +14,19 @@ enum MyServerAPI {
     // MARK: - Doctor
     case doctors(page: Int)
     case askaQuestion(question: Question)
+    case answerList(page: Int)
     // MARK: User
     case login(email: String, password: String)
     case register(name: String, email: String, password: String)
+    case changePassword(oldPassword: String, newPassword: String)
 }
 
 extension MyServerAPI: TargetType {
     var headers: [String : String]? {
         var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         switch self {
-        case .doctors, .askaQuestion:
-            h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA2NTMwNDI1LCJleHAiOjQ4MTYyNTMwNDI1LCJuYmYiOjE1MDY1MzA0MjUsImp0aSI6InRYZG1Pb2NMVDBBOUlyM3QifQ.ijzz45iAXz0RvhhUVyFnPZYzU8EdZa1tnYZci90ZbKk"
+        case .doctors, .askaQuestion, .answerList, .changePassword:
+            h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA2NzA1ODU5LCJleHAiOjQ4MTYyNzA1ODU5LCJuYmYiOjE1MDY3MDU4NTksImp0aSI6IlNHME5OWlBROXdKY2EwbVYifQ._8IlwMIfoLJ1UmtoFj639j4hkYw4aqqQn86x8aY5fQk"
         default:
             break
         }
@@ -39,18 +41,22 @@ extension MyServerAPI: TargetType {
         switch self {
         case .doctors:
             return "/doctor/list"
+        case .answerList:
+            return "/answer/list"
         case .login:
             return "/auth/login"
         case .register:
             return "/auth/register"
         case .askaQuestion:
             return "/question/ask"
+        case .changePassword:
+            return "/user/changepass"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .askaQuestion, .register:
+        case .login, .askaQuestion, .register, .changePassword:
             return .post
         default:
             return .get
@@ -65,6 +71,10 @@ extension MyServerAPI: TargetType {
         let encoding = URLEncoding.methodDependent
         switch self {
         case .doctors(let page):
+            var urlParameters = [String: Any]()
+            urlParameters["page"] = page
+            return Task.requestCompositeData(bodyData: Data(), urlParameters: urlParameters)
+        case .answerList(let page):
             var urlParameters = [String: Any]()
             urlParameters["page"] = page
             return Task.requestCompositeData(bodyData: Data(), urlParameters: urlParameters)
@@ -93,6 +103,11 @@ extension MyServerAPI: TargetType {
             multipartdata.append(MultipartFormData(provider: .data(String(describing: question.question!).data(using: .utf8)!), name: "question"))
             multipartdata.append(MultipartFormData(provider: .data(String(describing: "true").data(using: .utf8)!), name: "is_public"))
             return .uploadMultipart(multipartdata)
+        case .changePassword(let oldPassword, let newPassword):
+            var parameters = [String: Any]()
+            parameters["old_password"] = oldPassword
+            parameters["new_password"] = newPassword
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
         default:
             return Task.requestPlain
         }

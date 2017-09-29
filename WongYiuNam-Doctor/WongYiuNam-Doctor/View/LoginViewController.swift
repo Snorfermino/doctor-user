@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     }
     // TODO: show progress hud when calling api
     @IBAction func btnSignInPressed(_ sender: UIButton){
+        performSegue(withIdentifier: "ProfileVC", sender: nil)
         viewModel.login(tfEmail.text!,tfPassword.text!)
     }
 

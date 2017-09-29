@@ -49,6 +49,7 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+        self.performSegue(withIdentifier: "AnswerDetailVC", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

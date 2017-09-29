@@ -16,6 +16,7 @@ enum MyServerAPI {
     case askaQuestion(question: Question)
     // MARK: User
     case login(email: String, password: String)
+    case register(name: String, email: String, password: String)
 }
 
 extension MyServerAPI: TargetType {
@@ -40,6 +41,8 @@ extension MyServerAPI: TargetType {
             return "/doctor/list"
         case .login:
             return "/auth/login"
+        case .register:
+            return "/auth/register"
         case .askaQuestion:
             return "/question/ask"
         }
@@ -47,7 +50,7 @@ extension MyServerAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .login, .askaQuestion:
+        case .login, .askaQuestion, .register:
             return .post
         default:
             return .get
@@ -70,6 +73,12 @@ extension MyServerAPI: TargetType {
             parameters["email"] = email
             parameters["password"] = password
             return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .register(let name, let email, let password):
+            var parameters = [String: Any]()
+            parameters["name"] = name
+            parameters["email"] = email
+            parameters["password"] = password
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .askaQuestion(let question):
             guard let data = UIImageJPEGRepresentation(question.photo!,1) else {
                 return Task.requestPlain
@@ -89,3 +98,6 @@ extension MyServerAPI: TargetType {
         }
     }
 }
+
+
+

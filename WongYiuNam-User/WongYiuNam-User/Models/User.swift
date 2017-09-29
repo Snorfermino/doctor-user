@@ -11,7 +11,7 @@ import ObjectMapper
 struct User: Mappable {
 
     var name: String?
-    var email: String?
+    var email: String!
     var createdAt: Date?
     var fbid: String?
     var token: String?

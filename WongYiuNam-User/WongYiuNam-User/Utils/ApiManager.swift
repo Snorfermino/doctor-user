@@ -68,4 +68,38 @@ class ApiManager {
             }
         }
     }
+    
+    static func register(name: String, email: String, password: String, completion: @escaping ((User?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.register(name: name, email: email, password: password)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                if(response.statusCode == 200) {
+                    do {
+                        let userResponse = try response.mapObject(User.self)
+                        completion(userResponse, nil)
+                    } catch {
+                        //
+                    }
+                } else {
+                    completion(nil, self.parseError(response: response))
+                }
+                completion(nil, nil)
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
+    
+    static func parseError(response: Response) -> String? {
+        do {
+            let errorResponse = try response.mapObject(ErrorResponse.self)
+            return errorResponse.msg
+        } catch {
+            return nil
+        }
+    }
 }
+

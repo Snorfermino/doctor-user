@@ -19,6 +19,7 @@ class RecordAnswerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = RecordAnswerViewModel()
+        checkBoxIsFree.delegate = self
         recordTemp()
     }
     
@@ -108,4 +109,10 @@ extension RecordAnswerViewController: AVAudioRecorderDelegate {
         }
     }
 }
-
+extension RecordAnswerViewController: WYNCheckBoxDelegate{
+    func WYNCheckBoxClicked(isSelected:Bool){
+        if isSelected {
+            //Present alert
+        }
+    }
+}

@@ -12,15 +12,22 @@ class BaseViewController: UIViewController {
     
     @IBInspectable var isNavBarEnabled = false
     var navBar: NavBar!
-    
+    var indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
-        addNavBar()
+        
     }
     
     func setupView(){
         // Setup UI Components
+        indicator.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        indicator.frame = self.view.bounds
+        self.view.addSubview(indicator)
+        addNavBar()
+        navBar.delegate = self
+       
     }
     
     func addNavBar(){
@@ -45,5 +52,45 @@ class BaseViewController: UIViewController {
         let trailConstraint = NSLayoutConstraint(item: navBar, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0)
         self.view.addConstraints([horConstraint,verConstraint,widConstraint,heiConstraint,leadConstraint,trailConstraint])
     }
+    
+    func showIndicator(){
+        indicator.startAnimating()
+    }
+    
+    func hideIndicator(){
+        indicator.stopAnimating()
+    }
+    
+    func alert(title: String?, message: String?,
+               isCancelable: Bool = false,
+               handler: ((UIAlertAction) -> Swift.Void)? = nil) {
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let action = UIAlertAction(title: "Ok", style: .default, handler: handler)
+        alertVC.addAction(action)
+        
+        if isCancelable {
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: handler)
+            alertVC.addAction(cancel)
+        }
+        self.present(alertVC, animated: true, completion: nil)
+    }
+}
+extension BaseViewController: NavBarDelegate{
+    func backPressed() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func menuPressed() {
+        print("Menu")
+    }
+    
+    func logoutPressed() {
+        print("Logout")
+        UserDefaults.standard.removeObject(forKey: "LoggedIn")
+        backPressed()
+    }
+    
     
 }

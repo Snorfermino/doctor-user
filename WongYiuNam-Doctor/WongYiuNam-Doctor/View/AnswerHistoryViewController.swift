@@ -21,11 +21,15 @@ class AnswerHistoryViewController: BaseViewController {
     }
 
     override func setupView() {
+        showIndicator()
+        setupTableView()
+        viewModel.getAnswerHistoryList()
+    }
+    func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerHistoryCell")
         tableView.estimatedRowHeight = 230
         tableView.rowHeight = 230
         tableView.separatorStyle = .none
-        viewModel.getAnswerHistoryList()
     }
 }
 extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegate {
@@ -63,6 +67,7 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
 }
 extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess() {
+        hideIndicator()
         tableView.reloadData()
     }
     

@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 protocol LoginViewModelDelegate{
     func loginSuccess()
+    func loginFailed()
 }
 class LoginViewModel{
     
-
+    
     var delegate: LoginViewModelDelegate?
     var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
     
@@ -29,9 +30,16 @@ class LoginViewModel{
                 print(response)
                 if let receivedData: WYNLogedInUserInfo = Utils.mapOne(from: response) {
                     print(receivedData.dictionaryRepresentation())
-                    UserDefaults.standard.set(receivedData, forKey: "loggedIn")
-                    UserDefaults.standard.synchronize()
-                    self.delegate?.loginSuccess()
+                    if receivedData.dictionaryRepresentation().keys.count > 0 {
+                        UserDefaults.standard.set(receivedData, forKey: "loggedIn")
+                        UserDefaults.standard.synchronize()
+                        self.delegate?.loginSuccess()
+                    } else {
+                        self.delegate?.loginFailed()
+                    }
+                    
+                } else {
+                    self.delegate?.loginFailed()
                 }
             case .failure:
                 print("failed")

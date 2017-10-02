@@ -17,7 +17,7 @@ enum rightNavBar {
     case DrInfo
     case none
 }
-protocol NavBarProtocol {
+protocol NavBarDelegate {
     func backPressed()
     func menuPressed()
     func logoutPressed()
@@ -33,13 +33,13 @@ class NavBar: UIView {
     @IBOutlet weak var icRight: UIImageView!
     @IBOutlet weak var viewRight: UIView!
     @IBOutlet weak var lbName: UILabel!
-    
+    var delegate:NavBarDelegate?
     @IBInspectable var leftNavBar : leftNavBar = .none {
         didSet{
             changeStyle()
         }
     }
-    var delegate:NavBarProtocol?
+
     @IBInspectable var rightNavBar : rightNavBar = .none {
         didSet{
             changeStyle()

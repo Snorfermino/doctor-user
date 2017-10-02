@@ -22,6 +22,15 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
         
     }
+    
+    override func setupView() {
+        super.setupView()
+//        navBar.isHidden = true
+        navBar.leftNavBar = .none
+        navBar.rightNavBar = .logout
+        showIndicator()
+    }
+    
     @IBAction func answerQuestionsPressed(_ sender: UIButton){
         self.performSegue(withIdentifier: "PendingQuestionVC", sender: nil)
     }

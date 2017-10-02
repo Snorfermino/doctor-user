@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     @IBOutlet weak var tfEmail:UITextField!
     @IBOutlet weak var tfPassword:UITextField!
@@ -16,17 +16,39 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = LoginViewModel(self)
+        
+    }
+    
+    override func setupView() {
+        super.setupView()
+        navBar.isHidden = true
+        showIndicator()
+    }
+    
+    func checkLogin(){
+        if UserLoginInfo.shared.isLoggedIn {
+            performSegue(withIdentifier: "ProfileVC", sender: nil)
+        } else {
+            hideIndicator()
+            
+        }
     }
     // TODO: show progress hud when calling api
     @IBAction func btnSignInPressed(_ sender: UIButton){
-        performSegue(withIdentifier: "ProfileVC", sender: nil)
-        viewModel.login(tfEmail.text!,tfPassword.text!)
+        //Use for flow test only
+                performSegue(withIdentifier: "ProfileVC", sender: nil)
+        showIndicator()
+//        viewModel.login(tfEmail.text!,tfPassword.text!)
     }
-
+    
 }
 extension LoginViewController: LoginViewModelDelegate{
     func loginSuccess() {
-        print("Login success")
+        performSegue(withIdentifier: "ProfileVC", sender: nil)
+    }
+    func loginFailed() {
+        alert(title: "Login Failed", message: "Invalid username or password")
     }
 }

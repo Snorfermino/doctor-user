@@ -21,10 +21,10 @@ class PendingQuestionViewController: BaseViewController {
     
     override func setupView() {
         setupTableView()
-        guard let userInfo:WYNLogedInUserInfo = UserLoginInfo.shared.userInfo as WYNLogedInUserInfo else {
-            return
-        }
-        viewModel.getPendingQuestionList(id: userInfo.id!)
+//        guard let userInfo:WYNLogedInUserInfo = UserLoginInfo.shared.userInfo as WYNLogedInUserInfo else {
+//            return
+//        }
+//        viewModel.getPendingQuestionList(id: userInfo.id!)
     }
     
     func setupTableView(){
@@ -99,7 +99,8 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
             cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
         }
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        cell.addGestureRecognizer(tapGest)
+        cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
+//        cell.addGestureRecognizer(tapGest)
 
         return cell
     }
@@ -113,7 +114,8 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.pendingQuestions.count
+//        return viewModel.pendingQuestions.count
+        return 5
     }
 
 }

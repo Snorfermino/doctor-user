@@ -38,9 +38,9 @@ class LoginViewController: BaseViewController {
     // TODO: show progress hud when calling api
     @IBAction func btnSignInPressed(_ sender: UIButton){
         //Use for flow test only
-//                performSegue(withIdentifier: "ProfileVC", sender: nil)
+                performSegue(withIdentifier: "ProfileVC", sender: nil)
         showIndicator()
-        viewModel.login(tfEmail.text!,tfPassword.text!)
+//        viewModel.login(tfEmail.text!,tfPassword.text!)
     }
     
 }

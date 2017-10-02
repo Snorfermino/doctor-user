@@ -20,6 +20,14 @@ class PendingQuestionViewController: BaseViewController {
     }
     
     override func setupView() {
+        setupTableView()
+        guard let userInfo:WYNLogedInUserInfo = UserLoginInfo.shared.userInfo as WYNLogedInUserInfo else {
+            return
+        }
+        viewModel.getPendingQuestionList(id: userInfo.id!)
+    }
+    
+    func setupTableView(){
         tableView.register(UINib(nibName: "PendingQuestion", bundle: nil), forCellReuseIdentifier: "PendingQuestionCell")
         tableView.estimatedRowHeight = 230
         tableView.rowHeight = 230

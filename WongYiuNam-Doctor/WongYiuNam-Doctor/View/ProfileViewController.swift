@@ -29,6 +29,9 @@ class ProfileViewController: BaseViewController {
         navBar.leftNavBar = .none
         navBar.rightNavBar = .logout
         showIndicator()
+        let userProfile = UserLoginInfo.shared.userInfo
+        lbName.text = userProfile.name!
+        hideIndicator()
     }
     
     @IBAction func answerQuestionsPressed(_ sender: UIButton){

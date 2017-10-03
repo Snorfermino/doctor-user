@@ -41,7 +41,7 @@ extension UIViewController {
         }
     }
     
-    func rightBarButtonItemClicked() {
+    @objc func rightBarButtonItemClicked() {
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let signInViewController = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         let temp = UINavigationController(rootViewController: signInViewController)

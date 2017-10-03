@@ -15,7 +15,6 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailAddressTextField.borderStyle = .none
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func submitButtonClicked(_ sender: Any) {

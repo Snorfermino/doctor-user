@@ -34,13 +34,14 @@ class NavBar: UIView {
     @IBOutlet weak var viewRight: UIView!
     @IBOutlet weak var lbName: UILabel!
     var delegate:NavBarDelegate?
-    @IBInspectable var leftNavBar : leftNavBar = .none {
+    
+    var leftNavBar : leftNavBar = .none {
         didSet{
             changeStyle()
         }
     }
 
-    @IBInspectable var rightNavBar : rightNavBar = .none {
+    var rightNavBar : rightNavBar = .none {
         didSet{
             changeStyle()
         }

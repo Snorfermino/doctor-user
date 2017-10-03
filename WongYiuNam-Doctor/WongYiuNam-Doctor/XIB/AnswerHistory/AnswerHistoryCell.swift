@@ -12,7 +12,7 @@ class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var tvQuestion:UITextView!
     @IBOutlet weak var imageViewAvatar: UIImageView!
     @IBOutlet weak var lbPatientName: UILabel!
-    @IBOutlet weak var lbCreatedDate: UILabel!
+    @IBOutlet weak var lbCreatedAt: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

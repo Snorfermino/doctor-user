@@ -30,8 +30,11 @@ class ProfileViewController: BaseViewController {
         navBar.rightNavBar = .logout
 
         let userProfile = UserLoginInfo.shared.userInfo
-        
-        imageViewAvatar.downloadImageAndCacheToMemory(userProfile.avatar, placeHolder: #imageLiteral(resourceName: "ic_logo"), needAuthen: false)
+        let avatarURL = URL(string: userProfile.avatar!)
+        imageViewAvatar.sd_setImage(with: avatarURL , placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed]) { (image, error, cacheType, url) in
+             print("image \(String(describing: image)) error \(String(describing: error)) cacheType \(cacheType) url \(String(describing: url)))")
+        }
+
         lbName.text = userProfile.name!
         lbSpeciality.text = userProfile.speciality!
         lbQualifications.text = userProfile.qualifications!

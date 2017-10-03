@@ -14,7 +14,7 @@ protocol AnswerHistoryViewModelDelegate {
 }
 class AnswerHistoryViewModel {
     var delegate: AnswerHistoryViewModelDelegate?
-    var answerHistory:[WYNDotorPendingQuestion.WYNData] = []
+    var answerHistory:[WYNAnswerHistory.WYNData] = []
     
     
     init(_ delegate: AnswerHistoryViewController){
@@ -25,7 +25,7 @@ class AnswerHistoryViewModel {
         apiProvider.request(.getAnswerHistory) { (result) in
             switch result {
             case let .success(response):
-                if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {
+                if let receivedData: WYNAnswerHistory = Utils.mapOne(from: response) {
                     print(receivedData.toJSON())
                     if receivedData.data != nil {
                         for question in receivedData.data! {

@@ -12,6 +12,7 @@ class AnswerHistoryViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var viewModel: AnswerHistoryViewModel!
+    var selectedAnswerDetail: WYNAnswerHistory.WYNData!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +35,12 @@ class AnswerHistoryViewController: BaseViewController {
         tableView.rowHeight = 230
         tableView.separatorStyle = .none
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? AnswerDetailViewController {
+            viewController.answerDetailsData = self.selectedAnswerDetail
+        }
+    }
 }
 extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -49,7 +56,11 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerHistoryCell") as! AnswerHistoryCell
         if viewModel.answerHistory.count > 0 {
-            cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question
+            cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question?.question
+            let date = Date(timeIntervalSince1970: Double(self.viewModel.answerHistory[indexPath.section].createdAt!))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
+            cell.lbCreatedAt.text = dateFormatter.string(from: date)
         }
         cell.tvQuestion.isEditable = false
         cell.tvQuestion.isScrollEnabled = false
@@ -58,6 +69,7 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+        selectedAnswerDetail = self.viewModel.answerHistory[indexPath.section]
         self.performSegue(withIdentifier: "AnswerDetailVC", sender: nil)
     }
     
@@ -66,7 +78,8 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (viewModel.answerHistory.count > 0) ? viewModel.answerHistory.count : 5
+//        return viewModel.answerHistory.count
+        return 5
     }
     
 }

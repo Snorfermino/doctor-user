@@ -114,9 +114,14 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
         if viewModel.pendingQuestions.count > 0 {
             cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
+            let date = Date(timeIntervalSince1970: Double(self.viewModel.pendingQuestions[indexPath.section].createdAt!))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm MM dd yyyy"
         }
         cell.imgViewPatientSubmit.isUserInteractionEnabled = true
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+    
+        
         cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
 //        cell.addGestureRecognizer(tapGest)
         cell.tvQuestion.isEditable = false

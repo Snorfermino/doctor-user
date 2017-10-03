@@ -18,5 +18,6 @@ extension UITextField {
         }
         last.returnKeyType = .go
         last.addTarget(last, action: #selector(UIResponder.resignFirstResponder), for: .editingDidEndOnExit)
+        
     }
 }

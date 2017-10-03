@@ -8,7 +8,7 @@
 
 import Foundation
 import ObjectMapper
-public struct WYNAnswerQuestionParameters: Mappable {
+public struct WYNAnswerQuestion: Mappable {
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
         static let questionID = "question_id"
@@ -43,16 +43,5 @@ public struct WYNAnswerQuestionParameters: Mappable {
         duration <- map[SerializationKeys.duration]
         audio <- map[SerializationKeys.audio]
     }
-    
-    /// Generates description of the object in the form of a NSDictionary.
-    ///
-    /// - returns: A Key value pair containing all valid values in the object.
-    public func dictionaryRepresentation() -> [String: Any] {
-        var dictionary: [String: Any] = [:]
-        if let value = questionID { dictionary[SerializationKeys.questionID] = value }
-        if let value = isFree { dictionary[SerializationKeys.isFree] = value }
-        if let value = duration { dictionary[SerializationKeys.duration] = value }
-        if let value = audio { dictionary[SerializationKeys.audio] = value }
-        return dictionary
-    }
+
 }

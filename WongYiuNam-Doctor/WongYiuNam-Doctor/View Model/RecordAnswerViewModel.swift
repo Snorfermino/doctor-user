@@ -13,7 +13,7 @@ protocol RecordAnswerViewModelDelegate {
 class RecordAnswerViewModel {
     var delegate: RecordAnswerViewModelDelegate?
     
-    func replyQuestion(_ sender: WYNAnswerQuestionParameters){
+    func replyQuestion(_ sender: WYNAnswerQuestion){
         apiProvider.request(.answerQuestion(sender: sender)) { (result) in
             switch result {
             case let .success(response):

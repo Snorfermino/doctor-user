@@ -37,7 +37,7 @@
 		843C2B881F7A69B400F87A30 /* AnswerHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B861F7A69B400F87A30 /* AnswerHistoryCell.swift */; };
 		843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */; };
 		843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */; };
-		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */; };
+		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
 		847BC8141F824DE3002D9B01 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
@@ -113,7 +113,7 @@
 		843C2B861F7A69B400F87A30 /* AnswerHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerHistoryCell.swift; path = XIB/AnswerHistory/AnswerHistoryCell.swift; sourceTree = "<group>"; };
 		843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AnswerHistoryCell.xib; path = XIB/AnswerHistory/AnswerHistoryCell.xib; sourceTree = "<group>"; };
 		843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewModel.swift; path = "View Model/RecordAnswerViewModel.swift"; sourceTree = "<group>"; };
-		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestionParameters.swift; path = Model/WYNAnswerQuestionParameters.swift; sourceTree = "<group>"; };
+		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestion.swift; path = Model/WYNAnswerQuestion.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
 		847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extension/UIImageViewExtension.swift; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 				84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */,
 				843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */,
 				843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */,
-				843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */,
+				843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */,
 				84E254711F7CA494009D4B25 /* WYNBaseModel.swift */,
 			);
 			name = Model;
@@ -716,7 +716,7 @@
 				848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */,
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
 				843C2B7B1F7A236200F87A30 /* PendingQuestion.swift in Sources */,
-				843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift in Sources */,
+				843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */,
 				843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */,
 				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
 				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,

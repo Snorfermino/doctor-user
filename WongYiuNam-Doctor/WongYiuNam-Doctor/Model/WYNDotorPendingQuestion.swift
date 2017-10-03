@@ -52,23 +52,6 @@ public struct WYNDotorPendingQuestion: Mappable {
         to <- map[SerializationKeys.to]
         currentPage <- map[SerializationKeys.currentPage]
     }
-    
-    /// Generates description of the object in the form of a NSDictionary.
-    ///
-    /// - returns: A Key value pair containing all valid values in the object.
-    public func dictionaryRepresentation() -> [String: Any] {
-        var dictionary: [String: Any] = [:]
-        if let value = data { dictionary[SerializationKeys.data] = value.map { $0.dictionaryRepresentation() } }
-        if let value = path { dictionary[SerializationKeys.path] = value }
-        if let value = from { dictionary[SerializationKeys.from] = value }
-        if let value = total { dictionary[SerializationKeys.total] = value }
-        if let value = lastPage { dictionary[SerializationKeys.lastPage] = value }
-        if let value = perPage { dictionary[SerializationKeys.perPage] = value }
-        if let value = to { dictionary[SerializationKeys.to] = value }
-        if let value = currentPage { dictionary[SerializationKeys.currentPage] = value }
-        return dictionary
-    }
-    
 }
 extension WYNDotorPendingQuestion {
     
@@ -128,26 +111,6 @@ extension WYNDotorPendingQuestion {
             userId <- map[SerializationKeys.userId]
             patientDob <- map[SerializationKeys.patientDob]
             question <- map[SerializationKeys.question]
-        }
-        
-        /// Generates description of the object in the form of a NSDictionary.
-        ///
-        /// - returns: A Key value pair containing all valid values in the object.
-        public func dictionaryRepresentation() -> [String: Any] {
-            var dictionary: [String: Any] = [:]
-            if let value = symptomType { dictionary[SerializationKeys.symptomType] = value }
-            if let value = updatedAt { dictionary[SerializationKeys.updatedAt] = value }
-            if let value = doctorId { dictionary[SerializationKeys.doctorId] = value }
-            dictionary[SerializationKeys.status] = status
-            if let value = patientName { dictionary[SerializationKeys.patientName] = value }
-            if let value = id { dictionary[SerializationKeys.id] = value }
-            dictionary[SerializationKeys.isPublic] = isPublic
-            if let value = createdAt { dictionary[SerializationKeys.createdAt] = value }
-            if let value = patientGender { dictionary[SerializationKeys.patientGender] = value }
-            if let value = userId { dictionary[SerializationKeys.userId] = value }
-            if let value = patientDob { dictionary[SerializationKeys.patientDob] = value }
-            if let value = question { dictionary[SerializationKeys.question] = value }
-            return dictionary
         }
     }
 }

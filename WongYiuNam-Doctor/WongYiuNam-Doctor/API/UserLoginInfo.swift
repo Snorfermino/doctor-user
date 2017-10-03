@@ -12,11 +12,14 @@ class UserLoginInfo {
     static let shared =  UserLoginInfo()
     private let userDefault = UserDefaults.standard
     var userInfo: WYNLogedInUserInfo {
-        get {
-            let loginInfo = userDefault.value(forKey: "loggedIn") as! WYNLogedInUserInfo
-            
-            return loginInfo
-        }
+
+            get {
+                let json = userDefault.value(forKey: "loggedIn")
+                var objectData = WYNLogedInUserInfo()
+                objectData = Mapper<WYNLogedInUserInfo>().map(JSONObject: json, toObject: objectData)
+                return objectData
+            }
+
         set { userDefault.set(newValue, forKey: "loggedIn") }
         
     }

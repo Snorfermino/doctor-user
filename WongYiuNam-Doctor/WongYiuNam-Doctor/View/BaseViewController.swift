@@ -22,6 +22,7 @@ class BaseViewController: UIViewController {
     
     func setupView(){
         // Setup UI Components
+        self.navigationController?.isNavigationBarHidden = true
         indicator.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
         indicator.frame = self.view.bounds
         self.view.addSubview(indicator)
@@ -79,6 +80,7 @@ class BaseViewController: UIViewController {
 }
 extension BaseViewController: NavBarDelegate{
     func backPressed() {
+        print("back")
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -88,7 +90,8 @@ extension BaseViewController: NavBarDelegate{
     
     func logoutPressed() {
         print("Logout")
-        UserDefaults.standard.removeObject(forKey: "LoggedIn")
+        UserDefaults.standard.removeObject(forKey: "loggedIn")
+        UserDefaults.standard.synchronize()
         backPressed()
     }
     

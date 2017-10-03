@@ -105,6 +105,12 @@
                 <constraint firstItem="DV5-Wd-42t" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="310:350" id="VGr-hG-TAc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageViewAvatar" destination="9Xe-pu-qRu" id="OBD-AH-jda"/>
+                <outlet property="lbCreatedDate" destination="jKi-3I-PKY" id="Se7-bT-uwt"/>
+                <outlet property="lbPatientName" destination="YGE-SH-2Nl" id="IP9-yC-5jV"/>
+                <outlet property="tvQuestion" destination="DV5-Wd-42t" id="LqQ-Pw-rqb"/>
+            </connections>
             <point key="canvasLocation" x="67" y="157.5"/>
         </tableViewCell>
     </objects>

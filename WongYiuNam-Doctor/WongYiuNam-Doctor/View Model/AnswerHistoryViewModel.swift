@@ -10,6 +10,7 @@ import Foundation
 
 protocol AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess()
+    func getAnswerHistoryListFailed()
 }
 class AnswerHistoryViewModel {
     var delegate: AnswerHistoryViewModelDelegate?
@@ -26,11 +27,17 @@ class AnswerHistoryViewModel {
             case let .success(response):
                 if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {
                     print(receivedData.dictionaryRepresentation())
-                    for question in receivedData.data! {
-                        self.answerHistory.append(question)
+                    if let data = receivedData.data {
+                        for question in receivedData.data! {
+                            self.answerHistory.append(question)
+                        }
+                        print("Count: \(self.answerHistory.count)")
+                        self.delegate?.getAnswerHistoryListSuccess()
+                        
+                    } else {
+                        self.delegate?.getAnswerHistoryListFailed()
                     }
-                    print("Count: \(self.answerHistory.count)")
-                    self.delegate?.getAnswerHistoryListSuccess()
+                  
                 }
             case .failure:
                 print("failed")

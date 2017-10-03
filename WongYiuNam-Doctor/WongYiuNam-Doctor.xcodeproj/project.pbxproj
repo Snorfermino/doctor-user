@@ -17,6 +17,7 @@
 		84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84093AEB1F6BC0F200BE17AF /* RecordAnswerViewController.swift */; };
 		84093AEE1F6F9AC500BE17AF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84093AED1F6F9AC500BE17AF /* AudioToolbox.framework */; };
 		84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */; };
+		841284CB1F821DA700DA7053 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841284CA1F821DA700DA7053 /* GoogleService-Info.plist */; };
 		8433E5261F679BE000C5AC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8433E5251F679BE000C5AC21 /* Main.storyboard */; };
 		8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8433E5291F679C3800C5AC21 /* NavBar.xib */; };
 		8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E52B1F67B23200C5AC21 /* NavBar.swift */; };
@@ -38,6 +39,7 @@
 		843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */; };
 		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
+		847BC8141F824DE3002D9B01 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */; };
 		848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E301F7DED2700BB502A /* UserLoginInfo.swift */; };
@@ -90,6 +92,7 @@
 		84093AED1F6F9AC500BE17AF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84093AEF1F6F9AC500BE17AF /* WongYiuNam-Doctor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WongYiuNam-Doctor.entitlements"; sourceTree = "<group>"; };
 		84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioRecorderManager.swift; path = Extension/AudioRecorderManager.swift; sourceTree = "<group>"; };
+		841284CA1F821DA700DA7053 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8433E5251F679BE000C5AC21 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboard/Main.storyboard; sourceTree = "<group>"; };
 		8433E5291F679C3800C5AC21 /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NavBar.xib; path = XIB/NavBar.xib; sourceTree = "<group>"; };
 		8433E52B1F67B23200C5AC21 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = XIB/NavBar/NavBar.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewModel.swift; path = "View Model/RecordAnswerViewModel.swift"; sourceTree = "<group>"; };
 		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestionParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestionParameters.swift; path = Model/WYNAnswerQuestionParameters.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
+		847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extension/UIImageViewExtension.swift; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerDetailViewController.swift; path = View/AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		848F0E301F7DED2700BB502A /* UserLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginInfo.swift; path = API/UserLoginInfo.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		66EEFD551F5FDDFA00C5C77A /* WongYiuNam-Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				841284CA1F821DA700DA7053 /* GoogleService-Info.plist */,
 				843C2B6F1F7A0D9C00F87A30 /* View Model */,
 				845CD2321F70D2D30063ACB8 /* Model */,
 				84093AEF1F6F9AC500BE17AF /* WongYiuNam-Doctor.entitlements */,
@@ -266,6 +271,7 @@
 				84A871C01F691BFF00F2ED7A /* ColorExtension.swift */,
 				84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */,
 				84351A381F7B868800E73657 /* AudioPlayerManager.swift */,
+				847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -457,6 +463,9 @@
 							com.apple.InterAppAudio = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					66EEFD661F5FDDFA00C5C77A = {
@@ -501,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */,
+				841284CB1F821DA700DA7053 /* GoogleService-Info.plist in Resources */,
 				66EEFD611F5FDDFA00C5C77A /* LaunchScreen.storyboard in Resources */,
 				66EEFD5E1F5FDDFA00C5C77A /* Assets.xcassets in Resources */,
 				8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */,
@@ -584,21 +594,31 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,6 +743,7 @@
 				843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */,
 				84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */,
 				84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */,
+				847BC8141F824DE3002D9B01 /* UIImageViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 
 class PendingQuestionViewController: BaseViewController {
-    
+    var photoImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
     override func viewDidLoad() {
@@ -20,11 +20,17 @@ class PendingQuestionViewController: BaseViewController {
     }
     
     override func setupView() {
+        super.setupView()
+        navBar.rightNavBar = .none
+        navBar.leftNavBar = .back
+        
         setupTableView()
+        
 //        guard let userInfo:WYNLogedInUserInfo = UserLoginInfo.shared.userInfo as WYNLogedInUserInfo else {
 //            return
 //        }
 //        viewModel.getPendingQuestionList(id: userInfo.id!)
+        
     }
     
     func setupTableView(){
@@ -63,25 +69,34 @@ class PendingQuestionViewController: BaseViewController {
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
         let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = UIScreen.main.bounds
-        newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
-        newImageView.isUserInteractionEnabled = true
+        photoImage = UIImageView(image: imageView.image)
+        let scrollView = UIScrollView(frame: UIScreen.main.bounds)
+        scrollView.frame = CGRect(x: 0, y: navBar.frame.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - navBar.frame.height)
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 6.0
+        scrollView.delegate = self
+        photoImage.frame = UIScreen.main.bounds
+        photoImage.backgroundColor = UIColor.white.withAlphaComponent(1)
+        photoImage.contentMode = .scaleAspectFit
+        photoImage.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+        scrollView.addGestureRecognizer(tap)
+        
+        photoImage.frame = scrollView.bounds
+        scrollView.addSubview(photoImage)
+        self.view.addSubview(scrollView)
+//        self.navigationController?.isNavigationBarHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
+//        self.navigationController?.isNavigationBarHidden = false
+//        self.tabBarController?.tabBar.isHidden = false
         sender.view?.removeFromSuperview()
     }
 
 }
+
 extension PendingQuestionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
@@ -98,15 +113,19 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
         if viewModel.pendingQuestions.count > 0 {
             cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
         }
+        cell.imgViewPatientSubmit.isUserInteractionEnabled = true
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
         cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
 //        cell.addGestureRecognizer(tapGest)
-
+        cell.tvQuestion.isEditable = false
+        cell.tvQuestion.isScrollEnabled = false
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+        performSegue(withIdentifier: "RecordAnswerVC", sender: self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,4 +144,9 @@ extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
     }
 }
 
+extension PendingQuestionViewController: UIScrollViewDelegate {
 
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return photoImage
+    }
+}

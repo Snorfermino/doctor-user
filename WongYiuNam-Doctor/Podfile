@@ -11,7 +11,11 @@ target 'WongYiuNam-Doctor' do
   pod 'AlamofireObjectMapper'
   pod 'Moya-ObjectMapper'
   pod 'IBAnimatable'
-
+  pod 'Firebase'
+  pod 'SVProgressHUD'
+  pod 'Firebase/Messaging'
+  pod 'SDWebImage'
+  
   target 'WongYiuNam-DoctorTests' do
     inherit! :search_paths
     # Pods for testing

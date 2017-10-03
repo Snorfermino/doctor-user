@@ -64,7 +64,7 @@ class NavBar: UIView {
             constraintWidthICLeft.constant = frame.width * 0.032
             constraintHeightICLeft.constant = constraintWidthICLeft.constant * 20 / 12
             viewLeft.gestureRecognizers?.forEach(viewLeft.removeGestureRecognizer(_:))
-            viewLeft.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(backPressed(_:))))
+            viewLeft.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backPressed(_:))))
         case .menu:
             viewLeft.isHidden = false
             icLeft.image = #imageLiteral(resourceName: "ic_menu")
@@ -81,7 +81,7 @@ class NavBar: UIView {
             lbName.isHidden = true
             icRight.isHidden = false
             viewRight.gestureRecognizers?.forEach(viewLeft.removeGestureRecognizer(_:))
-            viewRight.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(logoutPressed(_:))))
+            viewRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logoutPressed(_:))))
         case .DrInfo:
             viewRight.isHidden = false
             lbName.isHidden = false

@@ -33,9 +33,7 @@ extension API {
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
                     "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs"]
         default :
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs",
-                    "Content-Type":"application/x-www-form-urlencoded"]
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         }
         
     }

@@ -31,7 +31,8 @@ class LoginViewModel{
                 if let receivedData: WYNLogedInUserInfo = Utils.mapOne(from: response) {
                     print(receivedData.dictionaryRepresentation())
                     if receivedData.dictionaryRepresentation().keys.count > 0 {
-                        UserDefaults.standard.set(receivedData, forKey: "loggedIn")
+                        
+                        UserDefaults.standard.set(receivedData.dictionaryRepresentation(), forKey: "loggedIn")
                         UserDefaults.standard.synchronize()
                         self.delegate?.loginSuccess()
                     } else {

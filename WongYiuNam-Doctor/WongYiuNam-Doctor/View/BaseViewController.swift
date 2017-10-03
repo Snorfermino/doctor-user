@@ -17,17 +17,16 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
-        
     }
     
     func setupView(){
         // Setup UI Components
+        self.navigationController?.isNavigationBarHidden = true
         indicator.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
         indicator.frame = self.view.bounds
         self.view.addSubview(indicator)
         addNavBar()
         navBar.delegate = self
-       
     }
     
     func addNavBar(){
@@ -88,7 +87,8 @@ extension BaseViewController: NavBarDelegate{
     
     func logoutPressed() {
         print("Logout")
-        UserDefaults.standard.removeObject(forKey: "LoggedIn")
+        UserDefaults.standard.removeObject(forKey: "loggedIn")
+        UserDefaults.standard.synchronize()
         backPressed()
     }
     

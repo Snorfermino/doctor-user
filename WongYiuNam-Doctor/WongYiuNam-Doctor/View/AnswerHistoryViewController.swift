@@ -21,6 +21,9 @@ class AnswerHistoryViewController: BaseViewController {
     }
 
     override func setupView() {
+        super.setupView()
+        navBar.rightNavBar = .none
+        navBar.leftNavBar = .back
         showIndicator()
         setupTableView()
         viewModel.getAnswerHistoryList()
@@ -48,6 +51,8 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
         if viewModel.answerHistory.count > 0 {
             cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question
         }
+        cell.tvQuestion.isEditable = false
+        cell.tvQuestion.isScrollEnabled = false
         return cell
     }
     
@@ -70,5 +75,9 @@ extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
         hideIndicator()
         tableView.reloadData()
     }
-    
+    func getAnswerHistoryListFailed () {
+        hideIndicator()
+        alert(title: "Error", message: "Answer History not found")
+        tableView.reloadData()
+    }
 }

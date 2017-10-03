@@ -18,11 +18,19 @@ class RecordAnswerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = RecordAnswerViewModel()
         checkBoxIsFree.delegate = self
         recordTemp()
+        setupView()
     }
     
+    override func setupView() {
+        super.setupView()
+        navBar.rightNavBar = .none
+        navBar.leftNavBar = .back
+        
+    }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
 

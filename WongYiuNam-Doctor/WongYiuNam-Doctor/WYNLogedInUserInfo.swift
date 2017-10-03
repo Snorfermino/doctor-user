@@ -65,26 +65,5 @@ public struct WYNLogedInUserInfo: Mappable {
         answeredsHistory <- map[SerializationKeys.answeredsHistory]
         totalEarned <- map[SerializationKeys.totalEarned]
     }
-    
-    /// Generates description of the object in the form of a NSDictionary.
-    ///
-    /// - returns: A Key value pair containing all valid values in the object.
-    public func dictionaryRepresentation() -> [String: Any] {
-        var dictionary: [String: Any] = [:]
-        if let value = pendingQuestions { dictionary[SerializationKeys.pendingQuestions] = value }
-        if let value = name { dictionary[SerializationKeys.name] = value }
-        if let value = email { dictionary[SerializationKeys.email] = value }
-        if let value = speciality { dictionary[SerializationKeys.speciality] = value }
-        if let value = token { dictionary[SerializationKeys.token] = value }
-        if let value = createdAt { dictionary[SerializationKeys.createdAt] = value }
-        if let value = avatar { dictionary[SerializationKeys.avatar] = value }
-        if let value = qualifications { dictionary[SerializationKeys.qualifications] = value }
-        dictionary[SerializationKeys.online] = online
-        if let value = introduction { dictionary[SerializationKeys.introduction] = value }
-        if let value = answeredsHistory { dictionary[SerializationKeys.answeredsHistory] = value }
-        if let value = totalEarned { dictionary[SerializationKeys.totalEarned] = value }
-        return dictionary
-    }
-    
 }
 

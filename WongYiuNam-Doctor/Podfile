@@ -15,6 +15,7 @@ target 'WongYiuNam-Doctor' do
   pod 'SVProgressHUD'
   pod 'Firebase/Messaging'
   pod 'SDWebImage'
+  pod 'DateToolsSwift'
   
   target 'WongYiuNam-DoctorTests' do
     inherit! :search_paths

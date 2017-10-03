@@ -62,12 +62,8 @@ extension LoginViewController: LoginViewModelDelegate{
     }
     
     func loginFailed() {
-        DispatchQueue.global(qos: .default).async {
-            // Background thread
-            DispatchQueue.main.async(execute: {
-                SVProgressHUD.dismiss()
-            })
-        }
+
+        SVProgressHUD.dismiss()
         alert(title: "Login Failed", message: "Invalid username or password")
     }
 }

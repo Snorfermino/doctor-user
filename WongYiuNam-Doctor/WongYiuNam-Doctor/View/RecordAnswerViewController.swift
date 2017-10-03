@@ -100,7 +100,7 @@ class RecordAnswerViewController: BaseViewController {
     
     @IBAction func btnSubmitPressed(_ sender: UIButton){
         let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording"))
-        var parameter = WYNAnswerQuestionParameters()
+        var parameter = WYNAnswerQuestion()
         parameter?.questionID = 174
         parameter?.audio = url
         parameter?.duration = 2

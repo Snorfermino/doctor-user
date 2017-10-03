@@ -9,25 +9,32 @@
 import Foundation
 import UIKit
 protocol PendingQuestionViewModelDelegate{
-    func getPendingQuestionListDone()
+    func getPendingQuestionListSuccess()
+    func getPendingQuestionListFailed()
 }
 class PendingQuestionViewModel{
     
     init() {}
     var delegate: PendingQuestionViewModelDelegate?
     var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
-    func getPendingQuestionList(id: Int){
+    func getPendingQuestionList(){
         
-        apiProvider.request(.getPendingQuestion(userID: id)) { (result) in
+        apiProvider.request(.getPendingQuestion) { (result) in
             switch result {
             case let .success(response):
                 if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {
                     print(receivedData.dictionaryRepresentation())
+                    if receivedData.data != nil {
                     for question in receivedData.data! {
                         self.pendingQuestions.append(question)
                     }
                     print("Count: \(self.pendingQuestions.count)")
-                    self.delegate?.getPendingQuestionListDone()
+                    self.delegate?.getPendingQuestionListSuccess()
+                    } else {
+                         self.delegate?.getPendingQuestionListFailed()
+                    }
+                } else {
+                    self.delegate?.getPendingQuestionListFailed()
                 }
             case .failure:
                 print("failed")

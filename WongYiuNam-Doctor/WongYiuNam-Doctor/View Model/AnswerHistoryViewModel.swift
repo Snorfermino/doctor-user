@@ -27,7 +27,7 @@ class AnswerHistoryViewModel {
             case let .success(response):
                 if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {
                     print(receivedData.dictionaryRepresentation())
-                    if let data = receivedData.data {
+                    if receivedData.data != nil {
                         for question in receivedData.data! {
                             self.answerHistory.append(question)
                         }

@@ -7,20 +7,22 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class PendingQuestionViewController: BaseViewController {
     var photoImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
-        viewModel.getPendingQuestionList(id: 4)
+
         setupView()
     }
     
     override func setupView() {
         super.setupView()
+        viewModel.delegate = self
+        viewModel.getPendingQuestionList()
+        SVProgressHUD.show()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
         
@@ -133,14 +135,20 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return viewModel.pendingQuestions.count
-        return 5
+        return viewModel.pendingQuestions.count
+//        return 5
     }
 
 }
 extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
-    func getPendingQuestionListDone() {
+    func getPendingQuestionListSuccess() {
         tableView.reloadData()
+        SVProgressHUD.dismiss()
+    }
+    func getPendingQuestionListFailed() {
+        tableView.reloadData()
+        SVProgressHUD.dismiss()
+        alert(title: "Error", message: "Pending Question not found")
     }
 }
 

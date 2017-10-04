@@ -7,8 +7,8 @@
 
 import Foundation
 import ObjectMapper
-public struct WYNQuestion: Mappable {
 
+public struct WYNQuestion: Mappable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
@@ -24,6 +24,7 @@ public struct WYNQuestion: Mappable {
         static let userId = "user_id"
         static let patientDob = "patient_dob"
         static let question = "question"
+        static let photoUrl = "photo_url"
     }
     
     // MARK: Properties
@@ -39,6 +40,7 @@ public struct WYNQuestion: Mappable {
     public var userId: Int?
     public var patientDob: Int?
     public var question: String?
+    public var photoUrl: URL?
     
     // MARK: ObjectMapper Initializers
     /// Map a JSON object to this class using ObjectMapper.
@@ -64,5 +66,6 @@ public struct WYNQuestion: Mappable {
         userId <- map[SerializationKeys.userId]
         patientDob <- map[SerializationKeys.patientDob]
         question <- map[SerializationKeys.question]
+        photoUrl <- (map[SerializationKeys.photoUrl], URLTransform())
     }
 }

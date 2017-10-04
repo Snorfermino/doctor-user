@@ -16,7 +16,7 @@ class PendingQuestionViewController: BaseViewController {
     var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
     }
     
@@ -40,7 +40,7 @@ class PendingQuestionViewController: BaseViewController {
     func setupTableView(){
         tableView.register(UINib(nibName: "PendingQuestion", bundle: nil), forCellReuseIdentifier: "PendingQuestionCell")
         tableView.estimatedRowHeight = 230
-        tableView.rowHeight = 230
+        tableView.rowHeight = 230 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
         addTransientView()
     }
@@ -53,10 +53,9 @@ class PendingQuestionViewController: BaseViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = colours
         gradientLayer.locations = locations
-
-
+        
         let screenSize: CGRect = UIScreen.main.bounds
-       
+        
         let bottomView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 50))
         self.view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +66,7 @@ class PendingQuestionViewController: BaseViewController {
         gradientLayer.frame = bottomView.frame
         
         bottomView.layer.addSublayer(gradientLayer)
-
+        
         self.view.addConstraints([widthConstraint,heightConstraint,bottomConstraint])
     }
     
@@ -115,16 +114,18 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
         if viewModel.pendingQuestions.count > 0 {
-            cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
-            cell.lbCreatedAt.text = self.viewModel.pendingQuestions[indexPath.section].createdAt!.format(with: "HH:mm MMMM dd yyyy")
+            let pendingQuestion = self.viewModel.pendingQuestions[indexPath.section]
+            cell.lbQuestion.text = pendingQuestion.question
+            cell.lbCreatedAt.text = pendingQuestion.createdAt!.format(with: "HH:mm MMMM dd yyyy")
+            cell.lbPatientName.text = pendingQuestion.patientName
+            cell.lbPatientGender.text = pendingQuestion.patientGender
+            cell.lbPatientDOB.text = "\(String(describing: pendingQuestion.patientDob!))"
+            cell.imgViewPatientSubmit.sd_setImage(with: pendingQuestion.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
         }
         cell.imgViewPatientSubmit.isUserInteractionEnabled = true
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
         cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
-//        cell.addGestureRecognizer(tapGest)
-        cell.tvQuestion.isEditable = false
-        cell.tvQuestion.isScrollEnabled = false
-        
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -136,11 +137,11 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.pendingQuestions.count
     }
-
+    
 }
 extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
     func getPendingQuestionListSuccess() {
@@ -155,7 +156,7 @@ extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
 }
 
 extension PendingQuestionViewController: UIScrollViewDelegate {
-
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return photoImage
     }

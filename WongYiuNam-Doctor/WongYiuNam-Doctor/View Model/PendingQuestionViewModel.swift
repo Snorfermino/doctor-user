@@ -16,7 +16,7 @@ class PendingQuestionViewModel{
     
     init() {}
     var delegate: PendingQuestionViewModelDelegate?
-    var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
+    var pendingQuestions:[WYNQuestion] = []
     func getPendingQuestionList(){
         
         apiProvider.request(.getPendingQuestion) { (result) in

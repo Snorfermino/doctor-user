@@ -16,7 +16,7 @@ class LoginViewModel{
     
     
     var delegate: LoginViewModelDelegate?
-    var pendingQuestions:[WYNDotorPendingQuestion.WYNData] = []
+    var pendingQuestions:[WYNQuestion] = []
     
     init(_ delegate: LoginViewModelDelegate) {
         self.delegate = delegate

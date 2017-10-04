@@ -8,14 +8,21 @@
 
 import UIKit
 import AVFoundation
+import SDWebImage
 class RecordAnswerViewController: BaseViewController {
-
+    
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var btnRecord:UIButton!
     @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
+    @IBOutlet weak var tvQuestion:UITextView!
+    @IBOutlet weak var lbPatientName:UILabel!
+    @IBOutlet weak var lbCreatedDate:UILabel!
+    @IBOutlet weak var lbPatientGender:UILabel!
+    @IBOutlet weak var lbPatientDOB:UILabel!
+    @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
     var viewModel: RecordAnswerViewModel!
-    
+    var questionInfo: WYNQuestion!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,11 +36,21 @@ class RecordAnswerViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
+        tvQuestion.text = questionInfo.question
+        lbPatientName.text = questionInfo.patientName
+        lbPatientGender.text = questionInfo.patientGender
+        lbPatientDOB.text = "\(questionInfo.patientDob!)"
         
+        let date = Date(timeIntervalSince1970: Double(questionInfo.createdAt!))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
+        lbCreatedDate.text = dateFormatter.string(from: date)
+        let url = URL(string: (questionInfo.photoUrl != nil) ? questionInfo.photoUrl! : "")
+        imgViewSymptomPhoto.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)  
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
-
+        
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
@@ -50,7 +67,7 @@ class RecordAnswerViewController: BaseViewController {
             // failed to record!
         }
     }
-
+    
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -101,7 +118,7 @@ class RecordAnswerViewController: BaseViewController {
     @IBAction func btnSubmitPressed(_ sender: UIButton){
         let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording"))
         var parameter = WYNAnswerQuestion()
-        parameter?.questionID = 174
+        parameter?.questionID = questionInfo.id
         parameter?.audio = url
         parameter?.duration = 2
         parameter?.isFree = checkBoxIsFree.isSelected

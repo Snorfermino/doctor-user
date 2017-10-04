@@ -876,6 +876,12 @@
                     <connections>
                         <outlet property="btnRecord" destination="ybm-RE-tNh" id="8B9-XJ-otL"/>
                         <outlet property="checkBoxIsFree" destination="fxU-Xq-pr2" id="I1Y-qt-abU"/>
+                        <outlet property="imgViewSymptomPhoto" destination="Dkw-UB-b94" id="UEJ-hq-0YS"/>
+                        <outlet property="lbCreatedDate" destination="hy5-Pz-jpu" id="cbL-XB-6h9"/>
+                        <outlet property="lbPatientDOB" destination="nOt-EJ-dZ7" id="Blv-Zs-mIa"/>
+                        <outlet property="lbPatientGender" destination="mZm-Z5-1K3" id="tFz-8s-h62"/>
+                        <outlet property="lbPatientName" destination="lTe-z7-v6h" id="tCP-OE-jdg"/>
+                        <outlet property="tvQuestion" destination="M48-Yx-aOK" id="vwB-hQ-0Gq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqm-vY-vYN" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -42,12 +42,8 @@ class RecordAnswerViewController: BaseViewController {
         lbPatientGender.text = questionInfo.patientGender
         lbPatientDOB.text = "\(questionInfo.patientDob!)"
         
-        let date = Date(timeIntervalSince1970: Double(questionInfo.createdAt!))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
-        lbCreatedDate.text = dateFormatter.string(from: date)
-        let url = URL(string: (questionInfo.photoUrl != nil) ? questionInfo.photoUrl! : "")
-        imgViewSymptomPhoto.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)  
+        lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()

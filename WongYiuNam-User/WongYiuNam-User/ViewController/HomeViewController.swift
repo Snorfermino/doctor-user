@@ -22,10 +22,11 @@ class HomeViewController: UIViewController {
         initSlider()
         
         //Demo call api
-        let completion = {(newToken: String, error: String?) -> Void in
+        _ = {(newToken: String, error: String?) -> Void in
             print(newToken)
         }
-        ApiManager.changePassword(oldPassword: "nhatduy", newPassword: "54321", completion: completion)
+        //ApiManager.changePassword(oldPassword: "nhatduy", newPassword: "54321", completion: completion)
+        ApiManager.getPostsFromFanpageFacebook()
         //demo call api
     }
     

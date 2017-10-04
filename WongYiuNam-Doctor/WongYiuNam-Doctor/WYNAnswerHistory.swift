@@ -76,7 +76,7 @@ extension WYNAnswerHistory{
         // MARK: Properties
         public var id: Int?
         public var audioUrl: String?
-        public var createdAt: Int?
+        public var createdAt: Date?
         public var listentCount: Int?
         public var duration: Int?
         public var isFree: Bool? = false
@@ -96,7 +96,7 @@ extension WYNAnswerHistory{
         public mutating func mapping(map: Map) {
             id <- map[SerializationKeys.id]
             audioUrl <- map[SerializationKeys.audioUrl]
-            createdAt <- map[SerializationKeys.createdAt]
+            createdAt <- (map[SerializationKeys.createdAt], DateTransform())
             listentCount <- map[SerializationKeys.listentCount]
             duration <- map[SerializationKeys.duration]
             isFree <- map[SerializationKeys.isFree]

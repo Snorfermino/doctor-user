@@ -19,6 +19,8 @@ enum MyServerAPI {
     case login(email: String, password: String)
     case register(name: String, email: String, password: String)
     case changePassword(oldPassword: String, newPassword: String)
+    // MARK: Social Wall
+    case getPostsFromFanpageFacebook
 }
 
 extension MyServerAPI: TargetType {
@@ -34,7 +36,12 @@ extension MyServerAPI: TargetType {
     }
     
     var baseURL: URL {
-        return URL(string: "https://wongyiunam-php.herokuapp.com/api")!
+        switch self {
+        case .getPostsFromFanpageFacebook:
+            return URL(string: "https://graph.facebook.com/304466529572881/posts")!
+        default:
+            return URL(string: "https://wongyiunam-php.herokuapp.com/api")!
+        }
     }
     
     var path: String {
@@ -51,6 +58,8 @@ extension MyServerAPI: TargetType {
             return "/question/ask"
         case .changePassword:
             return "/user/changepass"
+        case .getPostsFromFanpageFacebook:
+            return ""
         }
     }
     
@@ -107,6 +116,11 @@ extension MyServerAPI: TargetType {
             var parameters = [String: Any]()
             parameters["old_password"] = oldPassword
             parameters["new_password"] = newPassword
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .getPostsFromFanpageFacebook:
+            var parameters = [String: Any]()
+            parameters["fields"] = "likes.limit(0).summary(true),comments.limit(0).summary(true),shares.limit(0).summary(true),message,attachments"
+            parameters["access_token"] = "EAAcYiSAGPRIBAN5oMxmxylboZBaB0ZCYhPUU6A4MVltw9O4KFJHLHWRmxb7xuL6ubwDx4pg0M90MMADwC8s0aEOLaHwHTyCZCBVFNHrNIZB6l7LZBRsRdIBOdwI7tk91RApOOp73og1S86HZCXw7y9StOgVMI0kfuUeEcMoNclqnNZAXUuWYkgaTEUTzfui1fF7EiZAPQdnGYD4x6OrdvKfpzpDDlJ4RaXO5d8AX8qXxjAZDZD"
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         default:
             return Task.requestPlain

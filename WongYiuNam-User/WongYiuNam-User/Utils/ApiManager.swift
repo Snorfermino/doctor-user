@@ -99,7 +99,18 @@ class ApiManager {
             switch result {
             case .success(let response):
                 print(response)
-                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    static func getPostsFromFanpageFacebook() {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.getPostsFromFanpageFacebook) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
             case .failure(let error):
                 print(error)
             }

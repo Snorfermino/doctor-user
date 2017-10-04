@@ -17,6 +17,7 @@ enum MyServerAPI {
     case answerList(page: Int)
     // MARK: User
     case login(email: String, password: String)
+    case loginViaFacebook(email: String, name: String, fbId: String)
     case register(name: String, email: String, password: String)
     case changePassword(oldPassword: String, newPassword: String)
     // MARK: Social Wall
@@ -52,6 +53,8 @@ extension MyServerAPI: TargetType {
             return "/answer/list"
         case .login:
             return "/auth/login"
+        case .loginViaFacebook:
+            return "/auth/signin_via_fb"
         case .register:
             return "/auth/register"
         case .askaQuestion:
@@ -65,7 +68,7 @@ extension MyServerAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .login, .askaQuestion, .register, .changePassword:
+        case .login, .loginViaFacebook, .askaQuestion, .register, .changePassword:
             return .post
         default:
             return .get
@@ -91,6 +94,12 @@ extension MyServerAPI: TargetType {
             var parameters = [String: Any]()
             parameters["email"] = email
             parameters["password"] = password
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .loginViaFacebook(let email, let name, let fbId):
+            var parameters = [String: Any]()
+            parameters["email"] = email
+            parameters["name"] = name
+            parameters["fbid"] = fbId
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .register(let name, let email, let password):
             var parameters = [String: Any]()

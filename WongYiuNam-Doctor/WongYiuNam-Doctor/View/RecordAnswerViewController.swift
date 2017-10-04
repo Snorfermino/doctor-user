@@ -8,18 +8,26 @@
 
 import UIKit
 import AVFoundation
+import SDWebImage
+import SVProgressHUD
 class RecordAnswerViewController: BaseViewController {
-
+    
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var btnRecord:UIButton!
     @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
+    @IBOutlet weak var tvQuestion:UITextView!
+    @IBOutlet weak var lbPatientName:UILabel!
+    @IBOutlet weak var lbCreatedDate:UILabel!
+    @IBOutlet weak var lbPatientGender:UILabel!
+    @IBOutlet weak var lbPatientDOB:UILabel!
+    @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
     var viewModel: RecordAnswerViewModel!
-    
+    var questionInfo: WYNQuestion!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = RecordAnswerViewModel()
+        viewModel = RecordAnswerViewModel(self)
         checkBoxIsFree.delegate = self
         recordTemp()
         setupView()
@@ -29,11 +37,17 @@ class RecordAnswerViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
+        tvQuestion.text = questionInfo.question
+        lbPatientName.text = questionInfo.patientName
+        lbPatientGender.text = questionInfo.patientGender
+        lbPatientDOB.text = "\(questionInfo.patientDob!)"
         
+        lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
-
+        
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
@@ -50,7 +64,7 @@ class RecordAnswerViewController: BaseViewController {
             // failed to record!
         }
     }
-
+    
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -90,6 +104,11 @@ class RecordAnswerViewController: BaseViewController {
         }
     }
     
+    @IBAction func replayTapped(_ sender: UIButton){
+        let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
+        AudioPlayerManager.shared.play(path:path)
+    }
+    
     @IBAction func recordTapped(_ sender: UIButton) {
         if audioRecorder == nil {
             startRecordingTemp()
@@ -101,12 +120,11 @@ class RecordAnswerViewController: BaseViewController {
     @IBAction func btnSubmitPressed(_ sender: UIButton){
         let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording"))
         var parameter = WYNAnswerQuestion()
-        parameter?.questionID = 174
+        parameter?.questionID = questionInfo.id
         parameter?.audio = url
         parameter?.duration = 2
         parameter?.isFree = checkBoxIsFree.isSelected
-        let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
-        AudioPlayerManager.shared.play(path:path)
+        SVProgressHUD.show()
         viewModel.replyQuestion(parameter!)
     }
 }
@@ -122,5 +140,15 @@ extension RecordAnswerViewController: WYNCheckBoxDelegate{
         if isSelected {
             //Present alert
         }
+    }
+}
+extension RecordAnswerViewController: RecordAnswerViewModelDelegate {
+    func replyQuestionSuccess(){
+        SVProgressHUD.dismiss()
+       alert(title: "Success", message: "Answer has been submitted")
+    }
+    func replyQuestionFailed(){
+       SVProgressHUD.dismiss()
+        alert(title: "Error", message: "Failed to submit answer")
     }
 }

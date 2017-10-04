@@ -14,6 +14,7 @@ class PendingQuestionViewController: BaseViewController {
     var photoImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
+    var selectedQuestion:WYNQuestion!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,7 +98,12 @@ class PendingQuestionViewController: BaseViewController {
 //        self.tabBarController?.tabBar.isHidden = false
         sender.view?.removeFromSuperview()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? RecordAnswerViewController {
+            viewController.questionInfo = self.selectedQuestion
+        }
+    }
 }
 
 extension PendingQuestionViewController: UITableViewDataSource, UITableViewDelegate {
@@ -131,6 +137,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+        selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
         performSegue(withIdentifier: "RecordAnswerVC", sender: self)
     }
     

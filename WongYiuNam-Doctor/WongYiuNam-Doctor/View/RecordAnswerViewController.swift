@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import SDWebImage
+import SVProgressHUD
 class RecordAnswerViewController: BaseViewController {
     
     var recordingSession: AVAudioSession!
@@ -26,7 +27,7 @@ class RecordAnswerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = RecordAnswerViewModel()
+        viewModel = RecordAnswerViewModel(self)
         checkBoxIsFree.delegate = self
         recordTemp()
         setupView()
@@ -107,6 +108,11 @@ class RecordAnswerViewController: BaseViewController {
         }
     }
     
+    @IBAction func replayTapped(_ sender: UIButton){
+        let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
+        AudioPlayerManager.shared.play(path:path)
+    }
+    
     @IBAction func recordTapped(_ sender: UIButton) {
         if audioRecorder == nil {
             startRecordingTemp()
@@ -122,8 +128,7 @@ class RecordAnswerViewController: BaseViewController {
         parameter?.audio = url
         parameter?.duration = 2
         parameter?.isFree = checkBoxIsFree.isSelected
-        let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
-        AudioPlayerManager.shared.play(path:path)
+        SVProgressHUD.show()
         viewModel.replyQuestion(parameter!)
     }
 }
@@ -139,5 +144,15 @@ extension RecordAnswerViewController: WYNCheckBoxDelegate{
         if isSelected {
             //Present alert
         }
+    }
+}
+extension RecordAnswerViewController: RecordAnswerViewModelDelegate {
+    func replyQuestionSuccess(){
+        SVProgressHUD.dismiss()
+       alert(title: "Success", message: "Answer has been submitted")
+    }
+    func replyQuestionFailed(){
+       SVProgressHUD.dismiss()
+        alert(title: "Error", message: "Failed to submit answer")
     }
 }

@@ -834,6 +834,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEw-Kh-lq1">
                                         <rect key="frame" x="180" y="0.0" width="170" height="30"/>
                                         <state key="normal" image="img_btnReplyAnswer"/>
+                                        <connections>
+                                            <action selector="replayTapped:" destination="1Fz-Q9-VSA" eventType="touchUpInside" id="Cwg-zx-4Y6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

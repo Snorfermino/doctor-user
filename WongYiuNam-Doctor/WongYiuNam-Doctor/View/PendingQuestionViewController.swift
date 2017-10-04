@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import DateToolsSwift
 
 class PendingQuestionViewController: BaseViewController {
     var photoImage: UIImageView!
@@ -115,6 +116,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
         if viewModel.pendingQuestions.count > 0 {
             cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
+            cell.lbCreatedAt.text = self.viewModel.pendingQuestions[indexPath.section].createdAt!.format(with: "HH:mm MMMM dd yyyy")
         }
         cell.imgViewPatientSubmit.isUserInteractionEnabled = true
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))

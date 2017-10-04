@@ -32,7 +32,7 @@ public struct WYNLogedInUserInfo: Mappable {
     public var speciality: String?
     public var token: String?
     public var createdAt: Int?
-    public var avatar: String?
+    public var avatar: URL?
     public var qualifications: String?
     public var online: Bool? = false
     public var introduction: String?
@@ -58,7 +58,7 @@ public struct WYNLogedInUserInfo: Mappable {
         speciality <- map[SerializationKeys.speciality]
         token <- map[SerializationKeys.token]
         createdAt <- map[SerializationKeys.createdAt]
-        avatar <- map[SerializationKeys.avatar]
+        avatar <- (map[SerializationKeys.avatar], URLTransform())
         qualifications <- map[SerializationKeys.qualifications]
         online <- map[SerializationKeys.online]
         introduction <- map[SerializationKeys.introduction]

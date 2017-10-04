@@ -38,8 +38,9 @@
 		843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */; };
 		843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */; };
 		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */; };
+		8456A3AD1F839686008B8BCA /* WYNAnswerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */; };
+		8456A3B11F839A2B008B8BCA /* WYNQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
-		847BC8141F824DE3002D9B01 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */; };
 		848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E301F7DED2700BB502A /* UserLoginInfo.swift */; };
@@ -112,8 +113,9 @@
 		843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AnswerHistoryCell.xib; path = XIB/AnswerHistory/AnswerHistoryCell.xib; sourceTree = "<group>"; };
 		843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewModel.swift; path = "View Model/RecordAnswerViewModel.swift"; sourceTree = "<group>"; };
 		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestion.swift; path = Model/WYNAnswerQuestion.swift; sourceTree = "<group>"; };
+		8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNAnswerHistory.swift; sourceTree = "<group>"; };
+		8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYNQuestion.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
-		847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extension/UIImageViewExtension.swift; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerDetailViewController.swift; path = View/AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		848F0E301F7DED2700BB502A /* UserLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginInfo.swift; path = API/UserLoginInfo.swift; sourceTree = "<group>"; };
@@ -267,7 +269,6 @@
 				84A871C01F691BFF00F2ED7A /* ColorExtension.swift */,
 				84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */,
 				84351A381F7B868800E73657 /* AudioPlayerManager.swift */,
-				847BC8131F824DE3002D9B01 /* UIImageViewExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -325,10 +326,12 @@
 		845CD2321F70D2D30063ACB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */,
 				84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */,
 				843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */,
 				843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */,
 				843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */,
+				8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 			files = (
 				848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */,
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
+				8456A3B11F839A2B008B8BCA /* WYNQuestion.swift in Sources */,
 				843C2B7B1F7A236200F87A30 /* PendingQuestion.swift in Sources */,
 				843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */,
 				843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */,
@@ -725,6 +729,7 @@
 				843C2B821F7A5EA200F87A30 /* AnswerHistoryViewController.swift in Sources */,
 				843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */,
 				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,
+				8456A3AD1F839686008B8BCA /* WYNAnswerHistory.swift in Sources */,
 				66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */,
 				843C2B881F7A69B400F87A30 /* AnswerHistoryCell.swift in Sources */,
 				8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */,
@@ -737,7 +742,6 @@
 				843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */,
 				84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */,
 				84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */,
-				847BC8141F824DE3002D9B01 /* UIImageViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,28 +8,36 @@
 
 import UIKit
 
-class AnswerDetailViewController: UIViewController {
+class AnswerDetailViewController: BaseViewController {
+    @IBOutlet weak var lbQuestionStatus:UILabel!
+    @IBOutlet weak var lbByDoctor:UILabel!
+    @IBOutlet weak var lbPatientDetails:UILabel!
+    @IBOutlet weak var lbSymptom:UILabel!
+    @IBOutlet weak var tvQuestion:UITextView!
+    @IBOutlet weak var lbQuestionCreatedDate:UILabel!
+    @IBOutlet weak var lbAnswerCreatedDate:UILabel!
+    @IBOutlet weak var imgViewDoctorAvatar:UIImageView!
     
+    @IBOutlet weak var lbDoctorName:UILabel!
+    @IBOutlet weak var btnListenToAnswer:UIButton!
+    
+    var answerDetailsData: WYNAnswerHistory.WYNData!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func setupView() {
+        super.setupView()
+        guard answerDetailsData != nil else {return}
+        lbQuestionStatus.text = (answerDetailsData.question?.status)! ? "Answered" : "Waiting for Answer"
+        lbByDoctor.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), 18"
+        lbSymptom.text = answerDetailsData.question?.symptomType
+        tvQuestion.text = answerDetailsData.question?.question
+        
+        lbQuestionCreatedDate.text = answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        
+        lbAnswerCreatedDate.text = answerDetailsData.createdAt?.format(with: "HH:mm MMMM dd yyyy")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

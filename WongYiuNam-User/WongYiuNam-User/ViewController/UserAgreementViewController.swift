@@ -8,8 +8,10 @@
 
 import UIKit
 
-class UserAgreementViewController: UIViewController {
+class UserAgreementViewController: BaseViewController {
 
+    var navFromRegister = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadWebView()
@@ -18,7 +20,9 @@ class UserAgreementViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        if navFromRegister == false {
+            self.setNavigationBarItem()
+        }
     }
     
     func loadWebView(){

@@ -10,6 +10,7 @@ import UIKit
 import PopupDialog
 
 class RegisterViewController: BaseViewController {
+    
     @IBOutlet weak var usernameTextField: DesignableTextField!
     @IBOutlet weak var fullNameTextField: DesignableTextField!
     @IBOutlet weak var contactNumberTextField: DesignableTextField!
@@ -17,6 +18,11 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var passwordTextField: DesignableTextField!
     @IBOutlet weak var confirmPasswordTextField: DesignableTextField!
     @IBOutlet weak var invitationCodeTextField: DesignableTextField!
+    @IBOutlet weak var userAgreementCheckBox: CheckBoxButton!
+    @IBOutlet weak var privacyPolicyCheckBox: CheckBoxButton!
+    @IBOutlet weak var userAgreementLabel: UILabel!
+    @IBOutlet weak var privacyPolicyLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
@@ -43,11 +49,17 @@ class RegisterViewController: BaseViewController {
     }
     
     @IBAction func userAgreement(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let userAgreementViewController = storyboard.instantiateViewController(withIdentifier: "UserAgreementViewController") as! UserAgreementViewController
+        userAgreementViewController.navFromRegister = true
+        navigationController?.pushViewController(userAgreementViewController, animated: true)
     }
     
     @IBAction func privacyPolicyButtonClicked(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let privacyPolicyViewController = storyboard.instantiateViewController(withIdentifier: "PrivacyPolicyViewController") as! PrivacyPolicyViewController
+        privacyPolicyViewController.navFromRegister = true
+        navigationController?.pushViewController(privacyPolicyViewController, animated: true)
     }
     
     @IBAction func registerNowButtonClicked(_ sender: Any) {
@@ -62,6 +74,14 @@ class RegisterViewController: BaseViewController {
         if(name == "" || password.count < 6 || confirmPassword.count < 6
             || password != confirmPassword || isValidEmail(testStr: email) == false) {
             Utils.showAlert(title: "Error !!!", message: "The input is invalid", viewController: self)
+            return
+        }
+        if(userAgreementCheckBox.isChecked == false){
+            Utils.showAlert(title: "Warning !!!", message: "Please read and accept user agreement", viewController: self)
+            return
+        }
+        if(privacyPolicyCheckBox.isChecked == false){
+            Utils.showAlert(title: "Warning !!!", message: "Please read and accept privacy policy", viewController: self)
             return
         }
         let completion = {(user: User?, error: String?) -> Void in

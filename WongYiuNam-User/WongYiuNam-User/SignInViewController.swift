@@ -61,7 +61,7 @@ class SignInViewController: UIViewController {
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+            case .success(let _, let _, let accessToken):
                 print("Logged in!")
                 let completion = {(userInfo: [String: Any]?, error: Error?) -> Void in
                     print(userInfo)
@@ -111,7 +111,6 @@ extension SignInViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
             signInButtonClicked()
         }
-        
         return true
     }
 }

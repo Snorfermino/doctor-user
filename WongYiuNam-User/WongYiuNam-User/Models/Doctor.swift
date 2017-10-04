@@ -21,7 +21,7 @@ struct Doctor: Mappable {
     var online: Bool?
     var createdAt: Date?
     
-    init?(map: Map){
+    init?(map: Map) {
         
     }
     

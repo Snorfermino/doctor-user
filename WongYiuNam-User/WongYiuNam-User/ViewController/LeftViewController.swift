@@ -126,6 +126,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
                 self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
                 self.tableView.reloadData()
                 self.setRightBarButton()
+                self.imageHeaderView.updateByLogin()
             })
             .disposed(by: disposeBag)
     }

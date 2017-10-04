@@ -38,7 +38,7 @@ class PendingQuestionViewController: BaseViewController {
     func setupTableView(){
         tableView.register(UINib(nibName: "PendingQuestion", bundle: nil), forCellReuseIdentifier: "PendingQuestionCell")
         tableView.estimatedRowHeight = 230
-        tableView.rowHeight = 230
+        tableView.rowHeight = 230 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
         addTransientView()
     }
@@ -113,21 +113,23 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
         if viewModel.pendingQuestions.count > 0 {
-            cell.tvQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
+            cell.lbQuestion.text = self.viewModel.pendingQuestions[indexPath.section].question
             let date = Date(timeIntervalSince1970: Double(self.viewModel.pendingQuestions[indexPath.section].createdAt!))
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
             cell.lbCreatedAt.text = dateFormatter.string(from: date)
+            cell.lbPatientName.text = self.viewModel.pendingQuestions[indexPath.section].patientName
+            cell.lbPatientGender.text = self.viewModel.pendingQuestions[indexPath.section].patientGender
+            cell.lbPatientDOB.text = "\(String(describing: self.viewModel.pendingQuestions[indexPath.section].patientDob!))"
+            let url = URL(string: (self.viewModel.pendingQuestions[indexPath.section].photoUrl != nil) ? self.viewModel.pendingQuestions[indexPath.section].photoUrl! : "")
+            cell.imgViewPatientSubmit.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
         }
         cell.imgViewPatientSubmit.isUserInteractionEnabled = true
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
     
         
         cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
-//        cell.addGestureRecognizer(tapGest)
-        cell.tvQuestion.isEditable = false
-        cell.tvQuestion.isScrollEnabled = false
-        
+        cell.selectionStyle = .none
         return cell
     }
     

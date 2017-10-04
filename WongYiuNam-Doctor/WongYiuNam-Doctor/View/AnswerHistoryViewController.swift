@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class AnswerHistoryViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
 
@@ -25,14 +25,15 @@ class AnswerHistoryViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
-        showIndicator()
+        SVProgressHUD.show()
         setupTableView()
         viewModel.getAnswerHistoryList()
     }
     func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerHistoryCell")
+        
         tableView.estimatedRowHeight = 230
-        tableView.rowHeight = 230
+        tableView.rowHeight = 230 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
     }
     
@@ -78,18 +79,20 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return viewModel.answerHistory.count
-        return 5
+        return viewModel.answerHistory.count
+//        return 5
     }
     
 }
 extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess() {
-        hideIndicator()
+//        hideIndicator()
+        SVProgressHUD.dismiss()
         tableView.reloadData()
     }
     func getAnswerHistoryListFailed () {
-        hideIndicator()
+//        hideIndicator()
+             SVProgressHUD.dismiss()
         alert(title: "Error", message: "Answer History not found")
         tableView.reloadData()
     }

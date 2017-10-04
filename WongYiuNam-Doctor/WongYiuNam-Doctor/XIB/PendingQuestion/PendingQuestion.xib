@@ -35,7 +35,7 @@
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uxk-Hp-xvK">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_btnAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="uxk-Hp-xvK">
                         <rect key="frame" x="216" y="144" width="168" height="90"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="uxk-Hp-xvK" secondAttribute="height" multiplier="140:75" id="MFZ-nS-Zq7"/>
@@ -115,6 +115,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imgViewPatientSubmit" destination="uxk-Hp-xvK" id="pAg-8m-ymS"/>
                 <outlet property="lbCreatedAt" destination="pHn-nS-MZf" id="FSl-Uq-tbj"/>
                 <outlet property="lbPatientDOB" destination="J7R-Mz-5zP" id="mzz-S9-Hrw"/>
                 <outlet property="lbPatientGender" destination="QXW-Sm-pEI" id="eXH-54-2uN"/>
@@ -124,4 +125,7 @@
             <point key="canvasLocation" x="8" y="70.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="img_btnAnswer" width="280" height="48"/>
+    </resources>
 </document>

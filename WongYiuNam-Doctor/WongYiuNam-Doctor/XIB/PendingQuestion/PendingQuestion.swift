@@ -17,7 +17,4 @@ class PendingQuestion: UITableViewCell {
     @IBOutlet weak var lbPatientDOB:UILabel!
     @IBOutlet weak var imgViewPatientSubmit:UIImageView!
     
-    override func awakeFromNib() {
-        
-    }
 }

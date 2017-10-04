@@ -18,11 +18,19 @@ class RecordAnswerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = RecordAnswerViewModel()
         checkBoxIsFree.delegate = self
         recordTemp()
+        setupView()
     }
     
+    override func setupView() {
+        super.setupView()
+        navBar.rightNavBar = .none
+        navBar.leftNavBar = .back
+        
+    }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
 
@@ -92,7 +100,7 @@ class RecordAnswerViewController: BaseViewController {
     
     @IBAction func btnSubmitPressed(_ sender: UIButton){
         let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording"))
-        var parameter = WYNAnswerQuestionParameters()
+        var parameter = WYNAnswerQuestion()
         parameter?.questionID = 174
         parameter?.audio = url
         parameter?.duration = 2

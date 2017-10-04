@@ -21,11 +21,18 @@ class AnswerHistoryViewController: BaseViewController {
     }
 
     override func setupView() {
+        super.setupView()
+        navBar.rightNavBar = .none
+        navBar.leftNavBar = .back
+        showIndicator()
+        setupTableView()
+        viewModel.getAnswerHistoryList()
+    }
+    func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerHistoryCell")
         tableView.estimatedRowHeight = 230
         tableView.rowHeight = 230
         tableView.separatorStyle = .none
-        viewModel.getAnswerHistoryList()
     }
 }
 extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegate {
@@ -44,6 +51,8 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
         if viewModel.answerHistory.count > 0 {
             cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question
         }
+        cell.tvQuestion.isEditable = false
+        cell.tvQuestion.isScrollEnabled = false
         return cell
     }
     
@@ -63,7 +72,12 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
 }
 extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess() {
+        hideIndicator()
         tableView.reloadData()
     }
-    
+    func getAnswerHistoryListFailed () {
+        hideIndicator()
+        alert(title: "Error", message: "Answer History not found")
+        tableView.reloadData()
+    }
 }

@@ -14,9 +14,6 @@ class AudioPlayerManager: NSObject {
     var isPlaying = false
     var isFinished = false
     var lastPath: String?
-    override init(){
-        super.init()
-    }
     
     private var currentPlayer: AVAudioPlayer?
     

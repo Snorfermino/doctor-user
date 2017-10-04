@@ -16,6 +16,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var lbProductName:UILabel!
     @IBOutlet weak var lbPrice:UILabel!
     @IBOutlet weak var imgViewProduct:UIImageView!
+    
     var productID:String = ""
     var delegate: ProductCellProtocol?
     

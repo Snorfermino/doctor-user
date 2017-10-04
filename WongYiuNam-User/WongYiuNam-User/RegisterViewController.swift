@@ -65,8 +65,6 @@ class RegisterViewController: BaseViewController {
             return
         }
         let completion = {(user: User?, error: String?) -> Void in
-            print(user)
-            print(error)
             if(user !=  nil) {
                 NotificationCenter.default.post(name: NSNotification.Name("UserLoginedNotification"), object: nil)
             } else {

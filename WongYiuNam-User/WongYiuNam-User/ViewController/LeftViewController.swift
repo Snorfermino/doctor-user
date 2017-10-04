@@ -214,14 +214,12 @@ extension LeftViewController : UITableViewDelegate {
                     } else {
                         return 0
                     }
-                    return 0
                 case .privacyPolicy, .userAgreement:
                     if(sub2) {
                         return MenuTableViewCell.height()
                     } else {
                         return 0
                     }
-                    return 0
                 }
             }
         } else {

@@ -10,6 +10,8 @@ import UIKit
 import FacebookLogin
 import PopupDialog
 import FacebookCore
+import RxCocoa
+import RxSwift
 
 class SignInViewController: UIViewController {
     
@@ -17,20 +19,41 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailAddressTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnFBLogin.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
-        emailAddressTextField.borderStyle = .none
-        passwordTextField.borderStyle = .none
+        bindUI()
+        setUpUI()
     }
-
+    
+    func bindUI() {
+        btnFBLogin.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.loginButtonClicked()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func setUpUI() {
+        emailAddressTextField.borderStyle = .none
+        emailAddressTextField.delegate = self
+        passwordTextField.borderStyle = .none
+        passwordTextField.delegate = self
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
+        navigationItem.rightBarButtonItem = nil
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     // Once the button is clicked, show the login dialog
-    @objc func loginButtonClicked() {
+    func loginButtonClicked() {
         let loginManager = LoginManager()
         loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
             switch loginResult {
@@ -66,9 +89,7 @@ class SignInViewController: UIViewController {
         present(popup, animated: true, completion: nil)
     }
     
-    @IBAction func signInButtonClicked(_ sender: Any) {
-        let email = "admin@admin.com"
-        let password = "54321"
+    @IBAction func signInButtonClicked() {
         Utils.showHub(view: view)
         let completion = {(user: User?, error: String?) -> Void in
             Utils.hideHub(view: self.view)
@@ -78,6 +99,19 @@ class SignInViewController: UIViewController {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
             }
         }
-        ApiManager.login(email: email, password: password, completion: completion)
+        ApiManager.login(email: emailAddressTextField.text!, password: passwordTextField.text!, completion: completion)
+    }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailAddressTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+            signInButtonClicked()
+        }
+        
+        return true
     }
 }

@@ -16,26 +16,22 @@ public enum API: TargetType{
     case getDoctorProfile
     case uploadPicture
     case replyQuestion
-    case getPendingQuestion(userID: Int)
+    case getPendingQuestion
     case getAnswerHistory
     case online(isOnline: Bool)
     case reply(questionID: Int)
-    case answerQuestion(sender: WYNAnswerQuestionParameters)
+    case answerQuestion(sender: WYNAnswerQuestion)
 }
 
 extension API {
     public var headers: [String : String]? {
         switch self {
-        case .getPendingQuestion:
+        case .getPendingQuestion, .answerQuestion:
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs"]
-        case .answerQuestion:
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs"]
+                    "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
+
         default :
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-                    "X-Access-Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUxLCJpc3MiOiJodHRwOi8vd29uZ3lpdW5hbS1waHAuaGVyb2t1YXBwLmNvbS9hcGkvZG9jdG9yL2xvZ2luIiwiaWF0IjoxNTA2NTA2ODA0LCJleHAiOjQ4MTYyNTA2ODA0LCJuYmYiOjE1MDY1MDY4MDQsImp0aSI6InRXWVFlaWFvajEwYlBCZnAifQ.xvTR5rQicUeOCszGvdtCh0BFe0Q7ZHHIhjlC3RpRVvs",
-                    "Content-Type":"application/x-www-form-urlencoded"]
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         }
         
     }
@@ -44,8 +40,8 @@ extension API {
         switch self {
         case .login:
             return "/doctor/login"
-        case .getPendingQuestion(let id):
-            return "/qas/doctor/\(id)/pending"
+        case .getPendingQuestion:
+            return "/question/pendings"
         case .getAnswerHistory:
             return "/answer/histories"
         case .getDoctorProfile:

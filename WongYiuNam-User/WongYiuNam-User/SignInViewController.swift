@@ -63,15 +63,31 @@ class SignInViewController: UIViewController {
                 print("User cancelled login.")
             case .success(let _, let _, let accessToken):
                 print("Logged in!")
-                let completion = {(userInfo: [String: Any]?, error: Error?) -> Void in
-                    print(userInfo)
+                let completionLoginViaFacebook = {(user: User?, error: String?) -> Void in
+                    Utils.hideHub(view: self.view)
+                    if let user = user {
+                        Global.user = user
+                    } else {
+                        Utils.showAlert(title: "Error !!!", message: error, viewController: self)
+                    }
                 }
-                self.getUserInfo(accessToken: accessToken, completion: completion)
+                let completion = {(userInfo: [String: Any]?, error: Error?) -> Void in
+                    guard let userInfo = userInfo else {
+                        return
+                    }
+                    guard let id = userInfo["id"] as? String,
+                        let name = userInfo["name"] as? String,
+                        let email = userInfo["email"] as? String else {
+                            return
+                    }
+                    ApiManager.loginViaFacebook(email: email, name: name, id: id, completion: completionLoginViaFacebook)
+                }
+                self.getUserInfoFB(accessToken: accessToken, completion: completion)
             }
         }
     }
     
-    func getUserInfo(accessToken: AccessToken, completion: @escaping (_ : [String: Any]?, _ : Error?) -> Void) {
+    func getUserInfoFB(accessToken: AccessToken, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let request = GraphRequest(graphPath: "me", parameters: ["fields": "name, id, email"])
         request.start { response, result in
             switch result {

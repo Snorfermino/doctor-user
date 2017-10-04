@@ -18,6 +18,7 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         viewModel = LoginViewModel(self)
+        print("Device UUID: " + UIDevice.current.identifierForVendor!.uuidString)
         setupView()
     }
     

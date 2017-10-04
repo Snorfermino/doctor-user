@@ -14,6 +14,8 @@ target 'WongYiuNam-User' do
     pod 'UILoadControl'
     pod 'PopupDialog'
     pod 'KRProgressHUD'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
 end
 
 post_install do |installer|

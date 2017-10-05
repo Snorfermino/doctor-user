@@ -130,11 +130,11 @@ Prescription</string>
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="SSm-4n-giy" kind="show" id="hKh-FK-V4e"/>
+                                    <action selector="uploadPrescriptionButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qno-O5-zuY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8v-rT-bKO">
-                                <rect key="frame" x="30" y="397" width="150" height="150"/>
+                                <rect key="frame" x="31" y="397" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.61960784310000006" green="0.094117647060000004" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
@@ -157,9 +157,6 @@ Prescription</string>
                                 <state key="normal" title="Social Wall" image="home-newspaper-folded">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Wnn-co-ySY" kind="show" id="lhD-XH-GgD"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

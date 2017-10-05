@@ -46,6 +46,11 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
     }
+    
+    @IBAction func uploadPrescriptionButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("ChangeMenuTab"), object: "UploadPrescription")
+        
+    }
 }
 
 extension HomeViewController : SlideMenuControllerDelegate {

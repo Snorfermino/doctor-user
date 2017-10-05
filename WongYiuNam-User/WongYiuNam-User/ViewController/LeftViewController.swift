@@ -13,7 +13,6 @@ enum LeftMenu: Int {
     case home = 0
     case onlineShop
     case askaDoctor
-    case uploadPrescription
     case socialWall
     case helpCentre
     case privacyPolicy
@@ -44,9 +43,9 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social Wall"
+    var menus = ["Home", "Online Shop", "Ask a Doctor", "Social wall"
         , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
-    var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social Wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Terms and Conditions", "Privacy Policy", "User Agreement", "About Us", "Logout"]
+    var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Terms and Conditions", "Privacy Policy", "User Agreement", "About Us", "Logout"]
     var homeViewController: UIViewController!
     var onlineShopViewController: UIViewController!
     var askaDoctorViewController: UIViewController!
@@ -129,6 +128,13 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
                 self.imageHeaderView.updateByLogin()
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(Notification.Name("ChangeMenuTab"))
+            .subscribe(onNext: { notification in
+                notification.object
+                //
+            })
+            .disposed(by: disposeBag)
     }
     
     func goToSignIn() {
@@ -153,8 +159,6 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             slideMenuController()?.changeMainViewController(onlineShopViewController, close: true)
         case .askaDoctor:
             slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
-        case .uploadPrescription:
-            slideMenuController()?.changeMainViewController(uploadPrescriptionViewController, close: true)
         case .socialWall:
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
         case .helpCentre:
@@ -226,7 +230,7 @@ extension LeftViewController : UITableViewDelegate {
         } else {
             if let menu = LeftMenu(rawValue: indexPath.row) {
                 switch menu {
-                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+                case .home, .onlineShop, .askaDoctor, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                     return MenuTableViewCell.height()
                 }
             }
@@ -287,7 +291,7 @@ extension LeftViewController : UITableViewDataSource {
             }
         } else if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+            case .home, .onlineShop, .askaDoctor, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                 let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
                 cell.setData(menus[indexPath.row])
                 return cell

@@ -21,8 +21,13 @@ class RecordAnswerViewModel {
         apiProvider.request(.answerQuestion(sender: sender)) { (result) in
             switch result {
             case let .success(response):
-              print("========\(response)")
-              self.delegate?.replyQuestionSuccess()
+                print("========\(response)")
+                if let receivedData: WYNRecordAnswerResult = Utils.mapOne(from: response) {
+                    self.delegate?.replyQuestionSuccess()
+                } else {
+                    self.delegate?.replyQuestionFailed()
+                }
+                
             case .failure:
                 print("failed")
                 self.delegate?.replyQuestionFailed()

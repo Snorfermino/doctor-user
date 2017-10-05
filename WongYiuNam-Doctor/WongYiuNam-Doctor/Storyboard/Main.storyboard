@@ -376,7 +376,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWg-cK-0oh">
-                                <rect key="frame" x="106" y="105" width="163" height="27"/>
+                                <rect key="frame" x="106.5" y="105" width="163" height="27"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

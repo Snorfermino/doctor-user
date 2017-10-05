@@ -38,6 +38,7 @@
 		843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */; };
 		843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */; };
 		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */; };
+		843F43091F84FE7B0081D544 /* WYNRecordAnswerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F43081F84FE7B0081D544 /* WYNRecordAnswerResult.swift */; };
 		8456A3AD1F839686008B8BCA /* WYNAnswerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */; };
 		8456A3B11F839A2B008B8BCA /* WYNQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
@@ -115,6 +116,7 @@
 		843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AnswerHistoryCell.xib; path = XIB/AnswerHistory/AnswerHistoryCell.xib; sourceTree = "<group>"; };
 		843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewModel.swift; path = "View Model/RecordAnswerViewModel.swift"; sourceTree = "<group>"; };
 		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestion.swift; path = Model/WYNAnswerQuestion.swift; sourceTree = "<group>"; };
+		843F43081F84FE7B0081D544 /* WYNRecordAnswerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNRecordAnswerResult.swift; sourceTree = "<group>"; };
 		8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNAnswerHistory.swift; sourceTree = "<group>"; };
 		8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYNQuestion.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		845CD2321F70D2D30063ACB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				843F43081F84FE7B0081D544 /* WYNRecordAnswerResult.swift */,
 				8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */,
 				84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */,
 				843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */,
@@ -717,6 +720,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */,
+				843F43091F84FE7B0081D544 /* WYNRecordAnswerResult.swift in Sources */,
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
 				8456A3B11F839A2B008B8BCA /* WYNQuestion.swift in Sources */,
 				843C2B7B1F7A236200F87A30 /* PendingQuestion.swift in Sources */,

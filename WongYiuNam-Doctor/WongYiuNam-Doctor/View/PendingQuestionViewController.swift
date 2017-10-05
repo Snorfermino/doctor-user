@@ -74,7 +74,7 @@ class PendingQuestionViewController: BaseViewController {
         let imageView = sender.view as! UIImageView
         photoImage = UIImageView(image: imageView.image)
         let scrollView = UIScrollView(frame: UIScreen.main.bounds)
-        scrollView.frame = CGRect(x: 0, y: navBar.frame.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - navBar.frame.height)
+        scrollView.frame = CGRect(x: 0, y: navBar.constraintHeightICLeft.constant, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - navBar.constraintHeightICLeft.constant)
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 6.0
         scrollView.delegate = self
@@ -82,6 +82,8 @@ class PendingQuestionViewController: BaseViewController {
         photoImage.backgroundColor = UIColor.white.withAlphaComponent(1)
         photoImage.contentMode = .scaleAspectFit
         photoImage.isUserInteractionEnabled = true
+        navBar.viewLeft.gestureRecognizers?.forEach(navBar.viewLeft.removeGestureRecognizer(_:))
+        navBar.viewLeft.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage)))
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         scrollView.addGestureRecognizer(tap)
         
@@ -95,6 +97,7 @@ class PendingQuestionViewController: BaseViewController {
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
 //        self.navigationController?.isNavigationBarHidden = false
 //        self.tabBarController?.tabBar.isHidden = false
+        navBar.leftNavBar = .back
         sender.view?.removeFromSuperview()
     }
     
@@ -133,7 +136,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
         cell.imgViewPatientSubmit.isUserInteractionEnabled = true
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
     
-        
+       
         cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
         cell.selectionStyle = .none
         return cell

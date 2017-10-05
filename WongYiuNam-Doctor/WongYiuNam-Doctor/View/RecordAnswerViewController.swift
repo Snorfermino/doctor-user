@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import SDWebImage
 import SVProgressHUD
+
 class RecordAnswerViewController: BaseViewController {
     
     var recordingSession: AVAudioSession!
@@ -145,10 +146,10 @@ extension RecordAnswerViewController: WYNCheckBoxDelegate{
 extension RecordAnswerViewController: RecordAnswerViewModelDelegate {
     func replyQuestionSuccess(){
         SVProgressHUD.dismiss()
-       alert(title: "Success", message: "Answer has been submitted")
+        alert(title: "Success", message: "Answer has been submitted")
     }
     func replyQuestionFailed(){
-       SVProgressHUD.dismiss()
+        SVProgressHUD.dismiss()
         alert(title: "Error", message: "Failed to submit answer")
     }
 }

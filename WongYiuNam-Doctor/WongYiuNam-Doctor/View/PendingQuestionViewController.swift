@@ -30,12 +30,6 @@ class PendingQuestionViewController: BaseViewController {
         navBar.leftNavBar = .back
         
         setupTableView()
-        
-//        guard let userInfo:WYNLogedInUserInfo = UserLoginInfo.shared.userInfo as WYNLogedInUserInfo else {
-//            return
-//        }
-//        viewModel.getPendingQuestionList(id: userInfo.id!)
-        
     }
     
     func setupTableView(){
@@ -71,34 +65,6 @@ class PendingQuestionViewController: BaseViewController {
         self.view.addConstraints([widthConstraint,heightConstraint,bottomConstraint])
     }
     
-    func imageTapped(_ sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        photoImage = UIImageView(image: imageView.image)
-        let scrollView = UIScrollView(frame: UIScreen.main.bounds)
-        scrollView.frame = CGRect(x: 0, y: navBar.frame.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - navBar.frame.height)
-        scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 6.0
-        scrollView.delegate = self
-        photoImage.frame = UIScreen.main.bounds
-        photoImage.backgroundColor = UIColor.white.withAlphaComponent(1)
-        photoImage.contentMode = .scaleAspectFit
-        photoImage.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        scrollView.addGestureRecognizer(tap)
-        
-        photoImage.frame = scrollView.bounds
-        scrollView.addSubview(photoImage)
-        self.view.addSubview(scrollView)
-//        self.navigationController?.isNavigationBarHidden = true
-//        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
-//        self.navigationController?.isNavigationBarHidden = false
-//        self.tabBarController?.tabBar.isHidden = false
-        sender.view?.removeFromSuperview()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? RecordAnswerViewController {
             viewController.questionInfo = self.selectedQuestion
@@ -128,16 +94,13 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
             cell.lbPatientDOB.text = "\(String(describing: pendingQuestion.patientDob!))"
             cell.imgViewPatientSubmit.sd_setImage(with: pendingQuestion.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
         }
-        cell.imgViewPatientSubmit.isUserInteractionEnabled = true
-        let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        cell.imgViewPatientSubmit.addGestureRecognizer(tapGest)
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
-        selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
+//        selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
         performSegue(withIdentifier: "RecordAnswerVC", sender: self)
     }
     

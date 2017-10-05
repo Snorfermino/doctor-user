@@ -107,7 +107,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QHt-ua-BOG" kind="show" id="z2f-1L-s8l"/>
+                                    <action selector="onlineShopButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n09-Wq-0h2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-Gu-uUx">
@@ -144,7 +144,7 @@ Prescription</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="eSf-1i-dks" kind="show" id="pwL-12-5VJ"/>
+                                    <action selector="askaDoctorButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MUJ-WN-DUY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buU-ga-jQD">
@@ -157,6 +157,9 @@ Prescription</string>
                                 <state key="normal" title="Social Wall" image="home-newspaper-folded">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="socialWallButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1eF-Xj-EFD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

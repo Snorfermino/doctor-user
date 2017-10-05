@@ -6,4 +6,19 @@
 //  Copyright © 2017 RTH. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
+
+struct PagingResponseFB<T: BaseMappable>: Mappable {
+    
+    var data: [T]!
+    var next: URL?
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        data <- map["data"]
+        next <- (map["next"], URLTransform())
+    }
+}

@@ -130,14 +130,22 @@ class ApiManager {
         }
     }
     
-    static func getPostsFromFanpageFacebook() {
+    static func getPostsFromFanpageFacebook(completion: @escaping (([PostFB]?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.getPostsFromFanpageFacebook) { (result) in
             switch result {
             case .success(let response):
                 print(response)
+                do {
+                    let responsePaging = try response.mapObject(PagingResponseFB<PostFB>.self)
+                    let data = responsePaging.data
+                    completion(data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
             case .failure(let error):
                 print(error)
+                completion(nil, error.errorDescription)
             }
         }
     }

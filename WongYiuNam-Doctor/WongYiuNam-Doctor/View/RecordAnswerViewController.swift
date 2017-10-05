@@ -11,7 +11,7 @@ import AVFoundation
 import SDWebImage
 import SVProgressHUD
 class RecordAnswerViewController: BaseViewController {
-    
+    var photoImage: UIImageView!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var btnRecord:UIButton!
@@ -37,17 +37,20 @@ class RecordAnswerViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
-        tvQuestion.text = questionInfo.question
-        lbPatientName.text = questionInfo.patientName
-        lbPatientGender.text = questionInfo.patientGender
-        lbPatientDOB.text = "\(questionInfo.patientDob!)"
-        
-        let date = Date(timeIntervalSince1970: Double(questionInfo.createdAt!))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
-        lbCreatedDate.text = dateFormatter.string(from: date)
-        let url = URL(string: (questionInfo.photoUrl != nil) ? questionInfo.photoUrl! : "")
-        imgViewSymptomPhoto.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)  
+//        tvQuestion.text = questionInfo.question
+//        lbPatientName.text = questionInfo.patientName
+//        lbPatientGender.text = questionInfo.patientGender
+//        lbPatientDOB.text = "\(questionInfo.patientDob!)"
+//
+//        let date = Date(timeIntervalSince1970: Double(questionInfo.createdAt!))
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
+//        lbCreatedDate.text = dateFormatter.string(from: date)
+        imgViewSymptomPhoto.isUserInteractionEnabled = true
+        let url = URL(string: "")
+        imgViewSymptomPhoto.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+        let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        imgViewSymptomPhoto.addGestureRecognizer(tapGest)
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
@@ -96,6 +99,16 @@ class RecordAnswerViewController: BaseViewController {
         }
     }
     
+    func imageTapped(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "PatientPhotoVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? PatientPhotoViewController {
+            viewController.photoImage = self.imgViewSymptomPhoto
+        }
+    }
+    
     func finishRecording(success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
@@ -104,7 +117,6 @@ class RecordAnswerViewController: BaseViewController {
             btnRecord.setTitle("Re-Record answer", for: .normal)
         } else {
             btnRecord.setTitle("Record answer", for: .normal)
-            // recording failed :(
         }
     }
     
@@ -154,5 +166,11 @@ extension RecordAnswerViewController: RecordAnswerViewModelDelegate {
     func replyQuestionFailed(){
        SVProgressHUD.dismiss()
         alert(title: "Error", message: "Failed to submit answer")
+    }
+}
+extension RecordAnswerViewController: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return photoImage
     }
 }

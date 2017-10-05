@@ -401,10 +401,10 @@
             </objects>
             <point key="canvasLocation" x="1889" y="861"/>
         </scene>
-        <!--View Controller-->
+        <!--Patient Photo View Controller-->
         <scene sceneID="NKf-HE-eD8">
             <objects>
-                <viewController id="x6e-bJ-Hrc" sceneMemberID="viewController">
+                <viewController id="x6e-bJ-Hrc" customClass="PatientPhotoViewController" customModule="WongYiuNam_Doctor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f6b-Ez-0j8"/>
                         <viewControllerLayoutGuide type="bottom" id="ouQ-Pp-sYs"/>
@@ -885,6 +885,7 @@
                         <outlet property="lbPatientGender" destination="mZm-Z5-1K3" id="tFz-8s-h62"/>
                         <outlet property="lbPatientName" destination="lTe-z7-v6h" id="tCP-OE-jdg"/>
                         <outlet property="tvQuestion" destination="M48-Yx-aOK" id="vwB-hQ-0Gq"/>
+                        <segue destination="x6e-bJ-Hrc" kind="show" identifier="PatientPhotoVC" id="JPJ-nD-SVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqm-vY-vYN" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -117,6 +117,7 @@
 		8427D74E1F610194007B34F4 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8427D7501F6122B2007B34F4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		843F430B1F8611150081D544 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8452B6AE1F725D8300781AD7 /* CustomWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
 		8452B6B11F72812B00781AD7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		8452B6B21F72812B00781AD7 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 		66EEFD8F1F5FDE0900C5C77A /* WongYiuNam-User */ = {
 			isa = PBXGroup;
 			children = (
+				843F430A1F8611070081D544 /* Google */,
 				66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */,
 				66EEFD971F5FDE0900C5C77A /* Assets.xcassets */,
 				66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */,
@@ -267,6 +269,14 @@
 				66EEFDB21F5FDE0900C5C77A /* Info.plist */,
 			);
 			path = "WongYiuNam-UserUITests";
+			sourceTree = "<group>";
+		};
+		843F430A1F8611070081D544 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				843F430B1F8611150081D544 /* GoogleService-Info.plist */,
+			);
+			path = Google;
 			sourceTree = "<group>";
 		};
 		8452B6B01F727EEA00781AD7 /* Online Shop */ = {

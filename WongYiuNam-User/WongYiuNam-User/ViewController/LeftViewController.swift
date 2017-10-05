@@ -13,6 +13,7 @@ enum LeftMenu: Int {
     case home = 0
     case onlineShop
     case askaDoctor
+    case uploadPrescription
     case socialWall
     case helpCentre
     case privacyPolicy
@@ -43,7 +44,7 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Home", "Online Shop", "Ask a Doctor", "Social wall"
+    var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social wall"
         , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
     var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Terms and Conditions", "Privacy Policy", "User Agreement", "About Us", "Logout"]
     var homeViewController: UIViewController!
@@ -77,6 +78,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let askaDoctorStoryboard = UIStoryboard(name: "AskaDoctor", bundle: nil)
+        let socialWallStoryboard = UIStoryboard(name: "SocialWall", bundle: nil)
         
         let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.homeViewController = UINavigationController(rootViewController: homeViewController)
@@ -90,7 +92,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         let uploadPrescriptionViewController = mainStoryboard.instantiateViewController(withIdentifier: "UploadPrescriptionViewController") as! UploadPrescriptionViewController
         self.uploadPrescriptionViewController = UINavigationController(rootViewController: uploadPrescriptionViewController)
         
-        let socialWallViewController = mainStoryboard.instantiateViewController(withIdentifier: "SocialWallViewController") as! SocialWallViewController
+        let socialWallViewController = socialWallStoryboard.instantiateViewController(withIdentifier: "SocialWallViewController") as! SocialWallViewController
         self.socialWallViewController = UINavigationController(rootViewController: socialWallViewController)
         
         let helpCentreViewController = mainStoryboard.instantiateViewController(withIdentifier: "HelpCentreViewController") as! HelpCentreViewController
@@ -131,8 +133,42 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         NotificationCenter.default.rx.notification(Notification.Name("ChangeMenuTab"))
             .subscribe(onNext: { notification in
-                notification.object
-                //
+                let s = notification.object as! String
+                if(Global.user != nil) {
+                    switch s {
+                    case "UploadPrescription":
+                        self.changeViewController(LeftMenuLogined.uploadPrescription)
+                        self.tableView.selectRow(at: IndexPath(row: 2, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "OnlineShop":
+                        self.tableView.selectRow(at: IndexPath(row: 1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                        self.changeViewController(LeftMenuLogined.onlineShop)
+                    case "AskaDoctor":
+                        self.changeViewController(LeftMenuLogined.askaDoctor)
+                        self.tableView.selectRow(at: IndexPath(row: 4, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "SocialWall":
+                        self.changeViewController(LeftMenuLogined.socialWall)
+                        self.tableView.selectRow(at: IndexPath(row: 3, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    default:
+                        break
+                    }
+                } else {
+                    switch s {
+                    case "UploadPrescription":
+                        self.changeViewController(LeftMenu.uploadPrescription)
+                        self.tableView.selectRow(at: IndexPath(row: 3, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "OnlineShop":
+                        self.changeViewController(LeftMenu.onlineShop)
+                        self.tableView.selectRow(at: IndexPath(row: 1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "AskaDoctor":
+                        self.changeViewController(LeftMenu.askaDoctor)
+                        self.tableView.selectRow(at: IndexPath(row: 2, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "SocialWall":
+                        self.changeViewController(LeftMenu.socialWall)
+                        self.tableView.selectRow(at: IndexPath(row: 4, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    default:
+                        break
+                    }
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -159,6 +195,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             slideMenuController()?.changeMainViewController(onlineShopViewController, close: true)
         case .askaDoctor:
             slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
+        case .uploadPrescription:
+            slideMenuController()?.changeMainViewController(signInViewController, close: true)
         case .socialWall:
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
         case .helpCentre:
@@ -230,7 +268,7 @@ extension LeftViewController : UITableViewDelegate {
         } else {
             if let menu = LeftMenu(rawValue: indexPath.row) {
                 switch menu {
-                case .home, .onlineShop, .askaDoctor, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                     return MenuTableViewCell.height()
                 }
             }
@@ -291,7 +329,7 @@ extension LeftViewController : UITableViewDataSource {
             }
         } else if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .home, .onlineShop, .askaDoctor, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+            case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                 let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
                 cell.setData(menus[indexPath.row])
                 return cell

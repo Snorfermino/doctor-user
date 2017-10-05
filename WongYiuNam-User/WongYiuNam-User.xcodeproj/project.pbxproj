@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */; };
+		66E0A16A1F86175D001393E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66E0A1691F86175D001393E2 /* GoogleService-Info.plist */; };
 		66EEFD911F5FDE0900C5C77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */; };
 		66EEFD981F5FDE0900C5C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD971F5FDE0900C5C77A /* Assets.xcassets */; };
 		66EEFD9B1F5FDE0900C5C77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */; };
@@ -70,6 +71,9 @@
 		84F0A4D21F6F6EEE007B5385 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D11F6F6EEE007B5385 /* Doctor.swift */; };
 		84F0A4D81F6F7B4B007B5385 /* DRPLoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */; };
 		84F91E761F7CFCBA0034DBFA /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F91E751F7CFCBA0034DBFA /* Question.swift */; };
+		84FBF6691F85E6B500D9B7E1 /* PostFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBF6681F85E6B500D9B7E1 /* PostFB.swift */; };
+		84FBF66B1F85EE2800D9B7E1 /* PagingResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBF66A1F85EE2800D9B7E1 /* PagingResponseFB.swift */; };
+		84FBF66D1F860E3D00D9B7E1 /* SocialWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBF66C1F860E3D00D9B7E1 /* SocialWall.storyboard */; };
 		CCE06F91E7FE1768CF1120AE /* Pods_WongYiuNam_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +97,7 @@
 /* Begin PBXFileReference section */
 		443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingResponse.swift; sourceTree = "<group>"; };
+		66E0A1691F86175D001393E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66EEFD8D1F5FDE0900C5C77A /* WongYiuNam-User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WongYiuNam-User.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EEFD971F5FDE0900C5C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,7 +122,6 @@
 		8427D74E1F610194007B34F4 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8427D7501F6122B2007B34F4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
-		843F430B1F8611150081D544 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8452B6AE1F725D8300781AD7 /* CustomWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
 		8452B6B11F72812B00781AD7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		8452B6B21F72812B00781AD7 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
@@ -164,6 +168,9 @@
 		84F0A4D11F6F6EEE007B5385 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRPLoadingSpinner.swift; sourceTree = "<group>"; };
 		84F91E751F7CFCBA0034DBFA /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		84FBF6681F85E6B500D9B7E1 /* PostFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFB.swift; sourceTree = "<group>"; };
+		84FBF66A1F85EE2800D9B7E1 /* PagingResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingResponseFB.swift; sourceTree = "<group>"; };
+		84FBF66C1F860E3D00D9B7E1 /* SocialWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SocialWall.storyboard; sourceTree = "<group>"; };
 		A4F52D4B48895826B569298B /* Pods-WongYiuNam-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,7 +281,7 @@
 		843F430A1F8611070081D544 /* Google */ = {
 			isa = PBXGroup;
 			children = (
-				843F430B1F8611150081D544 /* GoogleService-Info.plist */,
+				66E0A1691F86175D001393E2 /* GoogleService-Info.plist */,
 			);
 			path = Google;
 			sourceTree = "<group>";
@@ -330,6 +337,7 @@
 		84B5288A1F7A39B4005B6DE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84FBF6671F85E69300D9B7E1 /* Social */,
 				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
 				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
 				840C03AF1F78AE72009D86CD /* User.swift */,
@@ -410,6 +418,7 @@
 				84C8C9001F67907B00AA5709 /* AskaDoctor.storyboard */,
 				84C8C9021F6791A100AA5709 /* Main.storyboard */,
 				84A72FD51F694423001B30E0 /* Login.storyboard */,
+				84FBF66C1F860E3D00D9B7E1 /* SocialWall.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -426,6 +435,15 @@
 			);
 			name = "Ask a Doctor";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		84FBF6671F85E69300D9B7E1 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				84FBF6681F85E6B500D9B7E1 /* PostFB.swift */,
+				84FBF66A1F85EE2800D9B7E1 /* PagingResponseFB.swift */,
+			);
+			path = Social;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,8 +564,10 @@
 			files = (
 				8452B6B41F72812B00781AD7 /* ProductCell.xib in Resources */,
 				66EEFD9B1F5FDE0900C5C77A /* LaunchScreen.storyboard in Resources */,
+				84FBF66D1F860E3D00D9B7E1 /* SocialWall.storyboard in Resources */,
 				84C8C9011F67907B00AA5709 /* AskaDoctor.storyboard in Resources */,
 				84A72FD61F694423001B30E0 /* Login.storyboard in Resources */,
+				66E0A16A1F86175D001393E2 /* GoogleService-Info.plist in Resources */,
 				84BE669D1F7500950025AAF6 /* ForgotPasswordViewController.xib in Resources */,
 				66EEFD981F5FDE0900C5C77A /* Assets.xcassets in Resources */,
 				8421A7F31F6A3E15007406D3 /* DayInScheduleView.xib in Resources */,
@@ -706,6 +726,7 @@
 				84F91E761F7CFCBA0034DBFA /* Question.swift in Sources */,
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
 				84C8C90C1F67EE1300AA5709 /* CheckBoxButton.swift in Sources */,
+				84FBF66B1F85EE2800D9B7E1 /* PagingResponseFB.swift in Sources */,
 				849A947C1F60042F008ACB28 /* SocialWallViewController.swift in Sources */,
 				849A94A01F600802008ACB28 /* UIImage.swift in Sources */,
 				8452B6AF1F725D8300781AD7 /* CustomWebView.swift in Sources */,
@@ -721,6 +742,7 @@
 				8427D74B1F610110007B34F4 /* PrivacyPolicyViewController.swift in Sources */,
 				84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */,
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,
+				84FBF6691F85E6B500D9B7E1 /* PostFB.swift in Sources */,
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,
 				849A948D1F60064F008ACB28 /* ExSlideMenuController.swift in Sources */,
 				66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */,

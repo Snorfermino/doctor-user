@@ -34,7 +34,7 @@ class ProfileViewController: BaseViewController {
              print("image \(String(describing: image)) error \(String(describing: error)) cacheType \(cacheType) url \(String(describing: url)))")
         }
 
-        lbName.text = userProfile.name!
+        lbName.text = userProfile.name
         lbSpeciality.text = userProfile.speciality!
         lbQualifications.text = userProfile.qualifications!
         btnAvailable.isSelected = userProfile.online!

@@ -31,12 +31,13 @@ class AnswerDetailViewController: BaseViewController {
     override func setupView() {
         super.setupView()
         guard answerDetailsData != nil else {return}
-        lbQuestionStatus.text = (answerDetailsData.question?.status)! ? "Answered" : "Waiting for Answer"
-        lbByDoctor.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), 18"
-        lbSymptom.text = answerDetailsData.question?.symptomType
-        tvQuestion.text = answerDetailsData.question?.question
-        
-        lbQuestionCreatedDate.text = answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        if let question = answerDetailsData.question {
+            lbQuestionStatus.text = question.status! ? "Answered" : "Waiting for Answer"
+            lbByDoctor.text = "\(question.patientName), \(question.patientGender), 18"
+            lbSymptom.text = question.symptomType
+            tvQuestion.text = question.question
+            lbQuestionCreatedDate.text = answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        }
         
         lbAnswerCreatedDate.text = answerDetailsData.createdAt?.format(with: "HH:mm MMMM dd yyyy")
     }

@@ -11,7 +11,7 @@ import AVFoundation
 class AudioRecorderManager: NSObject {
     
     static let shared = AudioRecorderManager()
-
+    
     var recordSession: AVAudioSession!
     var recorder: AVAudioRecorder!
     override init() {
@@ -27,7 +27,7 @@ class AudioRecorderManager: NSObject {
             AVFormatIDKey: kAudioFormatMPEG4AAC,
             AVEncoderBitRateKey: 32000,
             //            AVLinearPCMBitDepthKey: 16,
-                                    AVSampleRateKey: 44100,
+            AVSampleRateKey: 44100,
             AVNumberOfChannelsKey: 2,
             
             AVEncoderAudioQualityKey: AVAudioQuality.medium.rawValue
@@ -69,25 +69,20 @@ class AudioRecorderManager: NSObject {
     //Start record session
     func record(_ fileName:String) -> Bool {
         print("pre-recording")
-        do {
-            recorder?.record(forDuration: 12000)
-            if #available(iOS 10.0, *) {
-                self.meterTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
-                    if let recorder = self.recorder {
-                        recorder.updateMeters()
-                        self.recorderApc0 = recorder.averagePower(forChannel: 0 )
-                        self.recorderPeak0 = recorder.peakPower(forChannel: 0)
-                    }
-                })
-            } else {
-                // Fallback on earlier versions
-            }
-            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateMeterTimer), userInfo: nil, repeats: true)
-            return true
-        } catch {
-            print("Error Recording")
-            return false
+        recorder?.record(forDuration: 12000)
+        if #available(iOS 10.0, *) {
+            self.meterTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
+                if let recorder = self.recorder {
+                    recorder.updateMeters()
+                    self.recorderApc0 = recorder.averagePower(forChannel: 0 )
+                    self.recorderPeak0 = recorder.peakPower(forChannel: 0)
+                }
+            })
+        } else {
+            // Fallback on earlier versions
         }
+        self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateMeterTimer), userInfo: nil, repeats: true)
+        return true
     }
     
     @objc func updateMeterTimer() {
@@ -103,7 +98,7 @@ class AudioRecorderManager: NSObject {
         self.meterTimer?.invalidate()
     }
     func getUserPath()-> URL {
-     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
 }
 
@@ -114,5 +109,5 @@ extension AudioRecorderManager: AVAudioRecorderDelegate {
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?){
         print("Error encoding", error?.localizedDescription ?? "")
     }
-
+    
 }

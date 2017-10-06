@@ -12,7 +12,7 @@ import Moya
 
 class Utils {
     class private func getObject(paths: [String]?, from data: Any) -> AnyObject? {
-        guard let data = data as AnyObject?  else {
+        guard let data = data as? AnyObject  else {
             return nil
         }
         
@@ -59,5 +59,5 @@ class Utils {
         let object = Utils.getObject(paths: paths, from: data)
         return Mapper<T>().map(JSONObject: object)
     }
-
+    
 }

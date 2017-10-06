@@ -96,7 +96,7 @@ class RecordAnswerViewController: BaseViewController {
         }
     }
     
-    func imageTapped(_ sender: UITapGestureRecognizer) {
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "PatientPhotoVC", sender: nil)
     }
     

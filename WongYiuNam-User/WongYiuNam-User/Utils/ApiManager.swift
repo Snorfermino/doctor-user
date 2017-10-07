@@ -12,6 +12,10 @@ import FacebookCore
 
 class ApiManager {
     
+    static var videoYoutubeNextPage: String?
+    static var videoYoutubeCanNextPage: Bool = true
+    static var loadPostFBNextPage: String?
+    
     static func getDoctors(page: Int, completion: @escaping (([Doctor]) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.doctors(page: page)) { (result) in
@@ -132,13 +136,55 @@ class ApiManager {
     
     static func getPostsFromFanpageFacebook(completion: @escaping (([PostFB]?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
-        provider.request(.getPostsFromFanpageFacebook) { (result) in
+        var target: MyServerAPI!
+        if let loadPostFBNextPage = loadPostFBNextPage {
+            target = .getPostsFromFanpageFacebookNext(nextPage: loadPostFBNextPage)
+        } else {
+            target = .getPostsFromFanpageFacebook
+        }
+        provider.request(target) { (result) in
             switch result {
             case .success(let response):
                 print(response)
                 do {
                     let responsePaging = try response.mapObject(PagingResponseFB<PostFB>.self)
+                    loadPostFBNextPage = responsePaging.nextPage
                     let data = responsePaging.data
+                    completion(data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
+    
+    static func getVideosFromYoutubeChannel(completion: @escaping (([VideoYT]?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        
+        var target: MyServerAPI!
+        if let videoYoutubeNextPage = videoYoutubeNextPage {
+            target = .getVideosFromYoutubeNext(nextPage: videoYoutubeNextPage)
+        } else {
+            target = .getVideosFromYoutube
+        }
+        if(videoYoutubeCanNextPage == false) {
+            completion(nil, nil)
+            return
+        }
+        provider.request(target) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let responsePaging = try response.mapObject(PagingResponseYT<VideoYT>.self)
+                    videoYoutubeNextPage = responsePaging.nextPageToken
+                    let data = responsePaging.data
+                    if(data!.count < 20) {
+                        videoYoutubeCanNextPage = false
+                    }
                     completion(data, nil)
                 } catch {
                     completion(nil, "Error Parse Json")

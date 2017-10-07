@@ -1,5 +1,5 @@
 //
-//  PagingResponseFB.swift
+//  PagingResponseYT.swift
 //  WongYiuNam-User
 //
 //  Created by Admin on 10/5/17.
@@ -8,17 +8,18 @@
 
 import ObjectMapper
 
-struct PagingResponseFB<T: BaseMappable>: Mappable {
+struct PagingResponseYT<T: BaseMappable>: Mappable {
     
     var data: [T]!
-    var nextPage: String?
+    var nextPageToken: String?
     
     init?(map: Map) {
         
     }
     
     mutating func mapping(map: Map) {
-        data <- map["data"]
-        nextPage <- map["paging.cursors.after"]
+        data <- map["items"]
+        nextPageToken <- map["nextPageToken"]
     }
 }
+

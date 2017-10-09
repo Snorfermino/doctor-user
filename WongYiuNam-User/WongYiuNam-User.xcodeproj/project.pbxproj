@@ -74,6 +74,8 @@
 		84FBF6691F85E6B500D9B7E1 /* PostFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBF6681F85E6B500D9B7E1 /* PostFB.swift */; };
 		84FBF66B1F85EE2800D9B7E1 /* PagingResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBF66A1F85EE2800D9B7E1 /* PagingResponseFB.swift */; };
 		84FBF66D1F860E3D00D9B7E1 /* SocialWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBF66C1F860E3D00D9B7E1 /* SocialWall.storyboard */; };
+		84FBF6711F86230C00D9B7E1 /* PagingResponseYT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBF6701F86230C00D9B7E1 /* PagingResponseYT.swift */; };
+		84FBF6731F8623C400D9B7E1 /* VideoYT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBF6721F8623C400D9B7E1 /* VideoYT.swift */; };
 		CCE06F91E7FE1768CF1120AE /* Pods_WongYiuNam_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B640EB9EEF75BB2EE0FD9 /* Pods_WongYiuNam_User.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +173,8 @@
 		84FBF6681F85E6B500D9B7E1 /* PostFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFB.swift; sourceTree = "<group>"; };
 		84FBF66A1F85EE2800D9B7E1 /* PagingResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingResponseFB.swift; sourceTree = "<group>"; };
 		84FBF66C1F860E3D00D9B7E1 /* SocialWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SocialWall.storyboard; sourceTree = "<group>"; };
+		84FBF6701F86230C00D9B7E1 /* PagingResponseYT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingResponseYT.swift; sourceTree = "<group>"; };
+		84FBF6721F8623C400D9B7E1 /* VideoYT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoYT.swift; sourceTree = "<group>"; };
 		A4F52D4B48895826B569298B /* Pods-WongYiuNam-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -442,6 +446,8 @@
 			children = (
 				84FBF6681F85E6B500D9B7E1 /* PostFB.swift */,
 				84FBF66A1F85EE2800D9B7E1 /* PagingResponseFB.swift */,
+				84FBF6721F8623C400D9B7E1 /* VideoYT.swift */,
+				84FBF6701F86230C00D9B7E1 /* PagingResponseYT.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -739,8 +745,10 @@
 				8427D74F1F610194007B34F4 /* AboutUsViewController.swift in Sources */,
 				84A72FD91F69482F001B30E0 /* SignInViewController.swift in Sources */,
 				84F0A4CF1F6F6E8D007B5385 /* MyServerAPI.swift in Sources */,
+				84FBF6731F8623C400D9B7E1 /* VideoYT.swift in Sources */,
 				8427D74B1F610110007B34F4 /* PrivacyPolicyViewController.swift in Sources */,
 				84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */,
+				84FBF6711F86230C00D9B7E1 /* PagingResponseYT.swift in Sources */,
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,
 				84FBF6691F85E6B500D9B7E1 /* PostFB.swift in Sources */,
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,

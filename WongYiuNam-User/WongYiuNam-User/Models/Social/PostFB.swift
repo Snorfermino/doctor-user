@@ -16,6 +16,7 @@ struct PostFB: Mappable {
     var attachmentUrl: URL?
     var attachmentTitle: String?
     var attachmentImage: URL?
+    
     init?(map: Map) {
         
     }

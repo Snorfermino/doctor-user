@@ -22,6 +22,9 @@ enum MyServerAPI {
     case changePassword(oldPassword: String, newPassword: String)
     // MARK: Social Wall
     case getPostsFromFanpageFacebook
+    case getPostsFromFanpageFacebookNext(nextPage: String)
+    case getVideosFromYoutube
+    case getVideosFromYoutubeNext(nextPage: String)
 }
 
 extension MyServerAPI: TargetType {
@@ -38,8 +41,10 @@ extension MyServerAPI: TargetType {
     
     var baseURL: URL {
         switch self {
-        case .getPostsFromFanpageFacebook:
+        case .getPostsFromFanpageFacebook, .getPostsFromFanpageFacebookNext:
             return URL(string: "https://graph.facebook.com/304466529572881/posts")!
+        case .getVideosFromYoutube, .getVideosFromYoutubeNext:
+            return URL(string: "https://www.googleapis.com/youtube/v3/search")!
         default:
             return URL(string: "https://wongyiunam-php.herokuapp.com/api")!
         }
@@ -48,7 +53,7 @@ extension MyServerAPI: TargetType {
     var path: String {
         switch self {
         case .doctors:
-            return "/doctor/list"
+            return "/user/doctor/list"
         case .answerList:
             return "/answer/list"
         case .login:
@@ -61,7 +66,7 @@ extension MyServerAPI: TargetType {
             return "/question/ask"
         case .changePassword:
             return "/user/changepass"
-        case .getPostsFromFanpageFacebook:
+        case .getPostsFromFanpageFacebook, .getPostsFromFanpageFacebookNext, .getVideosFromYoutube, .getVideosFromYoutubeNext:
             return ""
         }
     }
@@ -131,8 +136,29 @@ extension MyServerAPI: TargetType {
             parameters["fields"] = "likes.limit(0).summary(true),comments.limit(0).summary(true),shares.limit(0).summary(true),message,attachments"
             parameters["access_token"] = "EAAcYiSAGPRIBAN5oMxmxylboZBaB0ZCYhPUU6A4MVltw9O4KFJHLHWRmxb7xuL6ubwDx4pg0M90MMADwC8s0aEOLaHwHTyCZCBVFNHrNIZB6l7LZBRsRdIBOdwI7tk91RApOOp73og1S86HZCXw7y9StOgVMI0kfuUeEcMoNclqnNZAXUuWYkgaTEUTzfui1fF7EiZAPQdnGYD4x6OrdvKfpzpDDlJ4RaXO5d8AX8qXxjAZDZD"
             return Task.requestParameters(parameters: parameters, encoding: encoding)
-        default:
-            return Task.requestPlain
+        case .getPostsFromFanpageFacebookNext(let nextPage):
+            var parameters = [String: Any]()
+            parameters["fields"] = "likes.limit(0).summary(true),comments.limit(0).summary(true),shares.limit(0).summary(true),message,attachments"
+            parameters["access_token"] = "EAAcYiSAGPRIBAN5oMxmxylboZBaB0ZCYhPUU6A4MVltw9O4KFJHLHWRmxb7xuL6ubwDx4pg0M90MMADwC8s0aEOLaHwHTyCZCBVFNHrNIZB6l7LZBRsRdIBOdwI7tk91RApOOp73og1S86HZCXw7y9StOgVMI0kfuUeEcMoNclqnNZAXUuWYkgaTEUTzfui1fF7EiZAPQdnGYD4x6OrdvKfpzpDDlJ4RaXO5d8AX8qXxjAZDZD"
+            parameters["after"] = nextPage
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .getVideosFromYoutube:
+            var parameters = [String: Any]()
+            parameters["key"] = "AIzaSyDxaYkWDFDDq5hkHTZoNmD41VF37eZ44WY"
+            parameters["channelId"] = "UCblUw8mW0ymCdoh53PTK7uQ"
+            parameters["part"] = "snippet,id"
+            parameters["order"] = "date"
+            parameters["maxResults"] = "20"
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .getVideosFromYoutubeNext(let nextPage):
+            var parameters = [String: Any]()
+            parameters["key"] = "AIzaSyDxaYkWDFDDq5hkHTZoNmD41VF37eZ44WY"
+            parameters["channelId"] = "UCblUw8mW0ymCdoh53PTK7uQ"
+            parameters["part"] = "snippet,id"
+            parameters["order"] = "date"
+            parameters["maxResults"] = "20"
+            parameters["pageToken"] = nextPage
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
         }
     }
 }

@@ -11,15 +11,17 @@ import SlideMenuControllerSwift
 
 protocol ImageHeaderViewDelegate: class {
     func goToSignIn()
+    func goToFavorite()
 }
 
 class ImageHeaderView : UIView {
     
+    @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var profileImage : UIImageView!
-    @IBOutlet weak var backgroundImage : UIImageView!
     weak var delegate: ImageHeaderViewDelegate?
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,11 +38,20 @@ class ImageHeaderView : UIView {
         if(Global.user != nil) {
             loginButton.isHidden = true
             usernameLabel.isHidden = false
+            emailLabel.isHidden = false
+            boxView.isHidden = false
+            emailLabel.text = Global.user?.email
             usernameLabel.text = Global.user?.name
         } else {
             loginButton.isHidden = false
             usernameLabel.isHidden = true
+            emailLabel.isHidden = true
+            boxView.isHidden = true
         }
+    }
+    
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        delegate?.goToFavorite()
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {

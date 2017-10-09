@@ -106,6 +106,10 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButtonClicked() {
+        //let email = emailAddressTextField.text!
+        //let password = passwordTextField.text!
+        let email = "admin@admin.com"
+        let password = "12345"
         Utils.showHub(view: view)
         let completion = {(user: User?, error: String?) -> Void in
             Utils.hideHub(view: self.view)
@@ -115,7 +119,7 @@ class SignInViewController: UIViewController {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
             }
         }
-        ApiManager.login(email: emailAddressTextField.text!, password: passwordTextField.text!, completion: completion)
+        ApiManager.login(email: email, password: password, completion: completion)
     }
 }
 

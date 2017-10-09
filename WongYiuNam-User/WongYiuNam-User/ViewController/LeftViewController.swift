@@ -59,6 +59,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     var inviteaFriendViewController: UIViewController!
     var notificationsViewController: UIViewController!
     var signInViewController: UIViewController!
+    var favoriteViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     var sub1: Bool = false
@@ -79,6 +80,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let askaDoctorStoryboard = UIStoryboard(name: "AskaDoctor", bundle: nil)
         let socialWallStoryboard = UIStoryboard(name: "SocialWall", bundle: nil)
+        let favoriteStoryboard = UIStoryboard(name: "Favorite", bundle: nil)
         
         let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.homeViewController = UINavigationController(rootViewController: homeViewController)
@@ -115,6 +117,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         let signInViewController = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         self.signInViewController = UINavigationController(rootViewController: signInViewController)
+        
+        let favoriteViewController = favoriteStoryboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+        self.favoriteViewController = UINavigationController(rootViewController: favoriteViewController)
         
         self.tableView.registerCellClass(MenuTableViewCell.self)
         
@@ -175,6 +180,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     
     func goToSignIn() {
         slideMenuController()?.changeMainViewController(signInViewController, close: true)
+    }
+    
+    func goToFavorite() {
+        slideMenuController()?.changeMainViewController(favoriteViewController, close: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

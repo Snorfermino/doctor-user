@@ -205,6 +205,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .askaDoctor:
             slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
         case .uploadPrescription:
+            self.tableView.selectRow(at: IndexPath(row: -1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
             slideMenuController()?.changeMainViewController(signInViewController, close: true)
         case .socialWall:
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)

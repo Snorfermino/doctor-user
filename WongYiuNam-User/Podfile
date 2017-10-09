@@ -17,6 +17,12 @@ target 'WongYiuNam-User' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'SJSegmentedScrollView'
+    
+    target 'WongYiuNam-UserTests' do
+        inherit! :search_paths
+        pod 'Firebase/Core'
+        pod 'Firebase/Messaging'
+    end
 end
 
 post_install do |installer|

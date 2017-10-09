@@ -134,6 +134,18 @@ class ApiManager {
         }
     }
     
+    static func updateUserProfile(user: User, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.updateUserProfile(user: user)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     static func getPostsFromFanpageFacebook(completion: @escaping (([PostFB]?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         var target: MyServerAPI!

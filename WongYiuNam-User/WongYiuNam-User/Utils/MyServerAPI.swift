@@ -23,6 +23,7 @@ enum MyServerAPI {
     case loginViaFacebook(email: String, name: String, fbId: String)
     case register(name: String, email: String, password: String)
     case changePassword(oldPassword: String, newPassword: String)
+    case updateUserProfile(user: User)
     // MARK: Social Wall
     case getPostsFromFanpageFacebook
     case getPostsFromFanpageFacebookNext(nextPage: String)
@@ -69,6 +70,8 @@ extension MyServerAPI: TargetType {
             return "/question/ask"
         case .changePassword:
             return "/user/changepass"
+        case .updateUserProfile:
+            return "/user/profile"
         default:
             return ""
         }
@@ -80,6 +83,8 @@ extension MyServerAPI: TargetType {
             return .post
         case .deleteFavoritesDoctor:
             return .delete
+        case .updateUserProfile:
+            return .put
         default:
             return .get
         }
@@ -104,6 +109,11 @@ extension MyServerAPI: TargetType {
             var parameters = [String: Any]()
             parameters["email"] = email
             parameters["password"] = password
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .updateUserProfile(let user):
+            var parameters = [String: Any]()
+            parameters["name"] = user.name
+            parameters["email"] = user.email
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .loginViaFacebook(let email, let name, let fbId):
             var parameters = [String: Any]()

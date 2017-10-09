@@ -26,6 +26,16 @@ class WongYiuNam_UserTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testUpdateUserProfile() {
+        var user = User()
+        user.name = "ABC"
+        user.email = "bb@gmail.com"
+        let completion = {(result: String?) -> Void in
+            print(result)
+        }
+        ApiManager.updateUserProfile(user: user, completion: completion)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

@@ -26,7 +26,13 @@ class HomeViewController: UIViewController {
             print(newToken)
         }
         //ApiManager.changePassword(oldPassword: "nhatduy", newPassword: "54321", completion: completion)
-        //ApiManager.getPostsFromFanpageFacebook()
+        var user = User()
+        user.name = "ABC"
+        user.email = "bb@gmail.com"
+        let completion = {(result: String?) -> Void in
+            print(result)
+        }
+        ApiManager.updateUserProfile(user: user, completion: completion)
         //demo call api
     }
     

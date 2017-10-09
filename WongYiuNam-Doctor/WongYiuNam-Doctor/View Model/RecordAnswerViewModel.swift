@@ -22,7 +22,12 @@ class RecordAnswerViewModel {
             switch result {
             case let .success(response):
                 print("========\(response)")
-                self.delegate?.replyQuestionSuccess()
+                if let receivedData: WYNRecordAnswerResult = Utils.mapOne(from: response) {
+                    self.delegate?.replyQuestionSuccess()
+                } else {
+                    self.delegate?.replyQuestionFailed()
+                }
+                
             case .failure:
                 print("failed")
                 self.delegate?.replyQuestionFailed()

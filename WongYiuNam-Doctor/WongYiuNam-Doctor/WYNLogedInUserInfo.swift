@@ -27,7 +27,7 @@ public struct WYNLogedInUserInfo: Mappable {
     
     // MARK: Properties
     public var pendingQuestions: Int?
-    public var name: String?
+    public var name = ""
     public var email: String?
     public var speciality: String?
     public var token: String?

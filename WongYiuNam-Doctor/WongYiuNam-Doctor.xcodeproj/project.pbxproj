@@ -38,9 +38,12 @@
 		843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */; };
 		843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */; };
 		843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */; };
+		843F43091F84FE7B0081D544 /* WYNRecordAnswerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F43081F84FE7B0081D544 /* WYNRecordAnswerResult.swift */; };
 		8456A3AD1F839686008B8BCA /* WYNAnswerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */; };
 		8456A3B11F839A2B008B8BCA /* WYNQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */; };
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
+		8463B9321F86153D00619FFA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9311F86153D00619FFA /* UIViewExtension.swift */; };
+		8463B9341F86169A00619FFA /* PatientPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9331F86169A00619FFA /* PatientPhotoViewController.swift */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */; };
 		848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E301F7DED2700BB502A /* UserLoginInfo.swift */; };
@@ -113,9 +116,12 @@
 		843C2B871F7A69B400F87A30 /* AnswerHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AnswerHistoryCell.xib; path = XIB/AnswerHistory/AnswerHistoryCell.xib; sourceTree = "<group>"; };
 		843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordAnswerViewModel.swift; path = "View Model/RecordAnswerViewModel.swift"; sourceTree = "<group>"; };
 		843C2B8D1F7AC34B00F87A30 /* WYNAnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WYNAnswerQuestion.swift; path = Model/WYNAnswerQuestion.swift; sourceTree = "<group>"; };
+		843F43081F84FE7B0081D544 /* WYNRecordAnswerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNRecordAnswerResult.swift; sourceTree = "<group>"; };
 		8456A3AC1F839685008B8BCA /* WYNAnswerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNAnswerHistory.swift; sourceTree = "<group>"; };
 		8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYNQuestion.swift; sourceTree = "<group>"; };
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
+		8463B9311F86153D00619FFA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Extension/UIViewExtension.swift; sourceTree = "<group>"; };
+		8463B9331F86169A00619FFA /* PatientPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientPhotoViewController.swift; path = View/PatientPhotoViewController.swift; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerDetailViewController.swift; path = View/AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		848F0E301F7DED2700BB502A /* UserLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginInfo.swift; path = API/UserLoginInfo.swift; sourceTree = "<group>"; };
@@ -269,6 +275,7 @@
 				84A871C01F691BFF00F2ED7A /* ColorExtension.swift */,
 				84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */,
 				84351A381F7B868800E73657 /* AudioPlayerManager.swift */,
+				8463B9311F86153D00619FFA /* UIViewExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 				84093AEB1F6BC0F200BE17AF /* RecordAnswerViewController.swift */,
 				843C2B811F7A5EA200F87A30 /* AnswerHistoryViewController.swift */,
 				848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */,
+				8463B9331F86169A00619FFA /* PatientPhotoViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -326,6 +334,7 @@
 		845CD2321F70D2D30063ACB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				843F43081F84FE7B0081D544 /* WYNRecordAnswerResult.swift */,
 				8456A3B01F839A2B008B8BCA /* WYNQuestion.swift */,
 				84E2546F1F7BB28E009D4B25 /* WYNDoctor.swift */,
 				843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */,
@@ -713,12 +722,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */,
+				843F43091F84FE7B0081D544 /* WYNRecordAnswerResult.swift in Sources */,
 				8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */,
 				8456A3B11F839A2B008B8BCA /* WYNQuestion.swift in Sources */,
 				843C2B7B1F7A236200F87A30 /* PendingQuestion.swift in Sources */,
 				843C2B8E1F7AC34B00F87A30 /* WYNAnswerQuestion.swift in Sources */,
 				843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */,
 				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
+				8463B9321F86153D00619FFA /* UIViewExtension.swift in Sources */,
 				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,
 				84351A391F7B868800E73657 /* AudioPlayerManager.swift in Sources */,
 				848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */,
@@ -738,6 +749,7 @@
 				84A871C31F69228900F2ED7A /* ProfileViewController.swift in Sources */,
 				8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */,
 				84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */,
+				8463B9341F86169A00619FFA /* PatientPhotoViewController.swift in Sources */,
 				8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */,
 				843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */,
 				84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */,
@@ -914,7 +926,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6a7ee551-f40e-4048-a1f3-723b96db4cfd";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.doctor";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -937,7 +949,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5b757434-feb1-4d06-8785-178baac54c35";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

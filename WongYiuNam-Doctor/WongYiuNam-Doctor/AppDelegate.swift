@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import UserNotifications
 import SVProgressHUD
+import FirebaseInstanceID
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

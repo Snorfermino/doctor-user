@@ -32,11 +32,11 @@ public struct WYNQuestion: Mappable {
     public var updatedAt: Date?
     public var doctorId: Int?
     public var status: Bool? = false
-    public var patientName: String?
+    public var patientName = ""
     public var id: Int?
     public var isPublic: Bool? = false
     public var createdAt: Date?
-    public var patientGender: String?
+    public var patientGender = ""
     public var userId: Int?
     public var patientDob: Int?
     public var question: String?

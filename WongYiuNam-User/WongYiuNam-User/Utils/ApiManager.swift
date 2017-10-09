@@ -196,6 +196,53 @@ class ApiManager {
         }
     }
     
+    static func getFavoritesDoctors(completion: @escaping (([Doctor]?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.favouritesDoctors) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let data = try response.mapArray(Doctor.self)
+                    completion(data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
+    
+    static func saveFavoritesDoctors(doctorId: Int, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.saveFavoritesDoctor(doctorId: doctorId)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error.errorDescription)
+            }
+        }
+    }
+    
+    static func deleteFavoritesDoctors(doctorId: Int, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.deleteFavoritesDoctor(doctorId: doctorId)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error.errorDescription)
+            }
+        }
+    }
+    
     static func parseError(response: Response) -> String? {
         do {
             let errorResponse = try response.mapObject(ErrorResponse.self)

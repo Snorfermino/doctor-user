@@ -15,6 +15,9 @@ enum MyServerAPI {
     case doctors(page: Int)
     case askaQuestion(question: Question)
     case answerList(page: Int)
+    case favouritesDoctors
+    case saveFavoritesDoctor(doctorId: Int)
+    case deleteFavoritesDoctor(doctorId: Int)
     // MARK: User
     case login(email: String, password: String)
     case loginViaFacebook(email: String, name: String, fbId: String)
@@ -30,12 +33,10 @@ enum MyServerAPI {
 extension MyServerAPI: TargetType {
     var headers: [String : String]? {
         var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
-        switch self {
-        case .doctors, .askaQuestion, .answerList, .changePassword:
-            h["X-Access-Token"] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNTA2NzA1ODU5LCJleHAiOjQ4MTYyNzA1ODU5LCJuYmYiOjE1MDY3MDU4NTksImp0aSI6IlNHME5OWlBROXdKY2EwbVYifQ._8IlwMIfoLJ1UmtoFj639j4hkYw4aqqQn86x8aY5fQk"
-        default:
-            break
+        guard let accessToken = Global.user?.token else {
+            return h
         }
+        h["X-Access-Token"] = accessToken
         return h
     }
     
@@ -54,27 +55,31 @@ extension MyServerAPI: TargetType {
         switch self {
         case .doctors:
             return "/user/doctor/list"
+        case .favouritesDoctors, .saveFavoritesDoctor, .deleteFavoritesDoctor:
+            return "/user/favourites/doctors"
         case .answerList:
             return "/answer/list"
         case .login:
-            return "/auth/login"
+            return "/user/login"
         case .loginViaFacebook:
-            return "/auth/signin_via_fb"
+            return "/user/signin_via_fb"
         case .register:
             return "/auth/register"
         case .askaQuestion:
             return "/question/ask"
         case .changePassword:
             return "/user/changepass"
-        case .getPostsFromFanpageFacebook, .getPostsFromFanpageFacebookNext, .getVideosFromYoutube, .getVideosFromYoutubeNext:
+        default:
             return ""
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .loginViaFacebook, .askaQuestion, .register, .changePassword:
+        case .login, .loginViaFacebook, .askaQuestion, .register, .changePassword, .saveFavoritesDoctor:
             return .post
+        case .deleteFavoritesDoctor:
+            return .delete
         default:
             return .get
         }
@@ -87,14 +92,14 @@ extension MyServerAPI: TargetType {
     var task: Task {
         let encoding = URLEncoding.methodDependent
         switch self {
-        case .doctors(let page):
+        case .doctors(let page), .answerList(let page):
             var urlParameters = [String: Any]()
             urlParameters["page"] = page
             return Task.requestCompositeData(bodyData: Data(), urlParameters: urlParameters)
-        case .answerList(let page):
-            var urlParameters = [String: Any]()
-            urlParameters["page"] = page
-            return Task.requestCompositeData(bodyData: Data(), urlParameters: urlParameters)
+        case .saveFavoritesDoctor(let doctorId), .deleteFavoritesDoctor(let doctorId):
+            var parameters = [String: Any]()
+            parameters["doctor_id"] = doctorId
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .login(let email, let password):
             var parameters = [String: Any]()
             parameters["email"] = email
@@ -159,6 +164,8 @@ extension MyServerAPI: TargetType {
             parameters["maxResults"] = "20"
             parameters["pageToken"] = nextPage
             return Task.requestParameters(parameters: parameters, encoding: encoding)
+        default:
+            return Task.requestPlain
         }
     }
 }

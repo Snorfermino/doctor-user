@@ -33,6 +33,7 @@ class SocialWallViewController: UIViewController {
         //loadDataFacebook()
         tableView.loadControl = UILoadControl(target: self, action: #selector(loadDataYoutube))
         loadDataYoutube()
+        tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func viewWillAppear(_ animated: Bool) {

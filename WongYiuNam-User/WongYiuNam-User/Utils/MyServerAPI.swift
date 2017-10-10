@@ -30,6 +30,8 @@ enum MyServerAPI {
     case getPostsFromFanpageFacebookNext(nextPage: String)
     case getVideosFromYoutube
     case getVideosFromYoutubeNext(nextPage: String)
+    // MARK: Payment
+    case getPaymentToken
 }
 
 extension MyServerAPI: TargetType {
@@ -73,6 +75,8 @@ extension MyServerAPI: TargetType {
             return "/user/changepass"
         case .updateUserProfile, .getUserProfile:
             return "/user/profile"
+        case .getPaymentToken:
+            return "/payment/token"
         default:
             return ""
         }

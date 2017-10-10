@@ -46,7 +46,7 @@ class ApiManager {
                 print(response)
                 do {
                     let userResponse = try response.mapObject(User.self)
-                    completion(userResponse, nil)
+//                    completion(mn , nil)
                 } catch {
                     do {
                         let err = try response.mapJSON() as! [String]
@@ -62,6 +62,29 @@ class ApiManager {
         }
     }
     
+    static func getPaymentToken(completion: @escaping ((String?, String?) -> Void)){
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.getPaymentToken) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+//                    let userResponse = try response.mapObject(User.self)
+//                    completion(userResponse, nil)
+                } catch {
+                    do {
+                        let err = try response.mapJSON() as! [String]
+                        completion(nil, err[0])
+                    } catch {
+                        completion(nil, "Error login")
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
     static func loginViaFacebook(email: String, name: String, id: String, completion: @escaping ((User?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.loginViaFacebook(email: email, name: name, fbId: id)) { (result) in
@@ -279,6 +302,7 @@ class ApiManager {
         } catch {
             return nil
         }
+    
     }
 }
 

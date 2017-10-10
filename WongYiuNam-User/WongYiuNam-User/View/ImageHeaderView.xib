@@ -20,10 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu-default-avatar" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-S4-hhE">
-                    <rect key="frame" x="10" y="33" width="55" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0r-Z7-UP6">
                     <rect key="frame" x="89" y="44" width="189" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -78,6 +74,25 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTy-88-kSZ" customClass="DesignableButton" customModule="WongYiuNam_User" customModuleProvider="target">
+                    <rect key="frame" x="10" y="33" width="55" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="avatar-demo"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="goToUserProfileButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="QHR-mc-8o4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.81960784313725488" green="0.70980392156862748" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -85,14 +100,13 @@
                 <outlet property="boxView" destination="OzO-z9-GBZ" id="ZQJ-ze-Qvc"/>
                 <outlet property="emailLabel" destination="Ele-5G-xnh" id="Y4b-ZZ-Das"/>
                 <outlet property="loginButton" destination="w0r-Z7-UP6" id="03F-VS-mya"/>
-                <outlet property="profileImage" destination="KsU-S4-hhE" id="C8u-Fp-ZfO"/>
                 <outlet property="usernameLabel" destination="ge0-ou-yV3" id="dBB-rz-zwt"/>
             </connections>
             <point key="canvasLocation" x="255" y="192"/>
         </view>
     </objects>
     <resources>
+        <image name="avatar-demo" width="300" height="300"/>
         <image name="logo" width="171" height="110"/>
-        <image name="menu-default-avatar" width="128" height="128"/>
     </resources>
 </document>

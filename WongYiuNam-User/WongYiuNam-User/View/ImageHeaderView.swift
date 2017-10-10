@@ -12,6 +12,7 @@ import SlideMenuControllerSwift
 protocol ImageHeaderViewDelegate: class {
     func goToSignIn()
     func goToFavorite()
+    func goToUserProfile()
 }
 
 class ImageHeaderView : UIView {
@@ -26,11 +27,12 @@ class ImageHeaderView : UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(hex: "E0E0E0")
-        self.profileImage.layoutIfNeeded()
-        self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
-        self.profileImage.clipsToBounds = true
-        self.profileImage.layer.borderWidth = 1
-        self.profileImage.layer.borderColor = UIColor.white.cgColor
+//        self.profileImage.layoutIfNeeded()
+//        self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
+//        self.profileImage.clipsToBounds = true
+//        self.profileImage.layer.borderWidth = 1
+//        self.profileImage.layer.borderColor = UIColor.white.cgColor
+        
         updateByLogin()
     }
     
@@ -56,5 +58,9 @@ class ImageHeaderView : UIView {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         delegate?.goToSignIn()
+    }
+    
+    @IBAction func goToUserProfileButtonClicked(_ sender: Any) {
+        delegate?.goToUserProfile()
     }
 }

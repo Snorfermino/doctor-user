@@ -8,12 +8,15 @@
 
 import UIKit
 import SlideMenuControllerSwift
-
+import Firebase
+import UserNotifications
+import FirebaseInstanceID
+import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     fileprivate func createMenuView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -33,9 +36,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
     
+    func registerRemoteNotification(_ application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            Messaging.messaging().delegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        loadSavedData()
         createMenuView()
+        registerRemoteNotification(application)
+        FirebaseApp.configure()
         return true
     }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    func loadSavedData() {
+        Global.user = DataManager.getUserInfo()
+    }
 }
-
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
+    }
+    
+    func application(received remoteMessage: MessagingRemoteMessage) {
+        print("%@", remoteMessage.appData)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        NSLog("[RemoteNotification] applicationState: \(application.applicationState) didReceiveRemoteNotification for iOS9: \(userInfo)")
+        if UIApplication.shared.applicationState == .active {
+            //TODO: Handle foreground notification
+        } else {
+            //TODO: Handle background notification
+        }
+    }
+}

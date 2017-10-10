@@ -34,7 +34,7 @@ class AskaDoctorViewController: BaseViewController {
         loadListDoctors()
     }
     
-    func refresh(sender:AnyObject) {
+    @objc func refresh(sender:AnyObject) {
         let completion = {(data: [Doctor]) -> Void in
             self.refreshControl.endRefreshing()
             self.listDoctors = data
@@ -44,7 +44,7 @@ class AskaDoctorViewController: BaseViewController {
         ApiManager.getDoctors(page: page, completion: completion)
     }
     
-    func loadMoreTableView() {
+    @objc func loadMoreTableView() {
         let completion = {(data: [Doctor]) -> Void in
             self.tableView.loadControl?.endLoading()
             self.listDoctors.append(contentsOf: data)
@@ -101,7 +101,7 @@ extension AskaDoctorViewController: UITableViewDataSource {
             nameLabel.text = doctor.name
         }
         if let specialtyLabel = cell.viewWithTag(103) as? UILabel {
-            specialtyLabel.text = doctor.specialty
+            specialtyLabel.text = doctor.speciality
         }
         if let introductionLabel = cell.viewWithTag(104) as? UILabel {
             introductionLabel.text = doctor.introduction

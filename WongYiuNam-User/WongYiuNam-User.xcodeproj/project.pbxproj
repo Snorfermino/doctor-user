@@ -33,6 +33,7 @@
 		8452B6B31F72812B00781AD7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452B6B11F72812B00781AD7 /* ProductCell.swift */; };
 		8452B6B41F72812B00781AD7 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8452B6B21F72812B00781AD7 /* ProductCell.xib */; };
 		8452B6B61F7284D600781AD7 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452B6B51F7284D600781AD7 /* FavoriteButton.swift */; };
+		8463B9381F8C5CA700619FFA /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9371F8C5CA700619FFA /* CheckoutViewController.swift */; };
 		847A874F1F7E8368001A3A48 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A874E1F7E8368001A3A48 /* ErrorResponse.swift */; };
 		847A87511F7EAC8D001A3A48 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A87501F7EAC8D001A3A48 /* Answer.swift */; };
 		849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */; };
@@ -143,6 +144,7 @@
 		8452B6B21F72812B00781AD7 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		8452B6B51F7284D600781AD7 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		8463B9371F8C5CA700619FFA /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = ViewController/CheckoutViewController.swift; sourceTree = "<group>"; };
 		847A874E1F7E8368001A3A48 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		847A87501F7EAC8D001A3A48 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaDoctorViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				849A94771F60042F008ACB28 /* OnlineShopViewController.swift */,
 				8452B6B11F72812B00781AD7 /* ProductCell.swift */,
 				8452B6B21F72812B00781AD7 /* ProductCell.xib */,
+				8463B9371F8C5CA700619FFA /* CheckoutViewController.swift */,
 			);
 			name = "Online Shop";
 			path = ..;
@@ -665,6 +668,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WongYiuNam-User/Pods-WongYiuNam-User-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
+				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
 				"${BUILT_PRODUCTS_DIR}/DRPLoadingSpinner/DRPLoadingSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -683,7 +688,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SJSegmentedScrollView/SJSegmentedScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -692,6 +696,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DRPLoadingSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -710,7 +716,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJSegmentedScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UILoadControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -794,6 +799,7 @@
 				84F91E761F7CFCBA0034DBFA /* Question.swift in Sources */,
 				8427D7491F6100F9007B34F4 /* HelpCentreViewController.swift in Sources */,
 				84C8C90C1F67EE1300AA5709 /* CheckBoxButton.swift in Sources */,
+				8463B9381F8C5CA700619FFA /* CheckoutViewController.swift in Sources */,
 				84E2EFCB1F8B35470016B3E4 /* FavoriteItemViewController.swift in Sources */,
 				84FBF66B1F85EE2800D9B7E1 /* PagingResponseFB.swift in Sources */,
 				849A947C1F60042F008ACB28 /* SocialWallViewController.swift in Sources */,

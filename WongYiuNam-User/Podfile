@@ -16,7 +16,7 @@ target 'WongYiuNam-User' do
     pod 'KRProgressHUD'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-    pod 'SJSegmentedScrollView'
+    pod 'BraintreeDropIn'
 end
 
 post_install do |installer|

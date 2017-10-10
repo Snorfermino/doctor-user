@@ -63,14 +63,14 @@ class RegisterViewController: BaseViewController {
     }
     
     @IBAction func registerNowButtonClicked(_ sender: Any) {
-        //let name = fullNameTextField.text!
-        //let password = passwordTextField.text!
-        //let confirmPassword = confirmPasswordTextField.text!
-        //let email = emailAddressTextField.text!
-        let name = "Duy Nguyen demo"
-        let password = "123456"
-        let confirmPassword = "123456"
-        let email = "abc@gmal.scom"
+        let name = fullNameTextField.text!
+        let password = passwordTextField.text!
+        let confirmPassword = confirmPasswordTextField.text!
+        let email = emailAddressTextField.text!
+//        let name = "Duy Nguyen demo"
+//        let password = "123456"
+//        let confirmPassword = "123456"
+//        let email = "abc@gmal.scom"
         if(name == "" || password.count < 6 || confirmPassword.count < 6
             || password != confirmPassword || isValidEmail(testStr: email) == false) {
             Utils.showAlert(title: "Error !!!", message: "The input is invalid", viewController: self)

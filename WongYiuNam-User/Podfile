@@ -17,6 +17,7 @@ target 'WongYiuNam-User' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'SJSegmentedScrollView'
+    pod 'IQKeyboardManagerSwift'
     
     target 'WongYiuNam-UserTests' do
         inherit! :search_paths

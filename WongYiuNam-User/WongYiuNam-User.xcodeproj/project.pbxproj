@@ -17,6 +17,7 @@
 		66EEFDB11F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFDB01F5FDE0900C5C77A /* WongYiuNam_UserUITests.swift */; };
 		840C03B01F78AE72009D86CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C03AF1F78AE72009D86CD /* User.swift */; };
 		840C03B21F78FE0A009D86CD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C03B11F78FE0A009D86CD /* DataManager.swift */; };
+		84133E9A1F8C823500A90B2E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84133E991F8C823500A90B2E /* UserProfileViewController.swift */; };
 		8421A7F31F6A3E15007406D3 /* DayInScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */; };
 		8421A7F51F6A3E2E007406D3 /* DayInScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */; };
 		8427D7451F60FA3A007B34F4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D7441F60FA3A007B34F4 /* UIViewController.swift */; };
@@ -128,6 +129,7 @@
 		7E0DEE3B5414A6C9586BE29A /* Pods-WongYiuNam-UserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-UserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-UserTests/Pods-WongYiuNam-UserTests.release.xcconfig"; sourceTree = "<group>"; };
 		840C03AF1F78AE72009D86CD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		840C03B11F78FE0A009D86CD /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		84133E991F8C823500A90B2E /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		8421A7F21F6A3E15007406D3 /* DayInScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayInScheduleView.xib; sourceTree = "<group>"; };
 		8421A7F41F6A3E2E007406D3 /* DayInScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInScheduleView.swift; sourceTree = "<group>"; };
 		8427D7441F60FA3A007B34F4 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				8427D74E1F610194007B34F4 /* AboutUsViewController.swift */,
 				84E363C11F62908E008E1596 /* NotificationsViewController.swift */,
 				84E363C31F6290A1008E1596 /* InviteaFriendViewController.swift */,
+				84133E991F8C823500A90B2E /* UserProfileViewController.swift */,
 				84E2EFC71F8B34D90016B3E4 /* Favorite */,
 				8452B6B01F727EEA00781AD7 /* Online Shop */,
 				84A72FD71F69477A001B30E0 /* Login */,
@@ -752,6 +755,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHRadioButton/LTHRadioButton.framework",
@@ -779,6 +783,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHRadioButton.framework",
@@ -842,6 +847,7 @@
 				849A94881F600510008ACB28 /* UIApplication.swift in Sources */,
 				849A94861F600504008ACB28 /* UIColor.swift in Sources */,
 				84E363BE1F6281C5008E1596 /* Global.swift in Sources */,
+				84133E9A1F8C823500A90B2E /* UserProfileViewController.swift in Sources */,
 				84C8C90E1F67FBA300AA5709 /* Camera.swift in Sources */,
 				84F0A4D21F6F6EEE007B5385 /* Doctor.swift in Sources */,
 				849A94921F600746008ACB28 /* ImageHeaderView.swift in Sources */,

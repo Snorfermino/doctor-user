@@ -24,6 +24,7 @@ enum MyServerAPI {
     case register(name: String, email: String, password: String)
     case changePassword(oldPassword: String, newPassword: String)
     case updateUserProfile(user: User)
+    case getUserProfile
     // MARK: Social Wall
     case getPostsFromFanpageFacebook
     case getPostsFromFanpageFacebookNext(nextPage: String)
@@ -70,7 +71,7 @@ extension MyServerAPI: TargetType {
             return "/question/ask"
         case .changePassword:
             return "/user/changepass"
-        case .updateUserProfile:
+        case .updateUserProfile, .getUserProfile:
             return "/user/profile"
         default:
             return ""

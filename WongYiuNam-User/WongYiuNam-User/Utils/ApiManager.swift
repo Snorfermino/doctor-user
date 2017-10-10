@@ -146,6 +146,23 @@ class ApiManager {
         }
     }
     
+    static func getUserProfile(completion: @escaping ((User?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.getUserProfile) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let user = try response.mapObject(User.self)
+                    completion(user, nil)
+                } catch {
+                    completion(nil, "Cannot parse JSON")
+                }
+            case .failure(let error):
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
+    
     static func getPostsFromFanpageFacebook(completion: @escaping (([PostFB]?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         var target: MyServerAPI!

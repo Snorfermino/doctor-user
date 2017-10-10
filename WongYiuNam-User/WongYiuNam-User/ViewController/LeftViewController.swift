@@ -60,6 +60,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     var notificationsViewController: UIViewController!
     var signInViewController: UIViewController!
     var favoriteViewController: UIViewController!
+    var userProfileViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     var sub1: Bool = false
@@ -120,6 +121,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         let favoriteViewController = favoriteStoryboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
         self.favoriteViewController = UINavigationController(rootViewController: favoriteViewController)
+        
+        let userProfileViewController = mainStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        self.userProfileViewController = UINavigationController(rootViewController: userProfileViewController)
         
         self.tableView.registerCellClass(MenuTableViewCell.self)
         
@@ -184,6 +188,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     
     func goToFavorite() {
         slideMenuController()?.changeMainViewController(favoriteViewController, close: true)
+    }
+    
+    func goToUserProfile() {
+        slideMenuController()?.changeMainViewController(userProfileViewController, close: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

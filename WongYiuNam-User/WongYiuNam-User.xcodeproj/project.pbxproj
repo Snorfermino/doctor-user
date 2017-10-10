@@ -150,6 +150,7 @@
 		8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		8463B93C1F8C63B900619FFA /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Online Shop/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8463B93E1F8C6AF900619FFA /* MyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyWalletViewController.swift; path = "ViewController/Online Shop/MyWalletViewController.swift"; sourceTree = "<group>"; };
+		8463B9401F8C7C8A00619FFA /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		847A874E1F7E8368001A3A48 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		847A87501F7EAC8D001A3A48 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaDoctorViewController.swift; sourceTree = "<group>"; };
@@ -359,6 +360,7 @@
 		84B528871F7A3984005B6DE0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				8463B9401F8C7C8A00619FFA /* Montserrat-Medium.ttf */,
 				8452B6B81F7286BD00781AD7 /* Montserrat-Regular.ttf */,
 			);
 			path = Font;

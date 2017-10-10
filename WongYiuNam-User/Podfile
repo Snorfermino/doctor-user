@@ -16,13 +16,7 @@ target 'WongYiuNam-User' do
     pod 'KRProgressHUD'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-    pod 'SJSegmentedScrollView'
-    
-    target 'WongYiuNam-UserTests' do
-        inherit! :search_paths
-        pod 'Firebase/Core'
-        pod 'Firebase/Messaging'
-    end
+    pod 'BraintreeDropIn'
 end
 
 post_install do |installer|

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pHT-A4-BiA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -195,25 +195,53 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NWE-t8-p4b">
-                                <rect key="frame" x="27" y="384" width="160" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWE-t8-p4b">
+                                <rect key="frame" x="20" y="386.5" width="162" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6go-DN-dCk">
+                                        <rect key="frame" x="0.0" y="0.0" width="162" height="100"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6go-DN-dCk" firstAttribute="leading" secondItem="NWE-t8-p4b" secondAttribute="leading" id="0P0-si-vsm"/>
+                                    <constraint firstItem="6go-DN-dCk" firstAttribute="top" secondItem="NWE-t8-p4b" secondAttribute="top" id="0uc-aI-5n7"/>
+                                    <constraint firstAttribute="width" secondItem="NWE-t8-p4b" secondAttribute="height" multiplier="162:100" id="fzh-e6-ZRA"/>
+                                    <constraint firstAttribute="bottom" secondItem="6go-DN-dCk" secondAttribute="bottom" id="n88-Y5-EGg"/>
+                                    <constraint firstAttribute="trailing" secondItem="6go-DN-dCk" secondAttribute="trailing" id="nLq-Nt-bin"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ini-ke-6Yz">
-                                <rect key="frame" x="195" y="384" width="164" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ini-ke-6Yz">
+                                <rect key="frame" x="195" y="386.5" width="162" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rEv-i1-6Bd">
+                                        <rect key="frame" x="0.0" y="0.0" width="162" height="100"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rEv-i1-6Bd" secondAttribute="trailing" id="8s7-EU-Vee"/>
+                                    <constraint firstItem="rEv-i1-6Bd" firstAttribute="leading" secondItem="ini-ke-6Yz" secondAttribute="leading" id="L5d-JG-4pp"/>
+                                    <constraint firstItem="rEv-i1-6Bd" firstAttribute="top" secondItem="ini-ke-6Yz" secondAttribute="top" id="b6N-hR-gaC"/>
+                                    <constraint firstAttribute="bottom" secondItem="rEv-i1-6Bd" secondAttribute="bottom" id="hDZ-24-tOa"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97244364023208618" green="0.97260981798171997" blue="0.97243314981460571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NWE-t8-p4b" firstAttribute="top" secondItem="yT7-jb-CP1" secondAttribute="bottom" constant="10" id="5y9-Cl-rMx"/>
                             <constraint firstItem="yT7-jb-CP1" firstAttribute="centerX" secondItem="sKd-ao-MCh" secondAttribute="centerX" id="Crz-xA-rjR"/>
                             <constraint firstItem="y6d-kf-dr4" firstAttribute="width" secondItem="sKd-ao-MCh" secondAttribute="width" multiplier="125:375" id="JBw-jl-j9K"/>
+                            <constraint firstItem="NWE-t8-p4b" firstAttribute="width" secondItem="sKd-ao-MCh" secondAttribute="width" multiplier="162:375" id="NrO-Qc-O07"/>
                             <constraint firstItem="8fb-Jx-NkX" firstAttribute="top" secondItem="sKd-ao-MCh" secondAttribute="top" constant="75" id="TUo-rg-1XP"/>
                             <constraint firstItem="yT7-jb-CP1" firstAttribute="top" secondItem="8fb-Jx-NkX" secondAttribute="bottom" constant="31" id="aN0-w5-eyV"/>
+                            <constraint firstItem="ini-ke-6Yz" firstAttribute="top" secondItem="yT7-jb-CP1" secondAttribute="bottom" constant="10" id="bIQ-mb-oe6"/>
+                            <constraint firstItem="ini-ke-6Yz" firstAttribute="width" secondItem="NWE-t8-p4b" secondAttribute="width" id="hDx-oe-JPP"/>
                             <constraint firstItem="8fb-Jx-NkX" firstAttribute="width" secondItem="sKd-ao-MCh" secondAttribute="width" multiplier="350:375" id="hTh-at-I1I"/>
                             <constraint firstItem="8fb-Jx-NkX" firstAttribute="centerX" secondItem="sKd-ao-MCh" secondAttribute="centerX" id="iZW-l2-BgM"/>
+                            <constraint firstItem="ini-ke-6Yz" firstAttribute="leading" secondItem="NWE-t8-p4b" secondAttribute="trailing" constant="13" id="oXW-Lh-cEw"/>
+                            <constraint firstItem="NWE-t8-p4b" firstAttribute="leading" secondItem="sKd-ao-MCh" secondAttribute="leading" constant="20" id="q9R-9X-g97"/>
+                            <constraint firstItem="ini-ke-6Yz" firstAttribute="height" secondItem="NWE-t8-p4b" secondAttribute="height" id="r6m-xJ-N8k"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -271,7 +299,7 @@
                                                 <rect key="frame" x="74" y="0.0" width="68.5" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-d9-qjV">
-                                                        <rect key="frame" x="18" y="3.5" width="35" height="22"/>
+                                                        <rect key="frame" x="17.5" y="3.5" width="35" height="22"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>

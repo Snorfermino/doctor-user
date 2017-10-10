@@ -24,9 +24,9 @@ class CheckoutViewController: BaseViewController {
     
 
     func getPaymentToken(){
-        let completion = {(paymentToken: String?,error: String?) -> Void in
+        let completion = { [unowned self] (paymentToken: String?,error: String?) in
             guard let token = paymentToken else { return }
-            showDropIn(token)
+            self.showDropIn(token)
         }
         ApiManager.getPaymentToken(completion: completion)
     }

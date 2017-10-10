@@ -46,7 +46,7 @@ class ApiManager {
                 print(response)
                 do {
                     let userResponse = try response.mapObject(User.self)
-                    completion(mn , nil)
+//                    completion(mn , nil)
                 } catch {
                     do {
                         let err = try response.mapJSON() as! [String]

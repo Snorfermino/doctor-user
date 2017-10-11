@@ -11,9 +11,11 @@ import UIKit
 class InviteaFriendViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()    }
+        super.viewDidLoad()
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBarItem()
     }
 }

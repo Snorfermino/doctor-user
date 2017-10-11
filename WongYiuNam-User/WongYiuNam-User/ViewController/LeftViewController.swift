@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PopupDialog
 
 enum LeftMenu: Int {
     case home = 0
@@ -215,8 +216,15 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .askaDoctor:
             slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
         case .uploadPrescription:
+            let requireLoginViewController = RequireLoginViewController(nibName: "RequireLoginViewController", bundle: nil)
+            let popup = PopupDialog(viewController: requireLoginViewController, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+            let cancelButton = CancelButton(title: NSLocalizedString("Cancel", comment: ""), height: 40) { }
+            let loginButton = DefaultButton(title: NSLocalizedString("Login", comment: ""), height: 40) {
+                self.slideMenuController()?.changeMainViewController(self.signInViewController, close: true)
+            }
+            popup.addButtons([cancelButton, loginButton])
+            self.present(popup, animated: true, completion: nil)
             self.tableView.selectRow(at: IndexPath(row: -1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
-            slideMenuController()?.changeMainViewController(signInViewController, close: true)
         case .socialWall:
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
         case .helpCentre:

@@ -61,6 +61,8 @@ class ImageHeaderView : UIView {
     }
     
     @IBAction func goToUserProfileButtonClicked(_ sender: Any) {
-        delegate?.goToUserProfile()
+        if Global.user != nil {
+            delegate?.goToUserProfile()
+        }
     }
 }

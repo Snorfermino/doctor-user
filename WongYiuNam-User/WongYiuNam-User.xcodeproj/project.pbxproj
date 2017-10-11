@@ -55,6 +55,8 @@
 		849A949E1F6007B1008ACB28 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949D1F6007B1008ACB28 /* UIImageView.swift */; };
 		849A94A01F600802008ACB28 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A949F1F600802008ACB28 /* UIImage.swift */; };
 		849A94A21F600A8C008ACB28 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94A11F600A8C008ACB28 /* UIView.swift */; };
+		849D32581F8DC90D00A4FCC2 /* RequireLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D32561F8DC90D00A4FCC2 /* RequireLoginViewController.swift */; };
+		849D32591F8DC90D00A4FCC2 /* RequireLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D32571F8DC90D00A4FCC2 /* RequireLoginViewController.xib */; };
 		84A72FD41F692DA7001B30E0 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72FD31F692DA7001B30E0 /* ApiManager.swift */; };
 		84A72FD61F694423001B30E0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A72FD51F694423001B30E0 /* Login.storyboard */; };
 		84A72FD91F69482F001B30E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A72FD81F69482F001B30E0 /* SignInViewController.swift */; };
@@ -173,6 +175,8 @@
 		849A949D1F6007B1008ACB28 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		849A949F1F600802008ACB28 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		849A94A11F600A8C008ACB28 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		849D32561F8DC90D00A4FCC2 /* RequireLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequireLoginViewController.swift; sourceTree = "<group>"; };
+		849D32571F8DC90D00A4FCC2 /* RequireLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequireLoginViewController.xib; sourceTree = "<group>"; };
 		84A72FD31F692DA7001B30E0 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		84A72FD51F694423001B30E0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84A72FD81F69482F001B30E0 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -277,11 +281,11 @@
 			isa = PBXGroup;
 			children = (
 				662CBF661F8B6179001CBC3E /* WongYiuNam-User.entitlements */,
-				843F430A1F8611070081D544 /* Google */,
 				66EEFD901F5FDE0900C5C77A /* AppDelegate.swift */,
 				66EEFD971F5FDE0900C5C77A /* Assets.xcassets */,
 				66EEFD991F5FDE0900C5C77A /* LaunchScreen.storyboard */,
 				66EEFD9C1F5FDE0900C5C77A /* Info.plist */,
+				843F430A1F8611070081D544 /* Google */,
 				84B528871F7A3984005B6DE0 /* Font */,
 				84B528881F7A3998005B6DE0 /* Extension */,
 				84B5288A1F7A39B4005B6DE0 /* Models */,
@@ -466,6 +470,8 @@
 			children = (
 				84BE669A1F7500950025AAF6 /* ForgotPasswordViewController.swift */,
 				84BE669B1F7500950025AAF6 /* ForgotPasswordViewController.xib */,
+				849D32561F8DC90D00A4FCC2 /* RequireLoginViewController.swift */,
+				849D32571F8DC90D00A4FCC2 /* RequireLoginViewController.xib */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -616,7 +622,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8AN899D996;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -668,6 +674,7 @@
 				66EEFD9B1F5FDE0900C5C77A /* LaunchScreen.storyboard in Resources */,
 				84E2EFC61F8B33030016B3E4 /* Favorite.storyboard in Resources */,
 				84FBF66D1F860E3D00D9B7E1 /* SocialWall.storyboard in Resources */,
+				849D32591F8DC90D00A4FCC2 /* RequireLoginViewController.xib in Resources */,
 				84C8C9011F67907B00AA5709 /* AskaDoctor.storyboard in Resources */,
 				84A72FD61F694423001B30E0 /* Login.storyboard in Resources */,
 				66E0A16A1F86175D001393E2 /* GoogleService-Info.plist in Resources */,
@@ -876,6 +883,7 @@
 				84E2EFD21F8B79090016B3E4 /* AnswerTableViewCell.swift in Sources */,
 				84E363C21F62908E008E1596 /* NotificationsViewController.swift in Sources */,
 				849A94881F600510008ACB28 /* UIApplication.swift in Sources */,
+				849D32581F8DC90D00A4FCC2 /* RequireLoginViewController.swift in Sources */,
 				849A94861F600504008ACB28 /* UIColor.swift in Sources */,
 				84E363BE1F6281C5008E1596 /* Global.swift in Sources */,
 				84133E9A1F8C823500A90B2E /* UserProfileViewController.swift in Sources */,
@@ -1096,15 +1104,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "WongYiuNam-User/WongYiuNam-User.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-User/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0b19ec55-f528-41c0-9492-468185a07d28";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rth.wongyiunam.ios";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1116,16 +1124,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "WongYiuNam-User/WongYiuNam-User.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8AN899D996;
 				INFOPLIST_FILE = "WongYiuNam-User/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ce843c04-c30d-4746-b89b-20fb3b89ad50";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.ios";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

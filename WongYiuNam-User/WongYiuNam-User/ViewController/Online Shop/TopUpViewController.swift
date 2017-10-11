@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import BraintreeDropIn
+import Braintree
+import KRProgressHUD
 class TopUpViewController: BaseViewController {
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet var viewCredits:[UIView]!
@@ -33,6 +35,44 @@ class TopUpViewController: BaseViewController {
         guard let tappedView = sender.view as? UIView else { return }
         print("Tag: \(tappedView.tag)")
         selectedCredit = tappedView.tag
+    }
+    
+    func getPaymentToken(){
+        let completion = { [unowned self] (paymentToken: String?,error: String?) in
+            guard let token = paymentToken else {
+               KRProgressHUD.dismiss()
+                self.alert(title: "Error", message: "Invalid Payment Token")
+                return
+            }
+            self.showDropIn(token)
+        }
+        ApiManager.getPaymentToken(completion: completion)
+    }
+    
+    func showDropIn(_ clientTokenOrTokenizationKey: String) {
+        let request =  BTDropInRequest()
+        let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
+        { (controller, result, error) in
+            if (error != nil) {
+                print("ERROR")
+            } else if (result?.isCancelled == true) {
+                print("CANCELLED")
+            } else if let result = result {
+                KRProgressHUD.dismiss()
+                // Use the BTDropInResult properties to update your UI
+                // result.paymentOptionType
+                // result.paymentMethod
+                // result.paymentIcon
+                // result.paymentDescription
+            }
+            controller.dismiss(animated: true, completion: nil)
+        }
+        self.present(dropIn!, animated: true, completion: nil)
+    }
+    
+    @IBAction func topUpPressed(_ sender: UIButton){
+        KRProgressHUD.show()
+        getPaymentToken()
     }
 
     @objc func changeSelectedCredit(){

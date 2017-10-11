@@ -112,7 +112,11 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         let aboutUsViewController = mainStoryboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
         self.aboutUsViewController = UINavigationController(rootViewController: aboutUsViewController)
-
+        
+        //TEST:
+        let topUpVC = mainStoryboard.instantiateViewController(withIdentifier: "TopUpViewController") as! TopUpViewController
+        self.topUpViewController = UINavigationController(rootViewController: topUpVC)
+        
         let notificationsViewController = mainStoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
         self.notificationsViewController = UINavigationController(rootViewController: notificationsViewController)
         
@@ -234,7 +238,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+//            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+                          slideMenuController()?.changeMainViewController(topUpViewController, close: true)
         }
     }
     
@@ -259,7 +264,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+//            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+              slideMenuController()?.changeMainViewController(topUpViewController, close: true)
         case .notifications:
             slideMenuController()?.changeMainViewController(notificationsViewController, close: true)
         case .inviteaFriend:

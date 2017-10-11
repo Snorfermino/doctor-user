@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         }
         //ApiManager.changePassword(oldPassword: "nhatduy", newPassword: "54321", completion: completion)
         var user = User()
-        user.name = "ABC"
+        //user.name = "ABC"
         user.email = "bb@gmail.com"
         let completion = {(result: String?) -> Void in
             print(result)

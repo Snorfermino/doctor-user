@@ -16,21 +16,8 @@ class FavoriteDoctorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadData()
-        //tableView.delegate = self
+        loadData()
         tableView.dataSource = self
-        loadFakeData()
-    }
-    
-    func loadFakeData() {
-        var doctor = Doctor()
-        doctor.name = "Demo Abc"
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        tableView.reloadData()
     }
     
     func loadData() {
@@ -42,6 +29,7 @@ class FavoriteDoctorViewController: UIViewController {
             self.data = data
             self.tableView.reloadData()
         }
+        ApiManager.getFavoritesDoctors(completion: completion)
     }
 }
 

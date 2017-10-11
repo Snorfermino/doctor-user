@@ -20,7 +20,7 @@ struct Doctor: Mappable {
     var speakingLang : String?
     var online: Bool?
     var createdAt: Date?
-    
+    var isFavourite: Bool?
     init?(map: Map) {
         
     }
@@ -38,5 +38,6 @@ struct Doctor: Mappable {
         speakingLang <- map["speaking_lang"]
         online <- map["online"]
         createdAt <- (map["created_at"], DateTransform())
+        isFavourite <- map["is_favourite"]
     }
 }

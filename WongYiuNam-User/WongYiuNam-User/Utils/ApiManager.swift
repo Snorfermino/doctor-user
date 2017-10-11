@@ -46,7 +46,7 @@ class ApiManager {
                 print(response)
                 do {
                     let userResponse = try response.mapObject(User.self)
-//                    completion(mn , nil)
+                    completion(userResponse, nil)
                 } catch {
                     do {
                         let err = try response.mapJSON() as! [String]
@@ -255,8 +255,8 @@ class ApiManager {
             case .success(let response):
                 print(response)
                 do {
-                    let data = try response.mapArray(Doctor.self)
-                    completion(data, nil)
+                    let favoriteDoctor = try response.mapObject(PagingResponse<Doctor>.self)
+                    completion(favoriteDoctor.data, nil)
                 } catch {
                     completion(nil, "Error Parse Json")
                 }

@@ -40,6 +40,8 @@
 		8463B9441F8DCCD700619FFA /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9431F8DCCD700619FFA /* TopUpViewController.swift */; };
 		847A874F1F7E8368001A3A48 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A874E1F7E8368001A3A48 /* ErrorResponse.swift */; };
 		847A87511F7EAC8D001A3A48 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A87501F7EAC8D001A3A48 /* Answer.swift */; };
+		8487EE581F8E0BED00B4FB3F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487EE571F8E0BED00B4FB3F /* UserInfo.swift */; };
+		8487EE5B1F8E0D3C00B4FB3F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487EE5A1F8E0D3C00B4FB3F /* Wallet.swift */; };
 		849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */; };
 		849A947A1F60042F008ACB28 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94761F60042F008ACB28 /* HomeViewController.swift */; };
 		849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94771F60042F008ACB28 /* OnlineShopViewController.swift */; };
@@ -160,6 +162,8 @@
 		8463B9431F8DCCD700619FFA /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopUpViewController.swift; path = "ViewController/Online Shop/TopUpViewController.swift"; sourceTree = "<group>"; };
 		847A874E1F7E8368001A3A48 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		847A87501F7EAC8D001A3A48 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		8487EE571F8E0BED00B4FB3F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8487EE5A1F8E0D3C00B4FB3F /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaDoctorViewController.swift; sourceTree = "<group>"; };
 		849A94761F60042F008ACB28 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		849A94771F60042F008ACB28 /* OnlineShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineShopViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 				84F0A4D11F6F6EEE007B5385 /* Doctor.swift */,
 				66A3BD2D1F70D21200783BA5 /* PagingResponse.swift */,
 				840C03AF1F78AE72009D86CD /* User.swift */,
+				8487EE571F8E0BED00B4FB3F /* UserInfo.swift */,
+				8487EE5A1F8E0D3C00B4FB3F /* Wallet.swift */,
 				84F91E751F7CFCBA0034DBFA /* Question.swift */,
 				847A874E1F7E8368001A3A48 /* ErrorResponse.swift */,
 				847A87501F7EAC8D001A3A48 /* Answer.swift */,
@@ -927,9 +933,11 @@
 				84E2EFCD1F8B356E0016B3E4 /* FavoriteQuestionViewController.swift in Sources */,
 				84F0A4CF1F6F6E8D007B5385 /* MyServerAPI.swift in Sources */,
 				84FBF6731F8623C400D9B7E1 /* VideoYT.swift in Sources */,
+				8487EE581F8E0BED00B4FB3F /* UserInfo.swift in Sources */,
 				8427D74B1F610110007B34F4 /* PrivacyPolicyViewController.swift in Sources */,
 				84C10CF71F6678F7000B3CEF /* AskaQuestionViewController.swift in Sources */,
 				84FBF6711F86230C00D9B7E1 /* PagingResponseYT.swift in Sources */,
+				8487EE5B1F8E0D3C00B4FB3F /* Wallet.swift in Sources */,
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,
 				84FBF6691F85E6B500D9B7E1 /* PostFB.swift in Sources */,
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,

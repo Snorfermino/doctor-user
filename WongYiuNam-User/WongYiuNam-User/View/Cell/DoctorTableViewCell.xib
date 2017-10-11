@@ -64,9 +64,12 @@
                                 <rect key="frame" x="315" y="14" width="20" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Shape"/>
+                                <connections>
+                                    <action selector="likeButtonClickedWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BpQ-dO-pwb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jane Adams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWv-ue-uow">
-                                <rect key="frame" x="100" y="19" width="221" height="28"/>
+                                <rect key="frame" x="100" y="19" width="213" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -129,8 +132,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="avatarButton" destination="xpc-xt-pwr" id="joq-Oq-Eb3"/>
+                <outlet property="experianceLabel" destination="3pD-ns-GYb" id="2V0-Ac-YpM"/>
                 <outlet property="favoriteButton" destination="98g-He-Oaf" id="IpX-BQ-tOe"/>
                 <outlet property="nameLabel" destination="uWv-ue-uow" id="RMJ-eR-hze"/>
+                <outlet property="speakingLanguageLabel" destination="nWm-mc-KWV" id="oOd-JN-dGs"/>
+                <outlet property="specialityLabel" destination="C2a-FZ-kku" id="R6u-Gx-rFK"/>
                 <outlet property="statusView" destination="MXY-9h-KgH" id="n5n-UG-RNN"/>
             </connections>
             <point key="canvasLocation" x="-100.5" y="45"/>

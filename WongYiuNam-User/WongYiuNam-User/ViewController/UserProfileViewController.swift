@@ -20,7 +20,7 @@ class UserProfileViewController: UIViewController {
     func loadData() {
         let completion = {(user: User?, error: String?) -> Void in
             if let user = user {
-                self.nameTextField.text = user.name
+                self.nameTextField.text = user.info?.name
             } else {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
             }

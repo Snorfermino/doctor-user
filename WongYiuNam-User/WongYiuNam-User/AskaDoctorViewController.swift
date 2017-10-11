@@ -13,7 +13,7 @@ import UILoadControl
 class AskaDoctorViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var listDoctors: [Doctor] = []
+    var data: [Doctor] = []
     let activityIndicatorView = DRPLoadingSpinner()
     var idx: IndexPath = IndexPath(row: 0, section: 0)
     var page = 1
@@ -31,13 +31,13 @@ class AskaDoctorViewController: BaseViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         tableView.addSubview(refreshControl) // not required when using UITableViewController
-        loadListDoctors()
+        loadData()
     }
     
     @objc func refresh(sender:AnyObject) {
         let completion = {(data: [Doctor]) -> Void in
             self.refreshControl.endRefreshing()
-            self.listDoctors = data
+            self.data = data
             self.tableView.reloadData()
         }
         page = 1
@@ -47,18 +47,18 @@ class AskaDoctorViewController: BaseViewController {
     @objc func loadMoreTableView() {
         let completion = {(data: [Doctor]) -> Void in
             self.tableView.loadControl?.endLoading()
-            self.listDoctors.append(contentsOf: data)
+            self.data.append(contentsOf: data)
             self.tableView.reloadData()
         }
         page += 1
         ApiManager.getDoctors(page: page, completion: completion)
     }
     
-    func loadListDoctors() {
+    func loadData() {
         activityIndicatorView.startAnimating()
         let completion = {(data: [Doctor]) -> Void in
             self.activityIndicatorView.stopAnimating()
-            self.listDoctors = data
+            self.data = data
             self.tableView.reloadData()
         }
         page = 1
@@ -84,40 +84,19 @@ extension AskaDoctorViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "askaDoctorToDoctorIntroductionSegue" {
             let destinationVC:DoctorIntroductionViewController = segue.destination as! DoctorIntroductionViewController
-            destinationVC.doctor = listDoctors[idx.row]
+            destinationVC.doctor = data[idx.row]
         }
     }
 }
 
 extension AskaDoctorViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listDoctors.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "askaDoctorCellIdentifier")!
-        let doctor = listDoctors[indexPath.row]
-        if let nameLabel = cell.viewWithTag(100) as? UILabel {
-            nameLabel.text = doctor.name
-        }
-        if let specialtyLabel = cell.viewWithTag(103) as? UILabel {
-            specialtyLabel.text = doctor.speciality
-        }
-        if let introductionLabel = cell.viewWithTag(104) as? UILabel {
-            introductionLabel.text = doctor.introduction
-        }
-        if let likeImageView = cell.viewWithTag(105) as? UIImageView {
-            //
-        }
-        if let statusView = cell.viewWithTag(101) {
-            if(doctor.online == false) {
-                statusView.backgroundColor = UIColor.red
-            }
-            statusView.makeCircular()
-        }
-        if let avatarButton = cell.viewWithTag(102) as? UIButton {
-            //
-        }
+        let cell = Bundle.main.loadNibNamed("DoctorTableViewCell", owner: self, options: nil)?.first as! DoctorTableViewCell
+        cell.setup(doctor: data[indexPath.row])
         return cell
     }
 }

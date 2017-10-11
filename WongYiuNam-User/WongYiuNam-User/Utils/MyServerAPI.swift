@@ -117,7 +117,7 @@ extension MyServerAPI: TargetType {
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .updateUserProfile(let user):
             var parameters = [String: Any]()
-            parameters["name"] = user.name
+            parameters["name"] = user.info?.name
             parameters["email"] = user.email
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .loginViaFacebook(let email, let name, let fbId):

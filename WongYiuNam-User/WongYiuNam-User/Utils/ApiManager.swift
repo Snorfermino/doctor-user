@@ -69,6 +69,7 @@ class ApiManager {
             case .success(let response):
                 print(response)
                 do {
+                    let brainTreeToken = response.
 //                    let userResponse = try response.mapObject(User.self)
 //                    completion(userResponse, nil)
                 } catch {

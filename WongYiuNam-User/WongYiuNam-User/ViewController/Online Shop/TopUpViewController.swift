@@ -18,9 +18,6 @@ class TopUpViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedCredit = 20
-        changeSelectedCredit()
-        
         for view in viewCredits {
             view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapOnCredit)))
         }

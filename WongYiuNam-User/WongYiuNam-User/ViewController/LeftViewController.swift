@@ -111,12 +111,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         let aboutUsViewController = mainStoryboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
         self.aboutUsViewController = UINavigationController(rootViewController: aboutUsViewController)
-        
-        //TEST:
-        let topUpViewController = mainStoryboard.instantiateViewController(withIdentifier: "TopUpViewController") as! TopUpViewController
-        self.topUpViewController = UINavigationController(rootViewController: topUpViewController)
-        
-        
+
         let notificationsViewController = mainStoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
         self.notificationsViewController = UINavigationController(rootViewController: notificationsViewController)
         
@@ -231,7 +226,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-            slideMenuController()?.changeMainViewController(topUpViewController, close: true)
+            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
         }
     }
     

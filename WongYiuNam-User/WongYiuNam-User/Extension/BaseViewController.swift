@@ -17,4 +17,20 @@ class BaseViewController: UIViewController {
             }
         }
     }
+    
+    func alert(title: String?, message: String?,
+               isCancelable: Bool = false,
+               handler: ((UIAlertAction) -> Swift.Void)? = nil) {
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let action = UIAlertAction(title: "Ok", style: .default, handler: handler)
+        alertVC.addAction(action)
+        
+        if isCancelable {
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: handler)
+            alertVC.addAction(cancel)
+        }
+        self.present(alertVC, animated: true, completion: nil)
+    }
 }

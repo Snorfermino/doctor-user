@@ -93,7 +93,7 @@
                                 <rect key="frame" x="12.5" y="75" width="350" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBe-24-dGW">
-                                        <rect key="frame" x="121.5" y="25" width="107" height="27"/>
+                                        <rect key="frame" x="122" y="25" width="107" height="27"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -163,6 +163,9 @@
                                             <constraint firstAttribute="width" secondItem="y6d-kf-dr4" secondAttribute="height" multiplier="125:30" id="LKN-bP-kKW"/>
                                         </constraints>
                                         <state key="normal" image="img_btnTopUp"/>
+                                        <connections>
+                                            <action selector="topUpPressed:" destination="oLZ-Sh-bea" eventType="touchUpInside" id="d3r-zC-Scz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,15 +247,21 @@
                             <constraint firstItem="ini-ke-6Yz" firstAttribute="height" secondItem="NWE-t8-p4b" secondAttribute="height" id="r6m-xJ-N8k"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lbCashRebate" destination="h4Q-j9-b3b" id="EbE-dN-RCo"/>
+                        <outlet property="lbCreditBalance" destination="6VD-0L-t4E" id="aaQ-to-JSl"/>
+                        <outlet property="lbPoints" destination="wmk-1K-JFu" id="cPr-LB-gfy"/>
+                        <segue destination="pHT-A4-BiA" kind="show" identifier="TopupCreditsVC" id="JAw-5V-d6v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mag-mt-2IK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-66.400000000000006" y="1535.9820089955024"/>
         </scene>
-        <!--View Controller-->
+        <!--Top Up View Controller-->
         <scene sceneID="F87-Yh-wR0">
             <objects>
-                <viewController id="pHT-A4-BiA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopUpViewController" id="pHT-A4-BiA" customClass="TopUpViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nbm-4l-nnR"/>
                         <viewControllerLayoutGuide type="bottom" id="5a2-GY-5sC"/>
@@ -279,7 +288,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wna-r6-zyt">
                                         <rect key="frame" x="30" y="100.5" width="290" height="29"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9m-BV-etl">
+                                            <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9m-BV-etl">
                                                 <rect key="frame" x="0.0" y="0.0" width="69" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MQ-Yo-doT">
@@ -295,11 +304,11 @@
                                                     <constraint firstItem="8MQ-Yo-doT" firstAttribute="centerX" secondItem="B9m-BV-etl" secondAttribute="centerX" id="abs-kq-Mbp"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiQ-fw-sRL">
+                                            <view tag="20" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiQ-fw-sRL">
                                                 <rect key="frame" x="74" y="0.0" width="68.5" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-d9-qjV">
-                                                        <rect key="frame" x="17.5" y="3.5" width="35" height="22"/>
+                                                        <rect key="frame" x="18" y="3.5" width="35" height="22"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -311,7 +320,7 @@
                                                     <constraint firstItem="bqT-d9-qjV" firstAttribute="centerX" secondItem="eiQ-fw-sRL" secondAttribute="centerX" id="jiG-U6-GkD"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4A-Qa-BjC">
+                                            <view tag="50" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4A-Qa-BjC">
                                                 <rect key="frame" x="147.5" y="0.0" width="69" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvJ-D3-kOq">
@@ -327,11 +336,11 @@
                                                     <constraint firstItem="lvJ-D3-kOq" firstAttribute="centerY" secondItem="S4A-Qa-BjC" secondAttribute="centerY" id="WTq-jR-pE2"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ls-2k-WaZ">
+                                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ls-2k-WaZ">
                                                 <rect key="frame" x="221.5" y="0.0" width="68.5" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9I-vg-naW">
-                                                        <rect key="frame" x="12" y="3.5" width="44" height="22"/>
+                                                        <rect key="frame" x="11.5" y="3.5" width="44" height="22"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -395,8 +404,16 @@
                             <constraint firstItem="hgr-GG-TIZ" firstAttribute="centerX" secondItem="Xz8-ZL-ZIQ" secondAttribute="centerX" id="xoP-zT-Xcq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tapGesture" destination="Ghf-O9-Ek2" id="QUt-Tc-Luo"/>
+                        <outletCollection property="viewCredits" destination="B9m-BV-etl" collectionClass="NSMutableArray" id="2DM-hv-6GG"/>
+                        <outletCollection property="viewCredits" destination="eiQ-fw-sRL" collectionClass="NSMutableArray" id="6dH-mT-BDr"/>
+                        <outletCollection property="viewCredits" destination="S4A-Qa-BjC" collectionClass="NSMutableArray" id="NbO-lF-9mj"/>
+                        <outletCollection property="viewCredits" destination="0ls-2k-WaZ" collectionClass="NSMutableArray" id="zqI-mc-VLd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNf-Ga-Nhr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ghf-O9-Ek2"/>
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="1535.9820089955024"/>
         </scene>

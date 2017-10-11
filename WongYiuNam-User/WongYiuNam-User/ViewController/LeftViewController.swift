@@ -61,6 +61,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     var signInViewController: UIViewController!
     var favoriteViewController: UIViewController!
     var userProfileViewController: UIViewController!
+    //TEST:
+    var topUpViewController:UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     var sub1: Bool = false
@@ -109,6 +111,11 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         let aboutUsViewController = mainStoryboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
         self.aboutUsViewController = UINavigationController(rootViewController: aboutUsViewController)
+        
+        //TEST:
+        let topUpViewController = mainStoryboard.instantiateViewController(withIdentifier: "TopUpViewController") as! TopUpViewController
+        self.topUpViewController = UINavigationController(rootViewController: topUpViewController)
+        
         
         let notificationsViewController = mainStoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
         self.notificationsViewController = UINavigationController(rootViewController: notificationsViewController)
@@ -224,7 +231,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+            slideMenuController()?.changeMainViewController(topUpViewController, close: true)
         }
     }
     

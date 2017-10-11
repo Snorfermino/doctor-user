@@ -37,6 +37,7 @@
 		8452B6B61F7284D600781AD7 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452B6B51F7284D600781AD7 /* FavoriteButton.swift */; };
 		8463B93D1F8C63B900619FFA /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B93C1F8C63B900619FFA /* CheckoutViewController.swift */; };
 		8463B93F1F8C6AF900619FFA /* MyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B93E1F8C6AF900619FFA /* MyWalletViewController.swift */; };
+		8463B9441F8DCCD700619FFA /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9431F8DCCD700619FFA /* TopUpViewController.swift */; };
 		847A874F1F7E8368001A3A48 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A874E1F7E8368001A3A48 /* ErrorResponse.swift */; };
 		847A87511F7EAC8D001A3A48 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A87501F7EAC8D001A3A48 /* Answer.swift */; };
 		849A94791F60042F008ACB28 /* AskaDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */; };
@@ -154,6 +155,7 @@
 		8463B93E1F8C6AF900619FFA /* MyWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyWalletViewController.swift; path = "ViewController/Online Shop/MyWalletViewController.swift"; sourceTree = "<group>"; };
 		8463B9401F8C7C8A00619FFA /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		8463B9421F8CC48E00619FFA /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		8463B9431F8DCCD700619FFA /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopUpViewController.swift; path = "ViewController/Online Shop/TopUpViewController.swift"; sourceTree = "<group>"; };
 		847A874E1F7E8368001A3A48 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		847A87501F7EAC8D001A3A48 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskaDoctorViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				8452B6B21F72812B00781AD7 /* ProductCell.xib */,
 				8463B93C1F8C63B900619FFA /* CheckoutViewController.swift */,
 				8463B93E1F8C6AF900619FFA /* MyWalletViewController.swift */,
+				8463B9431F8DCCD700619FFA /* TopUpViewController.swift */,
 			);
 			name = "Online Shop";
 			path = ..;
@@ -783,7 +786,6 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTHRadioButton/LTHRadioButton.framework",
@@ -813,7 +815,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHRadioButton.framework",
@@ -880,6 +881,7 @@
 				84133E9A1F8C823500A90B2E /* UserProfileViewController.swift in Sources */,
 				84C8C90E1F67FBA300AA5709 /* Camera.swift in Sources */,
 				84F0A4D21F6F6EEE007B5385 /* Doctor.swift in Sources */,
+				8463B9441F8DCCD700619FFA /* TopUpViewController.swift in Sources */,
 				849A94921F600746008ACB28 /* ImageHeaderView.swift in Sources */,
 				84E2EFC91F8B350E0016B3E4 /* FavoriteViewController.swift in Sources */,
 				84C10CF91F66792B000B3CEF /* ListenToAnswerViewController.swift in Sources */,

@@ -12,6 +12,8 @@ import Firebase
 import UserNotifications
 import FirebaseInstanceID
 import FirebaseMessaging
+import IQKeyboardManagerSwift
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -63,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         createMenuView()
         registerRemoteNotification(application)
         FirebaseApp.configure()
+        IQKeyboardManager.sharedManager().enable = true
         return true
     }
     

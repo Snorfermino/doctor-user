@@ -25,6 +25,8 @@ struct Doctor: Mappable {
         
     }
     
+    init() {}
+    
     mutating func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]

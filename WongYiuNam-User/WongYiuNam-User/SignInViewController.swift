@@ -13,7 +13,7 @@ import FacebookCore
 import RxCocoa
 import RxSwift
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseViewController {
     
     @IBOutlet weak var btnFBLogin: UIButton!
     @IBOutlet weak var emailAddressTextField: DesignableTextField!

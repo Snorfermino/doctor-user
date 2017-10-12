@@ -7,7 +7,9 @@
 //
 
 import XCTest
-@testable import WongYiuNam_Doctor
+import FirebaseAnalytics
+
+
 
 class WongYiuNam_DoctorTests: XCTestCase {
     

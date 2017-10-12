@@ -26,7 +26,13 @@ class HomeViewController: UIViewController {
             print(newToken)
         }
         //ApiManager.changePassword(oldPassword: "nhatduy", newPassword: "54321", completion: completion)
-        ApiManager.getPostsFromFanpageFacebook()
+        var user = User()
+        user.name = "ABC"
+        user.email = "bb@gmail.com"
+        let completion = {(result: String?) -> Void in
+            print(result)
+        }
+        ApiManager.updateUserProfile(user: user, completion: completion)
         //demo call api
     }
     
@@ -49,7 +55,18 @@ class HomeViewController: UIViewController {
     
     @IBAction func uploadPrescriptionButtonClicked(_ sender: Any) {
         NotificationCenter.default.post(name: Notification.Name("ChangeMenuTab"), object: "UploadPrescription")
-        
+    }
+    
+    @IBAction func socialWallButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("ChangeMenuTab"), object: "SocialWall")
+    }
+    
+    @IBAction func onlineShopButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("ChangeMenuTab"), object: "OnlineShop")
+    }
+    
+    @IBAction func askaDoctorButtonClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("ChangeMenuTab"), object: "AskaDoctor")
     }
 }
 

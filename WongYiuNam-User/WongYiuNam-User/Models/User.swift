@@ -20,6 +20,8 @@ struct User: Mappable {
         
     }
     
+    init() {}
+    
     mutating func mapping(map: Map) {
         name <- map["name"]
         email <- map["email"]

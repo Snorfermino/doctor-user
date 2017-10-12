@@ -8,11 +8,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PopupDialog
 
 enum LeftMenu: Int {
     case home = 0
     case onlineShop
     case askaDoctor
+    case uploadPrescription
     case socialWall
     case helpCentre
     case privacyPolicy
@@ -43,7 +45,7 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var menus = ["Home", "Online Shop", "Ask a Doctor", "Social wall"
+    var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social wall"
         , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
     var menusLogined = ["Home", "Online Shop", "Upload Prescription", "Social wall", "Ask a Doctor", "Notifications", "Invite a Friend", "Help Centre", "Terms and Conditions", "Privacy Policy", "User Agreement", "About Us", "Logout"]
     var homeViewController: UIViewController!
@@ -58,6 +60,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     var inviteaFriendViewController: UIViewController!
     var notificationsViewController: UIViewController!
     var signInViewController: UIViewController!
+    var favoriteViewController: UIViewController!
+    var userProfileViewController: UIViewController!
+    //TEST:
+    var topUpViewController:UIViewController!
     var imageHeaderView: ImageHeaderView!
     
     var sub1: Bool = false
@@ -77,6 +83,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let askaDoctorStoryboard = UIStoryboard(name: "AskaDoctor", bundle: nil)
+        let socialWallStoryboard = UIStoryboard(name: "SocialWall", bundle: nil)
+        let favoriteStoryboard = UIStoryboard(name: "Favorite", bundle: nil)
         
         let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         self.homeViewController = UINavigationController(rootViewController: homeViewController)
@@ -90,7 +98,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         let uploadPrescriptionViewController = mainStoryboard.instantiateViewController(withIdentifier: "UploadPrescriptionViewController") as! UploadPrescriptionViewController
         self.uploadPrescriptionViewController = UINavigationController(rootViewController: uploadPrescriptionViewController)
         
-        let socialWallViewController = mainStoryboard.instantiateViewController(withIdentifier: "SocialWallViewController") as! SocialWallViewController
+        let socialWallViewController = socialWallStoryboard.instantiateViewController(withIdentifier: "SocialWallViewController") as! SocialWallViewController
         self.socialWallViewController = UINavigationController(rootViewController: socialWallViewController)
         
         let helpCentreViewController = mainStoryboard.instantiateViewController(withIdentifier: "HelpCentreViewController") as! HelpCentreViewController
@@ -105,6 +113,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         let aboutUsViewController = mainStoryboard.instantiateViewController(withIdentifier: "AboutUsViewController") as! AboutUsViewController
         self.aboutUsViewController = UINavigationController(rootViewController: aboutUsViewController)
         
+        //TEST:
+        let topUpVC = mainStoryboard.instantiateViewController(withIdentifier: "TopUpViewController") as! TopUpViewController
+        self.topUpViewController = UINavigationController(rootViewController: topUpVC)
+        
         let notificationsViewController = mainStoryboard.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
         self.notificationsViewController = UINavigationController(rootViewController: notificationsViewController)
         
@@ -113,6 +125,12 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         let signInViewController = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         self.signInViewController = UINavigationController(rootViewController: signInViewController)
+        
+        let favoriteViewController = favoriteStoryboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+        self.favoriteViewController = UINavigationController(rootViewController: favoriteViewController)
+        
+        let userProfileViewController = mainStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        self.userProfileViewController = UINavigationController(rootViewController: userProfileViewController)
         
         self.tableView.registerCellClass(MenuTableViewCell.self)
         
@@ -131,14 +149,56 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         
         NotificationCenter.default.rx.notification(Notification.Name("ChangeMenuTab"))
             .subscribe(onNext: { notification in
-                notification.object
-                //
+                let s = notification.object as! String
+                if(Global.user != nil) {
+                    switch s {
+                    case "UploadPrescription":
+                        self.changeViewController(LeftMenuLogined.uploadPrescription)
+                        self.tableView.selectRow(at: IndexPath(row: 2, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "OnlineShop":
+                        self.tableView.selectRow(at: IndexPath(row: 1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                        self.changeViewController(LeftMenuLogined.onlineShop)
+                    case "AskaDoctor":
+                        self.changeViewController(LeftMenuLogined.askaDoctor)
+                        self.tableView.selectRow(at: IndexPath(row: 4, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "SocialWall":
+                        self.changeViewController(LeftMenuLogined.socialWall)
+                        self.tableView.selectRow(at: IndexPath(row: 3, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    default:
+                        break
+                    }
+                } else {
+                    switch s {
+                    case "UploadPrescription":
+                        self.changeViewController(LeftMenu.uploadPrescription)
+                        self.tableView.selectRow(at: IndexPath(row: 3, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "OnlineShop":
+                        self.changeViewController(LeftMenu.onlineShop)
+                        self.tableView.selectRow(at: IndexPath(row: 1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "AskaDoctor":
+                        self.changeViewController(LeftMenu.askaDoctor)
+                        self.tableView.selectRow(at: IndexPath(row: 2, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    case "SocialWall":
+                        self.changeViewController(LeftMenu.socialWall)
+                        self.tableView.selectRow(at: IndexPath(row: 4, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+                    default:
+                        break
+                    }
+                }
             })
             .disposed(by: disposeBag)
     }
     
     func goToSignIn() {
         slideMenuController()?.changeMainViewController(signInViewController, close: true)
+    }
+    
+    func goToFavorite() {
+        slideMenuController()?.changeMainViewController(favoriteViewController, close: true)
+    }
+    
+    func goToUserProfile() {
+        slideMenuController()?.changeMainViewController(userProfileViewController, close: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -159,6 +219,16 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             slideMenuController()?.changeMainViewController(onlineShopViewController, close: true)
         case .askaDoctor:
             slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
+        case .uploadPrescription:
+            let requireLoginViewController = RequireLoginViewController(nibName: "RequireLoginViewController", bundle: nil)
+            let popup = PopupDialog(viewController: requireLoginViewController, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+            let cancelButton = CancelButton(title: NSLocalizedString("Cancel", comment: ""), height: 40) { }
+            let loginButton = DefaultButton(title: NSLocalizedString("Login", comment: ""), height: 40) {
+                self.slideMenuController()?.changeMainViewController(self.signInViewController, close: true)
+            }
+            popup.addButtons([cancelButton, loginButton])
+            self.present(popup, animated: true, completion: nil)
+            self.tableView.selectRow(at: IndexPath(row: -1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
         case .socialWall:
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
         case .helpCentre:
@@ -168,7 +238,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+//            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+                          slideMenuController()?.changeMainViewController(topUpViewController, close: true)
         }
     }
     
@@ -193,7 +264,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+//            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+              slideMenuController()?.changeMainViewController(topUpViewController, close: true)
         case .notifications:
             slideMenuController()?.changeMainViewController(notificationsViewController, close: true)
         case .inviteaFriend:
@@ -230,7 +302,7 @@ extension LeftViewController : UITableViewDelegate {
         } else {
             if let menu = LeftMenu(rawValue: indexPath.row) {
                 switch menu {
-                case .home, .onlineShop, .askaDoctor, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+                case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                     return MenuTableViewCell.height()
                 }
             }
@@ -291,7 +363,7 @@ extension LeftViewController : UITableViewDataSource {
             }
         } else if let menu = LeftMenu(rawValue: indexPath.row) {
             switch menu {
-            case .home, .onlineShop, .askaDoctor, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
+            case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                 let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
                 cell.setData(menus[indexPath.row])
                 return cell

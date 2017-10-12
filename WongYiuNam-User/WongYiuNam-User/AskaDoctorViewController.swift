@@ -9,35 +9,52 @@
 import UIKit
 import DRPLoadingSpinner
 import UILoadControl
+import RxSwift
+import RxCocoa
 
 class AskaDoctorViewController: BaseViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-    var data: [Doctor] = []
+    var data = Variable([Doctor]())
     let activityIndicatorView = DRPLoadingSpinner()
     var idx: IndexPath = IndexPath(row: 0, section: 0)
     var page = 1
     var refreshControl: UIRefreshControl!
     
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
         activityIndicatorView.initView(view: view)
-        tableView.addSubview(activityIndicatorView)
-        tableView.loadControl = UILoadControl(target: self, action: #selector(loadMoreTableView))
+        setUpTableView()
+        bindUI()
+        loadData()
+    }
+    
+    func setUpTableView() {
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
-        tableView.addSubview(refreshControl) // not required when using UITableViewController
-        loadData()
+        tableView.addSubview(refreshControl)
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.addSubview(activityIndicatorView)
+        tableView.loadControl = UILoadControl(target: self, action: #selector(loadMoreTableView))
+        tableView.registerCellNib(DoctorTableViewCell.self)
+    }
+    
+    func bindUI() {
+        data.asObservable()
+            .bind(to: tableView.rx.items(cellIdentifier: String.className(DoctorTableViewCell.self), cellType: DoctorTableViewCell.self)) { (row, doctor, cell) in
+                cell.doctor = doctor
+            }
+            .disposed(by: disposeBag)
     }
     
     @objc func refresh(sender:AnyObject) {
         let completion = {(data: [Doctor]) -> Void in
             self.refreshControl.endRefreshing()
-            self.data = data
+            self.data.value = data
             self.tableView.reloadData()
         }
         page = 1
@@ -47,7 +64,7 @@ class AskaDoctorViewController: BaseViewController {
     @objc func loadMoreTableView() {
         let completion = {(data: [Doctor]) -> Void in
             self.tableView.loadControl?.endLoading()
-            self.data.append(contentsOf: data)
+            self.data.value.append(contentsOf: data)
             self.tableView.reloadData()
         }
         page += 1
@@ -58,7 +75,7 @@ class AskaDoctorViewController: BaseViewController {
         activityIndicatorView.startAnimating()
         let completion = {(data: [Doctor]) -> Void in
             self.activityIndicatorView.stopAnimating()
-            self.data = data
+            self.data.value = data
             self.tableView.reloadData()
         }
         page = 1
@@ -76,28 +93,14 @@ class AskaDoctorViewController: BaseViewController {
 }
 
 extension AskaDoctorViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         idx = indexPath
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "askaDoctorToDoctorIntroductionSegue" {
-            let destinationVC:DoctorIntroductionViewController = segue.destination as! DoctorIntroductionViewController
-            destinationVC.doctor = data[idx.row]
+        if let destinationVC = segue.destination as? DoctorIntroductionViewController {
+            destinationVC.doctor = data.value[idx.row]
         }
-    }
-}
-
-extension AskaDoctorViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("DoctorTableViewCell", owner: self, options: nil)?.first as! DoctorTableViewCell
-        cell.setup(doctor: data[indexPath.row])
-        return cell
     }
 }
 

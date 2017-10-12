@@ -7,17 +7,33 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class FavoriteDoctorViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var data: [Doctor] = []
+    var data = Variable([Doctor]())
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
+        bindUI()
         loadData()
-        tableView.dataSource = self
+    }
+    
+    func setUpUI() {
+        tableView.registerCellNib(DoctorTableViewCell.self)
+    }
+    
+    func bindUI() {
+        data.asObservable()
+            .bind(to: tableView.rx.items(cellIdentifier: String.className(DoctorTableViewCell.self), cellType: DoctorTableViewCell.self)) { (row, doctor, cell) in
+                cell.doctor = doctor
+            }
+            .disposed(by: disposeBag)
     }
     
     func loadData() {
@@ -26,22 +42,9 @@ class FavoriteDoctorViewController: UIViewController {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
                 return
             }
-            self.data = data
+            self.data.value = data
             self.tableView.reloadData()
         }
         ApiManager.getFavoritesDoctors(completion: completion)
-    }
-}
-
-extension FavoriteDoctorViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("DoctorTableViewCell", owner: self, options: nil)?.first as! DoctorTableViewCell
-        cell.setup(doctor: data[indexPath.row])
-        return cell
     }
 }

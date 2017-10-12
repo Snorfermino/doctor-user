@@ -32,7 +32,7 @@ class TopUpViewController: BaseViewController {
     }
     
     @objc func tapOnCredit(_ sender: UITapGestureRecognizer){
-        guard let tappedView = sender.view as? UIView else { return }
+        guard let tappedView = sender.view else { return }
         print("Tag: \(tappedView.tag)")
         selectedCredit = tappedView.tag
     }

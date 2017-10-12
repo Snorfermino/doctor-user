@@ -23,9 +23,16 @@ class MenuTableViewCell: UITableViewCell {
         return 50
     }
     
-    open func setData(_ data: Any?) {
-        if let menuText = data as? String {
-            self.label.text = menuText
+    open func setData(image: UIImage?, string: String?, submenu: Bool) {
+        if let string = string {
+            label.text = string
+        }
+        if let image = image {
+            dataImage.image = image
+        }
+        if submenu {
+            label.frame.origin.x += 35
+            dataImage.frame.origin.x += 35
         }
     }
     

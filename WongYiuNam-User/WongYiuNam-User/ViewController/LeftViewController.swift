@@ -264,8 +264,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .userAgreement:
             slideMenuController()?.changeMainViewController(userAgreementViewController, close: true)
         case .aboutUs:
-//            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
-              slideMenuController()?.changeMainViewController(topUpViewController, close: true)
+            slideMenuController()?.changeMainViewController(aboutUsViewController, close: true)
+            slideMenuController()?.changeMainViewController(topUpViewController, close: true)
         case .notifications:
             slideMenuController()?.changeMainViewController(notificationsViewController, close: true)
         case .inviteaFriend:
@@ -313,7 +313,6 @@ extension LeftViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(Global.user != nil) {
             if let menu = LeftMenuLogined(rawValue: indexPath.row) {
-                //self.changeViewController(menu)
                 if(indexPath.row == 0 || indexPath.row == 8) {
                     if(indexPath.row == 0) {
                         sub1 = !sub1
@@ -356,7 +355,13 @@ extension LeftViewController : UITableViewDataSource {
                 case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .termsAndConditions,
                      .privacyPolicy, .userAgreement, .aboutUs, .notifications, .inviteaFriend, .logout :
                     let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
-                    cell.setData(menusLogined[indexPath.row])
+                    switch menu {
+                    case .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .privacyPolicy, .userAgreement:
+                        cell.setData(image: loadIcon(menu), string: menusLogined[indexPath.row], submenu: true)
+                    default:
+                        cell.setData(image: loadIcon(menu), string: menusLogined[indexPath.row], submenu: false)
+                    }
+                    
                     cell.clipsToBounds = true
                     return cell
                 }
@@ -365,10 +370,64 @@ extension LeftViewController : UITableViewDataSource {
             switch menu {
             case .home, .onlineShop, .askaDoctor, .uploadPrescription, .socialWall, .helpCentre, .privacyPolicy, .userAgreement, .aboutUs :
                 let cell = Bundle.main.loadNibNamed("MenuTableViewCell", owner: self, options: nil)?.first as! MenuTableViewCell
-                cell.setData(menus[indexPath.row])
+                cell.setData(image: loadIcon(menu), string: menus[indexPath.row], submenu: false)
                 return cell
             }
         }
         return UITableViewCell()
+    }
+    
+    func loadIcon(_ menu: LeftMenu) -> UIImage {
+        switch menu {
+        case .home:
+            return #imageLiteral(resourceName: "menu-home")
+        case .onlineShop:
+            return #imageLiteral(resourceName: "menu-online-shop")
+        case .askaDoctor:
+            return #imageLiteral(resourceName: "menu-ask-doc")
+        case .uploadPrescription:
+            return #imageLiteral(resourceName: "menu-upload-prescription")
+        case .socialWall:
+            return #imageLiteral(resourceName: "menu-social-wall")
+        case .helpCentre:
+            return #imageLiteral(resourceName: "menu-help-center")
+        case .privacyPolicy:
+            return #imageLiteral(resourceName: "menu-privacy-policy")
+        case .userAgreement:
+            return #imageLiteral(resourceName: "menu-user-agreement")
+        case .aboutUs:
+            return #imageLiteral(resourceName: "menu-about-us")
+        }
+    }
+    
+    func loadIcon(_ menu: LeftMenuLogined) -> UIImage {
+        switch menu {
+        case .home:
+            return #imageLiteral(resourceName: "menu-home")
+        case .onlineShop:
+            return #imageLiteral(resourceName: "menu-online-shop")
+        case .askaDoctor:
+            return #imageLiteral(resourceName: "menu-ask-doc")
+        case .uploadPrescription:
+            return #imageLiteral(resourceName: "menu-upload-prescription")
+        case .socialWall:
+            return #imageLiteral(resourceName: "menu-social-wall")
+        case .helpCentre:
+            return #imageLiteral(resourceName: "menu-help-center")
+        case .privacyPolicy:
+            return #imageLiteral(resourceName: "menu-privacy-policy")
+        case .userAgreement:
+            return #imageLiteral(resourceName: "menu-user-agreement")
+        case .aboutUs:
+            return #imageLiteral(resourceName: "menu-about-us")
+        case .notifications:
+            return #imageLiteral(resourceName: "menu-notification")
+        case .inviteaFriend:
+            return #imageLiteral(resourceName: "menu-invite-a-friend")
+        case .termsAndConditions:
+            return #imageLiteral(resourceName: "menu-term-and-condition")
+        case .logout:
+            return #imageLiteral(resourceName: "menu-log-out")
+        }
     }
 }

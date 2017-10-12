@@ -28,8 +28,7 @@ class AnswerDetailViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func setupView() {
-        super.setupView()
+    func setupView() {
         guard answerDetailsData != nil else {return}
         lbQuestionStatus.text = (answerDetailsData.question?.status)! ? "Answered" : "Waiting for Answer"
         lbByDoctor.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), 18"

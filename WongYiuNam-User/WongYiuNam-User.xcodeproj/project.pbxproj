@@ -39,6 +39,7 @@
 		8463B93F1F8C6AF900619FFA /* MyWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B93E1F8C6AF900619FFA /* MyWalletViewController.swift */; };
 		8463B9441F8DCCD700619FFA /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9431F8DCCD700619FFA /* TopUpViewController.swift */; };
 		8463B9461F8E110C00619FFA /* BrainTreeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9451F8E110C00619FFA /* BrainTreeToken.swift */; };
+		8463B9521F8F855800619FFA /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9511F8F855800619FFA /* AnswerDetailViewController.swift */; };
 		847A874F1F7E8368001A3A48 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A874E1F7E8368001A3A48 /* ErrorResponse.swift */; };
 		847A87511F7EAC8D001A3A48 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A87501F7EAC8D001A3A48 /* Answer.swift */; };
 		8487EE581F8E0BED00B4FB3F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487EE571F8E0BED00B4FB3F /* UserInfo.swift */; };
@@ -166,6 +167,9 @@
 		8463B9421F8CC48E00619FFA /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		8463B9431F8DCCD700619FFA /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopUpViewController.swift; path = "ViewController/Online Shop/TopUpViewController.swift"; sourceTree = "<group>"; };
 		8463B9451F8E110C00619FFA /* BrainTreeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrainTreeToken.swift; path = "Online Shop/BrainTreeToken.swift"; sourceTree = "<group>"; };
+		8463B94F1F8F854800619FFA /* WYNQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNQuestion.swift; sourceTree = "<group>"; };
+		8463B9501F8F854800619FFA /* WYNAnswerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNAnswerHistory.swift; sourceTree = "<group>"; };
+		8463B9511F8F855800619FFA /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		847A874E1F7E8368001A3A48 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		847A87501F7EAC8D001A3A48 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		8487EE571F8E0BED00B4FB3F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -387,6 +391,15 @@
 			path = "Topup Credits";
 			sourceTree = "<group>";
 		};
+		8463B94E1F8F852600619FFA /* Ask a Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				8463B9501F8F854800619FFA /* WYNAnswerHistory.swift */,
+				8463B94F1F8F854800619FFA /* WYNQuestion.swift */,
+			);
+			path = "Ask a Doctor";
+			sourceTree = "<group>";
+		};
 		84A72FD71F69477A001B30E0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +443,7 @@
 		84B5288A1F7A39B4005B6DE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8463B94E1F8F852600619FFA /* Ask a Doctor */,
 				84CAE9CF1F8F747A00A3E832 /* Doctor */,
 				8463B9391F8C60FE00619FFA /* Online Shop */,
 				84FBF6671F85E69300D9B7E1 /* Social */,
@@ -530,6 +544,7 @@
 		84C10CF31F6678B7000B3CEF /* Ask a Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				8463B9511F8F855800619FFA /* AnswerDetailViewController.swift */,
 				849A94751F60042F008ACB28 /* AskaDoctorViewController.swift */,
 				84C10CF41F6678E0000B3CEF /* DoctorIntroductionViewController.swift */,
 				84C10CF81F66792B000B3CEF /* ListenToAnswerViewController.swift */,
@@ -903,6 +918,7 @@
 			files = (
 				8463B9461F8E110C00619FFA /* BrainTreeToken.swift in Sources */,
 				66EEFD911F5FDE0900C5C77A /* AppDelegate.swift in Sources */,
+				8463B9521F8F855800619FFA /* AnswerDetailViewController.swift in Sources */,
 				8421A7F51F6A3E2E007406D3 /* DayInScheduleView.swift in Sources */,
 				84CAE9D31F8F810400A3E832 /* Date.swift in Sources */,
 				849A949E1F6007B1008ACB28 /* UIImageView.swift in Sources */,

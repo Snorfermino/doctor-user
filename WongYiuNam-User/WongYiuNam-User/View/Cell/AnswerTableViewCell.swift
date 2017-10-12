@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DateToolsSwift
 
 class AnswerTableViewCell: UITableViewCell {
 
@@ -23,7 +24,7 @@ class AnswerTableViewCell: UITableViewCell {
     func setup(question: Question) {
         nameLabel.text = question.patientName
         questionLabel.text = question.question
-        timeLabel.text = question.createdAt?.toString(format: "MM-dd-yyyy")
+        timeLabel.text = question.createdAt!.format(with: "dd-MM-yyyy")
         avatarImageView.sd_setImage(with: question.photoUrl, completed: nil)
     }
 }

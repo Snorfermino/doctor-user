@@ -55,7 +55,7 @@ class SignInViewController: BaseViewController {
     // Once the button is clicked, show the login dialog
     func loginButtonClicked() {
         let loginManager = LoginManager()
-        loginManager.logIn([ .publicProfile, .email ], viewController: self) { loginResult in
+        loginManager.logIn(readPermissions: [ .publicProfile, .email ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)

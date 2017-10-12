@@ -18,31 +18,30 @@ class DoctorTableViewCell: UITableViewCell {
     @IBOutlet weak var experianceLabel: UILabel!
     @IBOutlet weak var speakingLanguageLabel: UILabel!
     
-    var doctor: Doctor!
-    
-    func setup(doctor: Doctor) {
-        self.doctor = doctor
-        //avatarImageView.sd_setImage(with: doctor.avatar, completed: nil)
-        if(doctor.online == false) {
-            statusView.backgroundColor = UIColor.red
-        }
-        nameLabel.text = doctor.name
-        if let speciality = doctor.speciality {
-            specialityLabel.text = "Speciality: " + speciality
-        }
-        if let experience = doctor.experience {
-            experianceLabel.text = "Experiance: " + experience
-        }
-        if let speakingLang = doctor.speakingLang {
-            speakingLanguageLabel.text = "Speaking Language: " + speakingLang
-        }
-        if let isFavorite = doctor.isFavourite {
-            if isFavorite == false {
-                favoriteButton.backgroundColor = UIColor.black
-                return
+    var doctor: Doctor! {
+        didSet {
+            //avatarImageView.sd_setImage(with: doctor.avatar, completed: nil)
+            if(doctor.online == false) {
+                statusView.backgroundColor = UIColor.red
             }
+            nameLabel.text = doctor.name
+            if let speciality = doctor.speciality {
+                specialityLabel.text = "Speciality: " + speciality
+            }
+            if let experience = doctor.experience {
+                experianceLabel.text = "Experiance: " + experience
+            }
+            if let speakingLang = doctor.speakingLang {
+                speakingLanguageLabel.text = "Speaking Language: " + speakingLang
+            }
+            if let isFavorite = doctor.isFavourite {
+                if isFavorite == false {
+                    favoriteButton.backgroundColor = UIColor.black
+                    return
+                }
+            }
+            favoriteButton.backgroundColor = UIColor.init(hex: "FFFFFF", alpha: 0.0)
         }
-        favoriteButton.backgroundColor = UIColor.init(hex: "FFFFFF", alpha: 0.0)
     }
     
     @IBAction func likeButtonClicked(sender: Any) {

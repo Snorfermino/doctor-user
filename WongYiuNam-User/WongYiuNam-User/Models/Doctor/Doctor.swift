@@ -21,6 +21,7 @@ struct Doctor: Mappable {
     var online: Bool?
     var createdAt: Date?
     var isFavourite: Bool?
+    
     init?(map: Map) {
         
     }

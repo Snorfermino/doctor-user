@@ -109,7 +109,7 @@ class ApiManager {
         }
     }
     
-    static func askaQuestion(question: Question, completion:  (() -> Void)?) {
+    static func askaQuestion(question: QuestionUpload, completion:  (() -> Void)?) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.askaQuestion(question: question)) { (result) in
             switch result {
@@ -291,6 +291,25 @@ class ApiManager {
             case .failure(let error):
                 print(error)
                 completion(error.errorDescription)
+            }
+        }
+    }
+    
+    static func getFavoritesQuestions(completion: @escaping (([Question]?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.favoritesQuestions) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let favoriteQuestion = try response.mapObject(PagingResponse<Question>.self)
+                    completion(favoriteQuestion.data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
             }
         }
     }

@@ -19,4 +19,11 @@ class AnswerTableViewCell: UITableViewCell {
     @IBAction func playButtonClicked(sender: Any) {
         
     }
+    
+    func setup(question: Question) {
+        nameLabel.text = question.patientName
+        questionLabel.text = question.question
+        timeLabel.text = question.createdAt?.toString(format: "MM-dd-yyyy")
+        avatarImageView.sd_setImage(with: question.photoUrl, completed: nil)
+    }
 }

@@ -44,6 +44,7 @@ protocol LeftMenuProtocol : class {
 
 class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDelegate {
     
+    @IBOutlet weak var topMenuLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     var menus = ["Home", "Online Shop", "Ask a Doctor", "Upload Prescription", "Social wall"
         , "Help Centre", "Privacy Policy", "User Agreement", "About Us"]
@@ -138,12 +139,15 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         self.view.addSubview(self.imageHeaderView)
         imageHeaderView.delegate = self
         
+        updateUIByLogin()
+        
         NotificationCenter.default.rx.notification(Notification.Name("UserLoginedNotification"))
             .subscribe(onNext: { _ in
                 self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
                 self.tableView.reloadData()
                 self.setRightBarButton()
-                self.imageHeaderView.updateByLogin()
+                self.updateUIByLogin()
+                self.imageHeaderView.updateUIByLogin()
             })
             .disposed(by: disposeBag)
         
@@ -207,7 +211,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        imageHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 160)
+        imageHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 187)
         view.layoutIfNeeded()
     }
     
@@ -218,17 +222,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
         case .onlineShop:
             slideMenuController()?.changeMainViewController(onlineShopViewController, close: true)
         case .askaDoctor:
-            slideMenuController()?.changeMainViewController(askaDoctorViewController, close: true)
+            requireLogin()
         case .uploadPrescription:
-            let requireLoginViewController = RequireLoginViewController(nibName: "RequireLoginViewController", bundle: nil)
-            let popup = PopupDialog(viewController: requireLoginViewController, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
-            let cancelButton = CancelButton(title: NSLocalizedString("Cancel", comment: ""), height: 40) { }
-            let loginButton = DefaultButton(title: NSLocalizedString("Login", comment: ""), height: 40) {
-                self.slideMenuController()?.changeMainViewController(self.signInViewController, close: true)
-            }
-            popup.addButtons([cancelButton, loginButton])
-            self.present(popup, animated: true, completion: nil)
-            self.tableView.selectRow(at: IndexPath(row: -1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+            requireLogin()
         case .socialWall:
             slideMenuController()?.changeMainViewController(socialWallViewController, close: true)
         case .helpCentre:
@@ -274,6 +270,26 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             Global.user = nil
             slideMenuController()?.changeMainViewController(signInViewController, close: true)
         }
+    }
+    
+    func updateUIByLogin() {
+        if Global.user != nil {
+            self.topMenuLayoutConstraint.constant = 187
+        } else {
+            self.topMenuLayoutConstraint.constant = 85
+        }
+    }
+    
+    func requireLogin() {
+        let requireLoginViewController = RequireLoginViewController(nibName: "RequireLoginViewController", bundle: nil)
+        let popup = PopupDialog(viewController: requireLoginViewController, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        let cancelButton = CancelButton(title: NSLocalizedString("Cancel", comment: ""), height: 40) { }
+        let loginButton = DefaultButton(title: NSLocalizedString("Login", comment: ""), height: 40) {
+            self.slideMenuController()?.changeMainViewController(self.signInViewController, close: true)
+        }
+        popup.addButtons([cancelButton, loginButton])
+        self.present(popup, animated: true, completion: nil)
+        self.tableView.selectRow(at: IndexPath(row: -1, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
     }
 }
 
@@ -361,7 +377,6 @@ extension LeftViewController : UITableViewDataSource {
                     default:
                         cell.setData(image: loadIcon(menu), string: menusLogined[indexPath.row], submenu: false)
                     }
-                    
                     cell.clipsToBounds = true
                     return cell
                 }

@@ -32,15 +32,16 @@ class ImageHeaderView : UIView {
 //        self.profileImage.clipsToBounds = true
 //        self.profileImage.layer.borderWidth = 1
 //        self.profileImage.layer.borderColor = UIColor.white.cgColor
-        updateByLogin()
+        updateUIByLogin()
     }
     
-    func updateByLogin() {
+    func updateUIByLogin() {
         if Global.user != nil {
             loginButton.isHidden = true
             usernameLabel.isHidden = false
             emailLabel.isHidden = false
             boxView.isHidden = false
+            self.frame.size.height = 187
             emailLabel.text = Global.user?.email
             usernameLabel.text = Global.user?.info?.name
         } else {
@@ -48,6 +49,7 @@ class ImageHeaderView : UIView {
             usernameLabel.isHidden = true
             emailLabel.isHidden = true
             boxView.isHidden = true
+            self.frame.size.height = 85
         }
     }
     

@@ -840,7 +840,8 @@
         <image name="play-button" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RHo-hn-Zt1"/>
-        <segue reference="6Em-zG-lri"/>
+        <segue reference="mPz-ib-xRo"/>
+        <segue reference="gHx-j2-HK0"/>
+        <segue reference="Agn-20-pEB"/>
     </inferredMetricsTieBreakers>
 </document>

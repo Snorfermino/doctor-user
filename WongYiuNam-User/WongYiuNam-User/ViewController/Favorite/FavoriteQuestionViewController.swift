@@ -12,29 +12,17 @@ class FavoriteQuestionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var data: [Doctor] = []
+    var data: [Question] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadData()
+        loadData()
         //tableView.delegate = self
         tableView.dataSource = self
-        //loadFakeData()
-    }
-    
-    func loadFakeData() {
-        var doctor = Doctor()
-        doctor.name = "Demo Abc"
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        tableView.reloadData()
     }
     
     func loadData() {
-        let completion = {(data: [Doctor]?, error: String?) -> Void in
+        let completion = {(data: [Question]?, error: String?) -> Void in
             guard let data = data else {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
                 return
@@ -42,6 +30,7 @@ class FavoriteQuestionViewController: UIViewController {
             self.data = data
             self.tableView.reloadData()
         }
+        ApiManager.getFavoritesQuestions(completion: completion)
     }
 }
 
@@ -53,7 +42,8 @@ extension FavoriteQuestionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("AnswerTableViewCell", owner: self, options: nil)?.first as! AnswerTableViewCell
-        cell.nameLabel.text = "Nhat Duy"
+        let question = data[indexPath.row]
+        cell.setup(question: question)
         return cell
     }
 }

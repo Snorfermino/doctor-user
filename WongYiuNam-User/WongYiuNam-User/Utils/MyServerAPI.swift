@@ -13,11 +13,12 @@ enum MyServerAPI {
     
     // MARK: - Doctor
     case doctors(page: Int)
-    case askaQuestion(question: Question)
+    case askaQuestion(question: QuestionUpload)
     case answerList(page: Int)
     case favouritesDoctors
     case saveFavoritesDoctor(doctorId: Int)
     case deleteFavoritesDoctor(doctorId: Int)
+    case favoritesQuestions
     // MARK: User
     case login(email: String, password: String)
     case loginViaFacebook(email: String, name: String, fbId: String)
@@ -35,6 +36,7 @@ enum MyServerAPI {
 }
 
 extension MyServerAPI: TargetType {
+    
     var headers: [String : String]? {
         var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         guard let accessToken = Global.user?.token else {
@@ -61,6 +63,8 @@ extension MyServerAPI: TargetType {
             return "/user/doctor/list"
         case .favouritesDoctors, .saveFavoritesDoctor, .deleteFavoritesDoctor:
             return "/user/favourites/doctors"
+        case .favoritesQuestions:
+            return "/user/favourites/questions"
         case .answerList:
             return "/answer/list"
         case .login:

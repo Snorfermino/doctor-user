@@ -16,7 +16,9 @@ extension UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
         addLogoToTitleView()
-        setRightBarButton()
+//        if Global.user != nil {
+//            NotificationCenter.default.post(name: NSNotification.Name("UserLoginedNotification"), object: nil)
+//        }
         slideMenuController()?.removeLeftGestures()
         slideMenuController()?.addLeftGestures()
     }

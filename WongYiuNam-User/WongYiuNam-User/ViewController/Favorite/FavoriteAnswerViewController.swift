@@ -34,7 +34,7 @@ class FavoriteAnswerViewController: UIViewController {
     }
     
     func loadData() {
-        let completion = {(data: [Doctor]?, error: String?) -> Void in
+        _ = {(data: [Doctor]?, error: String?) -> Void in
             guard let data = data else {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
                 return

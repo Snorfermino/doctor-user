@@ -19,6 +19,7 @@ target 'WongYiuNam-User' do
     pod 'SJSegmentedScrollView'
     pod 'BraintreeDropIn'
     pod 'IQKeyboardManagerSwift'
+    pod 'DateToolsSwift'
     
     target 'WongYiuNam-UserTests' do
         inherit! :search_paths

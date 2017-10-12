@@ -82,7 +82,6 @@
 		84CAE9CD1F8F1D5B00A3E832 /* SubMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CAE9CB1F8F1D5B00A3E832 /* SubMenuTableViewCell.swift */; };
 		84CAE9CE1F8F1D5B00A3E832 /* SubMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CAE9CC1F8F1D5B00A3E832 /* SubMenuTableViewCell.xib */; };
 		84CAE9D11F8F749E00A3E832 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CAE9D01F8F749E00A3E832 /* Question.swift */; };
-		84CAE9D31F8F810400A3E832 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CAE9D21F8F810400A3E832 /* Date.swift */; };
 		84E2EFC61F8B33030016B3E4 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E2EFC51F8B33030016B3E4 /* Favorite.storyboard */; };
 		84E2EFC91F8B350E0016B3E4 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2EFC81F8B350E0016B3E4 /* FavoriteViewController.swift */; };
 		84E2EFCB1F8B35470016B3E4 /* FavoriteItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2EFCA1F8B35470016B3E4 /* FavoriteItemViewController.swift */; };
@@ -212,7 +211,6 @@
 		84CAE9CB1F8F1D5B00A3E832 /* SubMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubMenuTableViewCell.swift; sourceTree = "<group>"; };
 		84CAE9CC1F8F1D5B00A3E832 /* SubMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubMenuTableViewCell.xib; sourceTree = "<group>"; };
 		84CAE9D01F8F749E00A3E832 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		84CAE9D21F8F810400A3E832 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		84E2EFC51F8B33030016B3E4 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 		84E2EFC81F8B350E0016B3E4 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		84E2EFCA1F8B35470016B3E4 /* FavoriteItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItemViewController.swift; sourceTree = "<group>"; };
@@ -437,7 +435,6 @@
 				84F0A4D71F6F7B4B007B5385 /* DRPLoadingSpinner.swift */,
 				8452B6AE1F725D8300781AD7 /* CustomWebView.swift */,
 				8452B6B51F7284D600781AD7 /* FavoriteButton.swift */,
-				84CAE9D21F8F810400A3E832 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -765,6 +762,7 @@
 				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
 				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
 				"${BUILT_PRODUCTS_DIR}/DRPLoadingSpinner/DRPLoadingSpinner.framework",
+				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
@@ -795,6 +793,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DRPLoadingSpinner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
@@ -923,7 +922,6 @@
 				8463B9561F8F884200619FFA /* WYNQuestion.swift in Sources */,
 				8463B9521F8F855800619FFA /* AnswerDetailViewController.swift in Sources */,
 				8421A7F51F6A3E2E007406D3 /* DayInScheduleView.swift in Sources */,
-				84CAE9D31F8F810400A3E832 /* Date.swift in Sources */,
 				849A949E1F6007B1008ACB28 /* UIImageView.swift in Sources */,
 				84C8C9071F67D49700AA5709 /* PayaQuestionViewController.swift in Sources */,
 				8427D7451F60FA3A007B34F4 /* UIViewController.swift in Sources */,

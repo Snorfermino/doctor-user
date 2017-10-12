@@ -959,7 +959,7 @@
         <!--Answer Detail View Controller-->
         <scene sceneID="NqP-eG-pvu">
             <objects>
-                <viewController id="dTw-8j-zBw" customClass="AnswerDetailViewController" customModule="WongYiuNam_Doctor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dTw-8j-zBw" customClass="AnswerDetailViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Cz-ET-OvM"/>
                         <viewControllerLayoutGuide type="bottom" id="B8k-Av-x1o"/>

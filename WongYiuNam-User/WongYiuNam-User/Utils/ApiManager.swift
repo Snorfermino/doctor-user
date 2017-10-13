@@ -307,6 +307,53 @@ class ApiManager {
         }
     }
     
+    static func getFavoritesAnswers(completion: @escaping (([Answer]?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.favoritesAnswers) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let favoriteAnswer = try response.mapObject(PagingResponse<Answer>.self)
+                    completion(favoriteAnswer.data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
+    
+    static func saveFavoritesAnswers(answerId: Int, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.saveFavoritesAnswer(answerId: answerId)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error.errorDescription)
+            }
+        }
+    }
+    
+    static func deleteFavoritesAnswers(answerId: Int, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.deleteFavoritesAnswer(answerId: answerId)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error.errorDescription)
+            }
+        }
+    }
+    
     static func getFavoritesQuestions(completion: @escaping (([Question]?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.favoritesQuestions) { (result) in

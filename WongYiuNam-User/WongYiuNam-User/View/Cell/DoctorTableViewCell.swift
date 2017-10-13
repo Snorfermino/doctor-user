@@ -44,6 +44,14 @@ class DoctorTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func askButtonClicked(sender: Any) {
+        
+    }
+    
+    @IBAction func listenButtonClicked(sender: Any) {
+        
+    }
+    
     @IBAction func likeButtonClicked(sender: Any) {
         let completion = {(error: String?) -> Void in
             print(error)

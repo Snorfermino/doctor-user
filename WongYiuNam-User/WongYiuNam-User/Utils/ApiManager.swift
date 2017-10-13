@@ -109,6 +109,18 @@ class ApiManager {
         }
     }
     
+    static func logout() {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.logout) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     static func askaQuestion(question: QuestionUpload, completion:  (() -> Void)?) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.askaQuestion(question: question)) { (result) in
@@ -321,7 +333,6 @@ class ApiManager {
         } catch {
             return nil
         }
-    
     }
 }
 

@@ -10,8 +10,13 @@ import UIKit
 
 class InviteaFriendViewController: UIViewController {
 
+    @IBOutlet weak var inviteCodeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let code = Global.user?.info?.invitationCode {
+            inviteCodeLabel.text = code
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

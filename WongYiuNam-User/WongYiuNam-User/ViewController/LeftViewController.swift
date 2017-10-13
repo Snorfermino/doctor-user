@@ -268,6 +268,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol, ImageHeaderViewDe
             slideMenuController()?.changeMainViewController(inviteaFriendViewController, close: true)
         case .logout:
             Global.user = nil
+            ApiManager.logout()
             slideMenuController()?.changeMainViewController(signInViewController, close: true)
         }
     }

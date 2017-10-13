@@ -12,7 +12,7 @@ class FavoriteAnswerViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var data: [Doctor] = []
+    var data: [Answer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,19 +22,8 @@ class FavoriteAnswerViewController: UIViewController {
         //loadFakeData()
     }
     
-    func loadFakeData() {
-        var doctor = Doctor()
-        doctor.name = "Demo Abc"
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        data.append(doctor)
-        tableView.reloadData()
-    }
-    
     func loadData() {
-        _ = {(data: [Doctor]?, error: String?) -> Void in
+        _ = {(data: [Answer]?, error: String?) -> Void in
             guard let data = data else {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
                 return

@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:WongYiuNam-User/Models/Ask a Doctor/WYNAnswerHistory.swift">
+   </FileRef>
+   <FileRef
+      location = "group:WongYiuNam-User/Models/Ask a Doctor/WYNQuestion.swift">
+   </FileRef>
+   <FileRef
       location = "group:WongYiuNam-User.xcodeproj">
    </FileRef>
    <FileRef

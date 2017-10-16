@@ -16,14 +16,14 @@ class FavoriteAnswerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadData()
+        loadData()
         //tableView.delegate = self
         tableView.dataSource = self
         //loadFakeData()
     }
     
     func loadData() {
-        _ = {(data: [Answer]?, error: String?) -> Void in
+        let completion = {(data: [Answer]?, error: String?) -> Void in
             guard let data = data else {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
                 return
@@ -31,6 +31,7 @@ class FavoriteAnswerViewController: UIViewController {
             self.data = data
             self.tableView.reloadData()
         }
+        ApiManager.getFavoritesAnswers(completion: completion)
     }
 }
 

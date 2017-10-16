@@ -11,7 +11,7 @@ import UIKit
 class NotificationHistoryCell: UITableViewCell {
     
     @IBOutlet weak var lbQuestion: UILabel!
-    @IBOutlet weak var lbCreatedDate: UILabel
+    @IBOutlet weak var lbCreatedDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

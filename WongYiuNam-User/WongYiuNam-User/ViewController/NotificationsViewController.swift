@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import DateToolsSwift
 class NotificationsViewController: BaseViewController {
-    var notiList: [String] = []
+    var notiList: [[String:Date]] = []
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +63,9 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationHistoryCell") as! NotificationHistoryCell
         if notiList.count > 0 {
-            let pendingQuestion = self.viewModel.pendingQuestions[indexPath.section]
-            cell.lbQuestion.text = pendingQuestion.question
-            cell.lbCreatedAt.text = pendingQuestion.createdAt!.format(with: "HH:mm MMMM dd yyyy")
+            let noti = notiList[indexPath.section]
+
+            cell.lbCreatedDate.text = noti["createdAt"]?.format(with: "HH:mm MMMM dd yyyy")
         }
         cell.selectionStyle = .none
         return cell
@@ -80,7 +80,7 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.pendingQuestions.count
+        return notiList.count
     }
     
 }

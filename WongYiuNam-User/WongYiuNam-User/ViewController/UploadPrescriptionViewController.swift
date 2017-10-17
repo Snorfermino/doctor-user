@@ -27,7 +27,7 @@ class UploadPrescriptionViewController: UIViewController, UINavigationController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItem(title: "Upload Prescription")
     }
     
     @IBAction func attachPhotoButton(_ sender: Any) {

@@ -77,8 +77,8 @@ class AskaQuestionViewController: BaseViewController, UIImagePickerControllerDel
     }
     
     @IBAction func demoButtonClicked(_ sender: Any) {
-        let q = Question(doctorID: 11, patientName: "Demo 1", patientDob: Date(), patientGender: "Male", symptomType: "Headache, Pain, Lung", question: "khong benh gi het", isPublic: true, photo: UIImage(named: "logo"))
-        ApiManager.askaQuestion(question: q, completion: nil)
+        //let q = Question(doctorID: 11, patientName: "Demo 1", patientDob: Date(), patientGender: "Male", symptomType: "Headache, Pain, Lung", question: "khong benh gi het", isPublic: true, photo: UIImage(named: "logo"))
+        //ApiManager.askaQuestion(question: q, completion: nil)
     }
 }
 

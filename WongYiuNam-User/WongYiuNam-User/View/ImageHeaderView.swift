@@ -13,6 +13,7 @@ protocol ImageHeaderViewDelegate: class {
     func goToSignIn()
     func goToFavorite()
     func goToUserProfile()
+    func closeMenu()
 }
 
 class ImageHeaderView : UIView {
@@ -20,35 +21,46 @@ class ImageHeaderView : UIView {
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var profileImage : UIImageView!
     weak var delegate: ImageHeaderViewDelegate?
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var triangleView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(hex: "E0E0E0")
-//        self.profileImage.layoutIfNeeded()
-//        self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
-//        self.profileImage.clipsToBounds = true
-//        self.profileImage.layer.borderWidth = 1
-//        self.profileImage.layer.borderColor = UIColor.white.cgColor
-        
-        updateByLogin()
+        setupUI()
+        updateUIByLogin()
+        let usernameTapGesture = UITapGestureRecognizer(target: self, action: #selector(nameEmailLabelClicked))
+        usernameLabel.addGestureRecognizer(usernameTapGesture)
+        usernameLabel.isUserInteractionEnabled = true
+        let emailTapGesture = UITapGestureRecognizer(target: self, action: #selector(nameEmailLabelClicked))
+        emailLabel.addGestureRecognizer(emailTapGesture)
+        emailLabel.isUserInteractionEnabled = true
     }
     
-    func updateByLogin() {
-        if(Global.user != nil) {
-            loginButton.isHidden = true
-            usernameLabel.isHidden = false
-            emailLabel.isHidden = false
-            boxView.isHidden = false
-            emailLabel.text = Global.user?.email
-            usernameLabel.text = Global.user?.name
+    func setupUI() {
+        triangleView.transform = CGAffineTransform.identity.rotated(by: CGFloat(Double.pi/4))
+    }
+    
+    @objc func nameEmailLabelClicked(_ sender: Any) {
+        if Global.user == nil {
+            delegate?.goToSignIn()
         } else {
-            loginButton.isHidden = false
-            usernameLabel.isHidden = true
-            emailLabel.isHidden = true
+            delegate?.goToUserProfile()
+        }
+    }
+    
+    func updateUIByLogin() {
+        if Global.user != nil {
+            boxView.isHidden = false
+            self.frame.size.height = 205
+            emailLabel.text = Global.user?.email
+            usernameLabel.text = Global.user?.info?.name
+        } else {
+            usernameLabel.text = "WELCOME, USER."
+            emailLabel.text = "Please sign in for more features."
             boxView.isHidden = true
+            self.frame.size.height = 109
         }
     }
     
@@ -56,11 +68,11 @@ class ImageHeaderView : UIView {
         delegate?.goToFavorite()
     }
     
-    @IBAction func loginButtonClicked(_ sender: Any) {
-        delegate?.goToSignIn()
+    @IBAction func closeButtonClicked(_ sender: Any) {
+        delegate?.closeMenu()
     }
-    
+
     @IBAction func goToUserProfileButtonClicked(_ sender: Any) {
-        delegate?.goToUserProfile()
+        nameEmailLabelClicked(sender)
     }
 }

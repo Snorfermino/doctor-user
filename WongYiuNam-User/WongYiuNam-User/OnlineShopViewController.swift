@@ -19,7 +19,7 @@ class OnlineShopViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItem(title: "Online Shop")
     }
     
     func setupView(){

@@ -6,10 +6,10 @@
 //  Copyright © 2017 RTH. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-struct Question {
+struct QuestionUpload {
+    
     var doctorID: Int?
     var patientName: String?
     var patientDob: Date?

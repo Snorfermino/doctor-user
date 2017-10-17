@@ -7,20 +7,24 @@
 //
 
 import Moya
-//import Alamofire
 
 enum MyServerAPI {
     
     // MARK: - Doctor
     case doctors(page: Int)
-    case askaQuestion(question: Question)
+    case askaQuestion(question: QuestionUpload)
     case answerList(page: Int)
     case favouritesDoctors
     case saveFavoritesDoctor(doctorId: Int)
     case deleteFavoritesDoctor(doctorId: Int)
+    case favoritesQuestions
+    case favoritesAnswers
+    case saveFavoritesAnswer(answerId: Int)
+    case deleteFavoritesAnswer(answerId: Int)
     // MARK: User
     case login(email: String, password: String)
     case loginViaFacebook(email: String, name: String, fbId: String)
+    case logout
     case register(name: String, email: String, password: String)
     case changePassword(oldPassword: String, newPassword: String)
     case updateUserProfile(user: User)
@@ -35,6 +39,7 @@ enum MyServerAPI {
 }
 
 extension MyServerAPI: TargetType {
+    
     var headers: [String : String]? {
         var h = ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         guard let accessToken = Global.user?.token else {
@@ -61,12 +66,18 @@ extension MyServerAPI: TargetType {
             return "/user/doctor/list"
         case .favouritesDoctors, .saveFavoritesDoctor, .deleteFavoritesDoctor:
             return "/user/favourites/doctors"
+        case .favoritesQuestions:
+            return "/user/favourites/questions"
+        case .favoritesAnswers, .saveFavoritesAnswer, .deleteFavoritesAnswer:
+            return "/user/favourites/answers"
         case .answerList:
             return "/answer/list"
         case .login:
             return "/user/login"
         case .loginViaFacebook:
             return "/user/signin_via_fb"
+        case .logout:
+            return "/user/logout"
         case .register:
             return "/auth/register"
         case .askaQuestion:
@@ -84,9 +95,9 @@ extension MyServerAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .login, .loginViaFacebook, .askaQuestion, .register, .changePassword, .saveFavoritesDoctor:
+        case .login, .loginViaFacebook, .askaQuestion, .register, .changePassword, .saveFavoritesDoctor, .saveFavoritesAnswer:
             return .post
-        case .deleteFavoritesDoctor:
+        case .deleteFavoritesDoctor, .deleteFavoritesAnswer:
             return .delete
         case .updateUserProfile:
             return .put
@@ -110,6 +121,10 @@ extension MyServerAPI: TargetType {
             var parameters = [String: Any]()
             parameters["doctor_id"] = doctorId
             return Task.requestParameters(parameters: parameters, encoding: encoding)
+        case .saveFavoritesAnswer(let answerId), .deleteFavoritesAnswer(let answerId):
+            var parameters = [String: Any]()
+            parameters["answer_id"] = answerId
+            return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .login(let email, let password):
             var parameters = [String: Any]()
             parameters["email"] = email
@@ -117,7 +132,7 @@ extension MyServerAPI: TargetType {
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .updateUserProfile(let user):
             var parameters = [String: Any]()
-            parameters["name"] = user.name
+            parameters["name"] = user.info?.name
             parameters["email"] = user.email
             return Task.requestParameters(parameters: parameters, encoding: encoding)
         case .loginViaFacebook(let email, let name, let fbId):

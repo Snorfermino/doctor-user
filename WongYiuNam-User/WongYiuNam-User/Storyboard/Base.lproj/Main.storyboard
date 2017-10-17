@@ -420,6 +420,70 @@
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="1535.9820089955024"/>
         </scene>
+        <!--Notifications View Controller-->
+        <scene sceneID="C1a-P8-iAZ">
+            <objects>
+                <viewController id="f51-0o-l2c" customClass="NotificationsViewController" customModule="WongYiuNam_User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XhW-vF-DJs"/>
+                        <viewControllerLayoutGuide type="bottom" id="aUA-2N-vPI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ys-z4-MJD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5zQ-Qk-Qt6">
+                                <rect key="frame" x="12" y="130" width="351" height="537"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationHistoryCell" id="LQ6-qz-zXa" customClass="NotificationHistoryCell" customModule="WongYiuNam_User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="351" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LQ6-qz-zXa" id="uOR-O4-G2u">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="f51-0o-l2c" id="P0h-N9-jfH"/>
+                                    <outlet property="delegate" destination="f51-0o-l2c" id="LdH-7T-6C6"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLw-5I-all">
+                                <rect key="frame" x="131.5" y="85" width="112.5" height="26"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_trashBin" translatesAutoresizingMaskIntoConstraints="NO" id="xQc-9G-2Sh">
+                                <rect key="frame" x="342" y="85" width="21" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xQc-9G-2Sh" secondAttribute="height" multiplier="21:26" id="hsS-MD-agj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tLw-5I-all" firstAttribute="top" secondItem="7ys-z4-MJD" secondAttribute="top" constant="85" id="1O8-zQ-7NO"/>
+                            <constraint firstItem="xQc-9G-2Sh" firstAttribute="centerY" secondItem="tLw-5I-all" secondAttribute="centerY" id="Aca-cV-qyY"/>
+                            <constraint firstItem="tLw-5I-all" firstAttribute="centerX" secondItem="7ys-z4-MJD" secondAttribute="centerX" id="D5K-TW-Bpl"/>
+                            <constraint firstAttribute="bottom" secondItem="5zQ-Qk-Qt6" secondAttribute="bottom" id="H9a-Jt-SJ7"/>
+                            <constraint firstItem="xQc-9G-2Sh" firstAttribute="width" secondItem="7ys-z4-MJD" secondAttribute="width" multiplier="21:375" id="Rxp-0c-mRq"/>
+                            <constraint firstItem="5zQ-Qk-Qt6" firstAttribute="top" secondItem="7ys-z4-MJD" secondAttribute="top" constant="130" id="UQh-AD-xLQ"/>
+                            <constraint firstItem="5zQ-Qk-Qt6" firstAttribute="leading" secondItem="7ys-z4-MJD" secondAttribute="leading" constant="12" id="l9i-3k-t7S"/>
+                            <constraint firstAttribute="trailing" secondItem="5zQ-Qk-Qt6" secondAttribute="trailing" constant="12" id="n1j-ge-e0x"/>
+                            <constraint firstAttribute="trailing" secondItem="xQc-9G-2Sh" secondAttribute="trailing" constant="12" id="tLD-qF-ayd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5zQ-Qk-Qt6" id="HkU-QO-Mvj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYP-GA-UOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829.5999999999999" y="1351.5742128935533"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -870,7 +934,7 @@ Prescription</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZU-XN-LI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208.8" y="429.98500749625191"/>
+            <point key="canvasLocation" x="1841" y="361"/>
         </scene>
         <!--Help Centre View Controller-->
         <scene sceneID="ABb-ib-JHy">
@@ -1130,6 +1194,7 @@ Prescription</string>
         <image name="home-online-store" width="50" height="44"/>
         <image name="home-question" width="70" height="51"/>
         <image name="home-upload" width="46" height="43"/>
+        <image name="ic_trashBin" width="21" height="26"/>
         <image name="img_btnTopUp" width="125" height="30"/>
         <image name="img_creditcards" width="221" height="42"/>
     </resources>

@@ -28,6 +28,8 @@
 		8427D74F1F610194007B34F4 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D74E1F610194007B34F4 /* AboutUsViewController.swift */; };
 		8427D7521F6122B2007B34F4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D7501F6122B2007B34F4 /* MenuTableViewCell.swift */; };
 		8427D7531F6122B2007B34F4 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */; };
+		842F36241F90A579005BCED9 /* NotificationHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F36221F90A579005BCED9 /* NotificationHistoryCell.swift */; };
+		842F36251F90A579005BCED9 /* NotificationHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F36231F90A579005BCED9 /* NotificationHistoryCell.xib */; };
 		84408FE11F8A7434008F3636 /* FavoriteDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84408FE01F8A7434008F3636 /* FavoriteDoctorViewController.swift */; };
 		84408FE71F8A7E8E008F3636 /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84408FE51F8A7E8E008F3636 /* DoctorTableViewCell.swift */; };
 		84408FE81F8A7E8E008F3636 /* DoctorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84408FE61F8A7E8E008F3636 /* DoctorTableViewCell.xib */; };
@@ -152,6 +154,8 @@
 		8427D74E1F610194007B34F4 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8427D7501F6122B2007B34F4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		8427D7511F6122B2007B34F4 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		842F36221F90A579005BCED9 /* NotificationHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHistoryCell.swift; sourceTree = "<group>"; };
+		842F36231F90A579005BCED9 /* NotificationHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationHistoryCell.xib; sourceTree = "<group>"; };
 		84408FE01F8A7434008F3636 /* FavoriteDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDoctorViewController.swift; sourceTree = "<group>"; };
 		84408FE51F8A7E8E008F3636 /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
 		84408FE61F8A7E8E008F3636 /* DoctorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorTableViewCell.xib; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 				84408FE61F8A7E8E008F3636 /* DoctorTableViewCell.xib */,
 				84E2EFD01F8B79080016B3E4 /* AnswerTableViewCell.swift */,
 				84E2EFD11F8B79080016B3E4 /* AnswerTableViewCell.xib */,
+				842F36221F90A579005BCED9 /* NotificationHistoryCell.swift */,
+				842F36231F90A579005BCED9 /* NotificationHistoryCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -716,6 +722,7 @@
 				84A72FD61F694423001B30E0 /* Login.storyboard in Resources */,
 				66E0A16A1F86175D001393E2 /* GoogleService-Info.plist in Resources */,
 				84BE669D1F7500950025AAF6 /* ForgotPasswordViewController.xib in Resources */,
+				842F36251F90A579005BCED9 /* NotificationHistoryCell.xib in Resources */,
 				66EEFD981F5FDE0900C5C77A /* Assets.xcassets in Resources */,
 				8421A7F31F6A3E15007406D3 /* DayInScheduleView.xib in Resources */,
 				84C8C9041F6791A100AA5709 /* Main.storyboard in Resources */,
@@ -978,6 +985,7 @@
 				8487EE5B1F8E0D3C00B4FB3F /* Wallet.swift in Sources */,
 				849A947B1F60042F008ACB28 /* OnlineShopViewController.swift in Sources */,
 				84FBF6691F85E6B500D9B7E1 /* PostFB.swift in Sources */,
+				842F36241F90A579005BCED9 /* NotificationHistoryCell.swift in Sources */,
 				849A94A21F600A8C008ACB28 /* UIView.swift in Sources */,
 				849A948D1F60064F008ACB28 /* ExSlideMenuController.swift in Sources */,
 				66A3BD2E1F70D21200783BA5 /* PagingResponse.swift in Sources */,

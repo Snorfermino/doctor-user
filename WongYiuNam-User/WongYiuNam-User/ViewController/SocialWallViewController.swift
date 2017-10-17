@@ -38,7 +38,7 @@ class SocialWallViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItem(title: "Social Wall")
     }
     
     @objc func refresh() {

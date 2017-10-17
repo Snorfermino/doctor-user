@@ -30,6 +30,6 @@ class UserProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBarItem()
+        setNavigationBarItem(title: "User Profile")
     }
 }

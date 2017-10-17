@@ -17,7 +17,7 @@ class AboutUsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItem(title: "About Us")
     }
     
     func loadWebView() {

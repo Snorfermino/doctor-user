@@ -115,7 +115,8 @@ class SignInViewController: BaseViewController {
                 Utils.showAlert(title: "Error !!!", message: error, viewController: self)
             }
         }
-        ApiManager.login(email: emailAddressTextField.text!, password: passwordTextField.text!, completion: completion)
+        //ApiManager.login(email: emailAddressTextField.text!, password: passwordTextField.text!, completion: completion)
+        ApiManager.login(email: "bechtelar.kiley@thiel.com", password: "12345", completion: completion)
     }
 }
 

@@ -20,7 +20,7 @@ class HelpCentreViewController: UIViewController {
         self.setNavigationBarItem()
     }
     
-    func loadWebView(){
+    func loadWebView() {
         let webView = UIWebView()
         webView.frame = self.view.bounds
         self.view.addSubview(webView)

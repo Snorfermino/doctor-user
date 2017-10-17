@@ -14,7 +14,9 @@ target 'WongYiuNam-Doctor' do
   pod 'Firebase'
   pod ‘SVProgressHUD’
   pod 'Firebase/Messaging'
-	pod 'SDWebImage'
+  pod 'SDWebImage'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'JVFloatLabeledTextField'
   target 'WongYiuNam-DoctorTests' do
     inherit! :search_paths
     # Pods for testing

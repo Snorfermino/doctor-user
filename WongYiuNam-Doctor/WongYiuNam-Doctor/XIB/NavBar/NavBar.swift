@@ -25,7 +25,7 @@ protocol NavBarDelegate {
 @IBDesignable
 class NavBar: UIView {
     @IBOutlet var contentView: UIView!
-    
+    @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var constraintWidthICLeft: NSLayoutConstraint!
     @IBOutlet weak var constraintHeightICLeft: NSLayoutConstraint!
     @IBOutlet weak var icLeft : UIImageView!
@@ -90,6 +90,10 @@ class NavBar: UIView {
         default:
             viewRight.isHidden = true
         }
+    }
+    
+    func changeTitle(forScreen title: String){
+        self.lbTitle.text = title
     }
     
     private func commonInit(){

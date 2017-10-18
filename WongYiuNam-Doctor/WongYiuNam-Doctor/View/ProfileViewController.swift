@@ -110,8 +110,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 return cell
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
-                cell.lbSkill.text = "Language"
-                cell.lbSkillInfo.text = userProfile.speciality
+                cell.lbSkill.text = "Amount Earned This Month"
+                cell.lbSkillInfo.text = userProfile.totalEarned
                 cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_earned")
                 return cell
                 

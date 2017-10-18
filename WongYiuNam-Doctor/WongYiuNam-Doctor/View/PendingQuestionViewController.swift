@@ -91,8 +91,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
             dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
             cell.lbCreatedAt.text = dateFormatter.string(from: date)
             cell.lbPatientName.text = self.viewModel.pendingQuestions[indexPath.section].patientName
-            cell.lbPatientGender.text = self.viewModel.pendingQuestions[indexPath.section].patientGender
-            cell.lbPatientDOB.text = "\(String(describing: self.viewModel.pendingQuestions[indexPath.section].patientDob!))"
+
             let url = URL(string: (self.viewModel.pendingQuestions[indexPath.section].photoUrl != nil) ? self.viewModel.pendingQuestions[indexPath.section].photoUrl! : "")
             cell.imgViewPatientSubmit.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
         }

@@ -17,7 +17,7 @@ class AnswerDetailViewController: BaseViewController {
     @IBOutlet weak var lbQuestionCreatedDate:UILabel!
     @IBOutlet weak var lbAnswerCreatedDate:UILabel!
     @IBOutlet weak var imgViewDoctorAvatar:UIImageView!
-    
+    @ibout
     @IBOutlet weak var lbDoctorName:UILabel!
     @IBOutlet weak var btnListenToAnswer:UIButton!
     
@@ -32,7 +32,7 @@ class AnswerDetailViewController: BaseViewController {
         super.setupView()
         guard answerDetailsData != nil else {return}
         lbQuestionStatus.text = (answerDetailsData.question?.status)! ? "Answered" : "Waiting for Answer"
-        lbByDoctor.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), 18"
+        lbByDoctor.text = "\(answerDetailsData.question?.patientName!), \(answerDetailsData.question?.patientGender!), 18"
         lbSymptom.text = answerDetailsData.question?.symptomType
         tvQuestion.text = answerDetailsData.question?.question
         

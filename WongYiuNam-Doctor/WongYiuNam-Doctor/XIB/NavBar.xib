@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +24,7 @@
                 <outlet property="icLeft" destination="Qcf-EX-tTT" id="5aj-SM-zzf"/>
                 <outlet property="icRight" destination="IKq-f1-xb9" id="hFh-bB-Mpt"/>
                 <outlet property="lbName" destination="dLK-zI-A1v" id="jmG-BI-8pj"/>
+                <outlet property="lbTitle" destination="Z0j-wa-20T" id="1Q1-Sj-ins"/>
                 <outlet property="viewLeft" destination="tfi-qS-nqT" id="fCG-NA-UVD"/>
                 <outlet property="viewRight" destination="Yms-jV-ayc" id="ZEu-st-OSq"/>
             </connections>

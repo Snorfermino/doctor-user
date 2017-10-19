@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -39,17 +39,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIy-u2-Ap3">
+                        <rect key="frame" x="0.0" y="0.0" width="115" height="59.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="btnCheckboxPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a4M-FT-939"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="qIy-u2-Ap3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="76O-4C-fTa"/>
+                    <constraint firstAttribute="bottom" secondItem="qIy-u2-Ap3" secondAttribute="bottom" id="817-RF-r59"/>
                     <constraint firstItem="SYr-0c-kx6" firstAttribute="leading" secondItem="xBb-GF-h6M" secondAttribute="trailing" constant="20" id="8LK-de-d9f"/>
+                    <constraint firstItem="qIy-u2-Ap3" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:3" id="CfG-fy-kQO"/>
                     <constraint firstItem="xBb-GF-h6M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="ENV-J5-g1z"/>
                     <constraint firstItem="xBb-GF-h6M" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="18:345" id="NCi-FT-8KZ"/>
+                    <constraint firstItem="qIy-u2-Ap3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gGq-BG-8up"/>
                     <constraint firstItem="SYr-0c-kx6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hW2-4B-ZFz"/>
                     <constraint firstItem="xBb-GF-h6M" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nLN-7q-0UI"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnCheckbox" destination="qIy-u2-Ap3" id="FZQ-aq-fZU"/>
                 <outlet property="checkbox" destination="xBb-GF-h6M" id="8lh-7B-maW"/>
             </connections>
         </tableViewCell>

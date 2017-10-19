@@ -25,6 +25,7 @@ class AnswerHistoryViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
+        navBar.lbTitle.text = "Answer History"
         SVProgressHUD.show()
         setupTableView()
         viewModel.getAnswerHistoryList()
@@ -32,8 +33,8 @@ class AnswerHistoryViewController: BaseViewController {
     func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerHistoryCell")
         
-        tableView.estimatedRowHeight = 230
-        tableView.rowHeight = 230 / 667 * UIScreen.main.bounds.height
+        tableView.estimatedRowHeight = 340
+        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
     }
     
@@ -58,10 +59,14 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerHistoryCell") as! AnswerHistoryCell
         if viewModel.answerHistory.count > 0 {
             cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question?.question
-            let date = Date(timeIntervalSince1970: Double(self.viewModel.answerHistory[indexPath.section].createdAt!))
+            let dateCreated = Date(timeIntervalSince1970: Double(self.viewModel.answerHistory[indexPath.section].createdAt!))
+            let dateAnswered = Date(timeIntervalSince1970: Double((self.viewModel.answerHistory[indexPath.section].doctor?.createdAt)!))
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
-            cell.lbCreatedAt.text = dateFormatter.string(from: date)
+            cell.lbPatientName.text = self.viewModel.answerHistory[indexPath.section].question?.patientName
+            cell.lbDoctorName.text = self.viewModel.answerHistory[indexPath.section].doctor?.name
+            cell.lbAnsweredAt.text = dateFormatter.string(from: dateAnswered)
+            cell.lbCreatedAt.text = dateFormatter.string(from: dateCreated)
         }
         cell.tvQuestion.isEditable = false
         cell.tvQuestion.isScrollEnabled = false

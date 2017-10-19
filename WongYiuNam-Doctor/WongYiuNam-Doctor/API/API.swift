@@ -32,7 +32,8 @@ extension API {
                     "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
 
         default :
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
+            "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
         }
         
     }

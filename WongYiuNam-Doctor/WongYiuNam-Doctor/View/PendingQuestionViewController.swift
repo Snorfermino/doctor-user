@@ -26,7 +26,7 @@ class PendingQuestionViewController: BaseViewController {
         SVProgressHUD.show()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
-        
+        navBar.lbTitle.text = "Pending Questions"
         setupTableView()
     }
     

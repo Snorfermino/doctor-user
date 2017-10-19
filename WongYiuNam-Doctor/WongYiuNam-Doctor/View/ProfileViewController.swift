@@ -17,6 +17,9 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var lbQualifications:UILabel!
     @IBOutlet weak var btnAvailable:WYNCheckBox!
     @IBOutlet weak var lbEarned:UILabel!
+    @IBOutlet weak var viewOnlineIndicator:UIView!
+    @IBOutlet weak var viewPendingQuestionNoti:UIView!
+    @IBOutlet weak var lbPendingQuestion:UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -26,11 +29,11 @@ class ProfileViewController: BaseViewController {
     
     override func setupView() {
         super.setupView()
-        //        navBar.isHidden = true
+
         setupTableVIew()
         navBar.leftNavBar = .none
         navBar.rightNavBar = .logout
-        
+        navBar.lbTitle.text = "Physician Profile"
         let userProfile = UserLoginInfo.shared.userInfo
         let avatarURL = URL(string: userProfile.avatar!)
         imageViewAvatar.sd_setImage(with: avatarURL , placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed]) { (image, error, cacheType, url) in
@@ -38,6 +41,13 @@ class ProfileViewController: BaseViewController {
         }
         
         lbName.text = userProfile.name!
+        if userProfile.pendingQuestions! > 0 {
+            viewPendingQuestionNoti.isHidden = false
+            lbPendingQuestion.text = "\(userProfile.pendingQuestions!)"
+        } else {
+            viewPendingQuestionNoti.isHidden = true
+        }
+        viewOnlineIndicator.isHidden = true 
 //        lbSpeciality.text = userProfile.speciality!
 //        lbQualifications.text = userProfile.qualifications!
 //        btnAvailable.isSelected = userProfile.online!
@@ -69,6 +79,12 @@ class ProfileViewController: BaseViewController {
     }
     
 }
+extension ProfileViewController: WYNCheckBoxDelegate{
+    func WYNCheckBoxClicked(isSelected: Bool) {
+        viewOnlineIndicator.isHidden = !isSelected
+        
+    }
+}
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -87,6 +103,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AvailableToAnswerCell") as! AvailableToAnswerCell
             cell.isAvailable = userProfile.online!
+            cell.checkbox.delegate = self
             return cell
         default:
             switch indexPath.row {
@@ -121,6 +138,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

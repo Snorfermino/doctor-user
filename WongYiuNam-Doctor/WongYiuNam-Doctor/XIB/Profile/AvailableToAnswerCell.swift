@@ -10,13 +10,14 @@ import UIKit
 
 class AvailableToAnswerCell: UITableViewCell {
     
+    @IBOutlet weak var btnCheckbox: UIButton!
     @IBOutlet weak var checkbox: WYNCheckBox!
     var isAvailable: Bool = false
-//    {
-//        didSet{
-//            checkbox.isSelected = isAvailable
-//        }
-//    }
+    {
+        didSet{
+            checkbox.isSelected = isAvailable
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +28,10 @@ class AvailableToAnswerCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func btnCheckboxPressed(_ sender: Any) {
+        checkbox.isSelected = !checkbox.isSelected
+        isAvailable = checkbox.isSelected
     }
     
 }

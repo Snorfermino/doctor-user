@@ -13,12 +13,10 @@ public struct WYNAnswerHistory: Mappable {
     private struct SerializationKeys {
         static let data = "data"
         static let path = "path"
-        static let prevPageUrl = "prev_page_url"
         static let from = "from"
         static let total = "total"
         static let lastPage = "last_page"
         static let perPage = "per_page"
-        static let nextPageUrl = "next_page_url"
         static let to = "to"
         static let currentPage = "current_page"
     }
@@ -26,12 +24,10 @@ public struct WYNAnswerHistory: Mappable {
     // MARK: Properties
     public var data: [WYNData]?
     public var path: String?
-    public var prevPageUrl: String?
     public var from: Int?
     public var total: Int?
     public var lastPage: Int?
     public var perPage: Int?
-    public var nextPageUrl: String?
     public var to: Int?
     public var currentPage: Int?
     
@@ -49,12 +45,10 @@ public struct WYNAnswerHistory: Mappable {
     public mutating func mapping(map: Map) {
         data <- map[SerializationKeys.data]
         path <- map[SerializationKeys.path]
-        prevPageUrl <- map[SerializationKeys.prevPageUrl]
         from <- map[SerializationKeys.from]
         total <- map[SerializationKeys.total]
         lastPage <- map[SerializationKeys.lastPage]
         perPage <- map[SerializationKeys.perPage]
-        nextPageUrl <- map[SerializationKeys.nextPageUrl]
         to <- map[SerializationKeys.to]
         currentPage <- map[SerializationKeys.currentPage]
     }
@@ -64,22 +58,34 @@ extension WYNAnswerHistory{
         
         // MARK: Declaration for string constants to be used to decode and also serialize.
         private struct SerializationKeys {
-            static let id = "id"
+            static let questionId = "question_id"
             static let audioUrl = "audio_url"
-            static let createdAt = "created_at"
-            static let listentCount = "listent_count"
-            static let duration = "duration"
+            static let doctorId = "doctor_id"
+            static let date = "date"
+            static let listenCount = "listen_count"
             static let isFree = "is_free"
+            static let viewCount = "view_count"
+            static let id = "id"
+            static let createdAt = "created_at"
+            static let answer = "answer"
+            static let doctor = "doctor"
+            static let duration = "duration"
             static let question = "question"
         }
         
         // MARK: Properties
-        public var id: Int?
+        public var questionId: Int?
         public var audioUrl: String?
-        public var createdAt: Int?
-        public var listentCount: Int?
-        public var duration: Int?
+        public var doctorId: Int?
+        public var date: Int?
+        public var listenCount: Int?
         public var isFree: Bool? = false
+        public var viewCount: Int?
+        public var id: Int?
+        public var createdAt: Int?
+        public var answer: String?
+        public var doctor: WYNDoctor?
+        public var duration: Int?
         public var question: WYNQuestion?
         
         // MARK: ObjectMapper Initializers
@@ -94,13 +100,19 @@ extension WYNAnswerHistory{
         ///
         /// - parameter map: A mapping from ObjectMapper.
         public mutating func mapping(map: Map) {
-            id <- map[SerializationKeys.id]
+            questionId <- map[SerializationKeys.questionId]
             audioUrl <- map[SerializationKeys.audioUrl]
-            createdAt <- map[SerializationKeys.createdAt]
-            listentCount <- map[SerializationKeys.listentCount]
-            duration <- map[SerializationKeys.duration]
+            doctorId <- map[SerializationKeys.doctorId]
+            date <- map[SerializationKeys.date]
+            listenCount <- map[SerializationKeys.listenCount]
             isFree <- map[SerializationKeys.isFree]
+            viewCount <- map[SerializationKeys.viewCount]
+            id <- map[SerializationKeys.id]
+            createdAt <- map[SerializationKeys.createdAt]
+            answer <- map[SerializationKeys.answer]
+            doctor <- map[SerializationKeys.doctor]
+            duration <- map[SerializationKeys.duration]
             question <- map[SerializationKeys.question]
         }
-}
+    }
 }

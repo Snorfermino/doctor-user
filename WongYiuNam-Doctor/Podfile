@@ -12,7 +12,7 @@ target 'WongYiuNam-Doctor' do
   pod 'Moya-ObjectMapper'
   pod 'IBAnimatable'
   pod 'Firebase'
-  pod ‘SVProgressHUD’
+  pod 'SVProgressHUD'
   pod 'Firebase/Messaging'
   pod 'SDWebImage'
   pod 'JVFloatLabeledTextField'

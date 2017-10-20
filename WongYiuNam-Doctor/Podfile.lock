@@ -55,7 +55,6 @@ PODS:
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
-  - SkyFloatingLabelTextField (3.2.1)
   - SVProgressHUD (2.2.1)
 
 DEPENDENCIES:
@@ -68,7 +67,6 @@ DEPENDENCIES:
   - Moya
   - Moya-ObjectMapper
   - SDWebImage
-  - SkyFloatingLabelTextField (~> 3.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -89,9 +87,8 @@ SPEC CHECKSUMS:
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
-  SkyFloatingLabelTextField: 71d28906024e7d7e4460099b342f3ca7036a2e24
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
 
-PODFILE CHECKSUM: a0e761fc3627b0a47d96677ebe8d00310284ea60
+PODFILE CHECKSUM: 45c12d3c15278a0fd1d95c24a556260511b26933
 
 COCOAPODS: 1.3.1

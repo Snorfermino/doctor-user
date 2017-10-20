@@ -8,7 +8,6 @@
 
 import UIKit
 import SVProgressHUD
-import SkyFloatingLabelTextField
 import JVFloatLabeledTextField
 class LoginViewController: BaseViewController {
     

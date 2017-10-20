@@ -17,8 +17,9 @@ class AnswerDetailViewController: BaseViewController {
     @IBOutlet weak var lbQuestionCreatedDate:UILabel!
     @IBOutlet weak var lbAnswerCreatedDate:UILabel!
     @IBOutlet weak var imgViewDoctorAvatar:UIImageView!
-    @ibout
+    @IBOutlet weak var lbPatientName: UILabel!
     @IBOutlet weak var lbDoctorName:UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnListenToAnswer:UIButton!
     
     var answerDetailsData: WYNAnswerHistory.WYNData!
@@ -28,14 +29,33 @@ class AnswerDetailViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
 
+    func setupTableView(){
+        tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerDetail")
+
+        tableView.estimatedRowHeight = 340
+        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
+        tableView.separatorStyle = .none
+        
+    }
+
     override func setupView() {
         super.setupView()
+        setupTableView()
         guard answerDetailsData != nil else {return}
+        
         lbQuestionStatus.text = (answerDetailsData.question?.status)! ? "Answered" : "Waiting for Answer"
-        lbByDoctor.text = "\(answerDetailsData.question?.patientName!), \(answerDetailsData.question?.patientGender!), 18"
+
+        let now = Date()
+        let birthday: Date = Date(timeIntervalSince1970: Double((answerDetailsData.question?.patientDob)!))
+        let calendar = Calendar.current
+
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
+        let age = ageComponents.year!
+
+        lbPatientDetails.text = "\(answerDetailsData.question?.patientName!), \(answerDetailsData.question?.patientGender!), \(age)"
         lbSymptom.text = answerDetailsData.question?.symptomType
         tvQuestion.text = answerDetailsData.question?.question
-        
+        lbByDoctor.text = answerDetailsData.doctor?.name
         var date = Date(timeIntervalSince1970: Double((answerDetailsData.question?.createdAt)!))
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
@@ -44,5 +64,46 @@ class AnswerDetailViewController: BaseViewController {
         date = Date(timeIntervalSince1970: Double((answerDetailsData.createdAt)!))
         lbAnswerCreatedDate.text = dateFormatter.string(from: date)
         
+    }
+}
+extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let footer = UIView()
+        footer.backgroundColor = UIColor.clear
+        return footer
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerDetail") as! AnswerHistoryCell
+
+            cell.tvQuestion.text = self.answerDetailsData.question?.question
+        let dateCreated = Date(timeIntervalSince1970: Double((self.answerDetailsData.question?.createdAt)!))
+            let dateAnswered = Date(timeIntervalSince1970: Double((self.answerDetailsData.doctor?.createdAt)!))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm MMMM dd yyyy"
+            cell.lbPatientName.text = self.answerDetailsData.question?.patientName
+            cell.lbDoctorName.text = self.answerDetailsData.doctor?.name
+            cell.lbAnsweredAt.text = dateFormatter.string(from: dateAnswered)
+            cell.lbCreatedAt.text = dateFormatter.string(from: dateCreated)
+
+        cell.tvQuestion.isEditable = false
+        cell.tvQuestion.isScrollEnabled = false
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("soomething")
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }

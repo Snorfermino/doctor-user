@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0326065E1F9A2BA0006D611D /* SanFranciscoText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0326065D1F9A2B9E006D611D /* SanFranciscoText-Semibold.otf */; };
 		0B116CF25F73155659C73B0C /* Pods_WongYiuNam_DoctorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */; };
 		182F05C9F1E2EAFC2DA655DA /* Pods_WongYiuNam_Doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */; };
 		66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0326065D1F9A2B9E006D611D /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-Semibold.otf"; path = "Resources/Font/SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
 		15FF0649DD0E7EB7825BC6E9 /* Pods-WongYiuNam-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +318,7 @@
 		8433E5321F67CE9B00C5AC21 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				0326065D1F9A2B9E006D611D /* SanFranciscoText-Semibold.otf */,
 				847BFF711F94C844004C908A /* SanFranciscoText-Regular.otf */,
 				84A834521F94B8FF00FE6EA8 /* SanFranciscoDisplay-Regular.otf */,
 				843681EE1F94B177004C750C /* Montserrat-Medium.ttf */,
@@ -504,7 +507,6 @@
 				TargetAttributes = {
 					66EEFD521F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8AN899D996;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -572,6 +574,7 @@
 				843C2B7A1F7A236200F87A30 /* PendingQuestion.xib in Resources */,
 				847BFF701F94C040004C908A /* DoctorInfoCell.xib in Resources */,
 				847BFF6C1F94BFED004C908A /* AvailableToAnswerCell.xib in Resources */,
+				0326065E1F9A2BA0006D611D /* SanFranciscoText-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +610,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		383A8993F5D107A73F539D8F /* [CP] Copy Pods Resources */ = {
@@ -697,7 +700,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DC7110BAA1131552E243912B /* [CP] Embed Pods Frameworks */ = {
@@ -760,7 +763,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

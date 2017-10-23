@@ -97,7 +97,8 @@ extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
     }
     func getAnswerHistoryListFailed () {
 //        hideIndicator()
-             SVProgressHUD.dismiss()
+
+         SVProgressHUD.dismiss()
         alert(title: "Error", message: "Answer History not found")
         tableView.reloadData()
     }

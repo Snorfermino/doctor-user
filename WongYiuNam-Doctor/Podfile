@@ -16,6 +16,7 @@ target 'WongYiuNam-Doctor' do
   pod 'Firebase/Messaging'
   pod 'SDWebImage'
   pod 'DateToolsSwift'
+  pod 'JVFloatLabeledTextField'
   
   target 'WongYiuNam-DoctorTests' do
     inherit! :search_paths

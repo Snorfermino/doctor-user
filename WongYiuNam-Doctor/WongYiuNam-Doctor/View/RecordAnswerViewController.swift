@@ -22,6 +22,7 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var lbCreatedDate:UILabel!
     @IBOutlet weak var lbPatientGender:UILabel!
     @IBOutlet weak var lbPatientDOB:UILabel!
+    @IBOutlet weak var lbSymptom:UILabel!
     @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
     var viewModel: RecordAnswerViewModel!
     var questionInfo: WYNQuestion!

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0326065E1F9A2BA0006D611D /* SanFranciscoText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0326065D1F9A2B9E006D611D /* SanFranciscoText-Semibold.otf */; };
 		0B116CF25F73155659C73B0C /* Pods_WongYiuNam_DoctorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */; };
 		182F05C9F1E2EAFC2DA655DA /* Pods_WongYiuNam_Doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE7FF81F0C4B16C8B9B56A /* Pods_WongYiuNam_Doctor.framework */; };
 		66EEFD571F5FDDFA00C5C77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */; };
@@ -25,6 +26,10 @@
 		8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5351F67ECD600C5AC21 /* BaseViewController.swift */; };
 		8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */; };
 		84351A391F7B868800E73657 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84351A381F7B868800E73657 /* AudioPlayerManager.swift */; };
+		843681E21F948D18004C750C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843681E11F948D18004C750C /* StringExtension.swift */; };
+		843681F01F94B178004C750C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843681ED1F94B177004C750C /* Montserrat-SemiBold.ttf */; };
+		843681F11F94B178004C750C /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843681EE1F94B177004C750C /* Montserrat-Medium.ttf */; };
+		843681F21F94B178004C750C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843681EF1F94B177004C750C /* Montserrat-Regular.ttf */; };
 		843C2B711F7A0DC800F87A30 /* PendingQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */; };
 		843C2B731F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */; };
 		843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */; };
@@ -44,9 +49,15 @@
 		845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */; };
 		8463B9321F86153D00619FFA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9311F86153D00619FFA /* UIViewExtension.swift */; };
 		8463B9341F86169A00619FFA /* PatientPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B9331F86169A00619FFA /* PatientPhotoViewController.swift */; };
+		847BFF6B1F94BFED004C908A /* AvailableToAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BFF691F94BFED004C908A /* AvailableToAnswerCell.swift */; };
+		847BFF6C1F94BFED004C908A /* AvailableToAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847BFF6A1F94BFED004C908A /* AvailableToAnswerCell.xib */; };
+		847BFF6F1F94C040004C908A /* DoctorInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BFF6D1F94C040004C908A /* DoctorInfoCell.swift */; };
+		847BFF701F94C040004C908A /* DoctorInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847BFF6E1F94C040004C908A /* DoctorInfoCell.xib */; };
+		847BFF721F94C844004C908A /* SanFranciscoText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 847BFF711F94C844004C908A /* SanFranciscoText-Regular.otf */; };
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */; };
 		848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E301F7DED2700BB502A /* UserLoginInfo.swift */; };
+		84A834531F94B90100FE6EA8 /* SanFranciscoDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84A834521F94B8FF00FE6EA8 /* SanFranciscoDisplay-Regular.otf */; };
 		84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BC1F68E3CD00F2ED7A /* API.swift */; };
 		84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */; };
 		84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871C01F691BFF00F2ED7A /* ColorExtension.swift */; };
@@ -74,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0326065D1F9A2B9E006D611D /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-Semibold.otf"; path = "Resources/Font/SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
 		15FF0649DD0E7EB7825BC6E9 /* Pods-WongYiuNam-Doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-Doctor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-Doctor/Pods-WongYiuNam-Doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		38F45DCE1767B690EDAE3E46 /* Pods_WongYiuNam_DoctorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,10 +111,13 @@
 		8433E5291F679C3800C5AC21 /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NavBar.xib; path = XIB/NavBar.xib; sourceTree = "<group>"; };
 		8433E52B1F67B23200C5AC21 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = XIB/NavBar/NavBar.swift; sourceTree = "<group>"; };
 		8433E52F1F67C4E700C5AC21 /* ConstraintExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstraintExtension.swift; path = Extension/ConstraintExtension.swift; sourceTree = "<group>"; };
-		8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		8433E5351F67ECD600C5AC21 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = View/BaseViewController.swift; sourceTree = "<group>"; };
 		8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = Extension/TextFieldExtension.swift; sourceTree = "<group>"; };
 		84351A381F7B868800E73657 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioPlayerManager.swift; path = Extension/AudioPlayerManager.swift; sourceTree = "<group>"; };
+		843681E11F948D18004C750C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Extension/StringExtension.swift; sourceTree = "<group>"; };
+		843681ED1F94B177004C750C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "Resources/Font/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		843681EE1F94B177004C750C /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "Resources/Font/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		843681EF1F94B177004C750C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "Resources/Font/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		843C2B701F7A0DC800F87A30 /* PendingQuestionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestionViewModel.swift; path = "View Model/PendingQuestionViewModel.swift"; sourceTree = "<group>"; };
 		843C2B721F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WYNDotorPendingQuestion.swift; path = Model/WYNDotorPendingQuestion.swift; sourceTree = "<group>"; };
 		843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNLogedInUserInfo.swift; sourceTree = "<group>"; };
@@ -122,9 +137,15 @@
 		845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FreeForUserAlert.xib; path = XIB/FreeForUsersAlert/FreeForUserAlert.xib; sourceTree = "<group>"; };
 		8463B9311F86153D00619FFA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Extension/UIViewExtension.swift; sourceTree = "<group>"; };
 		8463B9331F86169A00619FFA /* PatientPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientPhotoViewController.swift; path = View/PatientPhotoViewController.swift; sourceTree = "<group>"; };
+		847BFF691F94BFED004C908A /* AvailableToAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvailableToAnswerCell.swift; path = XIB/Profile/AvailableToAnswerCell.swift; sourceTree = "<group>"; };
+		847BFF6A1F94BFED004C908A /* AvailableToAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AvailableToAnswerCell.xib; path = XIB/Profile/AvailableToAnswerCell.xib; sourceTree = "<group>"; };
+		847BFF6D1F94C040004C908A /* DoctorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorInfoCell.swift; path = XIB/Profile/DoctorInfoCell.swift; sourceTree = "<group>"; };
+		847BFF6E1F94C040004C908A /* DoctorInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DoctorInfoCell.xib; path = XIB/Profile/DoctorInfoCell.xib; sourceTree = "<group>"; };
+		847BFF711F94C844004C908A /* SanFranciscoText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-Regular.otf"; path = "Resources/Font/SanFranciscoText-Regular.otf"; sourceTree = "<group>"; };
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerDetailViewController.swift; path = View/AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		848F0E301F7DED2700BB502A /* UserLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginInfo.swift; path = API/UserLoginInfo.swift; sourceTree = "<group>"; };
+		84A834521F94B8FF00FE6EA8 /* SanFranciscoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoDisplay-Regular.otf"; path = "Resources/Font/SanFranciscoDisplay-Regular.otf"; sourceTree = "<group>"; };
 		84A871BC1F68E3CD00F2ED7A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
 		84A871BE1F691AAD00F2ED7A /* WYNCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WYNCheckBox.swift; path = Extension/WYNCheckBox.swift; sourceTree = "<group>"; };
 		84A871C01F691BFF00F2ED7A /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = Extension/ColorExtension.swift; sourceTree = "<group>"; };
@@ -249,6 +270,7 @@
 		8433E5281F679C1700C5AC21 /* XIB */ = {
 			isa = PBXGroup;
 			children = (
+				847BFF681F94BFAA004C908A /* Profile */,
 				843C2B851F7A698000F87A30 /* AnswerHistory */,
 				845CD2331F70ED4F0063ACB8 /* FreeForUsersAlert */,
 				84A871C41F69303800F2ED7A /* PendingQuestion */,
@@ -276,6 +298,7 @@
 				84093AF01F6F9B5000BE17AF /* AudioRecorderManager.swift */,
 				84351A381F7B868800E73657 /* AudioPlayerManager.swift */,
 				8463B9311F86153D00619FFA /* UIViewExtension.swift */,
+				843681E11F948D18004C750C /* StringExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -291,7 +314,12 @@
 		8433E5321F67CE9B00C5AC21 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				8433E5331F67CEA700C5AC21 /* Montserrat-Regular.ttf */,
+				0326065D1F9A2B9E006D611D /* SanFranciscoText-Semibold.otf */,
+				847BFF711F94C844004C908A /* SanFranciscoText-Regular.otf */,
+				84A834521F94B8FF00FE6EA8 /* SanFranciscoDisplay-Regular.otf */,
+				843681EE1F94B177004C750C /* Montserrat-Medium.ttf */,
+				843681EF1F94B177004C750C /* Montserrat-Regular.ttf */,
+				843681ED1F94B177004C750C /* Montserrat-SemiBold.ttf */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -351,6 +379,17 @@
 				845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */,
 			);
 			name = FreeForUsersAlert;
+			sourceTree = "<group>";
+		};
+		847BFF681F94BFAA004C908A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				847BFF691F94BFED004C908A /* AvailableToAnswerCell.swift */,
+				847BFF6A1F94BFED004C908A /* AvailableToAnswerCell.xib */,
+				847BFF6D1F94C040004C908A /* DoctorInfoCell.swift */,
+				847BFF6E1F94C040004C908A /* DoctorInfoCell.xib */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		84A871B91F68E36100F2ED7A /* API */ = {
@@ -462,7 +501,6 @@
 				TargetAttributes = {
 					66EEFD521F5FDDFA00C5C77A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8AN899D996;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -516,13 +554,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				843C2B891F7A69B400F87A30 /* AnswerHistoryCell.xib in Resources */,
+				843681F21F94B178004C750C /* Montserrat-Regular.ttf in Resources */,
 				841284CB1F821DA700DA7053 /* GoogleService-Info.plist in Resources */,
 				66EEFD611F5FDDFA00C5C77A /* LaunchScreen.storyboard in Resources */,
 				66EEFD5E1F5FDDFA00C5C77A /* Assets.xcassets in Resources */,
+				847BFF721F94C844004C908A /* SanFranciscoText-Regular.otf in Resources */,
 				8433E52A1F679C3800C5AC21 /* NavBar.xib in Resources */,
 				845CD2351F70ED760063ACB8 /* FreeForUserAlert.xib in Resources */,
+				843681F11F94B178004C750C /* Montserrat-Medium.ttf in Resources */,
+				843681F01F94B178004C750C /* Montserrat-SemiBold.ttf in Resources */,
+				84A834531F94B90100FE6EA8 /* SanFranciscoDisplay-Regular.otf in Resources */,
 				8433E5261F679BE000C5AC21 /* Main.storyboard in Resources */,
 				843C2B7A1F7A236200F87A30 /* PendingQuestion.xib in Resources */,
+				847BFF701F94C040004C908A /* DoctorInfoCell.xib in Resources */,
+				847BFF6C1F94BFED004C908A /* AvailableToAnswerCell.xib in Resources */,
+				0326065E1F9A2BA0006D611D /* SanFranciscoText-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +649,7 @@
 				"${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
+				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -619,6 +666,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -731,6 +779,7 @@
 				84093AEC1F6BC0F200BE17AF /* RecordAnswerViewController.swift in Sources */,
 				8463B9321F86153D00619FFA /* UIViewExtension.swift in Sources */,
 				84093AF11F6F9B5000BE17AF /* AudioRecorderManager.swift in Sources */,
+				847BFF6F1F94C040004C908A /* DoctorInfoCell.swift in Sources */,
 				84351A391F7B868800E73657 /* AudioPlayerManager.swift in Sources */,
 				848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */,
 				848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */,
@@ -748,9 +797,11 @@
 				843C2B841F7A600D00F87A30 /* AnswerHistoryViewModel.swift in Sources */,
 				84A871C31F69228900F2ED7A /* ProfileViewController.swift in Sources */,
 				8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */,
+				847BFF6B1F94BFED004C908A /* AvailableToAnswerCell.swift in Sources */,
 				84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */,
 				8463B9341F86169A00619FFA /* PatientPhotoViewController.swift in Sources */,
 				8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */,
+				843681E21F948D18004C750C /* StringExtension.swift in Sources */,
 				843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */,
 				84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */,
 				84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */,

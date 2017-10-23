@@ -16,6 +16,7 @@ class WYNCheckBox: UIButton {
         didSet {
             let image = isSelected ? #imageLiteral(resourceName: "ic_boxChecked") : #imageLiteral(resourceName: "ic_boxUnchecked")
             setImage(image, for: .normal)
+            delegate?.WYNCheckBoxClicked(isSelected: isSelected)
         }
     }
     

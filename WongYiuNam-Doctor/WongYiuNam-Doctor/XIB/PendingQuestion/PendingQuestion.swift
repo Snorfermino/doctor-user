@@ -12,10 +12,11 @@ class PendingQuestion: UITableViewCell {
 
     @IBOutlet weak var lbQuestion:UILabel!
     @IBOutlet weak var lbCreatedAt:UILabel!
+    @IBOutlet weak var lbAnsweredAt:UILabel!
     @IBOutlet weak var lbPatientName:UILabel!
-    @IBOutlet weak var lbPatientGender:UILabel!
-    @IBOutlet weak var lbPatientDOB:UILabel!
-    @IBOutlet weak var imgViewAvatar:AnimatableImageView!
+    @IBOutlet weak var lbDoctorName:UILabel!
+    @IBOutlet weak var lbListenedCount:UILabel!
+    @IBOutlet weak var imgViewDoctorAvatar:AnimatableImageView!
     @IBOutlet weak var imgViewPatientSubmit:UIImageView!
     
 }

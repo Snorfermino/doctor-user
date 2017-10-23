@@ -5,11 +5,16 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavBar" customModule="WongYiuNam_Doctor" customModuleProvider="target">
             <connections>
@@ -19,6 +24,7 @@
                 <outlet property="icLeft" destination="Qcf-EX-tTT" id="5aj-SM-zzf"/>
                 <outlet property="icRight" destination="IKq-f1-xb9" id="hFh-bB-Mpt"/>
                 <outlet property="lbName" destination="dLK-zI-A1v" id="jmG-BI-8pj"/>
+                <outlet property="lbTitle" destination="Z0j-wa-20T" id="1Q1-Sj-ins"/>
                 <outlet property="viewLeft" destination="tfi-qS-nqT" id="fCG-NA-UVD"/>
                 <outlet property="viewRight" destination="Yms-jV-ayc" id="ZEu-st-OSq"/>
             </connections>
@@ -28,12 +34,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4JD-vQ-dW1">
-                    <rect key="frame" x="156" y="627" width="62" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="4JD-vQ-dW1" secondAttribute="height" multiplier="62.2:40" id="NW6-yn-Lby"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-qS-nqT">
                     <rect key="frame" x="0.0" y="617" width="100" height="50"/>
                     <subviews>
@@ -84,25 +84,29 @@
                         <constraint firstItem="IKq-f1-xb9" firstAttribute="centerY" secondItem="Yms-jV-ayc" secondAttribute="centerY" id="xKo-Lf-ApG"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0j-wa-20T">
+                    <rect key="frame" x="172.5" y="633" width="30" height="19"/>
+                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.83203840255737305" green="0.29803061485290527" blue="0.24436327815055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="IKq-f1-xb9" firstAttribute="width" secondItem="c0c-Ta-zjP" secondAttribute="width" multiplier="19:375" id="4Pz-LR-NQX"/>
                 <constraint firstItem="tfi-qS-nqT" firstAttribute="leading" secondItem="c0c-Ta-zjP" secondAttribute="leading" id="5eX-cD-eIl"/>
-                <constraint firstItem="4JD-vQ-dW1" firstAttribute="width" secondItem="c0c-Ta-zjP" secondAttribute="width" multiplier="62.2:375" id="5lo-40-iPX"/>
+                <constraint firstItem="Z0j-wa-20T" firstAttribute="centerY" secondItem="Qcf-EX-tTT" secondAttribute="centerY" id="Dbg-cO-jiC"/>
                 <constraint firstItem="tfi-qS-nqT" firstAttribute="width" secondItem="c0c-Ta-zjP" secondAttribute="width" multiplier="100:375" id="Kdl-eh-nBF"/>
-                <constraint firstAttribute="bottom" secondItem="4JD-vQ-dW1" secondAttribute="bottom" id="Vxs-mv-BKW"/>
                 <constraint firstAttribute="bottom" secondItem="tfi-qS-nqT" secondAttribute="bottom" id="Wdr-tT-Jiu"/>
                 <constraint firstAttribute="trailing" secondItem="Yms-jV-ayc" secondAttribute="trailing" id="Xyu-Wh-reY"/>
+                <constraint firstItem="Z0j-wa-20T" firstAttribute="centerX" secondItem="c0c-Ta-zjP" secondAttribute="centerX" id="bmU-Cl-80u"/>
                 <constraint firstItem="Yms-jV-ayc" firstAttribute="width" secondItem="tfi-qS-nqT" secondAttribute="width" id="cCP-K7-fut"/>
                 <constraint firstAttribute="bottom" secondItem="Yms-jV-ayc" secondAttribute="bottom" id="pMC-6T-J0x"/>
-                <constraint firstItem="4JD-vQ-dW1" firstAttribute="centerX" secondItem="c0c-Ta-zjP" secondAttribute="centerX" id="y6v-r9-8N2"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="ic_back" width="12" height="20"/>
-        <image name="ic_logo" width="171" height="110"/>
-        <image name="ic_logout" width="19" height="18"/>
+        <image name="ic_back" width="13" height="22"/>
+        <image name="ic_logout" width="18" height="19"/>
     </resources>
 </document>

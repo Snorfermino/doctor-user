@@ -62,6 +62,29 @@ class ApiManager {
         }
     }
     
+    static func getPaymentToken(completion: @escaping ((String?, String?) -> Void)){
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.getPaymentToken) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let brainTreeToken = try response.mapObject(BrainTreeToken.self)
+                    completion(brainTreeToken.token, nil)
+                } catch {
+                    do {
+                        let err = try response.mapJSON() as! [String]
+                        completion(nil, err[0])
+                    } catch {
+                        completion(nil, "Error login")
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
     static func loginViaFacebook(email: String, name: String, id: String, completion: @escaping ((User?, String?) -> Void)) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.loginViaFacebook(email: email, name: name, fbId: id)) { (result) in
@@ -86,7 +109,19 @@ class ApiManager {
         }
     }
     
-    static func askaQuestion(question: Question, completion:  (() -> Void)?) {
+    static func logout() {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.logout) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    static func askaQuestion(question: QuestionUpload, completion:  (() -> Void)?) {
         let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
         provider.request(.askaQuestion(question: question)) { (result) in
             switch result {
@@ -130,6 +165,35 @@ class ApiManager {
                 print(response)
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    static func updateUserProfile(user: User, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.updateUserProfile(user: user)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    static func getUserProfile(completion: @escaping ((User?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.getUserProfile) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let user = try response.mapObject(User.self)
+                    completion(user, nil)
+                } catch {
+                    completion(nil, "Cannot parse JSON")
+                }
+            case .failure(let error):
+                completion(nil, error.errorDescription)
             }
         }
     }
@@ -203,8 +267,8 @@ class ApiManager {
             case .success(let response):
                 print(response)
                 do {
-                    let data = try response.mapArray(Doctor.self)
-                    completion(data, nil)
+                    let favoriteDoctor = try response.mapObject(PagingResponse<Doctor>.self)
+                    completion(favoriteDoctor.data, nil)
                 } catch {
                     completion(nil, "Error Parse Json")
                 }
@@ -239,6 +303,72 @@ class ApiManager {
             case .failure(let error):
                 print(error)
                 completion(error.errorDescription)
+            }
+        }
+    }
+    
+    static func getFavoritesAnswers(completion: @escaping (([Answer]?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.favoritesAnswers) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let favoriteAnswer = try response.mapObject(PagingResponse<Answer>.self)
+                    completion(favoriteAnswer.data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
+            }
+        }
+    }
+    
+    static func saveFavoritesAnswers(answerId: Int, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.saveFavoritesAnswer(answerId: answerId)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error.errorDescription)
+            }
+        }
+    }
+    
+    static func deleteFavoritesAnswers(answerId: Int, completion: @escaping ((String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.deleteFavoritesAnswer(answerId: answerId)) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error.errorDescription)
+            }
+        }
+    }
+    
+    static func getFavoritesQuestions(completion: @escaping (([Question]?, String?) -> Void)) {
+        let provider = MoyaProvider<MyServerAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider.request(.favoritesQuestions) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                do {
+                    let favoriteQuestion = try response.mapObject(PagingResponse<Question>.self)
+                    completion(favoriteQuestion.data, nil)
+                } catch {
+                    completion(nil, "Error Parse Json")
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil, error.errorDescription)
             }
         }
     }

@@ -10,10 +10,17 @@ import UIKit
 
 class InviteaFriendViewController: UIViewController {
 
+    @IBOutlet weak var inviteCodeLabel: UILabel!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()    }
+        super.viewDidLoad()
+        if let code = Global.user?.info?.invitationCode {
+            inviteCodeLabel.text = code
+        }
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBarItem(title: "Invite a Friend")
     }
 }

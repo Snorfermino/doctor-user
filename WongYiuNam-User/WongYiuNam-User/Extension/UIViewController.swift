@@ -10,13 +10,17 @@ import UIKit
 
 extension UIViewController {
     
-    func setNavigationBarItem() {
+    func setNavigationBarItem(title: String? = nil) {
         addLeftBarButtonWithImage(#imageLiteral(resourceName: "nav-menu"))
-        navigationController?.navigationBar.setBackgroundImage(UIImage.from(color: UIColor(red: 246, green: 246, blue: 246)), for: UIBarMetrics.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage.from(color: UIColor(red: 202, green: 53, blue: 43)), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
-        addLogoToTitleView()
-        setRightBarButton()
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        if let title = title {
+            navigationItem.title = title
+        } else {
+            addLogoToTitleView()
+        }
         slideMenuController()?.removeLeftGestures()
         slideMenuController()?.addLeftGestures()
     }

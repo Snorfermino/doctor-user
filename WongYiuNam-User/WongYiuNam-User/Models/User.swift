@@ -10,21 +10,24 @@ import ObjectMapper
 
 struct User: Mappable {
 
-    var name: String?
+    
     var email: String!
     var createdAt: Date?
-    var fbid: String?
+    var info: UserInfo?
+    var wallet: Wallet?
     var token: String?
     
     init?(map: Map) {
         
     }
     
+    init() {}
+    
     mutating func mapping(map: Map) {
-        name <- map["name"]
-        email <- map["email"]
+        email <- map["name"]
         createdAt <- (map["created_at"], DateTransform())
-        fbid <- map["fbid"]
+        info <- map["info"]
+        wallet <- map["wallet"]
         token <- map["token"]
     }
 }

@@ -26,20 +26,23 @@ class AnswerHistoryViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
+        navBar.lbTitle.text = "Answer History"
         SVProgressHUD.show()
         setupTableView()
         viewModel.getAnswerHistoryList()
     }
     func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerHistoryCell")
-        tableView.estimatedRowHeight = 230
-        tableView.rowHeight = 230 / 667 * UIScreen.main.bounds.height
+        tableView.estimatedRowHeight = 340
+        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? AnswerDetailViewController {
-            viewController.answerDetailsData = self.selectedAnswerDetail
+            if self.selectedAnswerDetail != nil {
+                viewController.answerDetailsData = self.selectedAnswerDetail
+            }
         }
     }
 }
@@ -66,8 +69,9 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("soomething")
-        selectedAnswerDetail = self.viewModel.answerHistory[indexPath.section]
+        if viewModel.answerHistory.count > 0 {
+            selectedAnswerDetail = self.viewModel.answerHistory[indexPath.section]
+        }
         self.performSegue(withIdentifier: "AnswerDetailVC", sender: nil)
     }
     
@@ -76,7 +80,8 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.answerHistory.count
+//        return viewModel.answerHistory.count
+        return 5
     }
     
 }

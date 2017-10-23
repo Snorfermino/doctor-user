@@ -7,10 +7,20 @@
 //
 
 import UIKit
-
+protocol AnswerHistoryCellDelegate {
+    func btnPlayTapped()
+}
 class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var tvQuestion:UITextView!
-    @IBOutlet weak var imageViewAvatar: UIImageView!
+    @IBOutlet weak var imageViewDoctorProfile: UIImageView!
     @IBOutlet weak var lbPatientName: UILabel!
     @IBOutlet weak var lbCreatedAt: UILabel!
+    @IBOutlet weak var lbAnsweredAt: UILabel!
+    @IBOutlet weak var lbDoctorName: UILabel!
+    
+    var delegate: AnswerHistoryCellDelegate?
+    
+    @IBAction func btnPlayTapped(_ sender: UIButton){
+        delegate?.btnPlayTapped()
+    }
 }

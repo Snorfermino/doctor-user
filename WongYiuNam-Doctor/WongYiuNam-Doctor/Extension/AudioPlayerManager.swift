@@ -35,6 +35,24 @@ class AudioPlayerManager: NSObject {
         }
     }
     
+    func play(url:URL) {
+        print("playing \(url)")
+        
+        do {
+            self.currentPlayer = try AVAudioPlayer(contentsOf: url)
+            isPlaying = true
+            isFinished = false
+            currentPlayer?.volume = 1.0
+            currentPlayer?.play()
+            print("current play time: \(String(describing: currentPlayer?.currentTime))")
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
+        
+    }
+    
     func pause(){
         isPlaying = false
         self.currentPlayer?.pause()
@@ -44,6 +62,13 @@ class AudioPlayerManager: NSObject {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         return url!.appendingPathComponent(fileName+".m4a").path
         
+    }
+    
+    func audioFileCurrentTime() -> TimeInterval {
+        return (currentPlayer?.currentTime)!
+    }
+    func audioFileDuration() -> TimeInterval {
+        return (currentPlayer?.duration)!
     }
 }
 extension AudioPlayerManager: AVAudioPlayerDelegate{
@@ -55,4 +80,5 @@ extension AudioPlayerManager: AVAudioPlayerDelegate{
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         print(error?.localizedDescription ?? "")
     }
+
 }

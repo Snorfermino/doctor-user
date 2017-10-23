@@ -11,6 +11,7 @@ import Moya
 public enum API: TargetType{
     
     case login(email: String, passwd: String)
+    case logout
     case getUserProfile
     case getDoctorList
     case getDoctorProfile
@@ -31,7 +32,8 @@ extension API {
                     "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
 
         default :
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
+            "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
         }
         
     }
@@ -40,16 +42,18 @@ extension API {
         switch self {
         case .login:
             return "/doctor/login"
+        case .logout:
+            return "/user/logout"
         case .getPendingQuestion:
-            return "/question/pendings"
+            return "/doctor/questions/pendings"
         case .getAnswerHistory:
-            return "/answer/histories"
+            return "/doctor/answers/history"
         case .getDoctorProfile:
             return "/user"
         case .online:
             return "/doctors/online"
         case .answerQuestion:
-            return "/answer/reply"
+            return "/doctor/answers/reply"
         default:
             return "/"
         }

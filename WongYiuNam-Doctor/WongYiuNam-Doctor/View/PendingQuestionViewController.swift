@@ -28,14 +28,14 @@ class PendingQuestionViewController: BaseViewController {
         SVProgressHUD.show()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
-        
+        navBar.lbTitle.text = "Pending Questions"
         setupTableView()
     }
     
     func setupTableView(){
         tableView.register(UINib(nibName: "PendingQuestion", bundle: nil), forCellReuseIdentifier: "PendingQuestionCell")
-        tableView.estimatedRowHeight = 230
-        tableView.rowHeight = 230 / 667 * UIScreen.main.bounds.height
+        tableView.estimatedRowHeight = 340
+        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
         addTransientView()
     }
@@ -90,8 +90,6 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
             cell.lbQuestion.text = pendingQuestion.question
             cell.lbCreatedAt.text = pendingQuestion.createdAt!.format(with: "HH:mm MMMM dd yyyy")
             cell.lbPatientName.text = pendingQuestion.patientName
-            cell.lbPatientGender.text = pendingQuestion.patientGender
-            cell.lbPatientDOB.text = "\(String(describing: pendingQuestion.patientDob!))"
             cell.imgViewPatientSubmit.sd_setImage(with: pendingQuestion.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
         }
         cell.selectionStyle = .none
@@ -109,7 +107,8 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.pendingQuestions.count
+//        return viewModel.pendingQuestions.count
+        return 5
     }
     
 }

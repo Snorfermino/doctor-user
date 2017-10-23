@@ -13,15 +13,14 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadWebView()
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItem(title: "About Us")
     }
     
-    func loadWebView(){
+    func loadWebView() {
         let webView = UIWebView()
         webView.frame = self.view.bounds
         self.view.addSubview(webView)

@@ -16,11 +16,24 @@ target 'WongYiuNam-User' do
     pod 'KRProgressHUD'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+<<<<<<< HEAD
     pod 'BraintreeDropIn'
+=======
+    pod 'SJSegmentedScrollView'
+    pod 'BraintreeDropIn'
+    pod 'IQKeyboardManagerSwift'
+    pod 'DateToolsSwift'
+    
+    target 'WongYiuNam-UserTests' do
+        inherit! :search_paths
+        pod 'Firebase/Core'
+        pod 'Firebase/Messaging'
+    end
+>>>>>>> 565785f322a73b86dddb29adfb1faef99a9b162f
 end
 
 post_install do |installer|
-    swift3Pods = ["FacebookCore", "FacebookLogin", "ObjectMapper", "RxSwift", "RxCocoa", "PopupDialog", "SlideMenuControllerSwift", "SwiftyButton"]    
+    swift3Pods = ["ObjectMapper", "RxSwift", "RxCocoa", "PopupDialog", "SlideMenuControllerSwift", "SwiftyButton", "SJSegmentedScrollView"]
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |configuration|
             # these libs work now only with Swift3.2 in Xcode9

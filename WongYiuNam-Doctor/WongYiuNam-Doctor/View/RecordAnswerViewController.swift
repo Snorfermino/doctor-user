@@ -22,10 +22,15 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var lbCreatedDate:UILabel!
     @IBOutlet weak var lbPatientGender:UILabel!
     @IBOutlet weak var lbPatientDOB:UILabel!
+    @IBOutlet weak var lbSymptom:UILabel!
+    @IBOutlet weak var lbRecordDuration:UILabel!
+    @IBOutlet weak var pvRecordProgress:UIProgressView!
     @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
+    var timer: Timer!
+    var updater: CADisplayLink! = nil
     var viewModel: RecordAnswerViewModel!
     var questionInfo: WYNQuestion!
-    
+    var isRecording = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,21 +44,22 @@ class RecordAnswerViewController: BaseViewController {
         super.setupView()
         navBar.rightNavBar = .none
         navBar.leftNavBar = .back
+        navBar.lbTitle.text = "Answer Question"
+        pvRecordProgress.setProgress(0, animated: true)
         //tvQuestion.text = questionInfo.question
         //lbPatientName.text = questionInfo.patientName
         //lbPatientGender.text = questionInfo.patientGender
         //lbPatientDOB.text = "\(questionInfo.patientDob!)"
         
         //lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        guard questionInfo != nil else { return}
         imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
-        let tapGest = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        imgViewSymptomPhoto.addGestureRecognizer(tapGest)
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: [.defaultToSpeaker])
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
@@ -69,6 +75,24 @@ class RecordAnswerViewController: BaseViewController {
         }
     }
     
+    func timeStringFor(seconds : Int) -> String
+    {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour]
+        formatter.zeroFormattingBehavior = .pad
+        let output = formatter.string(from: TimeInterval(seconds))!
+        return seconds < 3600 ? output.substring(from: output.range(of: ":")!.upperBound) : output
+    }
+    
+    @objc func updateProgressBar(){
+        let currentTime = AudioPlayerManager.shared.audioFileCurrentTime()
+        let duration = AudioPlayerManager.shared.audioFileDuration()
+        let normalizedTime = Float(currentTime * 100.0 / duration)
+        lbRecordDuration.text = "\(timeStringFor(seconds:Int(currentTime)))"
+        print("========\(normalizedTime)")
+        pvRecordProgress.setProgress(normalizedTime / 100, animated: true)
+        self.view.setNeedsDisplay()
+    }
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -81,8 +105,8 @@ class RecordAnswerViewController: BaseViewController {
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
+            AVSampleRateKey: 44100,
+            AVNumberOfChannelsKey: 2,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
         
@@ -90,15 +114,13 @@ class RecordAnswerViewController: BaseViewController {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.record(forDuration: 12000)
-            btnRecord.setTitle("Stop", for: .normal)
+            isRecording = true
+            btnRecord.setImage(#imageLiteral(resourceName: "ic_stop"), for: .normal)
         } catch {
             finishRecording(success: false)
         }
     }
     
-    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
-        self.performSegue(withIdentifier: "PatientPhotoVC", sender: nil)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? PatientPhotoViewController {
@@ -111,26 +133,42 @@ class RecordAnswerViewController: BaseViewController {
         audioRecorder = nil
         
         if success {
-            btnRecord.setTitle("Re-Record answer", for: .normal)
+            btnRecord.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
         } else {
-            btnRecord.setTitle("Record answer", for: .normal)
+            btnRecord.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
         }
     }
     
     @IBAction func replayTapped(_ sender: UIButton){
-        let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
-        AudioPlayerManager.shared.play(path:path)
+        if !AudioPlayerManager.shared.isPlaying {
+            let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
+            AudioPlayerManager.shared.play(path:path)
+            //        timer = Timer(timeInterval: 1, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
+            pvRecordProgress.setProgress(0, animated: true)
+            updater = CADisplayLink(target: self, selector: Selector("updateProgressBar"))
+            updater.frameInterval = 1
+            updater.add(to: .current, forMode: .commonModes)
+        } else {
+            AudioPlayerManager.shared.pause()
+            updater.invalidate()
+        }
     }
+    
     
     @IBAction func recordTapped(_ sender: UIButton) {
         if audioRecorder == nil {
             startRecordingTemp()
         } else {
             finishRecording(success: true)
+            replayTapped(sender)
         }
+    }
+    @IBAction func cancelTapped(_ sender: UIButton) {
+        backPressed()
     }
     
     @IBAction func btnSubmitPressed(_ sender: UIButton){
+        updater.invalidate()
         let url = URL(fileURLWithPath: AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording"))
         var parameter = WYNAnswerQuestion()
         parameter?.questionID = questionInfo.id

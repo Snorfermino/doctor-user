@@ -21,7 +21,7 @@ class UserAgreementViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if navFromRegister == false {
-            self.setNavigationBarItem()
+            self.setNavigationBarItem(title: "User Agreement")
         }
     }
     

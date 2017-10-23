@@ -20,14 +20,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initSlider()
-        
-        //Demo call api
-        _ = {(newToken: String, error: String?) -> Void in
-            print(newToken)
-        }
-        //ApiManager.changePassword(oldPassword: "nhatduy", newPassword: "54321", completion: completion)
-        //ApiManager.getPostsFromFanpageFacebook()
-        //demo call api
     }
     
     func initSlider() {

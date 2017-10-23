@@ -44,8 +44,6 @@ class FavoriteViewController: SJSegmentedViewController {
             showsVerticalScrollIndicator = false
             delegate = self
         }
-        
-        title = "Favorite"
         super.viewDidLoad()
     }
     
@@ -60,7 +58,7 @@ class FavoriteViewController: SJSegmentedViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItem(title: "My Favourites")
     }
 }
 

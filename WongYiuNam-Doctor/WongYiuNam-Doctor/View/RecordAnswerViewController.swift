@@ -46,6 +46,7 @@ class RecordAnswerViewController: BaseViewController {
         navBar.leftNavBar = .back
         navBar.lbTitle.text = "Answer Question"
         pvRecordProgress.setProgress(0, animated: true)
+        self.lbRecordDuration.text = "00:00"
         //tvQuestion.text = questionInfo.question
         //lbPatientName.text = questionInfo.patientName
         //lbPatientGender.text = questionInfo.patientGender
@@ -94,6 +95,16 @@ class RecordAnswerViewController: BaseViewController {
         self.view.setNeedsDisplay()
     }
     
+    func updateRecordProgress(){
+        let currentTime = AudioPlayerManager.shared.audioFileCurrentTime()
+        let duration = 12000.0
+        let normalizedTime = Float(currentTime / duration)
+        lbRecordDuration.text = "\(timeStringFor(seconds:Int(currentTime)))"
+        print("========\(normalizedTime)")
+        pvRecordProgress.setProgress(normalizedTime, animated: true)
+        self.view.setNeedsDisplay()
+    }
+    
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
@@ -102,7 +113,7 @@ class RecordAnswerViewController: BaseViewController {
     
     func startRecordingTemp() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
-        
+        updater.invalidate()
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 44100,
@@ -115,6 +126,11 @@ class RecordAnswerViewController: BaseViewController {
             audioRecorder.delegate = self
             audioRecorder.record(forDuration: 12000)
             isRecording = true
+            self.pvRecordProgress.setProgress(0, animated: true)
+            self.lbRecordDuration.text = "00:00"
+            updater = CADisplayLink(target: self, selector: Selector("updateRecordProgress"))
+            updater.frameInterval = 1
+            updater.add(to: .current, forMode: .commonModes)
             btnRecord.setImage(#imageLiteral(resourceName: "ic_stop"), for: .normal)
         } catch {
             finishRecording(success: false)
@@ -140,6 +156,7 @@ class RecordAnswerViewController: BaseViewController {
     }
     
     @IBAction func replayTapped(_ sender: UIButton){
+        updater.invalidate()
         if !AudioPlayerManager.shared.isPlaying {
             let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
             AudioPlayerManager.shared.play(path:path)

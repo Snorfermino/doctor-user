@@ -37,7 +37,8 @@ class AnswerHistoryViewModel {
                     } else {
                         self.delegate?.getAnswerHistoryListFailed()
                     }
-                  
+                } else {
+                    self.delegate?.getAnswerHistoryListFailed()
                 }
             case .failure:
                 print("failed")

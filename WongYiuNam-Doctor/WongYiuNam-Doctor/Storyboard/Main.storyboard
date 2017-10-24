@@ -769,7 +769,7 @@
                                         <rect key="frame" x="0.0" y="18" width="351" height="557"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Adams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt5-SE-MlJ">
-                                                <rect key="frame" x="104" y="10" width="88" height="19.5"/>
+                                                <rect key="frame" x="104" y="9.5" width="88" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -781,13 +781,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8A-YC-Njr">
-                                                                <rect key="frame" x="16" y="14" width="86" height="17"/>
+                                                                <rect key="frame" x="16" y="13.5" width="86" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Adams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lji-Np-6Fn">
-                                                                <rect key="frame" x="260" y="14" width="77" height="17"/>
+                                                                <rect key="frame" x="260" y="13.5" width="77" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.83137254901960778" green="0.29803921568627451" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -805,13 +805,13 @@
                                                         <rect key="frame" x="0.0" y="45.5" width="353" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LH3-Ru-nfY">
-                                                                <rect key="frame" x="16" y="14" width="46.5" height="17"/>
+                                                                <rect key="frame" x="16" y="13.5" width="46.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EJ-05-vh4">
-                                                                <rect key="frame" x="291" y="14" width="46" height="17"/>
+                                                                <rect key="frame" x="291" y="13.5" width="46" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.83137254900000002" green="0.29803921570000003" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -837,13 +837,13 @@
                                                         <rect key="frame" x="0.0" y="91" width="353" height="45"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbc-G3-ai4">
-                                                                <rect key="frame" x="16" y="14.5" width="81.5" height="17"/>
+                                                                <rect key="frame" x="16" y="14" width="81.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/07/1990" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv5-JA-8e9">
-                                                                <rect key="frame" x="265.5" y="14.5" width="71.5" height="17"/>
+                                                                <rect key="frame" x="265.5" y="14" width="71.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.83137254900000002" green="0.29803921570000003" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -861,13 +861,13 @@
                                                         <rect key="frame" x="0.0" y="136" width="353" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHa-q7-Vg9">
-                                                                <rect key="frame" x="16" y="14.5" width="61.5" height="17"/>
+                                                                <rect key="frame" x="16" y="15" width="61.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fever" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQI-80-zl6">
-                                                                <rect key="frame" x="302" y="14.5" width="35" height="17"/>
+                                                                <rect key="frame" x="302" y="15" width="35" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.83137254900000002" green="0.29803921570000003" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -893,13 +893,13 @@
                                                         <rect key="frame" x="0.0" y="181.5" width="353" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time of question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnE-e1-Uf3">
-                                                                <rect key="frame" x="16" y="14.5" width="165" height="17"/>
+                                                                <rect key="frame" x="16" y="15" width="165" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXe-Zc-yck">
-                                                                <rect key="frame" x="302.5" y="14.5" width="34.5" height="17"/>
+                                                                <rect key="frame" x="302.5" y="15" width="34.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
                                                                 <color key="textColor" red="0.83137254900000002" green="0.29803921570000003" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -923,7 +923,7 @@
                                                     <constraint firstAttribute="width" secondItem="DeO-FB-uE5" secondAttribute="height" multiplier="350:225" id="6AT-2n-jWi"/>
                                                 </constraints>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFl-4K-l89">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFl-4K-l89">
                                                 <rect key="frame" x="16" y="294" width="319" height="64"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -956,7 +956,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </progressView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qmj-er-4Cn">
-                                                        <rect key="frame" x="214.5" y="18.5" width="40.5" height="18"/>
+                                                        <rect key="frame" x="214.5" y="19" width="40.5" height="18"/>
                                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="15"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -988,13 +988,13 @@
                                                 <state key="normal" image="ic_boxChecked"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Free for users to listen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xu4-W3-p6u">
-                                                <rect key="frame" x="40" y="431" width="122.5" height="44.5"/>
+                                                <rect key="frame" x="40" y="429" width="122.5" height="47"/>
                                                 <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ury-Rf-jFX">
-                                                <rect key="frame" x="16" y="490.5" width="318" height="45"/>
+                                                <rect key="frame" x="16" y="491" width="318" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-Qm-HcG">
                                                         <rect key="frame" x="0.0" y="0.0" width="154" height="45"/>
@@ -1030,6 +1030,19 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07R-65-UKT">
+                                                <rect key="frame" x="15" y="444" width="318" height="17"/>
+                                                <connections>
+                                                    <action selector="freeForUserTapped:" destination="vRm-Hp-bsM" eventType="touchUpInside" id="NpC-N4-OLf"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsI-BV-tcz">
+                                                <rect key="frame" x="17" y="294" width="319" height="64"/>
+                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1039,17 +1052,25 @@
                                             <constraint firstItem="VFl-4K-l89" firstAttribute="top" secondItem="DeO-FB-uE5" secondAttribute="bottom" constant="16" id="3q0-kV-Snh"/>
                                             <constraint firstItem="ury-Rf-jFX" firstAttribute="top" secondItem="Xu4-W3-p6u" secondAttribute="bottom" constant="15" id="4oS-uI-ua2"/>
                                             <constraint firstItem="ury-Rf-jFX" firstAttribute="width" secondItem="NvJ-wH-48X" secondAttribute="width" id="60i-FR-cQi"/>
+                                            <constraint firstItem="07R-65-UKT" firstAttribute="height" secondItem="Al2-VW-oms" secondAttribute="height" id="7By-DM-5D7"/>
                                             <constraint firstItem="ury-Rf-jFX" firstAttribute="height" secondItem="NvJ-wH-48X" secondAttribute="height" multiplier="45:55" id="9hM-lg-dpC"/>
+                                            <constraint firstItem="07R-65-UKT" firstAttribute="width" secondItem="NvJ-wH-48X" secondAttribute="width" id="GXa-4K-DoQ"/>
                                             <constraint firstAttribute="trailing" secondItem="VFl-4K-l89" secondAttribute="trailing" constant="16" id="Ia7-Zu-NRM"/>
+                                            <constraint firstItem="xsI-BV-tcz" firstAttribute="centerY" secondItem="VFl-4K-l89" secondAttribute="centerY" id="MJb-dc-NCm"/>
+                                            <constraint firstItem="07R-65-UKT" firstAttribute="centerY" secondItem="Al2-VW-oms" secondAttribute="centerY" id="MPw-Rg-6aH"/>
                                             <constraint firstItem="Xu4-W3-p6u" firstAttribute="centerY" secondItem="Al2-VW-oms" secondAttribute="centerY" id="RSq-eq-FOU"/>
+                                            <constraint firstItem="07R-65-UKT" firstAttribute="leading" secondItem="Al2-VW-oms" secondAttribute="leading" id="Ra4-1I-FMo"/>
                                             <constraint firstItem="VFl-4K-l89" firstAttribute="leading" secondItem="Hxm-A5-Pn0" secondAttribute="leading" constant="16" id="VCv-5v-Kvq"/>
+                                            <constraint firstItem="xsI-BV-tcz" firstAttribute="leading" secondItem="NvJ-wH-48X" secondAttribute="leading" id="Yoz-d0-A2O"/>
                                             <constraint firstItem="NvJ-wH-48X" firstAttribute="top" secondItem="VFl-4K-l89" secondAttribute="bottom" constant="16" id="Zdp-A4-4lx"/>
+                                            <constraint firstItem="xsI-BV-tcz" firstAttribute="width" secondItem="VFl-4K-l89" secondAttribute="width" id="cKm-Rh-vXe"/>
                                             <constraint firstItem="Al2-VW-oms" firstAttribute="leading" secondItem="C8A-YC-Njr" secondAttribute="leading" id="gPN-VK-zlO"/>
                                             <constraint firstItem="NvJ-wH-48X" firstAttribute="centerX" secondItem="Hxm-A5-Pn0" secondAttribute="centerX" id="hUs-zS-LUb"/>
                                             <constraint firstAttribute="trailing" secondItem="DeO-FB-uE5" secondAttribute="trailing" constant="-1" id="lQM-uV-oUl"/>
                                             <constraint firstItem="Xu4-W3-p6u" firstAttribute="leading" secondItem="Al2-VW-oms" secondAttribute="trailing" constant="8" id="ngM-Ut-vQW"/>
                                             <constraint firstItem="ury-Rf-jFX" firstAttribute="leading" secondItem="VFl-4K-l89" secondAttribute="leading" id="qOI-TC-gay"/>
                                             <constraint firstItem="DeO-FB-uE5" firstAttribute="leading" secondItem="Hxm-A5-Pn0" secondAttribute="leading" constant="-1" id="w2T-Ve-7TB"/>
+                                            <constraint firstItem="xsI-BV-tcz" firstAttribute="height" secondItem="VFl-4K-l89" secondAttribute="height" id="xRr-V3-p0N"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1129,7 +1150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhj-Av-9Jp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2694" y="81"/>
+            <point key="canvasLocation" x="2693.5999999999999" y="80.50974512743629"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bcQ-jn-GUX">

@@ -195,6 +195,10 @@ class RecordAnswerViewController: BaseViewController {
         SVProgressHUD.show()
         viewModel.replyQuestion(parameter!)
     }
+    
+    @IBAction func freeForUserTapped(_ sender: UIButton){
+        checkBoxIsFree.isSelected = !checkBoxIsFree.isSelected
+    }
 }
 extension RecordAnswerViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {

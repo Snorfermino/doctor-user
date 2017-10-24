@@ -15,7 +15,8 @@ protocol AnswerHistoryViewModelDelegate {
 class AnswerHistoryViewModel {
     var delegate: AnswerHistoryViewModelDelegate?
     var answerHistory:[WYNAnswerHistory.WYNData] = []
-    
+    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
+
     
     init(_ delegate: AnswerHistoryViewController){
         self.delegate = delegate as AnswerHistoryViewModelDelegate

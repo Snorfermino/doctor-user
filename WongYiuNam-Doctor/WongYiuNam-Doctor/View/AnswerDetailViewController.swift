@@ -82,12 +82,14 @@ extension AnswerDetailViewController: AnswerHistoryCellDelegate {
     func btnPlayTapped() {
         guard answerDetailsData != nil else { return }
         let url = URL(string: answerDetailsData.audioUrl!)
+        // TODO: remove test code
 //        let url = URL(string: "https://archive.org/download/testmp3testfile/mpthreetest.mp3")
         downloadFileFromURL(url: url!)
     }
 }
 extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // TODO: this function is doing nothing
         return 0
     }
     
@@ -100,6 +102,8 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerDetail") as! AnswerHistoryCell
         guard answerDetailsData != nil else { return cell }
+        // TODO: move this logic to Cell
+        // TODO: when use a model multiple times, should create a var or let to store it to make the code more readable
         cell.tvQuestion.text = self.answerDetailsData.question?.question
         cell.lbPatientName.text = self.answerDetailsData.question?.patientName
         cell.lbDoctorName.text = self.answerDetailsData.doctor?.name
@@ -114,6 +118,7 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+        // TODO: this function doing nothing???
 //        let url = URL(string: "https://archive.org/download/testmp3testfile/mpthreetest.mp3")
 //        downloadFileFromURL(url: url!)
     }
@@ -123,6 +128,7 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO: when number of sections is 1 do not need this
         return 1
     }
 }

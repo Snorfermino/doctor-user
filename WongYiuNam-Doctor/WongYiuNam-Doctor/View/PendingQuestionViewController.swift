@@ -87,6 +87,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
         if viewModel.pendingQuestions.count > 0 {
             let pendingQuestion = self.viewModel.pendingQuestions[indexPath.section]
+            // TODO: move display logic to Cell
             cell.lbQuestion.text = pendingQuestion.question
             cell.lbCreatedAt.text = pendingQuestion.createdAt!.format(with: "HH:mm MMMM dd yyyy")
             cell.lbPatientName.text = pendingQuestion.patientName
@@ -98,6 +99,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
+        // TODO: remove comment code
 //        selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
         performSegue(withIdentifier: "RecordAnswerVC", sender: self)
     }
@@ -108,6 +110,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     
     func numberOfSections(in tableView: UITableView) -> Int {
 //        return viewModel.pendingQuestions.count
+        // TODO: remove test code
         return 5
     }
     

@@ -12,6 +12,8 @@ protocol RecordAnswerViewModelDelegate {
     func replyQuestionFailed()
 }
 class RecordAnswerViewModel {
+    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
+
     var delegate: RecordAnswerViewModelDelegate?
     
     init(_ delegate: RecordAnswerViewModelDelegate){

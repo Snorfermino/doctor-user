@@ -11,6 +11,9 @@ import ObjectMapper
 import Moya
 
 class Utils {
+    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
+    // TODO: delete this util when migrate to `Moya_ObjectMapper`
+
     class private func getObject(paths: [String]?, from data: Any) -> AnyObject? {
         guard let data = data as? AnyObject  else {
             return nil

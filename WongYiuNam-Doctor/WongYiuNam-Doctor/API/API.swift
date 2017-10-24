@@ -26,6 +26,8 @@ public enum API: TargetType{
 
 extension API {
     public var headers: [String : String]? {
+        // TODO: move X-App-Token to constant
+        // TODO: remove too much empty lines
         switch self {
         case .getPendingQuestion, .answerQuestion:
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",

@@ -9,6 +9,11 @@
 import XCTest
 
 class WongYiuNam_DoctorUITests: XCTestCase {
+    
+    // TODO: remove unused code
+    // TODO: format code
+    // TODO: remove too much empty lines
+    // TODO: fix issue why some tests failed
         var app: XCUIApplication!
     override func setUp() {
         super.setUp()

@@ -47,6 +47,7 @@ class RecordAnswerViewController: BaseViewController {
         navBar.lbTitle.text = "Answer Question"
         pvRecordProgress.setProgress(0, animated: true)
         self.lbRecordDuration.text = "00:00"
+        // TODO: remove comment code
         //tvQuestion.text = questionInfo.question
         //lbPatientName.text = questionInfo.patientName
         //lbPatientGender.text = questionInfo.patientGender

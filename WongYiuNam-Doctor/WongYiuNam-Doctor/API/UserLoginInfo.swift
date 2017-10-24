@@ -9,6 +9,8 @@
 import Foundation
 import ObjectMapper
 class UserLoginInfo {
+    
+    // TODO: move key 'loggedIn' to static let, or fileprivate let, because it is used oftenly and mistyping will make the app not working
     static let shared =  UserLoginInfo()
     private let userDefault = UserDefaults.standard
     var userInfo: WYNLogedInUserInfo {

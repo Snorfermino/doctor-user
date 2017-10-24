@@ -38,6 +38,7 @@ class LoginViewController: BaseViewController {
     }
     
     func addShadow(demoview: UIView, blur: Float = 0, spread: Float = 0){
+        // TODO: remove comment code
 //        let radius: CGFloat = demoview.frame.width / 2.0 //change it to .height if you need spread for height
 //        let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 2 * radius, height: demoview.frame.height))
 //        //Change 2.1 to amount of spread you need and for height replace the code for height

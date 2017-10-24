@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 class ProfileViewController: BaseViewController {
+    // TODO: remove unused code, comment code
     
     @IBOutlet weak var imageViewAvatar:UIImageView!
     @IBOutlet weak var lbName:UILabel!
@@ -28,8 +29,9 @@ class ProfileViewController: BaseViewController {
     
     override func setupView() {
         super.setupView()
-
+        // TODO: refactor setupTableVIew name to meet naming convention
         setupTableVIew()
+        // TODO: migrate set up navBar to setUpNavBar()
         navBar.leftNavBar = .none
         navBar.rightNavBar = .logout
         navBar.lbTitle.text = "Physician Profile"

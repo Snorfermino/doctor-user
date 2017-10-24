@@ -9,6 +9,9 @@ import Foundation
 import ObjectMapper
 public struct WYNRecordAnswerResult: Mappable {
 
+    // TODO: for date type, please use DateTransform()
+    // TODO: for URL type, please use URLTransform()
+    
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
     static let id = "id"

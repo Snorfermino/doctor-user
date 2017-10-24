@@ -12,6 +12,7 @@ protocol AnswerHistoryCellDelegate {
 }
 class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var tvQuestion:UITextView!
+    @IBOutlet weak var lbQuestion:UILabel!
     @IBOutlet weak var imageViewDoctorProfile: UIImageView!
     @IBOutlet weak var lbPatientName: UILabel!
     @IBOutlet weak var lbCreatedAt: UILabel!
@@ -19,7 +20,7 @@ class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var lbDoctorName: UILabel!
     
     var delegate: AnswerHistoryCellDelegate?
-    
+
     @IBAction func btnPlayTapped(_ sender: UIButton){
         delegate?.btnPlayTapped()
     }

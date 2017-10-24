@@ -14,14 +14,10 @@ class AnswerDetailViewController: BaseViewController {
     @IBOutlet weak var lbByDoctor:UILabel!
     @IBOutlet weak var lbPatientDetails:UILabel!
     @IBOutlet weak var lbSymptom:UILabel!
-    @IBOutlet weak var tvQuestion:UITextView!
-    @IBOutlet weak var lbQuestionCreatedDate:UILabel!
-    @IBOutlet weak var lbAnswerCreatedDate:UILabel!
-    @IBOutlet weak var imgViewDoctorAvatar:UIImageView!
-    @IBOutlet weak var lbPatientName: UILabel!
-    @IBOutlet weak var lbDoctorName:UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnListenToAnswer:UIButton!
+
+    
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
      var player:AVAudioPlayer!
     var answerDetailsData: WYNAnswerHistory.WYNData!
     override func viewDidLoad() {
@@ -32,8 +28,10 @@ class AnswerDetailViewController: BaseViewController {
     
     func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerDetail")
-        tableView.estimatedRowHeight = 340
-        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
+//        tableView.estimatedRowHeight = 340
+//        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableViewHeight.constant = tableView.rowHeight
         tableView.separatorStyle = .none
         
     }
@@ -55,13 +53,13 @@ class AnswerDetailViewController: BaseViewController {
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
         let age = ageComponents.year!
        
-        lbPatientDetails.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), \(age)"
-        lbSymptom.text = answerDetailsData.question?.symptomType
-        tvQuestion.text = answerDetailsData.question?.question
-        lbByDoctor.text = answerDetailsData.doctor?.name
-        lbQuestionCreatedDate.text = answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
-        
-        lbAnswerCreatedDate.text = answerDetailsData.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+//        lbPatientDetails.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), \(age)"
+//        lbSymptom.text = answerDetailsData.question?.symptomType
+//        tvQuestion.text = answerDetailsData.question?.question
+//        lbByDoctor.text = answerDetailsData.doctor?.name
+//        lbQuestionCreatedDate.text = answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+//
+//        lbAnswerCreatedDate.text = answerDetailsData.createdAt?.format(with: "HH:mm MMMM dd yyyy")
         
         tableView.contentOffset = CGPoint.zero
     }
@@ -88,6 +86,15 @@ extension AnswerDetailViewController: AnswerHistoryCellDelegate {
     }
 }
 extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 340
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        tableViewHeight.constant = UITableViewAutomaticDimension
+        return UITableViewAutomaticDimension
+    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // TODO: this function is doing nothing
         return 0

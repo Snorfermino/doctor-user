@@ -17,7 +17,7 @@ class RecordAnswerViewController: BaseViewController {
     var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var btnRecord:UIButton!
     @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
-    @IBOutlet weak var tvQuestion:UITextView!
+    @IBOutlet weak var lbQuestion: UILabel!
     @IBOutlet weak var lbPatientName:UILabel!
     @IBOutlet weak var lbCreatedDate:UILabel!
     @IBOutlet weak var lbPatientGender:UILabel!

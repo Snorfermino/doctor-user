@@ -28,8 +28,9 @@ extension API {
     public var headers: [String : String]? {
         // TODO: move X-App-Token to constant
         // TODO: remove too much empty lines
+        // TODO: crash when login
         switch self {
-        case .getPendingQuestion, .answerQuestion:
+        case .getPendingQuestion, .answerQuestion, .login:
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
                     "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
 

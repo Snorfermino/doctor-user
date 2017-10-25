@@ -16,8 +16,8 @@ class AnswerDetailViewController: BaseViewController {
     @IBOutlet weak var lbSymptom:UILabel!
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
      var player:AVAudioPlayer!
     var answerDetailsData: WYNAnswerHistory.WYNData!
     override func viewDidLoad() {
@@ -53,10 +53,10 @@ class AnswerDetailViewController: BaseViewController {
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
         let age = ageComponents.year!
        
-//        lbPatientDetails.text = "\(answerDetailsData.question?.patientName), \(answerDetailsData.question?.patientGender), \(age)"
-//        lbSymptom.text = answerDetailsData.question?.symptomType
+        lbPatientDetails.text = "\((answerDetailsData.question?.patientName)!), \((answerDetailsData.question?.patientGender)!), \(age)"
+        lbSymptom.text = answerDetailsData.question?.symptomType
 //        tvQuestion.text = answerDetailsData.question?.question
-//        lbByDoctor.text = answerDetailsData.doctor?.name
+        lbByDoctor.text = answerDetailsData.doctor?.name
 //        lbQuestionCreatedDate.text = answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
 //
 //        lbAnswerCreatedDate.text = answerDetailsData.createdAt?.format(with: "HH:mm MMMM dd yyyy")
@@ -88,11 +88,12 @@ extension AnswerDetailViewController: AnswerHistoryCellDelegate {
 extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 340
+        return 400
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        tableViewHeight.constant = UITableViewAutomaticDimension
+        print("=====tableview\(UITableViewAutomaticDimension)")
         return UITableViewAutomaticDimension
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -108,20 +109,28 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerDetail") as! AnswerHistoryCell
-        guard answerDetailsData != nil else { return cell }
+        guard answerDetailsData != nil else {
+            contentViewHeight.constant = 210 + tableView.rowHeight
+            print("content View height: \(contentViewHeight.constant)")
+            return cell
+        }
         // TODO: move this logic to Cell
         // TODO: when use a model multiple times, should create a var or let to store it to make the code more readable
-        cell.tvQuestion.text = self.answerDetailsData.question?.question
+        cell.lbQuestion.text = self.answerDetailsData.question?.question
         cell.lbPatientName.text = self.answerDetailsData.question?.patientName
         cell.lbDoctorName.text = self.answerDetailsData.doctor?.name
         cell.lbAnsweredAt.text = self.answerDetailsData.doctor?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
         cell.lbCreatedAt.text = self.answerDetailsData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
         
-        cell.tvQuestion.isEditable = false
-        cell.tvQuestion.isScrollEnabled = false
+//        cell.tvQuestion.isEditable = false
+//        cell.tvQuestion.isScrollEnabled = false
         cell.delegate = self
+//        contentViewHeight.constant = 210 + tableView.frame.height
+        print("content View height: \(contentViewHeight.constant)")
+        self.view.layoutIfNeeded()
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")

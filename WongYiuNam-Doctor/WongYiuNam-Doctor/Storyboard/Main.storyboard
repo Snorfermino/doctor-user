@@ -767,10 +767,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-pB-fsh">
-                                        <rect key="frame" x="0.0" y="85" width="375" height="550"/>
+                                        <rect key="frame" x="0.0" y="85" width="375" height="650"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYd-J0-SrT">
-                                                <rect key="frame" x="13" y="0.0" width="349" height="550"/>
+                                                <rect key="frame" x="13" y="0.0" width="349" height="650"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MzG-ik-ANm">
                                                         <rect key="frame" x="0.0" y="0.0" width="349" height="200"/>
@@ -876,15 +876,15 @@
                                                             <constraint firstAttribute="height" constant="200" id="Dcw-yI-qLG"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fH1-Zj-3QW">
-                                                        <rect key="frame" x="0.0" y="190" width="349" height="340"/>
-                                                        <color key="backgroundColor" red="0.83137254900000002" green="0.29803921570000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fH1-Zj-3QW">
+                                                        <rect key="frame" x="0.0" y="190" width="349" height="440"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerDetail" id="4GT-Ey-9uF">
                                                                 <rect key="frame" x="0.0" y="28" width="349" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4GT-Ey-9uF" id="z75-7M-1xV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="43.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </tableViewCellContentView>
                                                             </tableViewCell>
@@ -911,7 +911,7 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="RYd-J0-SrT" secondAttribute="bottom" id="2Xy-9e-PYb"/>
                                             <constraint firstItem="RYd-J0-SrT" firstAttribute="leading" secondItem="l8b-pB-fsh" secondAttribute="leading" constant="13" id="J80-s3-cnk"/>
-                                            <constraint firstAttribute="height" constant="550" id="Syb-sC-FZA"/>
+                                            <constraint firstAttribute="height" constant="650" id="Syb-sC-FZA"/>
                                             <constraint firstItem="RYd-J0-SrT" firstAttribute="top" secondItem="l8b-pB-fsh" secondAttribute="top" id="cnc-dA-uwX"/>
                                             <constraint firstAttribute="trailing" secondItem="RYd-J0-SrT" secondAttribute="trailing" constant="13" id="n7Z-GP-hK4"/>
                                         </constraints>
@@ -936,6 +936,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="contentViewHeight" destination="Syb-sC-FZA" id="P8o-lL-eoi"/>
                         <outlet property="lbByDoctor" destination="8Po-xK-3ec" id="xvc-1r-iOU"/>
                         <outlet property="lbPatientDetails" destination="WFe-0Y-djp" id="HQJ-I1-LHd"/>
                         <outlet property="lbQuestionStatus" destination="tkq-2n-wdH" id="7Bf-2r-Szq"/>
@@ -945,7 +946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fI-HJ-UbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3454" y="843"/>
+            <point key="canvasLocation" x="3794" y="965"/>
         </scene>
         <!--Record Answer View Controller-->
         <scene sceneID="p0B-nJ-DWB">

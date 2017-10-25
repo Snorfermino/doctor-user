@@ -65,11 +65,10 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
             // TODO: move this logic to Cell
             // TODO: `self.viewModel.answerHistory[indexPath.section]` this line of code is duplicate
             // when need to use a model multiple times, please change to answerHistory = self.viewModel.answerHistory[indexPath.section]
-            cell.tvQuestion.text = self.viewModel.answerHistory[indexPath.section].question?.question
+            cell.lbQuestion.text = self.viewModel.answerHistory[indexPath.section].question?.question
             cell.lbCreatedAt.text = self.viewModel.answerHistory[indexPath.section].createdAt!.format(with: "HH:mm MMMM dd yyyy")
         }
-        cell.tvQuestion.isEditable = false
-        cell.tvQuestion.isScrollEnabled = false
+       
         return cell
     }
     
@@ -85,9 +84,9 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return viewModel.answerHistory.count
+        return viewModel.answerHistory.count
         // TODO: remove test code
-        return 5
+//        return 5
     }
     
 }

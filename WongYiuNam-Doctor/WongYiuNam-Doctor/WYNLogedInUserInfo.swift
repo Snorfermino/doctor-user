@@ -32,7 +32,7 @@ public struct WYNLogedInUserInfo: Mappable {
     public var email: String?
     public var speciality: String?
     public var token: String?
-    public var createdAt: Int?
+    public var createdAt: DateTransform?
     public var avatar: URL?
     public var qualifications: String?
     public var online: Bool? = false

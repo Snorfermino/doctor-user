@@ -27,18 +27,14 @@ public enum API: TargetType{
 extension API {
     public var headers: [String : String]? {
         // TODO: move X-App-Token to constant
-        // TODO: remove too much empty lines
-        // TODO: crash when login
         switch self {
-        case .getPendingQuestion, .answerQuestion, .login:
+        case .getPendingQuestion, .answerQuestion:
             return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
                     "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
 
         default :
-            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF",
-            "X-Access-Token":UserLoginInfo.shared.userInfo.token!]
+            return ["X-App-Token": "Ly93b25neWl1bmFtLXBocC5oZXJva3VhcHAuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF"]
         }
-        
     }
     public var baseURL: URL {return URL(string: "https://wongyiunam-php.herokuapp.com/api")!}
     public var path: String {
@@ -111,9 +107,5 @@ extension API {
             return "".data(using: String.Encoding.utf8)!
         }
     }
-    
-
-    
 }
-
 let apiProvider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin(verbose: true)])

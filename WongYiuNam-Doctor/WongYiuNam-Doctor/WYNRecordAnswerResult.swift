@@ -25,8 +25,8 @@ public struct WYNRecordAnswerResult: Mappable {
 
   // MARK: Properties
   public var id: Int?
-  public var audioUrl: String?
-  public var createdAt: Int?
+  public var audioUrl: URLTransform?
+  public var createdAt: DateTransform?
   public var listentCount: Int?
   public var duration: Int?
   public var isFree: Bool? = false

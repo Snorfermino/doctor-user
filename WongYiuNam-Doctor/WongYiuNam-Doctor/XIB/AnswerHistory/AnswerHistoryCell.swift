@@ -19,6 +19,15 @@ class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var lbAnsweredAt: UILabel!
     @IBOutlet weak var lbDoctorName: UILabel!
     
+    var cellData:WYNAnswerHistory.WYNData! {
+        didSet{
+            lbQuestion.text = cellData.question?.question
+            lbPatientName.text = cellData.question?.patientName
+            lbDoctorName.text = cellData.doctor?.name
+            lbAnsweredAt.text = cellData.doctor?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+            lbCreatedAt.text = cellData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        }
+    }
     var delegate: AnswerHistoryCellDelegate?
 
     @IBAction func btnPlayTapped(_ sender: UIButton){

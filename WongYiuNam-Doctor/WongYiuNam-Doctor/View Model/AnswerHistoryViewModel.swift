@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Moya_ObjectMapper
 protocol AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess()
     func getAnswerHistoryListFailed()
@@ -15,9 +15,7 @@ protocol AnswerHistoryViewModelDelegate {
 class AnswerHistoryViewModel {
     var delegate: AnswerHistoryViewModelDelegate?
     var answerHistory:[WYNAnswerHistory.WYNData] = []
-    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
 
-    
     init(_ delegate: AnswerHistoryViewController){
         self.delegate = delegate as AnswerHistoryViewModelDelegate
     }
@@ -26,21 +24,25 @@ class AnswerHistoryViewModel {
         apiProvider.request(.getAnswerHistory) { (result) in
             switch result {
             case let .success(response):
-                if let receivedData: WYNAnswerHistory = Utils.mapOne(from: response) {
-                    print(receivedData.toJSON())
-                    if receivedData.data != nil {
-                        for question in receivedData.data! {
-                            self.answerHistory.append(question)
+                do {
+                    let receivedData = try response.mapObject(WYNAnswerHistory.self)
+                        print(receivedData.toJSON())
+                        if receivedData.data != nil {
+                            for question in receivedData.data! {
+                                self.answerHistory.append(question)
+                            }
+                            print("Count: \(self.answerHistory.count)")
+                            self.delegate?.getAnswerHistoryListSuccess()
+                            
+                        } else {
+                            self.delegate?.getAnswerHistoryListFailed()
                         }
-                        print("Count: \(self.answerHistory.count)")
-                        self.delegate?.getAnswerHistoryListSuccess()
-                        
-                    } else {
-                        self.delegate?.getAnswerHistoryListFailed()
-                    }
-                } else {
+    
+                } catch {
+                    print(error.localizedDescription)
                     self.delegate?.getAnswerHistoryListFailed()
                 }
+                
             case .failure:
                 print("failed")
             }

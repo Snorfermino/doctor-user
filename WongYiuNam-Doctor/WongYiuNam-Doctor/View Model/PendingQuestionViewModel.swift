@@ -8,12 +8,12 @@
 
 import Foundation
 import UIKit
+import Moya_ObjectMapper
 protocol PendingQuestionViewModelDelegate{
     func getPendingQuestionListSuccess()
     func getPendingQuestionListFailed()
 }
 class PendingQuestionViewModel{
-    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
 
     init() {}
     var delegate: PendingQuestionViewModelDelegate?
@@ -23,18 +23,20 @@ class PendingQuestionViewModel{
         apiProvider.request(.getPendingQuestion) { (result) in
             switch result {
             case let .success(response):
-                if let receivedData: WYNDotorPendingQuestion = Utils.mapOne(from: response) {
-                    print(receivedData.toJSON())
-                    if receivedData.data != nil {
-                    for question in receivedData.data! {
-                        self.pendingQuestions.append(question)
+                do {
+                    if let resultData:WYNDotorPendingQuestion = try response.mapObject(WYNDotorPendingQuestion.self) {
+                        if resultData.data != nil {
+                            for question in resultData.data! {
+                                self.pendingQuestions.append(question)
+                            }
+                            print("Count: \(self.pendingQuestions.count)")
+                            self.delegate?.getPendingQuestionListSuccess()
+                        } else {
+                            self.delegate?.getPendingQuestionListFailed()
+                        }
                     }
-                    print("Count: \(self.pendingQuestions.count)")
-                    self.delegate?.getPendingQuestionListSuccess()
-                    } else {
-                         self.delegate?.getPendingQuestionListFailed()
-                    }
-                } else {
+                } catch {
+                    print(error.localizedDescription)
                     self.delegate?.getPendingQuestionListFailed()
                 }
             case .failure:

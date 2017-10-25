@@ -14,7 +14,6 @@ protocol LoginViewModelDelegate{
 }
 class LoginViewModel{
     
-    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
     var delegate: LoginViewModelDelegate?
     var pendingQuestions:[WYNQuestion] = []
     
@@ -28,23 +27,26 @@ class LoginViewModel{
             switch result {
             case let .success(response):
                 print(response)
-                if let receivedData: WYNLogedInUserInfo = Utils.mapOne(from: response) {
-                    
-                    if receivedData.toJSON().keys.count > 0 {
-                        
-                        UserDefaults.standard.set(receivedData.toJSON(), forKey: "loggedIn")
-                        UserDefaults.standard.synchronize()
-                        self.delegate?.loginSuccess()
+                do {
+                    if let result:WYNLogedInUserInfo = try response.mapObject(WYNLogedInUserInfo.self) {
+                        if result.toJSON().keys.count > 0 {
+                            
+                            UserDefaults.standard.set(result.toJSON(), forKey: "loggedIn")
+                            UserDefaults.standard.synchronize()
+                            self.delegate?.loginSuccess()
+                        } else {
+                            self.delegate?.loginFailed()
+                        }
                     } else {
                         self.delegate?.loginFailed()
                     }
-                    
-                } else {
+                } catch {
+                    print(error.localizedDescription)
                     self.delegate?.loginFailed()
                 }
             case .failure:
                 print("failed")
-                // TODO: show error when failed
+                self.delegate?.loginFailed()
             }
         }
         

@@ -35,7 +35,6 @@
 		843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */; };
 		843C2B7A1F7A236200F87A30 /* PendingQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843C2B781F7A236200F87A30 /* PendingQuestion.xib */; };
 		843C2B7B1F7A236200F87A30 /* PendingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B791F7A236200F87A30 /* PendingQuestion.swift */; };
-		843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B7C1F7A305100F87A30 /* ObjectMapperUtils.swift */; };
 		843C2B7F1F7A499A00F87A30 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B7E1F7A499A00F87A30 /* LoginViewModel.swift */; };
 		843C2B821F7A5EA200F87A30 /* AnswerHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B811F7A5EA200F87A30 /* AnswerHistoryViewController.swift */; };
 		843C2B841F7A600D00F87A30 /* AnswerHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C2B831F7A600D00F87A30 /* AnswerHistoryViewModel.swift */; };
@@ -124,7 +123,6 @@
 		843C2B741F7A0FD700F87A30 /* WYNLogedInUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WYNLogedInUserInfo.swift; sourceTree = "<group>"; };
 		843C2B781F7A236200F87A30 /* PendingQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PendingQuestion.xib; path = XIB/PendingQuestion/PendingQuestion.xib; sourceTree = "<group>"; };
 		843C2B791F7A236200F87A30 /* PendingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingQuestion.swift; path = XIB/PendingQuestion/PendingQuestion.swift; sourceTree = "<group>"; };
-		843C2B7C1F7A305100F87A30 /* ObjectMapperUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectMapperUtils.swift; sourceTree = "<group>"; };
 		843C2B7E1F7A499A00F87A30 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = "View Model/LoginViewModel.swift"; sourceTree = "<group>"; };
 		843C2B811F7A5EA200F87A30 /* AnswerHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerHistoryViewController.swift; path = View/AnswerHistoryViewController.swift; sourceTree = "<group>"; };
 		843C2B831F7A600D00F87A30 /* AnswerHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerHistoryViewModel.swift; path = "View Model/AnswerHistoryViewModel.swift"; sourceTree = "<group>"; };
@@ -398,7 +396,6 @@
 		84A871B91F68E36100F2ED7A /* API */ = {
 			isa = PBXGroup;
 			children = (
-				843C2B7C1F7A305100F87A30 /* ObjectMapperUtils.swift */,
 				84A871BC1F68E3CD00F2ED7A /* API.swift */,
 				848F0E301F7DED2700BB502A /* UserLoginInfo.swift */,
 			);
@@ -807,7 +804,6 @@
 				8463B9341F86169A00619FFA /* PatientPhotoViewController.swift in Sources */,
 				8433E52C1F67B23200C5AC21 /* NavBar.swift in Sources */,
 				843681E21F948D18004C750C /* StringExtension.swift in Sources */,
-				843C2B7D1F7A305100F87A30 /* ObjectMapperUtils.swift in Sources */,
 				84E254701F7BB28E009D4B25 /* WYNDoctor.swift in Sources */,
 				84A871C11F691BFF00F2ED7A /* ColorExtension.swift in Sources */,
 			);

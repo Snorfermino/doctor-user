@@ -10,21 +10,11 @@ import UIKit
 
 class PatientPhotoViewController: BaseViewController {
     var photoImage: UIImageView!
-    
-    // TODO: format code
-
     override func viewDidLoad() {
         super.viewDidLoad()
             setupView()
-        // TODO: remove nonsense lines
-        // Do any additional setup after loading the view.
-        print("frame: \(photoImage.frame)")
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // TODO: this function is doing nothing and should be removed
-    }
-
+    
     override func setupView(){
         super.setupView()
         navBar.rightNavBar = .none

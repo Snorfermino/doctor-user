@@ -7,13 +7,12 @@
 //
 
 import Foundation
+import Moya_ObjectMapper
 protocol RecordAnswerViewModelDelegate {
     func replyQuestionSuccess()
     func replyQuestionFailed()
 }
 class RecordAnswerViewModel {
-    // TODO: please research pod `Moya_ObjectMapper` and refactor code to user that library instead of Utils.mapOne
-
     var delegate: RecordAnswerViewModelDelegate?
     
     init(_ delegate: RecordAnswerViewModelDelegate){
@@ -24,11 +23,15 @@ class RecordAnswerViewModel {
             switch result {
             case let .success(response):
                 print("========\(response)")
-                if let receivedData: WYNRecordAnswerResult = Utils.mapOne(from: response) {
+                do {
+                    let receivedData: WYNRecordAnswerResult = try response.mapObject(WYNRecordAnswerResult.self)
                     self.delegate?.replyQuestionSuccess()
-                } else {
+                    
+                } catch {
+                    print(error.localizedDescription)
                     self.delegate?.replyQuestionFailed()
                 }
+                
                 
             case .failure:
                 print("failed")

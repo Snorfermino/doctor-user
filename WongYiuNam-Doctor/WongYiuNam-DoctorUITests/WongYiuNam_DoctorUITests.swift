@@ -33,21 +33,7 @@ class WongYiuNam_DoctorUITests: XCTestCase {
     // MARK: - Tests
     
     func testGoingThroughOnboarding() {
-     
-        
-//        // Make sure we're displaying onboarding
-//        XCTAssertTrue(app.isDisplayingOnboarding)
-//
-//        // Swipe left three times to go through the pages
-//        app.swipeLeft()
-//        app.swipeLeft()
-//        app.swipeLeft()
-//
-//        // Tap the "Done" button
-//        app.buttons["Done"].tap()
-//
-//        // Onboarding should no longer be displayed
-//        XCTAssertFalse(app.isDisplayingOnboarding)
+
     }
     
     override func tearDown() {
@@ -57,31 +43,9 @@ class WongYiuNam_DoctorUITests: XCTestCase {
     
     
     func testLogin() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-
-
         let emailAddressTextField = app.textFields["Email address"]
         emailAddressTextField.tap()
         emailAddressTextField.typeText("rogelio78@hotmail.com")
-        
-//        let moreKey = app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"thêm, số\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-//        moreKey.tap()
-//        moreKey.tap()
-//        emailAddressTextField.typeText("78@")
-//        
-//        let moreKey2 = app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"thêm, thư\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-//        moreKey2.tap()
-//        moreKey2.tap()
-//        emailAddressTextField.typeText("hotmail")
-//        moreKey.tap()
-//        moreKey.tap()
-//        emailAddressTextField.typeText(".")
-//        moreKey2.tap()
-//        moreKey2.tap()
-//        emailAddressTextField.typeText("com")
-        
         let passwordSecureTextField = app.secureTextFields["Password"]
         passwordSecureTextField.tap()
         passwordSecureTextField.typeText("12345")
@@ -91,14 +55,8 @@ class WongYiuNam_DoctorUITests: XCTestCase {
         element.children(matching: .button).element.tap()
         app.buttons["img btnAnswer"].tap()
         app.alerts["Error"].buttons["Ok"].tap()
-        
-
-        
     }
-    
     func testLogout(){
-
-        
         let emailAddressTextField = app.textFields["Email address"]
         emailAddressTextField.tap()
         emailAddressTextField.typeText("rogelio")
@@ -119,9 +77,5 @@ class WongYiuNam_DoctorUITests: XCTestCase {
         element.tap()
         element.children(matching: .button).element.tap()
         element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.tap()
-        
-
-        
     }
-    
 }

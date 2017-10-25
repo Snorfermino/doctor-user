@@ -100,7 +100,7 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("soomething")
         // TODO: remove comment code
-//        selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
+        selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
         performSegue(withIdentifier: "RecordAnswerVC", sender: self)
     }
     
@@ -109,9 +109,9 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return viewModel.pendingQuestions.count
+        return viewModel.pendingQuestions.count
         // TODO: remove test code
-        return 5
+//        return 5
     }
     
 }

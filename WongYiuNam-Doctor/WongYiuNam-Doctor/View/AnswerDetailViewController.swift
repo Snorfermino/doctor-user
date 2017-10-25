@@ -23,11 +23,13 @@ class AnswerDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        // TODO: remove auto-generated line if not needed
         // Do any additional setup after loading the view.
     }
     
     func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerDetail")
+        // TODO: remove comment code
 //        tableView.estimatedRowHeight = 340
 //        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
 //        tableView.rowHeight = UITableViewAutomaticDimension
@@ -52,7 +54,6 @@ class AnswerDetailViewController: BaseViewController {
         
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
         let age = ageComponents.year!
-       
         lbPatientDetails.text = "\((answerDetailsData.question?.patientName)!), \((answerDetailsData.question?.patientGender)!), \(age)"
         lbSymptom.text = answerDetailsData.question?.symptomType
 //        tvQuestion.text = answerDetailsData.question?.question
@@ -92,6 +93,7 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // TODO: this can be set at table view set up, not need to use this delegate function
 //        tableViewHeight.constant = UITableViewAutomaticDimension
         print("=====tableview\(UITableViewAutomaticDimension)")
         return UITableViewAutomaticDimension

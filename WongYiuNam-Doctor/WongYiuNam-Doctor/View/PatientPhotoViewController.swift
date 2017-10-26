@@ -17,9 +17,7 @@ class PatientPhotoViewController: BaseViewController {
     
     override func setupView(){
         super.setupView()
-        navBar.rightNavBar = .none
-        navBar.leftNavBar = .back
-        // TODO: extract these lines of code to another function
+        setupNavBar(.none, .back, "")
         let imageView = photoImage
         photoImage = UIImageView(image: imageView?.image)
         let scrollView = UIScrollView(frame: self.view.frame)

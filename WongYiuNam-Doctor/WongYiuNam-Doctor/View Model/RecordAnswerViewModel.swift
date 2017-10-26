@@ -25,6 +25,7 @@ class RecordAnswerViewModel {
                 print("========\(response)")
                 do {
                     let receivedData: WYNRecordAnswerResult = try response.mapObject(WYNRecordAnswerResult.self)
+                    print("======Response: \(receivedData)")
                     self.delegate?.replyQuestionSuccess()
                     
                 } catch {

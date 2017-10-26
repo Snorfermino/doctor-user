@@ -16,19 +16,13 @@ class AnswerHistoryViewController: BaseViewController {
     var selectedAnswerDetail: WYNAnswerHistory.WYNData!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         viewModel = AnswerHistoryViewModel(self)
         setupView()
-        // TODO: delete this comment because it shows nothing
-        // Do any additional setup after loading the view.
     }
 
     override func setupView() {
         super.setupView()
-        // TODO: extract setUpNavBar
-        navBar.rightNavBar = .none
-        navBar.leftNavBar = .back
-        navBar.lbTitle.text = "Answer History"
+        setupNavBar(.none,.back,"Answer History")
         SVProgressHUD.show()
         setupTableView()
         viewModel.getAnswerHistoryList()
@@ -62,11 +56,7 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerHistoryCell") as! AnswerHistoryCell
         if viewModel.answerHistory.count > 0 {
-            // TODO: move this logic to Cell
-            // TODO: `self.viewModel.answerHistory[indexPath.section]` this line of code is duplicate
-            // when need to use a model multiple times, please change to answerHistory = self.viewModel.answerHistory[indexPath.section]
-            cell.lbQuestion.text = self.viewModel.answerHistory[indexPath.section].question?.question
-            cell.lbCreatedAt.text = self.viewModel.answerHistory[indexPath.section].createdAt!.format(with: "HH:mm MMMM dd yyyy")
+            cell.cellData = self.viewModel.answerHistory[indexPath.section]
         }
        
         return cell
@@ -85,8 +75,6 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.answerHistory.count
-        // TODO: remove test code
-//        return 5
     }
     
 }

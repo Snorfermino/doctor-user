@@ -8,8 +8,6 @@
 import Foundation
 import ObjectMapper
 public struct WYNLogedInUserInfo: Mappable {
-    
-    // TODO: for date type, please use DateTransform()
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
         static let pendingQuestions = "pending_questions"
@@ -32,7 +30,7 @@ public struct WYNLogedInUserInfo: Mappable {
     public var email: String?
     public var speciality: String?
     public var token: String?
-    public var createdAt: DateTransform?
+    public var createdAt: Date?
     public var avatar: URL?
     public var qualifications: String?
     public var online: Bool? = false
@@ -58,7 +56,7 @@ public struct WYNLogedInUserInfo: Mappable {
         email <- map[SerializationKeys.email]
         speciality <- map[SerializationKeys.speciality]
         token <- map[SerializationKeys.token]
-        createdAt <- map[SerializationKeys.createdAt]
+        createdAt <- (map[SerializationKeys.createdAt],DateTransform())
         avatar <- (map[SerializationKeys.avatar], URLTransform())
         qualifications <- map[SerializationKeys.qualifications]
         online <- map[SerializationKeys.online]

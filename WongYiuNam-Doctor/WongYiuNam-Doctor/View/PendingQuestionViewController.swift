@@ -86,34 +86,23 @@ extension PendingQuestionViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PendingQuestionCell") as! PendingQuestion
         if viewModel.pendingQuestions.count > 0 {
-            let pendingQuestion = self.viewModel.pendingQuestions[indexPath.section]
-            // TODO: move display logic to Cell
-            cell.lbQuestion.text = pendingQuestion.question
-            cell.lbCreatedAt.text = pendingQuestion.createdAt!.format(with: "HH:mm MMMM dd yyyy")
-            cell.lbPatientName.text = pendingQuestion.patientName
-            cell.imgViewPatientSubmit.sd_setImage(with: pendingQuestion.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+            cell.cellData = self.viewModel.pendingQuestions[indexPath.section]
         }
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("soomething")
-        // TODO: remove comment code
         selectedQuestion = self.viewModel.pendingQuestions[indexPath.section]
         performSegue(withIdentifier: "RecordAnswerVC", sender: self)
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.pendingQuestions.count
-        // TODO: remove test code
-//        return 5
     }
-    
 }
 extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
     func getPendingQuestionListSuccess() {
@@ -126,7 +115,6 @@ extension PendingQuestionViewController: PendingQuestionViewModelDelegate{
         alert(title: "Error", message: "Pending Question not found")
     }
 }
-
 extension PendingQuestionViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

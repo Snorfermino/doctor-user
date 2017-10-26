@@ -19,4 +19,12 @@ class PendingQuestion: UITableViewCell {
     @IBOutlet weak var imgViewDoctorAvatar:AnimatableImageView!
     @IBOutlet weak var imgViewPatientSubmit:UIImageView!
     
+    var cellData:WYNQuestion! {
+        didSet{
+            lbQuestion.text = cellData.question
+            lbCreatedAt.text = cellData.createdAt!.format(with: "HH:mm MMMM dd yyyy")
+            lbPatientName.text = cellData.patientName
+          imgViewPatientSubmit.sd_setImage(with: cellData.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+        }
+    }
 }

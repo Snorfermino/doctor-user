@@ -8,8 +8,7 @@
 import Foundation
 import ObjectMapper
 public struct WYNDotorPendingQuestion: Mappable {
-    
-    // TODO: refactor name
+
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
         static let data = "data"

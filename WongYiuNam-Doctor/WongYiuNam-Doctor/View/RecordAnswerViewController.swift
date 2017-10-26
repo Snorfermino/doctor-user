@@ -30,6 +30,7 @@ class RecordAnswerViewController: BaseViewController {
     var updater: CADisplayLink! = nil
     var viewModel: RecordAnswerViewModel!
     var questionInfo: WYNQuestion!
+    var duration = 0.0
     var isRecording = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +43,11 @@ class RecordAnswerViewController: BaseViewController {
     
     override func setupView() {
         super.setupView()
-        navBar.rightNavBar = .none
-        navBar.leftNavBar = .back
-        navBar.lbTitle.text = "Answer Question"
+        setupNavBar(.none, .back, "Answer Question")
         pvRecordProgress.setProgress(0, animated: true)
         self.lbRecordDuration.text = "00:00"
-        // TODO: remove comment code
-        //tvQuestion.text = questionInfo.question
-        //lbPatientName.text = questionInfo.patientName
-        //lbPatientGender.text = questionInfo.patientGender
-        //lbPatientDOB.text = "\(questionInfo.patientDob!)"
-        
-        //lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
-        guard questionInfo != nil else { return}
+        guard questionInfo != nil else { return }
+        guard questionInfo.photoUrl != nil else { return }
         imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
     func recordTemp(){
@@ -96,8 +89,8 @@ class RecordAnswerViewController: BaseViewController {
         self.view.setNeedsDisplay()
     }
     
-    func updateRecordProgress(){
-        let currentTime = AudioPlayerManager.shared.audioFileCurrentTime()
+    @objc func updateRecordProgress(){
+        let currentTime = audioRecorder.currentTime
         let duration = 12000.0
         let normalizedTime = Float(currentTime / duration)
         lbRecordDuration.text = "\(timeStringFor(seconds:Int(currentTime)))"
@@ -114,7 +107,7 @@ class RecordAnswerViewController: BaseViewController {
     
     func startRecordingTemp() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
-        updater.invalidate()
+        if updater != nil { updater.invalidate() }
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 44100,
@@ -129,7 +122,7 @@ class RecordAnswerViewController: BaseViewController {
             isRecording = true
             self.pvRecordProgress.setProgress(0, animated: true)
             self.lbRecordDuration.text = "00:00"
-            updater = CADisplayLink(target: self, selector: Selector("updateRecordProgress"))
+            updater = CADisplayLink(target: self, selector: #selector(updateRecordProgress))
             updater.frameInterval = 1
             updater.add(to: .current, forMode: .commonModes)
             btnRecord.setImage(#imageLiteral(resourceName: "ic_stop"), for: .normal)
@@ -147,6 +140,7 @@ class RecordAnswerViewController: BaseViewController {
     
     func finishRecording(success: Bool) {
         audioRecorder.stop()
+        duration = audioRecorder.currentTime
         audioRecorder = nil
         
         if success {
@@ -161,7 +155,7 @@ class RecordAnswerViewController: BaseViewController {
         if !AudioPlayerManager.shared.isPlaying {
             let path = AudioPlayerManager.shared.audioFileInUserDocuments(fileName: "recording")
             AudioPlayerManager.shared.play(path:path)
-            //        timer = Timer(timeInterval: 1, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
+            print("=====FILE PATH: \(path)")
             pvRecordProgress.setProgress(0, animated: true)
             updater = CADisplayLink(target: self, selector: Selector("updateProgressBar"))
             updater.frameInterval = 1
@@ -191,7 +185,7 @@ class RecordAnswerViewController: BaseViewController {
         var parameter = WYNAnswerQuestion()
         parameter?.questionID = questionInfo.id
         parameter?.audio = url
-        parameter?.duration = 2
+        parameter?.duration = Int(duration)
         parameter?.isFree = checkBoxIsFree.isSelected
         SVProgressHUD.show()
         viewModel.replyQuestion(parameter!)

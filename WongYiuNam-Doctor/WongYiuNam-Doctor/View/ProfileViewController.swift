@@ -9,37 +9,25 @@
 import UIKit
 import SDWebImage
 class ProfileViewController: BaseViewController {
-    // TODO: remove unused code, comment code
-    
     @IBOutlet weak var imageViewAvatar:UIImageView!
     @IBOutlet weak var lbName:UILabel!
-    @IBOutlet weak var lbSpeciality:UILabel!
-    @IBOutlet weak var lbQualifications:UILabel!
-    @IBOutlet weak var btnAvailable:WYNCheckBox!
-    @IBOutlet weak var lbEarned:UILabel!
     @IBOutlet weak var viewOnlineIndicator:UIView!
     @IBOutlet weak var viewPendingQuestionNoti:UIView!
     @IBOutlet weak var lbPendingQuestion:UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+    var viewModel: ProfileViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
     override func setupView() {
         super.setupView()
-        // TODO: refactor setupTableVIew name to meet naming convention
         setupTableVIew()
-        // TODO: migrate set up navBar to setUpNavBar()
-        navBar.leftNavBar = .none
-        navBar.rightNavBar = .logout
-        navBar.lbTitle.text = "Physician Profile"
+        setupNavBar(.logout, .none,  "Physician Profile")
         let userProfile = UserLoginInfo.shared.userInfo
         imageViewAvatar.sd_setImage(with: userProfile.avatar , placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed]) { (image, error, cacheType, url) in
             print("image \(String(describing: image)) error \(String(describing: error)) cacheType \(cacheType) url \(String(describing: url)))")
         }
-        
         lbName.text = userProfile.name
         if userProfile.pendingQuestions! > 0 {
             viewPendingQuestionNoti.isHidden = false
@@ -47,18 +35,7 @@ class ProfileViewController: BaseViewController {
         } else {
             viewPendingQuestionNoti.isHidden = true
         }
-        viewOnlineIndicator.isHidden = true 
-//        lbSpeciality.text = userProfile.speciality!
-//        lbQualifications.text = userProfile.qualifications!
-//        btnAvailable.isSelected = userProfile.online!
-//        let index = lbEarned.text!.range(of: "Amount Earned This Month: ")
-//        let earnText = lbEarned.text!.substring(with: index!)
-//
-//        let attributeString = NSMutableAttributedString(string: earnText + userProfile.totalEarned!)
-//
-//        attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor(hex: 0xFF7878), range: NSRange(location:25,length:userProfile.totalEarned!.count + 1))
-//
-//        lbEarned.attributedText = attributeString
+        viewOnlineIndicator.isHidden = true
     }
     
     func setupTableVIew(){
@@ -85,11 +62,9 @@ extension ProfileViewController: WYNCheckBoxDelegate{
     }
 }
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return ((section != 0) ? 15 : 0)
     }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let footer = UIView()
         footer.backgroundColor = UIColor.clear
@@ -134,12 +109,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("soomething")
-
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:

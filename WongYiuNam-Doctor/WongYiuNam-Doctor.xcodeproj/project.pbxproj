@@ -56,6 +56,7 @@
 		848B8A081F6B908200538B00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B8A071F6B908200538B00 /* LoginViewController.swift */; };
 		848F0E2F1F7D111500BB502A /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */; };
 		848F0E311F7DED2700BB502A /* UserLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F0E301F7DED2700BB502A /* UserLoginInfo.swift */; };
+		84987ACF1FA1CA1900158EC7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84987ACE1FA1CA1900158EC7 /* ProfileViewModel.swift */; };
 		849C407A1F9DEA3400791AD6 /* ProgressViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C40791F9DEA3400791AD6 /* ProgressViewExtension.swift */; };
 		84A834531F94B90100FE6EA8 /* SanFranciscoDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84A834521F94B8FF00FE6EA8 /* SanFranciscoDisplay-Regular.otf */; };
 		84A871BD1F68E3CD00F2ED7A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A871BC1F68E3CD00F2ED7A /* API.swift */; };
@@ -144,6 +145,7 @@
 		848B8A071F6B908200538B00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/LoginViewController.swift; sourceTree = "<group>"; };
 		848F0E2E1F7D111500BB502A /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnswerDetailViewController.swift; path = View/AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		848F0E301F7DED2700BB502A /* UserLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginInfo.swift; path = API/UserLoginInfo.swift; sourceTree = "<group>"; };
+		84987ACE1FA1CA1900158EC7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = "View Model/ProfileViewModel.swift"; sourceTree = "<group>"; };
 		849C40791F9DEA3400791AD6 /* ProgressViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressViewExtension.swift; path = Extension/ProgressViewExtension.swift; sourceTree = "<group>"; };
 		84A834521F94B8FF00FE6EA8 /* SanFranciscoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoDisplay-Regular.otf"; path = "Resources/Font/SanFranciscoDisplay-Regular.otf"; sourceTree = "<group>"; };
 		84A871BC1F68E3CD00F2ED7A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				843C2B7E1F7A499A00F87A30 /* LoginViewModel.swift */,
 				843C2B831F7A600D00F87A30 /* AnswerHistoryViewModel.swift */,
 				843C2B8B1F7AC0F500F87A30 /* RecordAnswerViewModel.swift */,
+				84987ACE1FA1CA1900158EC7 /* ProfileViewModel.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */,
 				84A871CA1F6A339200F2ED7A /* PendingQuestionViewController.swift in Sources */,
 				843C2B841F7A600D00F87A30 /* AnswerHistoryViewModel.swift in Sources */,
+				84987ACF1FA1CA1900158EC7 /* ProfileViewModel.swift in Sources */,
 				84A871C31F69228900F2ED7A /* ProfileViewController.swift in Sources */,
 				8433E5301F67C4E700C5AC21 /* ConstraintExtension.swift in Sources */,
 				847BFF6B1F94BFED004C908A /* AvailableToAnswerCell.swift in Sources */,

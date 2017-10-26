@@ -38,18 +38,12 @@ class LoginViewController: BaseViewController {
     }
     
     func addShadow(demoview: UIView, blur: Float = 0, spread: Float = 0){
-        // TODO: remove comment code
-//        let radius: CGFloat = demoview.frame.width / 2.0 //change it to .height if you need spread for height
-//        let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 2 * radius, height: demoview.frame.height))
-//        //Change 2.1 to amount of spread you need and for height replace the code for height
-//
         demoview.layer.cornerRadius = 5
         demoview.layer.shadowColor = UIColor.black.cgColor
         demoview.layer.shadowOffset = CGSize(width: 0.1, height: 2)  //Here you control spread, x and y
         demoview.layer.shadowOpacity = 0.2
         demoview.layer.shadowRadius = 4 //Here your control your blur
         demoview.layer.masksToBounds =  false
-//        demoview.layer.shadowPath = shadowPath.cgPath
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,8 +60,6 @@ class LoginViewController: BaseViewController {
         }
     }
     
-
-    // TODO: show progress hud when calling api
     @IBAction func btnSignInPressed(_ sender: UIButton){
         SVProgressHUD.show()
         viewModel.login(tfEmail.text!,tfPassword.text!)
@@ -76,18 +68,11 @@ class LoginViewController: BaseViewController {
 }
 extension LoginViewController: LoginViewModelDelegate{
     func loginSuccess() {
-        DispatchQueue.global(qos: .default).async {
-            // Background thread
-            DispatchQueue.main.async(execute: {
-                SVProgressHUD.dismiss()
-            })
-        }
-
+        SVProgressHUD.dismiss()
         performSegue(withIdentifier: "ProfileVC", sender: nil)
     }
     
     func loginFailed() {
-
         SVProgressHUD.dismiss()
         alert(title: "Login Failed", message: "Invalid username or password")
     }

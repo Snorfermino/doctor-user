@@ -9,31 +9,22 @@
 import XCTest
 
 class WongYiuNam_DoctorUITests: XCTestCase {
-    
-    // TODO: remove unused code
-    // TODO: format code
-    // TODO: remove too much empty lines
     // TODO: fix issue why some tests failed
-        var app: XCUIApplication!
+    var app: XCUIApplication!
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-    app = XCUIApplication()
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-   app.launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        
+        app.launch()
+        
     }
     
     // MARK: - Tests
     
     func testGoingThroughOnboarding() {
-
+        
     }
     
     override func tearDown() {
@@ -62,7 +53,7 @@ class WongYiuNam_DoctorUITests: XCTestCase {
         emailAddressTextField.typeText("rogelio")
         let moreKey = app/*@START_MENU_TOKEN@*/.keys["more"]/*[[".keyboards",".keys[\"thêm, số\"]",".keys[\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
         moreKey.tap()
-         emailAddressTextField.typeText("78@")
+        emailAddressTextField.typeText("78@")
         moreKey.tap()
         emailAddressTextField.typeText("hotmail")
         moreKey.tap()

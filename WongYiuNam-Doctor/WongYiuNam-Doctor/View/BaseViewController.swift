@@ -29,6 +29,12 @@ class BaseViewController: UIViewController {
         navBar.delegate = self
     }
     
+    func setupNavBar(_ right: rightNavBar,_ left: leftNavBar,_ title: String){
+        navBar.rightNavBar = right
+        navBar.leftNavBar = left
+        navBar.lbTitle.text = title
+    }
+    
     func addNavBar(){
         let screenSize = UIScreen.main.bounds
         navBar = NavBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 65))

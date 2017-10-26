@@ -16,24 +16,19 @@ public struct WYNAnswerQuestion: Mappable {
         static let duration = "duration"
         static let audio = "audio"
     }
-    
     // MARK: Properties
     public var questionID: Int?
     public var isFree: Bool?
     public var duration: Int?
     public var audio: URL?
-    
     // MARK: ObjectMapper Initializers
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
     public init?(map: Map){
-        
     }
-    
     public init?(){}
-    
-    
+
     /// Map a JSON object to this class using ObjectMapper.
     ///
     /// - parameter map: A mapping from ObjectMapper.
@@ -41,7 +36,6 @@ public struct WYNAnswerQuestion: Mappable {
         questionID <- map[SerializationKeys.questionID]
         isFree <- map[SerializationKeys.isFree]
         duration <- map[SerializationKeys.duration]
-        audio <- map[SerializationKeys.audio]
+        audio <- (map[SerializationKeys.audio],URLTransform())
     }
-
 }

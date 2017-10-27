@@ -15,6 +15,17 @@ class PendingQuestionViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var viewModel:PendingQuestionViewModel = PendingQuestionViewModel()
     var selectedQuestion:WYNQuestion!
+
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(ViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.black
+
+        return refreshControl
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +74,14 @@ class PendingQuestionViewController: BaseViewController {
         bottomView.layer.addSublayer(gradientLayer)
         
         self.view.addConstraints([widthConstraint,heightConstraint,bottomConstraint])
+    }
+
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+
+        //TODO: Implement get additional pending questions
+
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

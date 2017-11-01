@@ -34,8 +34,8 @@ class PendingQuestionViewController: BaseViewController {
     
     func setupTableView(){
         tableView.register(UINib(nibName: "PendingQuestion", bundle: nil), forCellReuseIdentifier: "PendingQuestionCell")
-        tableView.estimatedRowHeight = 340
-        tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
+        tableView.estimatedRowHeight = 272
+        tableView.rowHeight = 272 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
         addTransientView()
     }

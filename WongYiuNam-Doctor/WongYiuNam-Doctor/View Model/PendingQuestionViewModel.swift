@@ -26,6 +26,7 @@ class PendingQuestionViewModel{
                 do {
                     if let resultData:WYNDotorPendingQuestion = try response.mapObject(WYNDotorPendingQuestion.self) {
                         if resultData.data != nil {
+                            self.pendingQuestions.removeAll()
                             for question in resultData.data! {
                                 self.pendingQuestions.append(question)
                             }

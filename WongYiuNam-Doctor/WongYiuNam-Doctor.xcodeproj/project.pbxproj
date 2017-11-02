@@ -26,6 +26,7 @@
 		8433E5361F67ECD600C5AC21 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5351F67ECD600C5AC21 /* BaseViewController.swift */; };
 		8433E5381F67F64300C5AC21 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */; };
 		84351A391F7B868800E73657 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84351A381F7B868800E73657 /* AudioPlayerManager.swift */; };
+		84362DE31FAB3A2000765D4E /* FreeForUsersAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84362DE21FAB3A2000765D4E /* FreeForUsersAlert.swift */; };
 		843681E21F948D18004C750C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843681E11F948D18004C750C /* StringExtension.swift */; };
 		843681F01F94B178004C750C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843681ED1F94B177004C750C /* Montserrat-SemiBold.ttf */; };
 		843681F11F94B178004C750C /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843681EE1F94B177004C750C /* Montserrat-Medium.ttf */; };
@@ -145,6 +146,7 @@
 		8433E5351F67ECD600C5AC21 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = View/BaseViewController.swift; sourceTree = "<group>"; };
 		8433E5371F67F64300C5AC21 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = Extension/TextFieldExtension.swift; sourceTree = "<group>"; };
 		84351A381F7B868800E73657 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioPlayerManager.swift; path = Extension/AudioPlayerManager.swift; sourceTree = "<group>"; };
+		84362DE21FAB3A2000765D4E /* FreeForUsersAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeForUsersAlert.swift; path = XIB/FreeForUsersAlert/FreeForUsersAlert.swift; sourceTree = "<group>"; };
 		843681E11F948D18004C750C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Extension/StringExtension.swift; sourceTree = "<group>"; };
 		843681ED1F94B177004C750C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "Resources/Font/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		843681EE1F94B177004C750C /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "Resources/Font/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				845CD2341F70ED760063ACB8 /* FreeForUserAlert.xib */,
+				84362DE21FAB3A2000765D4E /* FreeForUsersAlert.swift */,
 			);
 			name = FreeForUsersAlert;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				843C2B8C1F7AC0F500F87A30 /* RecordAnswerViewModel.swift in Sources */,
 				843C2B731F7A0DD400F87A30 /* WYNDotorPendingQuestion.swift in Sources */,
 				843C2B7F1F7A499A00F87A30 /* LoginViewModel.swift in Sources */,
+				84362DE31FAB3A2000765D4E /* FreeForUsersAlert.swift in Sources */,
 				843C2B821F7A5EA200F87A30 /* AnswerHistoryViewController.swift in Sources */,
 				843C2B751F7A0FD700F87A30 /* WYNLogedInUserInfo.swift in Sources */,
 				84A871BF1F691AAD00F2ED7A /* WYNCheckBox.swift in Sources */,
@@ -1094,7 +1098,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8AN899D996;
+				DEVELOPMENT_TEAM = "";
 				HEADERMAP_USES_VFS = YES;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1118,7 +1122,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8AN899D996;
+				DEVELOPMENT_TEAM = "";
 				HEADERMAP_USES_VFS = YES;
 				INFOPLIST_FILE = "WongYiuNam-Doctor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

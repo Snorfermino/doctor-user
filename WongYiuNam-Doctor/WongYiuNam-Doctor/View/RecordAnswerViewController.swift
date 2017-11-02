@@ -19,6 +19,7 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
     @IBOutlet weak var lbQuestion: UILabel!
     @IBOutlet weak var lbPatientName:UILabel!
+    @IBOutlet weak var lbName:UILabel!
     @IBOutlet weak var lbCreatedDate:UILabel!
     @IBOutlet weak var lbPatientGender:UILabel!
     @IBOutlet weak var lbPatientDOB:UILabel!
@@ -26,6 +27,7 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var lbRecordDuration:UILabel!
     @IBOutlet weak var pvRecordProgress:UIProgressView!
     @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var timer: Timer!
     var updater: CADisplayLink! = nil
     var viewModel: RecordAnswerViewModel!
@@ -46,9 +48,19 @@ class RecordAnswerViewController: BaseViewController {
         setupNavBar(.none, .back, "Answer Question")
         pvRecordProgress.setProgress(0, animated: true)
         self.lbRecordDuration.text = "00:00"
+        checkBoxIsFree.isSelected = false
         guard questionInfo != nil else { return }
-        guard questionInfo.photoUrl != nil else { return }
-        imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+        //TODO: Implement when have link
+//        guard questionInfo.photoUrl != nil else { return }
+//        imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+        imgViewSymptomPhoto.image = #imageLiteral(resourceName: "ic_logo")
+        lbPatientName.text = questionInfo.patientName
+        lbName.text = questionInfo.patientName
+        lbPatientGender.text = questionInfo.patientGender
+        lbPatientDOB.text = questionInfo.patientDob?.format(with: "dd/mm/yyyy")
+        lbSymptom.text = questionInfo.symptomType
+        lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+        lbQuestion.text = questionInfo.question
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
@@ -191,9 +203,7 @@ class RecordAnswerViewController: BaseViewController {
         viewModel.replyQuestion(parameter!)
     }
     
-    @IBAction func freeForUserTapped(_ sender: UIButton){
-        checkBoxIsFree.isSelected = !checkBoxIsFree.isSelected
-    }
+
 }
 extension RecordAnswerViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -202,11 +212,24 @@ extension RecordAnswerViewController: AVAudioRecorderDelegate {
         }
     }
 }
-extension RecordAnswerViewController: WYNCheckBoxDelegate{
-    func WYNCheckBoxClicked(isSelected:Bool){
-        if isSelected {
-            //Present alert
+extension RecordAnswerViewController: WYNCheckBoxDelegate,AlertPresenting,FreeForUsersAlertDelegate{
+    func cancel() {
+        
+    }
+    @IBAction func freeForUserTapped(_ sender: UIButton){
+        if checkBoxIsFree.isSelected {
+            checkBoxIsFree.isSelected = !checkBoxIsFree.isSelected
+        } else {
+            showAlert(self.view, delegate: self)
         }
+
+    }
+    func WYNCheckBoxClicked(isSelected:Bool){
+    }
+    
+    func yes(){
+        checkBoxIsFree.isSelected = true
+        print("Free for all ===============")
     }
 }
 extension RecordAnswerViewController: RecordAnswerViewModelDelegate {

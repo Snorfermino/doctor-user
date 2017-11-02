@@ -1,66 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
+        <array key="SF-Pro-Text-Bold.otf">
+            <string>SFProText-Bold</string>
+        </array>
+        <array key="SF-Pro-Text-Medium.otf">
+            <string>SFProText-Medium</string>
+        </array>
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FreeForUserAlert" customModule="WongYiuNam_Doctor" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="83J-GC-WUW" id="q4y-Pd-3vX"/>
+                <outlet property="mainView" destination="kAe-iU-Xgh" id="jd1-Ep-lkB"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="kAe-iU-Xgh">
-            <rect key="frame" x="0.0" y="0.0" width="315" height="150"/>
+        <view contentMode="scaleToFill" id="83J-GC-WUW">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ta-h5-6mb">
-                    <rect key="frame" x="32" y="30" width="251" height="32.5"/>
-                    <string key="text">Please confirm if you want this response
-to be free for users to listen.</string>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HJq-WA-hYN">
-                    <rect key="frame" x="30" y="90" width="255" height="30"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAe-iU-Xgh">
+                    <rect key="frame" x="23" y="247" width="329" height="173"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2m-jd-h0Z">
-                            <rect key="frame" x="0.0" y="0.0" width="127.5" height="30"/>
-                            <state key="normal" image="img_btnCancel"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVc-eM-aMW">
-                            <rect key="frame" x="127.5" y="0.0" width="127.5" height="30"/>
-                            <state key="normal" image="img_btnYes"/>
-                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="HJq-WA-hYN">
+                            <rect key="frame" x="30.5" y="101.5" width="268.5" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2m-jd-h0Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="119.5" height="44"/>
+                                    <color key="backgroundColor" red="0.9688071608543396" green="0.80751132965087891" blue="0.55673313140869141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="14"/>
+                                    <state key="normal" title="CANCEL"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="cancelPressed:" destination="-1" eventType="touchUpInside" id="hCt-ts-FrO"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVc-eM-aMW">
+                                    <rect key="frame" x="149.5" y="0.0" width="119" height="44"/>
+                                    <color key="backgroundColor" red="0.9688071608543396" green="0.80751132965087891" blue="0.55673313140869141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="14"/>
+                                    <state key="normal" title="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="yesPressed:" destination="-1" eventType="touchUpInside" id="kxS-IU-UPU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="HJq-WA-hYN" secondAttribute="height" multiplier="255:42" id="JlV-Ch-7qq"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free for users to listen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPf-vG-wwm">
+                            <rect key="frame" x="65" y="20" width="199" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want users to listen free answers?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ta-h5-6mb">
+                            <rect key="frame" x="40.5" y="48" width="248.5" height="33.5"/>
+                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="14"/>
+                            <color key="textColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="HJq-WA-hYN" secondAttribute="height" multiplier="255:30" id="JlV-Ch-7qq"/>
+                        <constraint firstItem="HJq-WA-hYN" firstAttribute="top" secondItem="5Ta-h5-6mb" secondAttribute="bottom" constant="20" id="0U7-Xg-qVM"/>
+                        <constraint firstAttribute="trailing" secondItem="5Ta-h5-6mb" secondAttribute="trailing" constant="40" id="27B-Ee-J2q"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HJq-WA-hYN" secondAttribute="bottom" constant="10" id="2kv-7e-XM0"/>
+                        <constraint firstItem="5Ta-h5-6mb" firstAttribute="top" secondItem="sPf-vG-wwm" secondAttribute="bottom" constant="6.5" id="CFJ-DP-Huo"/>
+                        <constraint firstItem="HJq-WA-hYN" firstAttribute="centerX" secondItem="kAe-iU-Xgh" secondAttribute="centerX" id="KFM-ew-3yn"/>
+                        <constraint firstItem="5Ta-h5-6mb" firstAttribute="centerX" secondItem="kAe-iU-Xgh" secondAttribute="centerX" id="Pua-zC-jme"/>
+                        <constraint firstAttribute="trailing" secondItem="HJq-WA-hYN" secondAttribute="trailing" constant="30" id="VuB-AE-PEy"/>
+                        <constraint firstItem="HJq-WA-hYN" firstAttribute="leading" secondItem="kAe-iU-Xgh" secondAttribute="leading" constant="30" id="YSY-47-PbV"/>
+                        <constraint firstItem="5Ta-h5-6mb" firstAttribute="leading" secondItem="kAe-iU-Xgh" secondAttribute="leading" constant="40" id="g7i-ij-8hB"/>
+                        <constraint firstItem="sPf-vG-wwm" firstAttribute="top" secondItem="kAe-iU-Xgh" secondAttribute="top" constant="20" id="nyS-pD-9QO"/>
+                        <constraint firstAttribute="width" secondItem="kAe-iU-Xgh" secondAttribute="height" multiplier="329:173" id="qPJ-cp-wZN"/>
+                        <constraint firstItem="sPf-vG-wwm" firstAttribute="centerX" secondItem="kAe-iU-Xgh" secondAttribute="centerX" id="yUK-8G-DAe"/>
                     </constraints>
-                </stackView>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.40000000000000002"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="HJq-WA-hYN" secondAttribute="bottom" constant="30" id="2kv-7e-XM0"/>
-                <constraint firstItem="5Ta-h5-6mb" firstAttribute="top" secondItem="kAe-iU-Xgh" secondAttribute="top" constant="30" id="HM2-ee-FG5"/>
-                <constraint firstItem="HJq-WA-hYN" firstAttribute="centerX" secondItem="kAe-iU-Xgh" secondAttribute="centerX" id="KFM-ew-3yn"/>
-                <constraint firstItem="5Ta-h5-6mb" firstAttribute="centerX" secondItem="kAe-iU-Xgh" secondAttribute="centerX" id="Pua-zC-jme"/>
-                <constraint firstAttribute="trailing" secondItem="HJq-WA-hYN" secondAttribute="trailing" constant="30" id="VuB-AE-PEy"/>
-                <constraint firstItem="HJq-WA-hYN" firstAttribute="leading" secondItem="kAe-iU-Xgh" secondAttribute="leading" constant="30" id="YSY-47-PbV"/>
+                <constraint firstItem="kAe-iU-Xgh" firstAttribute="centerY" secondItem="83J-GC-WUW" secondAttribute="centerY" id="Ccp-kj-5cV"/>
+                <constraint firstItem="kAe-iU-Xgh" firstAttribute="centerX" secondItem="83J-GC-WUW" secondAttribute="centerX" id="IdA-Fe-zhD"/>
+                <constraint firstItem="kAe-iU-Xgh" firstAttribute="width" secondItem="83J-GC-WUW" secondAttribute="width" multiplier="329:375" id="Og4-IN-TR6"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-123.5" y="126"/>
+            <point key="canvasLocation" x="232" y="140"/>
         </view>
     </objects>
-    <resources>
-        <image name="img_btnCancel" width="125" height="30"/>
-        <image name="img_btnYes" width="125" height="30"/>
-    </resources>
 </document>

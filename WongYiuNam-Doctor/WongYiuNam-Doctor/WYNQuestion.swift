@@ -31,14 +31,14 @@ public struct WYNQuestion: Mappable {
     public var symptomType: String?
     public var updatedAt: Date?
     public var doctorId: Int?
-    public var status: Bool? = false
+    public var status: String?
     public var patientName = ""
     public var id: Int?
     public var isPublic: Bool? = false
     public var createdAt: Date?
     public var patientGender = ""
     public var userId: Int?
-    public var patientDob: Int?
+    public var patientDob: Date?
     public var question: String?
     public var photoUrl: URL?
     
@@ -64,7 +64,7 @@ public struct WYNQuestion: Mappable {
         createdAt <- (map[SerializationKeys.createdAt], DateTransform())
         patientGender <- map[SerializationKeys.patientGender]
         userId <- map[SerializationKeys.userId]
-        patientDob <- map[SerializationKeys.patientDob]
+        patientDob <- (map[SerializationKeys.patientDob], DateTransform())
         question <- map[SerializationKeys.question]
         photoUrl <- (map[SerializationKeys.photoUrl], URLTransform())
     }

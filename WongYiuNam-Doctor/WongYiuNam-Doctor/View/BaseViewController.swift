@@ -93,9 +93,12 @@ extension BaseViewController: NavBarDelegate{
     
     func logoutPressed() {
         print("Logout")
-        UserDefaults.standard.removeObject(forKey: "loggedIn")
-        UserDefaults.standard.synchronize()
-        backPressed()
+        alert(title: "Warning", message: "Do you want to log out?", isCancelable: true) { (action) in
+            UserDefaults.standard.removeObject(forKey: "loggedIn")
+            UserDefaults.standard.synchronize()
+            self.backPressed()
+        }
+
     }
     
     

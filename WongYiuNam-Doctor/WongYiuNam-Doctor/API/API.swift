@@ -49,7 +49,7 @@ extension API {
         case .getDoctorProfile:
             return "/doctor/profile"
         case .online:
-            return "/doctors/online"
+            return "/doctor/online"
         case .answerQuestion:
             return "/doctor/answers/reply"
         default:

@@ -28,8 +28,10 @@ class LoginViewController: BaseViewController {
         navBar.isHidden = true
         tfEmail.animateEvenIfNotFirstResponder = true
         tfEmail.floatingLabelFont = UIFont(name: "Montserrat-SemiBold", size: 12)
+        tfEmail.delegate = self
         tfPassword.animateEvenIfNotFirstResponder = true
         tfPassword.floatingLabelFont = UIFont(name: "Montserrat-SemiBold", size: 12)
+        tfPassword.delegate = self
         addShadow(demoview: tfEmail)
         addShadow(demoview: tfPassword)
         showIndicator()
@@ -89,3 +91,18 @@ extension LoginViewController {
         view.endEditing(true)
     }
 }   
+extension LoginViewController:UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if let tf = textField as? JVFloatLabeledTextField {
+            tf.alwaysShowFloatingLabel = true
+        }
+
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let tf = textField as? JVFloatLabeledTextField {
+            tf.alwaysShowFloatingLabel = false
+        }
+    }
+}

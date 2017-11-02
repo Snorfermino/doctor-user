@@ -18,7 +18,7 @@ class AnswerDetailViewController: BaseViewController {
 
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     
-     var player:AVAudioPlayer!
+     var player:AVPlayer!
     var answerDetailsData: WYNAnswerHistory.WYNData!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,9 @@ class AnswerDetailViewController: BaseViewController {
         navBar.lbTitle.text = "Answer Detail"
         setupTableView()
         guard answerDetailsData != nil else { return }
-        lbQuestionStatus.text = (answerDetailsData.question?.status)! ? "Answered" : "Waiting for Answer"
+        lbQuestionStatus.text = (answerDetailsData.question?.status)!
         let now = Date()
-        let birthday: Date = Date(timeIntervalSince1970: Double((answerDetailsData.question?.patientDob)!))
+        let birthday: Date = (answerDetailsData.question?.patientDob)!
         let calendar = Calendar.current
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
         let age = ageComponents.year!
@@ -50,22 +50,41 @@ class AnswerDetailViewController: BaseViewController {
         tableView.contentOffset = CGPoint.zero
     }
 
-    func downloadFileFromURL(url:URL){
+    func timeStringFor(seconds : Int) -> String
+    {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour]
+        formatter.zeroFormattingBehavior = .pad
+        let output = formatter.string(from: TimeInterval(seconds))!
+        return seconds < 3600 ? output.substring(from: output.range(of: ":")!.upperBound) : output
+    }
+    
+
+    
+    func play(url:URL) {
+        print("playing \(url)")
         
-        var downloadTask:URLSessionDownloadTask
-        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: { (url, response, erro) in
-            AudioPlayerManager.shared.play(url:url!)
-            print("Download completed: URL(\(url!))")
-        })
-        
-        downloadTask.resume()
+        do {
+            
+            let playerItem = AVPlayerItem(url: url)
+            
+            self.player = try AVPlayer(playerItem:playerItem)
+            player!.volume = 1.0
+            player!.play()
+        } catch let error as NSError {
+            self.player = nil
+            print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
+        }
     }
 }
 extension AnswerDetailViewController: AnswerHistoryCellDelegate {
     func btnPlayTapped() {
         guard answerDetailsData != nil else { return }
         let url = URL(string: answerDetailsData.audioUrl!)
-        downloadFileFromURL(url: url!)
+        play(url: url!)
+//        downloadFileFromURL(url: url!)
     }
 }
 extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -86,6 +105,7 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         }
         cell.cellData = answerDetailsData
+    
         cell.delegate = self
         return cell
     }

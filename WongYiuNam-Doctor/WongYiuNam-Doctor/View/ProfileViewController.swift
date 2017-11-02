@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SVProgressHUD
 class ProfileViewController: BaseViewController {
     @IBOutlet weak var imageViewAvatar:UIImageView!
     @IBOutlet weak var lbName:UILabel!
@@ -15,6 +16,28 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var viewPendingQuestionNoti:UIView!
     @IBOutlet weak var lbPendingQuestion:UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnCheckbox: UIButton!
+    @IBOutlet weak var checkbox: WYNCheckBox!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(PendingQuestionViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.clear
+        return refreshControl
+    }()
+    
+    var isAvailable: Bool = false
+    {
+        didSet{
+            checkbox.isSelected = isAvailable
+            viewOnlineIndicator.isHidden = !checkbox.isSelected
+
+        }
+    }
+    
+    
     var viewModel: ProfileViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +45,16 @@ class ProfileViewController: BaseViewController {
     }
     override func setupView() {
         super.setupView()
+        
+        viewModel = ProfileViewModel(self)
+        checkbox.delegate = self
         setupTableVIew()
         setupNavBar(.logout, .none,  "Physician Profile")
         let userProfile = UserLoginInfo.shared.userInfo
         imageViewAvatar.sd_setImage(with: userProfile.avatar , placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed]) { (image, error, cacheType, url) in
             print("image \(String(describing: image)) error \(String(describing: error)) cacheType \(cacheType) url \(String(describing: url)))")
         }
+        isAvailable = userProfile.online!
         lbName.text = userProfile.name
         if userProfile.pendingQuestions! > 0 {
             viewPendingQuestionNoti.isHidden = false
@@ -39,12 +66,26 @@ class ProfileViewController: BaseViewController {
     }
     
     func setupTableVIew(){
-        tableView.register(UINib(nibName: "AvailableToAnswerCell", bundle: nil), forCellReuseIdentifier: "AvailableToAnswerCell")
         tableView.register(UINib(nibName: "DoctorInfoCell", bundle: nil), forCellReuseIdentifier: "DoctorInfoCell")
         tableView.estimatedRowHeight = 58
         tableView.rowHeight = 58 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .singleLine
+        tableView.addSubview(refreshControl)
     }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        //TODO: Implement get additional pending questions
+        viewModel.getProfile()
+        SVProgressHUD.show()
+
+    }
+    
+    @IBAction func btnCheckboxPressed(_ sender: Any) {
+        viewModel.isOnline(!isAvailable)
+        SVProgressHUD.show()
+    }
+    
     
     @IBAction func answerQuestionsPressed(_ sender: UIButton){
         self.performSegue(withIdentifier: "PendingQuestionVC", sender: nil)
@@ -57,8 +98,8 @@ class ProfileViewController: BaseViewController {
 }
 extension ProfileViewController: WYNCheckBoxDelegate{
     func WYNCheckBoxClicked(isSelected: Bool) {
-        viewOnlineIndicator.isHidden = !isSelected
-        
+//        viewOnlineIndicator.isHidden = !isSelected
+
     }
 }
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
@@ -73,51 +114,56 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userProfile = UserLoginInfo.shared.userInfo
-        switch indexPath.section {
+        switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AvailableToAnswerCell") as! AvailableToAnswerCell
-            cell.isAvailable = userProfile.online!
-            cell.checkbox.delegate = self
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
+            cell.lbSkill.text = "Speciality"
+            cell.lbSkillInfo.text = userProfile.speciality
+            cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_speciality")
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
+            cell.lbSkill.text = "Experience"
+            cell.lbSkillInfo.text = userProfile.speciality
+            cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_exp")
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
+            cell.lbSkill.text = "Language"
+            cell.lbSkillInfo.text = userProfile.speciality
+            cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_language")
             return cell
         default:
-            switch indexPath.row {
-            case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
-                cell.lbSkill.text = "Speciality"
-                cell.lbSkillInfo.text = userProfile.speciality
-                cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_speciality")
-                return cell
-            case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
-                cell.lbSkill.text = "Experience"
-                cell.lbSkillInfo.text = userProfile.speciality
-                cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_exp")
-                return cell
-            case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
-                cell.lbSkill.text = "Language"
-                cell.lbSkillInfo.text = userProfile.speciality
-                cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_language")
-                return cell
-            default:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
-                cell.lbSkill.text = "Amount Earned This Month"
-                cell.lbSkillInfo.text = userProfile.totalEarned
-                cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_earned")
-                return cell
-                
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
+            cell.lbSkill.text = "Amount Earned This Month"
+            cell.lbSkillInfo.text = userProfile.totalEarned != nil ? userProfile.totalEarned : "S$0.0"
+            cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_earned")
+            return cell
+            
         }
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
             return 4
-        }
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+
+}
+extension ProfileViewController: ProfileViewModelDelegate{
+    func getDoctorProfileSuccess() {
+        SVProgressHUD.dismiss()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+        tableView.reloadData()
+    }
+    
+    func getDoctorProfileFailed() {
+        tableView.reloadData()
+    }
+    
+    func doctor(isOnline: Bool) {
+        UserLoginInfo.shared.userInfo.online = isOnline
+        SVProgressHUD.dismiss()
+        tableView.reloadData()
+        isAvailable = isOnline
     }
 }

@@ -48,6 +48,7 @@ class PendingQuestionViewController: BaseViewController {
         tableView.estimatedRowHeight = 272
         tableView.rowHeight = 272 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
+        tableView.addSubview(refreshControl)
         addTransientView()
     }
     
@@ -78,8 +79,8 @@ class PendingQuestionViewController: BaseViewController {
 
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
 
-        //TODO: Implement get additional pending questions
-
+        viewModel.getPendingQuestionList()
+        SVProgressHUD.show()
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }

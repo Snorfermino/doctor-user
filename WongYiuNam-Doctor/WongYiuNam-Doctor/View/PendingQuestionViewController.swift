@@ -19,7 +19,7 @@ class PendingQuestionViewController: BaseViewController {
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
-            #selector(ViewController.handleRefresh(_:)),
+            #selector(PendingQuestionViewController.handleRefresh(_:)),
                                  for: UIControlEvents.valueChanged)
         refreshControl.tintColor = UIColor.black
 
@@ -76,7 +76,7 @@ class PendingQuestionViewController: BaseViewController {
         self.view.addConstraints([widthConstraint,heightConstraint,bottomConstraint])
     }
 
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
 
         //TODO: Implement get additional pending questions
 

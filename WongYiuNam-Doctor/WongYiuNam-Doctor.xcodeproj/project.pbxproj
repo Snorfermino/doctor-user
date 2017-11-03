@@ -1106,7 +1106,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "WYN Doctor";
 				PROVISIONING_PROFILE = "5b757434-feb1-4d06-8785-178baac54c35";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1130,7 +1130,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "WYN Doctor";
 				PROVISIONING_PROFILE = "5b757434-feb1-4d06-8785-178baac54c35";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rth.wongyiunam.doctor";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

@@ -20,7 +20,12 @@ class UserLoginInfo {
             objectData = Mapper<WYNLogedInUserInfo>().map(JSONObject: json, toObject: objectData)
             return objectData
         }
-        set { userDefault.set(newValue, forKey: UserLoginInfo.userInfoKey) }
+        
+        set { print(newValue)
+                userDefault.set(newValue.toJSON(), forKey: UserLoginInfo.userInfoKey)
+
+
+        }
     }
     var isLoggedIn: Bool {
         get {
@@ -29,5 +34,8 @@ class UserLoginInfo {
     }
     func getAppToken() -> String{
         return appToken
+    }
+    deinit {
+        userDefault.set(userInfo, forKey: UserLoginInfo.userInfoKey)
     }
 }

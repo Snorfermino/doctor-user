@@ -20,6 +20,7 @@ class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var lbAnsweredAt: UILabel!
     @IBOutlet weak var lbDoctorName: UILabel!
     @IBOutlet weak var lbDuration: UILabel!
+    @IBOutlet weak var lbSymptom: UILabel!
     @IBOutlet weak var pvRecordProgress: UIProgressView!
     var isPlaying:Bool = false
        var player:AVPlayer!
@@ -29,12 +30,26 @@ class AnswerHistoryCell: UITableViewCell {
             lbQuestion.text = cellData.question?.question
             lbPatientName.text = cellData.question?.patientName
             lbDoctorName.text = cellData.doctor?.name
+            lbSymptom.text = cellData.question?.symptomType
             lbAnsweredAt.text = cellData.doctor?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
             lbCreatedAt.text = cellData.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
             lbListenedCount.text = "\(String(describing: cellData.viewCount!)) people have listened"
             lbDuration.text = timeStringFor(seconds: cellData.duration!)
         }
     }
+    var cellDataAnswerResult: WYNRecordAnswerResult! {
+        didSet{
+            lbQuestion.text = cellDataAnswerResult.question?.question
+            lbPatientName.text = cellDataAnswerResult.question?.patientName
+            lbDoctorName.text = UserLoginInfo.shared.userInfo.name
+            lbSymptom.text = cellDataAnswerResult.question?.symptomType
+            lbAnsweredAt.text = cellDataAnswerResult.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+            lbCreatedAt.text = cellDataAnswerResult.question?.createdAt?.format(with: "HH:mm MMMM dd yyyy")
+            lbListenedCount.text = "\(String(describing: cellDataAnswerResult.listentCount!)) people have listened"
+            lbDuration.text = timeStringFor(seconds: cellDataAnswerResult.duration!)
+        }
+    }
+    
     var delegate: AnswerHistoryCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -12,7 +12,7 @@ public struct WYNQuestion: Mappable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private struct SerializationKeys {
-        static let symptomType = "symptom_type"
+        static let symptomType = "symptom"
         static let updatedAt = "updated_at"
         static let doctorId = "doctor_id"
         static let status = "status"

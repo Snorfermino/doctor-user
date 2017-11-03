@@ -19,7 +19,7 @@ public struct WYNAnswerQuestion: Mappable {
     // MARK: Properties
     public var questionID: Int?
     public var isFree: Bool?
-    public var duration: Int?
+    public var duration: Double?
     public var audio: URL?
     // MARK: ObjectMapper Initializers
     /// Map a JSON object to this class using ObjectMapper.

@@ -35,6 +35,7 @@
                         <rect key="frame" x="11" y="205" width="329" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="uxk-Hp-xvK" secondAttribute="height" multiplier="318:58" id="MFZ-nS-Zq7"/>
+                            <constraint firstAttribute="height" constant="60" id="NMr-Hy-sFJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sympton type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRd-A3-rHt">
@@ -117,6 +118,7 @@
                 <outlet property="lbCreatedAt" destination="kX5-oJ-6p7" id="aG3-nV-eNW"/>
                 <outlet property="lbPatientName" destination="6LR-NG-Lf3" id="0PI-Gs-g6o"/>
                 <outlet property="lbQuestion" destination="uR8-Mc-idE" id="Uh0-yN-B7f"/>
+                <outlet property="lbSymptom" destination="aRd-A3-rHt" id="1hS-ds-PMF"/>
             </connections>
             <point key="canvasLocation" x="8" y="70"/>
         </tableViewCell>

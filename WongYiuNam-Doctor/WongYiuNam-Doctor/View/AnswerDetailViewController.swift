@@ -9,17 +9,21 @@
 import UIKit
 import DateToolsSwift
 import AVFoundation
+import SDWebImage
 class AnswerDetailViewController: BaseViewController {
     @IBOutlet weak var lbQuestionStatus:UILabel!
     @IBOutlet weak var lbByDoctor:UILabel!
     @IBOutlet weak var lbPatientDetails:UILabel!
     @IBOutlet weak var lbSymptom:UILabel!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var imgViewPatientPhoto: UIImageView!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
     
-     var player:AVPlayer!
+    @IBOutlet weak var patientPhotoViewHeight: NSLayoutConstraint!
+    var player:AVPlayer!
     var answerDetailsData: WYNAnswerHistory.WYNData!
+    var answerResult: WYNRecordAnswerResult!
+    var audioURL:URL!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -37,7 +41,9 @@ class AnswerDetailViewController: BaseViewController {
         navBar.leftNavBar = .back
         navBar.lbTitle.text = "Answer Detail"
         setupTableView()
-        guard answerDetailsData != nil else { return }
+        guard answerDetailsData != nil else {
+            setupViewFromRecord()
+            return }
         lbQuestionStatus.text = (answerDetailsData.question?.status)!
         let now = Date()
         let birthday: Date = (answerDetailsData.question?.patientDob)!
@@ -48,6 +54,38 @@ class AnswerDetailViewController: BaseViewController {
         lbSymptom.text = answerDetailsData.question?.symptomType
         lbByDoctor.text = answerDetailsData.doctor?.name
         tableView.contentOffset = CGPoint.zero
+        audioURL = URL(string: answerDetailsData.audioUrl!)
+        guard answerDetailsData.question?.photoUrl != nil else {
+            imgViewPatientPhoto.isHidden = true
+            contentViewHeight.constant -= patientPhotoViewHeight.constant
+            patientPhotoViewHeight.constant = 0
+            return
+        }
+        imgViewPatientPhoto.sd_setImage(with: answerDetailsData.question?.photoUrl!, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+    }
+    
+    func setupViewFromRecord(){
+        guard answerResult != nil else {
+            return
+        }
+        lbQuestionStatus.text = (answerResult.question?.status)!
+        let now = Date()
+        let birthday: Date = (answerResult.question?.patientDob)!
+        let calendar = Calendar.current
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
+        let age = ageComponents.year!
+        lbPatientDetails.text = "\((answerResult.question?.patientName)!), \((answerResult.question?.patientGender)!), \(age)"
+        lbSymptom.text = answerResult.question?.symptomType
+        lbByDoctor.text = UserLoginInfo.shared.userInfo.name
+        tableView.contentOffset = CGPoint.zero
+        audioURL = answerResult.audioUrl
+        guard answerResult.question?.photoUrl != nil else {
+            imgViewPatientPhoto.isHidden = true
+            contentViewHeight.constant -= patientPhotoViewHeight.constant
+            patientPhotoViewHeight.constant = 0
+            return
+        }
+        imgViewPatientPhoto.sd_setImage(with: answerResult.question?.photoUrl!, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
 
     func timeStringFor(seconds : Int) -> String
@@ -81,10 +119,12 @@ class AnswerDetailViewController: BaseViewController {
 }
 extension AnswerDetailViewController: AnswerHistoryCellDelegate {
     func btnPlayTapped() {
-        guard answerDetailsData != nil else { return }
-        let url = URL(string: answerDetailsData.audioUrl!)
-        play(url: url!)
-//        downloadFileFromURL(url: url!)
+        guard audioURL != nil else {
+            alert(title: "Warning", message: "No Audio Found")
+            return
+            
+        }
+        play(url: audioURL)
     }
 }
 extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -104,7 +144,12 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
         guard answerDetailsData != nil else {
             return cell
         }
-        cell.cellData = answerDetailsData
+        if answerDetailsData != nil {
+                    cell.cellData = answerDetailsData
+        } else {
+            
+        }
+
     
         cell.delegate = self
         return cell

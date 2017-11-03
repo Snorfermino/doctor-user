@@ -76,7 +76,7 @@ class BaseViewController: UIViewController {
         alertVC.addAction(action)
         
         if isCancelable {
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: handler)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertVC.addAction(cancel)
         }
         self.present(alertVC, animated: true, completion: nil)

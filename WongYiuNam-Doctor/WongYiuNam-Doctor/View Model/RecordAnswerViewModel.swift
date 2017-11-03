@@ -9,7 +9,7 @@
 import Foundation
 import Moya_ObjectMapper
 protocol RecordAnswerViewModelDelegate {
-    func replyQuestionSuccess()
+    func replyQuestionSuccess(result:WYNRecordAnswerResult)
     func replyQuestionFailed()
 }
 class RecordAnswerViewModel {
@@ -26,7 +26,7 @@ class RecordAnswerViewModel {
                 do {
                     let receivedData: WYNRecordAnswerResult = try response.mapObject(WYNRecordAnswerResult.self)
                     print("======Response: \(receivedData)")
-                    self.delegate?.replyQuestionSuccess()
+                    self.delegate?.replyQuestionSuccess(result: receivedData)
                     
                 } catch {
                     print(error.localizedDescription)

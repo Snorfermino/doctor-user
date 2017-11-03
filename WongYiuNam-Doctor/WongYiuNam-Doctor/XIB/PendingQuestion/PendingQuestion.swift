@@ -13,6 +13,7 @@ class PendingQuestion: UITableViewCell {
     @IBOutlet weak var lbQuestion:UILabel!
     @IBOutlet weak var lbCreatedAt:UILabel!
     @IBOutlet weak var lbPatientName:UILabel!
+    @IBOutlet weak var lbSymptom:UILabel!
     @IBOutlet weak var imgViewPatientSubmit:UIImageView!
     
     var cellData:WYNQuestion! {
@@ -20,6 +21,7 @@ class PendingQuestion: UITableViewCell {
             lbQuestion.text = cellData.question
             lbCreatedAt.text = cellData.createdAt!.format(with: "HH:mm MMMM dd yyyy")
             lbPatientName.text = cellData.patientName
+            lbSymptom.text = cellData.symptomType
 //          imgViewPatientSubmit.sd_setImage(with: cellData.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
         }
     }

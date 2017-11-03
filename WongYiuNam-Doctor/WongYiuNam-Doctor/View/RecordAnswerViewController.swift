@@ -19,7 +19,6 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var checkBoxIsFree: WYNCheckBox!
     @IBOutlet weak var lbQuestion: UILabel!
     @IBOutlet weak var lbPatientName:UILabel!
-    @IBOutlet weak var lbName:UILabel!
     @IBOutlet weak var lbCreatedDate:UILabel!
     @IBOutlet weak var lbPatientGender:UILabel!
     @IBOutlet weak var lbPatientDOB:UILabel!
@@ -29,9 +28,11 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     var timer: Timer!
+    var answerResult: WYNRecordAnswerResult!
     var updater: CADisplayLink! = nil
     var viewModel: RecordAnswerViewModel!
     var questionInfo: WYNQuestion!
+    var oldDuration = 0.0
     var duration = 0.0
     var isRecording = false
     override func viewDidLoad() {
@@ -50,17 +51,17 @@ class RecordAnswerViewController: BaseViewController {
         self.lbRecordDuration.text = "00:00"
         checkBoxIsFree.isSelected = false
         guard questionInfo != nil else { return }
-        //TODO: Implement when have link
-//        guard questionInfo.photoUrl != nil else { return }
-//        imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+        
         imgViewSymptomPhoto.image = #imageLiteral(resourceName: "ic_logo")
         lbPatientName.text = questionInfo.patientName
-        lbName.text = questionInfo.patientName
         lbPatientGender.text = questionInfo.patientGender
         lbPatientDOB.text = questionInfo.patientDob?.format(with: "dd/mm/yyyy")
         lbSymptom.text = questionInfo.symptomType
         lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
         lbQuestion.text = questionInfo.question
+        //TODO: Implement when have link
+        guard questionInfo.photoUrl != nil else { return }
+        imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
     func recordTemp(){
         recordingSession = AVAudioSession.sharedInstance()
@@ -108,6 +109,9 @@ class RecordAnswerViewController: BaseViewController {
         lbRecordDuration.text = "\(timeStringFor(seconds:Int(currentTime)))"
         print("========\(normalizedTime)")
         pvRecordProgress.setProgress(normalizedTime, animated: true)
+        if currentTime > duration {
+            self.duration = currentTime
+        }
         self.view.setNeedsDisplay()
     }
     
@@ -148,11 +152,13 @@ class RecordAnswerViewController: BaseViewController {
         if let viewController = segue.destination as? PatientPhotoViewController {
             viewController.photoImage = self.imgViewSymptomPhoto
         }
+        if let vController = segue.destination as? AnswerDetailViewController {
+            vController.answerResult = answerResult
+        }
     }
     
     func finishRecording(success: Bool) {
         audioRecorder.stop()
-        duration = audioRecorder.currentTime
         audioRecorder = nil
         
         if success {
@@ -197,13 +203,13 @@ class RecordAnswerViewController: BaseViewController {
         var parameter = WYNAnswerQuestion()
         parameter?.questionID = questionInfo.id
         parameter?.audio = url
-        parameter?.duration = Int(duration)
+        parameter?.duration = Double(AudioPlayerManager.shared.audioFileDuration())
         parameter?.isFree = checkBoxIsFree.isSelected
         SVProgressHUD.show()
         viewModel.replyQuestion(parameter!)
     }
     
-
+    
 }
 extension RecordAnswerViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -222,7 +228,7 @@ extension RecordAnswerViewController: WYNCheckBoxDelegate,AlertPresenting,FreeFo
         } else {
             showAlert(self.view, delegate: self)
         }
-
+        
     }
     func WYNCheckBoxClicked(isSelected:Bool){
     }
@@ -233,9 +239,13 @@ extension RecordAnswerViewController: WYNCheckBoxDelegate,AlertPresenting,FreeFo
     }
 }
 extension RecordAnswerViewController: RecordAnswerViewModelDelegate {
-    func replyQuestionSuccess(){
+    func replyQuestionSuccess(result: WYNRecordAnswerResult){
         SVProgressHUD.dismiss()
-        alert(title: "Success", message: "Answer has been submitted")
+        answerResult = result
+        alert(title: "Success", message: "Answer has been submitted", isCancelable: false) { (action) in
+            self.performSegue(withIdentifier: "AnswerDetailVC", sender: nil)
+        }
+        
     }
     func replyQuestionFailed(){
         SVProgressHUD.dismiss()

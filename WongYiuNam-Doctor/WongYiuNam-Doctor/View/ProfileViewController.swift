@@ -62,7 +62,6 @@ class ProfileViewController: BaseViewController {
         } else {
             viewPendingQuestionNoti.isHidden = true
         }
-        viewOnlineIndicator.isHidden = true
     }
     
     func setupTableVIew(){

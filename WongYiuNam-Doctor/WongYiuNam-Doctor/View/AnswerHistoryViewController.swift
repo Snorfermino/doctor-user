@@ -63,6 +63,7 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if viewModel.answerHistory.count > 0 {
             selectedAnswerDetail = self.viewModel.answerHistory[indexPath.section]
         }

@@ -9,12 +9,14 @@
 import UIKit
 import SVProgressHUD
 import JVFloatLabeledTextField
+import SkyFloatingLabelTextField
 class LoginViewController: BaseViewController {
     
-    @IBOutlet weak var tfEmail:JVFloatLabeledTextField!
-    @IBOutlet weak var tfPassword:JVFloatLabeledTextField!
+    @IBOutlet weak var tfEmail:SkyFloatingLabelTextField!
+    @IBOutlet weak var tfPassword:SkyFloatingLabelTextField!
     var viewModel: LoginViewModel!
-    
+    var strEmail = ""
+    var strPassword = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -26,14 +28,11 @@ class LoginViewController: BaseViewController {
     override func setupView() {
         super.setupView()
         navBar.isHidden = true
-        tfEmail.animateEvenIfNotFirstResponder = true
-        tfEmail.floatingLabelFont = UIFont(name: "Montserrat-SemiBold", size: 12)
+        tfPassword.isSecureTextEntry = true
         tfEmail.delegate = self
-        tfPassword.animateEvenIfNotFirstResponder = true
-        tfPassword.floatingLabelFont = UIFont(name: "Montserrat-SemiBold", size: 12)
+        
         tfPassword.delegate = self
-        addShadow(demoview: tfEmail)
-        addShadow(demoview: tfPassword)
+        
         showIndicator()
         checkLogin()
         UITextField.connectFields(fields: [tfEmail, tfPassword])
@@ -64,7 +63,7 @@ class LoginViewController: BaseViewController {
     
     @IBAction func btnSignInPressed(_ sender: UIButton){
         SVProgressHUD.show()
-        viewModel.login(tfEmail.text!,tfPassword.text!)
+        viewModel.login(strEmail,strPassword)
     }
     
 }
@@ -92,17 +91,39 @@ extension LoginViewController {
     }
 }   
 extension LoginViewController:UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if let tf = textField as? JVFloatLabeledTextField {
-            tf.alwaysShowFloatingLabel = true
-        }
 
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if let field = textField as? SkyFloatingLabelTextField {
+            field.text = " "
+        }
         return true
+    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        if let field = textField as? SkyFloatingLabelTextField {
+//            field.text = ""
+//        }
+//    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if let field = textField as? SkyFloatingLabelTextField {
+            field.text = " "
+        }
+        return false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let tf = textField as? JVFloatLabeledTextField {
-            tf.alwaysShowFloatingLabel = false
+        if let field = textField as? SkyFloatingLabelTextField {
+//            if field.text == " " {
+//                field.text = " "
+//            } else {
+            if (textField.text?.length)! > 1 {
+                let range:Range = 1..<(field.text?.length)!
+                if field.tag == 1 {
+                    strPassword = field.text!.substring(0..<(field.text?.length)!)
+                } else {
+                    strEmail = field.text!.substring(range)
+                }
+                print("\(strEmail)===\(strPassword)")
+            }
         }
     }
 }

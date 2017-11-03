@@ -18,6 +18,14 @@ extension String {
         return String(self[index...endIndex])
     }
     
+    
+    func substring(_ r: Range<Int>) -> String {
+        let fromIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+        let toIndex = self.index(self.startIndex, offsetBy: r.upperBound)
+        return self.substring(with: Range<String.Index>(uncheckedBounds: (lower: fromIndex, upper: toIndex)))
+    }
+
+    
     var length: Int {
         return self.characters.count
     }

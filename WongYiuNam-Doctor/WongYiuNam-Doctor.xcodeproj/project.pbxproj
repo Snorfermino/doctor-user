@@ -123,7 +123,7 @@
 		404034F0304B4F0272E4DF21 /* Pods_WongYiuNam_DoctorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WongYiuNam_DoctorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		496435AF8C06C5E79B1D4A46 /* Pods-WongYiuNam-DoctorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorUITests/Pods-WongYiuNam-DoctorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D6B24860C19C4B148DDA717 /* Pods-WongYiuNam-DoctorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WongYiuNam-DoctorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WongYiuNam-DoctorUITests/Pods-WongYiuNam-DoctorUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		66EEFD531F5FDDFA00C5C77A /* WongYiuNam-Doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WongYiuNam-Doctor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66EEFD531F5FDDFA00C5C77A /* WYN Doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WYN Doctor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EEFD561F5FDDFA00C5C77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EEFD5D1F5FDDFA00C5C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66EEFD601F5FDDFA00C5C77A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		66EEFD541F5FDDFA00C5C77A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66EEFD531F5FDDFA00C5C77A /* WongYiuNam-Doctor.app */,
+				66EEFD531F5FDDFA00C5C77A /* WYN Doctor.app */,
 				66EEFD671F5FDDFA00C5C77A /* WongYiuNam-DoctorTests.xctest */,
 				66EEFD721F5FDDFA00C5C77A /* WongYiuNam-DoctorUITests.xctest */,
 			);
@@ -540,7 +540,7 @@
 			);
 			name = "WongYiuNam-Doctor";
 			productName = "WongYiuNam-Doctor";
-			productReference = 66EEFD531F5FDDFA00C5C77A /* WongYiuNam-Doctor.app */;
+			productReference = 66EEFD531F5FDDFA00C5C77A /* WYN Doctor.app */;
 			productType = "com.apple.product-type.application";
 		};
 		66EEFD661F5FDDFA00C5C77A /* WongYiuNam-DoctorTests */ = {
@@ -1104,7 +1104,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "WYN Doctor";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1128,7 +1128,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rth.wongyiunam.doctor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "WYN Doctor";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

@@ -22,6 +22,8 @@ public struct WYNLogedInUserInfo: Mappable {
         static let introduction = "introduction"
         static let answeredsHistory = "answereds_history"
         static let totalEarned = "total_earned"
+        static let experience = "experience"
+        static let language = "language"
     }
     
     // MARK: Properties
@@ -37,6 +39,8 @@ public struct WYNLogedInUserInfo: Mappable {
     public var introduction: String?
     public var answeredsHistory: Int?
     public var totalEarned: String?
+    public var experience: String?
+    public var language: String?
     
     // MARK: ObjectMapper Initializers
     /// Map a JSON object to this class using ObjectMapper.
@@ -63,6 +67,8 @@ public struct WYNLogedInUserInfo: Mappable {
         introduction <- map[SerializationKeys.introduction]
         answeredsHistory <- map[SerializationKeys.answeredsHistory]
         totalEarned <- map[SerializationKeys.totalEarned]
+        experience <- map[SerializationKeys.experience]
+        language <- map[SerializationKeys.language]
     }
 }
 

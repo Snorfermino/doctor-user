@@ -14,6 +14,17 @@ class AnswerHistoryViewController: BaseViewController {
 
     var viewModel: AnswerHistoryViewModel!
     var selectedAnswerDetail: WYNAnswerHistory.WYNData!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(AnswerHistoryViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.black
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = AnswerHistoryViewModel(self)
@@ -32,6 +43,15 @@ class AnswerHistoryViewController: BaseViewController {
         tableView.estimatedRowHeight = 340
         tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        viewModel.getAnswerHistoryList()
+        SVProgressHUD.show()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,7 +97,6 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.answerHistory.count
     }
-    
 }
 extension AnswerHistoryViewController: AnswerHistoryViewModelDelegate {
     func getAnswerHistoryListSuccess() {

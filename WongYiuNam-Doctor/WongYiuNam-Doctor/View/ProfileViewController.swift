@@ -123,13 +123,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
             cell.lbSkill.text = "Experience"
-            cell.lbSkillInfo.text = userProfile.speciality
+            cell.lbSkillInfo.text = userProfile.experience
             cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_exp")
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
             cell.lbSkill.text = "Language"
-            cell.lbSkillInfo.text = userProfile.speciality
+            cell.lbSkillInfo.text = userProfile.language != nil ? userProfile.language : "English & Chinese"
             cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_language")
             return cell
         default:

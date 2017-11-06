@@ -18,7 +18,6 @@ class AnswerDetailViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgViewPatientPhoto: UIImageView!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var patientPhotoViewHeight: NSLayoutConstraint!
     var player:AVPlayer!
     var answerDetailsData: WYNAnswerHistory.WYNData!
@@ -55,6 +54,7 @@ class AnswerDetailViewController: BaseViewController {
         lbByDoctor.text = answerDetailsData.doctor?.name
         tableView.contentOffset = CGPoint.zero
         audioURL = URL(string: answerDetailsData.audioUrl!)
+        imgViewPatientPhoto.contentMode = .scaleAspectFit
         guard answerDetailsData.question?.photoUrl != nil else {
             imgViewPatientPhoto.isHidden = true
             contentViewHeight.constant -= patientPhotoViewHeight.constant
@@ -62,6 +62,7 @@ class AnswerDetailViewController: BaseViewController {
             return
         }
         imgViewPatientPhoto.sd_setImage(with: answerDetailsData.question?.photoUrl!, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
+        imgViewPatientPhoto.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:))))
     }
     
     func setupViewFromRecord(){
@@ -79,6 +80,7 @@ class AnswerDetailViewController: BaseViewController {
         lbByDoctor.text = UserLoginInfo.shared.userInfo.name
         tableView.contentOffset = CGPoint.zero
         audioURL = answerResult.audioUrl
+        imgViewPatientPhoto.contentMode = .scaleAspectFit
         guard answerResult.question?.photoUrl != nil else {
             imgViewPatientPhoto.isHidden = true
             contentViewHeight.constant -= patientPhotoViewHeight.constant
@@ -106,14 +108,24 @@ class AnswerDetailViewController: BaseViewController {
             
             let playerItem = AVPlayerItem(url: url)
             
-            self.player = try AVPlayer(playerItem:playerItem)
+            self.player =  AVPlayer(playerItem:playerItem)
             player!.volume = 1.0
             player!.play()
-        } catch let error as NSError {
-            self.player = nil
-            print(error.localizedDescription)
         } catch {
-            print("AVAudioPlayer init failed")
+            print("AVPlayer init failed")
+        }
+    }
+    
+    @objc func imageTapped(_ sender: Any){
+        guard imgViewPatientPhoto.image != nil else { return }
+        self.performSegue(withIdentifier: "PatientPhotoVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? PatientPhotoViewController {
+            if let image = imgViewPatientPhoto.image {
+                viewController.photoImage = imgViewPatientPhoto
+            }
         }
     }
 }

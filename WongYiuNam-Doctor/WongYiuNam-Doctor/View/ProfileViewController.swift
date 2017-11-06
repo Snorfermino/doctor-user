@@ -128,8 +128,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorInfoCell") as! DoctorInfoCell
-            cell.lbSkill.text = "Language"
-            cell.lbSkillInfo.text = userProfile.language != nil ? userProfile.language : "English & Chinese"
+            cell.lbSkill.text = "Qualification"
+            cell.lbSkillInfo.text = userProfile.qualifications
             cell.imgViewSkill.image = #imageLiteral(resourceName: "ic_language")
             return cell
         default:

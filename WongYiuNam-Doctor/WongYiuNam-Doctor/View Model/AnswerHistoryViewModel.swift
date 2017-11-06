@@ -28,6 +28,7 @@ class AnswerHistoryViewModel {
                     let receivedData = try response.mapObject(WYNAnswerHistory.self)
                         print(receivedData.toJSON())
                         if receivedData.data != nil {
+                            self.answerHistory.removeAll()
                             for question in receivedData.data! {
                                 self.answerHistory.append(question)
                             }

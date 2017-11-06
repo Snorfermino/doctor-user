@@ -17,7 +17,7 @@ class PatientPhotoViewController: BaseViewController {
     
     override func setupView(){
         super.setupView()
-        setupNavBar(.none, .back, "")
+        setupNavBar(.none, .back, "Photo")
         let imageView = photoImage
         photoImage = UIImageView(image: imageView?.image)
         let scrollView = UIScrollView(frame: self.view.frame)
@@ -30,6 +30,7 @@ class PatientPhotoViewController: BaseViewController {
         photoImage.contentMode = .scaleAspectFit
         photoImage.isUserInteractionEnabled = true
         photoImage.frame = scrollView.frame
+        scrollView.backgroundColor = UIColor.clear
         scrollView.addSubview(photoImage)
         self.view.addSubview(scrollView)
     }

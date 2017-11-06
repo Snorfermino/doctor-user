@@ -28,6 +28,17 @@ class AnswerDetailViewController: BaseViewController {
         setupView()
     }
     
+    override func backPressed() {
+        print("hello")
+        let lastViewcontroller = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2]
+        if (lastViewcontroller is RecordAnswerViewController){
+            let pendingquestionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PendingQuestionVC")
+            self.navigationController?.popToViewController((navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 3])!, animated: true)
+        } else {
+            super.backPressed()
+        }
+    }
+    
     func setupTableView(){
         tableView.register(UINib(nibName: "AnswerHistoryCell", bundle: nil), forCellReuseIdentifier: "AnswerDetail")
         tableView.separatorStyle = .none
@@ -69,6 +80,7 @@ class AnswerDetailViewController: BaseViewController {
         guard answerResult != nil else {
             return
         }
+        if answerResult.question?.status == nil || answerResult.audioUrl == nil { return }
         lbQuestionStatus.text = (answerResult.question?.status)!
         let now = Date()
         let birthday: Date = (answerResult.question?.patientDob)!
@@ -89,7 +101,7 @@ class AnswerDetailViewController: BaseViewController {
         }
         imgViewPatientPhoto.sd_setImage(with: answerResult.question?.photoUrl!, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
-
+    
     func timeStringFor(seconds : Int) -> String
     {
         let formatter = DateComponentsFormatter()
@@ -99,13 +111,11 @@ class AnswerDetailViewController: BaseViewController {
         return seconds < 3600 ? output.substring(from: output.range(of: ":")!.upperBound) : output
     }
     
-
+    
     
     func play(url:URL) {
         print("playing \(url)")
-        
         do {
-            
             let playerItem = AVPlayerItem(url: url)
             
             self.player =  AVPlayer(playerItem:playerItem)
@@ -157,17 +167,26 @@ extension AnswerDetailViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         }
         if answerDetailsData != nil {
-                    cell.cellData = answerDetailsData
+            cell.cellData = answerDetailsData
         } else {
             
         }
-
-    
+        
+        
         cell.delegate = self
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
 }
+//extension NavBarDelegate where Self: AnswerDetailViewController{
+//
+//    func backPressed(){
+//        let pendingquestionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PendingQuestionVC")
+//        self.navigationController?.popToViewController(pendingquestionVC, animated: true)
+//    }
+//}
+

@@ -23,8 +23,8 @@ class AnswerHistoryCell: UITableViewCell {
     @IBOutlet weak var lbSymptom: UILabel!
     @IBOutlet weak var pvRecordProgress: UIProgressView!
     var isPlaying:Bool = false
-       var player:AVPlayer!
-        var updater: CADisplayLink! = nil
+    var player:AVPlayer!
+    var updater: CADisplayLink! = nil
     var cellData:WYNAnswerHistory.WYNData! {
         didSet{
             lbQuestion.text = cellData.question?.question
@@ -90,7 +90,7 @@ class AnswerHistoryCell: UITableViewCell {
         lbDuration.text = "\(timeStringFor(seconds:Int(currentTime)))"
         print("========\(normalizedTime)")
         pvRecordProgress.setProgress(normalizedTime / 100, animated: true)
-
+        
     }
     
     @IBAction func btnPlayTapped(_ sender: UIButton){
@@ -105,7 +105,7 @@ class AnswerHistoryCell: UITableViewCell {
             player.pause()
             updater.invalidate()
         }
-
-//        delegate?.btnPlayTapped()
+        
+        //        delegate?.btnPlayTapped()
     }
 }

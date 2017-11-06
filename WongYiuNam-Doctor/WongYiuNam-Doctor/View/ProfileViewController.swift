@@ -41,12 +41,13 @@ class ProfileViewController: BaseViewController {
     var viewModel: ProfileViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ProfileViewModel(self)
+        viewModel.getProfile()
+        SVProgressHUD.show()
         setupView()
     }
     override func setupView() {
         super.setupView()
-        
-        viewModel = ProfileViewModel(self)
         checkbox.delegate = self
         setupTableVIew()
         setupNavBar(.logout, .none,  "Physician Profile")
@@ -62,6 +63,7 @@ class ProfileViewController: BaseViewController {
         } else {
             viewPendingQuestionNoti.isHidden = true
         }
+        
     }
     
     func setupTableVIew(){

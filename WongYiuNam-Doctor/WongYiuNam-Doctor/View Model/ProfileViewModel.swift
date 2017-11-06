@@ -27,9 +27,13 @@ class ProfileViewModel {
                 do {
                     let result:WYNLogedInUserInfo = try response.mapObject(WYNLogedInUserInfo.self)
                         if result.toJSON().keys.count > 0 {
-                            
-                            UserDefaults.standard.set(result.toJSON(), forKey: "loggedIn")
-                            UserDefaults.standard.synchronize()
+                            UserLoginInfo.shared.userInfo.pendingQuestions = result.pendingQuestions
+                             UserLoginInfo.shared.userInfo.online = result.online
+                             UserLoginInfo.shared.userInfo.avatar = result.avatar
+                             UserLoginInfo.shared.userInfo.qualifications = result.qualifications
+                             UserLoginInfo.shared.userInfo.experience = result.experience
+                             UserLoginInfo.shared.userInfo.speciality = result.speciality
+
                             self.delegate?.getDoctorProfileSuccess()
                         } else {
                             self.delegate?.getDoctorProfileFailed()
@@ -44,6 +48,8 @@ class ProfileViewModel {
             }
         }
     }
+    
+
     
     func isOnline(_ value: Bool){
         apiProvider.request(.online(isOnline: value)) { (result) in

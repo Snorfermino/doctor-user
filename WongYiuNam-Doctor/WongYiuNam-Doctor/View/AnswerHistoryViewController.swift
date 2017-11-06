@@ -44,6 +44,7 @@ class AnswerHistoryViewController: BaseViewController {
         tableView.rowHeight = 340 / 667 * UIScreen.main.bounds.height
         tableView.separatorStyle = .none
         tableView.addSubview(refreshControl)
+
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -78,7 +79,7 @@ extension AnswerHistoryViewController: UITableViewDataSource, UITableViewDelegat
         if viewModel.answerHistory.count > 0 {
             cell.cellData = self.viewModel.answerHistory[indexPath.section]
         }
-       
+       cell.selectionStyle = .none
         return cell
     }
     

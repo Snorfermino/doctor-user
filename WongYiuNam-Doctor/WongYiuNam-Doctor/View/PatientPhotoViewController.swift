@@ -13,6 +13,7 @@ class PatientPhotoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             setupView()
+        navBar.delegate  = self
     }
     
     override func setupView(){
@@ -36,9 +37,11 @@ class PatientPhotoViewController: BaseViewController {
     }
     
 
+
 }
 extension PatientPhotoViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return photoImage
     }
 }
+

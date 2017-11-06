@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, NavBarDelegate {
     
     @IBInspectable var isNavBarEnabled = false
     var navBar: NavBar!
@@ -81,8 +81,7 @@ class BaseViewController: UIViewController {
         }
         self.present(alertVC, animated: true, completion: nil)
     }
-}
-extension BaseViewController: NavBarDelegate{
+    
     func backPressed() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -98,8 +97,7 @@ extension BaseViewController: NavBarDelegate{
             UserDefaults.standard.synchronize()
             self.backPressed()
         }
-
+        
     }
-    
     
 }

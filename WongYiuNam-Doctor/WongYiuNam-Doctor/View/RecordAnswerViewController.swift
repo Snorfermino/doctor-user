@@ -27,6 +27,8 @@ class RecordAnswerViewController: BaseViewController {
     @IBOutlet weak var pvRecordProgress:UIProgressView!
     @IBOutlet weak var imgViewSymptomPhoto:UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var patientPhotoViewHeight: NSLayoutConstraint!
     var timer: Timer!
     var answerResult: WYNRecordAnswerResult!
     var updater: CADisplayLink! = nil
@@ -60,7 +62,12 @@ class RecordAnswerViewController: BaseViewController {
         lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
         lbQuestion.text = questionInfo.question
         //TODO: Implement when have link
-        guard questionInfo.photoUrl != nil else { return }
+        guard questionInfo.photoUrl != nil else {
+            imgViewSymptomPhoto.isHidden = true
+//            contentViewHeight.constant -= patientPhotoViewHeight.constant
+            patientPhotoViewHeight.constant = 0
+            return
+        }
         imgViewSymptomPhoto.sd_setImage(with: questionInfo.photoUrl, placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed], completed: nil)
     }
     func recordTemp(){

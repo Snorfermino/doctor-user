@@ -108,4 +108,7 @@ class AnswerHistoryCell: UITableViewCell {
         
         //        delegate?.btnPlayTapped()
     }
+    deinit {
+        updater.invalidate()
+    }
 }

@@ -46,6 +46,10 @@ class RecordAnswerViewController: BaseViewController {
         setupView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        updater.invalidate()
+    }
+    
     override func setupView() {
         super.setupView()
         setupNavBar(.none, .back, "Answer Question")

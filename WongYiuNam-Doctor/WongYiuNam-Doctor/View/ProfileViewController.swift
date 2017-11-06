@@ -52,9 +52,8 @@ class ProfileViewController: BaseViewController {
         setupTableVIew()
         setupNavBar(.logout, .none,  "Physician Profile")
         let userProfile = UserLoginInfo.shared.userInfo
-        imageViewAvatar.sd_setImage(with: userProfile.avatar , placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed]) { (image, error, cacheType, url) in
-            print("image \(String(describing: image)) error \(String(describing: error)) cacheType \(cacheType) url \(String(describing: url)))")
-        }
+        
+
         isAvailable = userProfile.online!
         lbName.text = userProfile.name
         if userProfile.pendingQuestions! > 0 {
@@ -63,7 +62,12 @@ class ProfileViewController: BaseViewController {
         } else {
             viewPendingQuestionNoti.isHidden = true
         }
-        
+        guard userProfile.avatar != nil else { return }
+        let avatarURL = URL(string: userProfile.avatar!)
+        imageViewAvatar.sd_setImage(with: avatarURL! , placeholderImage: #imageLiteral(resourceName: "ic_logo"), options: [.retryFailed]) { (image, error, cacheType, url) in
+            print("image \(String(describing: image)) error \(String(describing: error)) cacheType \(cacheType) url \(String(describing: url)))")
+            self.imageViewAvatar.image = image
+        }
     }
     
     func setupTableVIew(){

@@ -47,7 +47,9 @@ class RecordAnswerViewController: BaseViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        updater.invalidate()
+        if updater != nil {
+            updater.invalidate()
+        }
     }
     
     override func setupView() {
@@ -61,14 +63,14 @@ class RecordAnswerViewController: BaseViewController {
         imgViewSymptomPhoto.image = #imageLiteral(resourceName: "ic_logo")
         lbPatientName.text = questionInfo.patientName
         lbPatientGender.text = questionInfo.patientGender
-        lbPatientDOB.text = questionInfo.patientDob?.format(with: "dd/mm/yyyy")
+        lbPatientDOB.text = questionInfo.patientDob?.format(with: "dd/MM/yyyy")
         lbSymptom.text = questionInfo.symptomType
         lbCreatedDate.text = questionInfo.createdAt?.format(with: "HH:mm MMMM dd yyyy")
         lbQuestion.text = questionInfo.question
         //TODO: Implement when have link
         guard questionInfo.photoUrl != nil else {
             imgViewSymptomPhoto.isHidden = true
-//            contentViewHeight.constant -= patientPhotoViewHeight.constant
+            //            contentViewHeight.constant -= patientPhotoViewHeight.constant
             patientPhotoViewHeight.constant = 0
             return
         }
